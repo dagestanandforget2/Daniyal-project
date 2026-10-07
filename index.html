@@ -32,7 +32,8 @@
 
   <section class="shelf-wrap" aria-label="Shelf of featured books">
     <div class="shelf" id="shelf"></div>
-    <div class="board"></div>
+    <div class="board" id="board"></div>
+    <div class="stage" id="stage" hidden><canvas id="gl" aria-label="3D shelf of books. Move the pointer to look around, click a book to find it in the catalogue." role="img"></canvas><div class="tip" id="tip" hidden></div></div>
   </section>
 
   <section id="catalogue" class="sec">
@@ -101,6 +102,7 @@
   <ul id="cartList"></ul>
   <div class="drawer-f"><div class="total"><span>Total</span><b id="cartTotal">£0.00</b></div><button class="btn full" id="checkout" type="button">Checkout (demo)</button></div>
 </aside>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
