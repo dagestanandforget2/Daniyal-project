@@ -51,7 +51,7 @@ function openCart() { $("#drawer").classList.add("open"); $("#drawer").setAttrib
 function closeCart() { $("#drawer").classList.remove("open"); $("#drawer").setAttribute("aria-hidden","true"); $("#scrim").hidden = true; }
 $("#cartOpen").onclick = openCart; $("#cartClose").onclick = closeCart; $("#scrim").onclick = closeCart;
 document.onkeydown = e => { if (e.key === "Escape") closeCart(); };
-$("#checkout").onclick = () => { alert("Demo only — connect Shopify/Stripe here."); };
+$("#checkout").onclick = e => { e.target.textContent = "Demo only: checkout is not connected"; setTimeout(() => e.target.textContent = "Checkout (demo)", 2500); };
 
 // Theme, menu, newsletter
 const root = document.documentElement;
