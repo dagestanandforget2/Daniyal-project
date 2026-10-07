@@ -3,118 +3,103 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Dar al-Athari — Books &amp; Knowledge</title>
-<meta name="description" content="Dar al-Athari: authentic Islamic books, structured courses and a community of seekers of knowledge. (Demo redesign)">
+<title>Dar al-Athari</title>
+<meta name="description" content="Islamic books and structured classes. Demo redesign with placeholder catalogue.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Young+Serif&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="nav" id="nav">
-  <a class="brand" href="#top"><span class="brand-ar">دار الأثري</span><span class="brand-en">Dar al-Athari</span></a>
-  <nav class="links" id="links" aria-label="Main">
-    <a href="#books">Books</a><a href="#courses">Courses</a><a href="#why">Why Us</a><a href="#faq">FAQ</a>
-  </nav>
-  <div class="actions">
-    <button class="icon-btn" id="theme" aria-label="Toggle dark mode">◐</button>
-    <button class="cart-btn" id="cartOpen" aria-label="Open cart">Cart <span id="cartCount">0</span></button>
-    <button class="icon-btn burger" id="burger" aria-label="Menu">☰</button>
+<div class="strip"><span id="dates">&nbsp;</span><span>Orders placed before Thursday ship the same week</span></div>
+
+<header class="nav">
+  <a class="brand" href="#top">Dar al-Athari <span lang="ar" dir="rtl">دار الأثري</span></a>
+  <nav id="links" aria-label="Main"><a href="#catalogue">Catalogue</a><a href="#classes">Classes</a><a href="#shipping">Shipping</a><a href="#faq">Questions</a></nav>
+  <div class="tools-r">
+    <button class="txt" id="theme" type="button">Theme</button>
+    <button class="txt" id="cartOpen" type="button">Cart (<span id="cartCount">0</span>)</button>
+    <button class="txt burger" id="burger" type="button" aria-label="Menu">Menu</button>
   </div>
 </header>
 
 <main id="top">
   <section class="hero">
-    <div class="hero-text">
-      <p class="eyebrow">Knowledge rooted in the Qur’an &amp; Sunnah</p>
-      <h1>Seek knowledge <em>with clarity</em> and certainty.</h1>
-      <p class="lead">Carefully selected books, guided courses and a welcoming community — everything you need to learn your deen step by step.</p>
-      <div class="cta">
-        <a class="btn primary" href="#books">Browse books</a>
-        <a class="btn ghost" href="#courses">Start a course</a>
-      </div>
-      <ul class="stats">
-        <li><b data-count="1200">0</b><span>Titles</span></li>
-        <li><b data-count="48">0</b><span>Countries served</span></li>
-        <li><b data-count="15000">0</b><span>Students</span></li>
-      </ul>
-    </div>
-    <div class="hero-art" aria-hidden="true">
-      <div class="calli">العلم نور</div>
-      <div class="pattern"></div>
-    </div>
+    <p class="kicker">Books and classes in the Islamic sciences</p>
+    <h1>Read slowly.<br>Understand properly.</h1>
+    <p class="lead">We stock a short list of books we would give to a friend, and teach the texts in small classes with a teacher you can ask.</p>
+    <p class="hero-links"><a class="btn" href="#catalogue">See the catalogue</a><a class="link" href="#classes">Next class dates</a></p>
   </section>
 
-  <section class="bar">
-    <div>🚚 Worldwide shipping</div><div>📚 Authentic editions</div><div>🔒 Secure checkout</div><div>↩️ 30-day returns</div>
+  <section class="shelf-wrap" aria-label="Shelf of featured books">
+    <div class="shelf" id="shelf"></div>
+    <div class="board"></div>
   </section>
 
-  <section id="books" class="section">
-    <div class="head">
-      <h2>Featured books</h2>
-      <p>Demo catalogue — replace with your real inventory.</p>
+  <section id="catalogue" class="sec">
+    <div class="sec-h">
+      <h2>Catalogue</h2>
+      <p>Sample titles. Replace with your real stock.</p>
     </div>
-    <div class="tools">
-      <input id="search" type="search" placeholder="Search books or authors…" aria-label="Search books">
-      <div class="chips" id="chips"></div>
-      <select id="sort" aria-label="Sort"><option value="">Featured</option><option value="asc">Price: low → high</option><option value="desc">Price: high → low</option></select>
+    <div class="filters">
+      <div class="tabs" id="tabs" role="tablist" aria-label="Category"></div>
+      <label class="srch"><span class="sr">Search</span><input id="search" type="search" placeholder="Search title"></label>
+      <label class="srt"><span class="sr">Sort</span><select id="sort"><option value="">Catalogue order</option><option value="asc">Price, low first</option><option value="desc">Price, high first</option></select></label>
     </div>
-    <div class="grid" id="grid"></div>
-    <p id="empty" class="empty" hidden>No books match your search.</p>
+    <ol class="ledger" id="ledger"></ol>
+    <p id="empty" class="empty" hidden>Nothing matches that search.</p>
   </section>
 
-  <section id="courses" class="section alt">
-    <div class="head"><h2>Learn with structure</h2><p>Self-paced tracks that take you from foundations to depth.</p></div>
-    <div class="cards">
-      <article class="card"><span class="tag">Beginner</span><h3>Foundations of Faith</h3><p>Core beliefs, pillars and daily practice explained simply.</p><small>8 weeks · Live Q&amp;A</small><a class="btn ghost sm" href="#join">Enroll</a></article>
-      <article class="card"><span class="tag">Intermediate</span><h3>Arabic for the Qur’an</h3><p>Understand what you recite with practical grammar and vocabulary.</p><small>12 weeks · Workbook</small><a class="btn ghost sm" href="#join">Enroll</a></article>
-      <article class="card"><span class="tag">Advanced</span><h3>Usul &amp; Study of Texts</h3><p>Methodology for reading classical texts with a qualified teacher.</p><small>16 weeks · Cohort</small><a class="btn ghost sm" href="#join">Enroll</a></article>
-    </div>
+  <section id="classes" class="sec">
+    <div class="sec-h"><h2>Classes</h2><p>Small groups, one teacher, one text at a time.</p></div>
+    <table class="tt">
+      <thead><tr><th>Class</th><th>Level</th><th>Starts</th><th>Length</th><th>Seats</th><th></th></tr></thead>
+      <tbody>
+        <tr><td><b>Foundations of Faith</b><span>Beliefs, pillars and daily practice</span></td><td>Beginner</td><td class="m">Sat 17 Oct</td><td class="m">8 weeks</td><td class="m">6 left</td><td><a class="link" href="#join">Reserve</a></td></tr>
+        <tr><td><b>Arabic for the Qur’an</b><span>Grammar and vocabulary from the text itself</span></td><td>Intermediate</td><td class="m">Mon 2 Nov</td><td class="m">12 weeks</td><td class="m">11 left</td><td><a class="link" href="#join">Reserve</a></td></tr>
+        <tr><td><b>Reading Classical Texts</b><span>Method, terminology and how to use a commentary</span></td><td>Advanced</td><td class="m">Thu 12 Nov</td><td class="m">16 weeks</td><td class="m">Waitlist</td><td><a class="link" href="#join">Join list</a></td></tr>
+      </tbody>
+    </table>
   </section>
 
-  <section id="why" class="section">
-    <div class="head"><h2>Why Dar al-Athari</h2></div>
-    <div class="cards three">
-      <div class="feat"><i>✦</i><h3>Vetted sources</h3><p>Every title is reviewed for quality, accuracy and edition.</p></div>
-      <div class="feat"><i>✦</i><h3>Fast &amp; reliable</h3><p>Ships in 24–48 hours with tracking to your door.</p></div>
-      <div class="feat"><i>✦</i><h3>Community</h3><p>Study circles, reading lists and answers from teachers.</p></div>
-    </div>
+  <section id="shipping" class="sec two">
+    <div><h2>Shipping and returns</h2><p class="muted">Plain terms, no surprises at checkout.</p></div>
+    <dl class="facts">
+      <div><dt>Dispatch</dt><dd>Within 2 working days, with tracking.</dd></div>
+      <div><dt>UK and Europe</dt><dd>3 to 6 working days.</dd></div>
+      <div><dt>Rest of world</dt><dd>7 to 14 working days.</dd></div>
+      <div><dt>Returns</dt><dd>30 days, book in original condition.</dd></div>
+      <div><dt>Editions</dt><dd>Each listing names the publisher, year and binding.</dd></div>
+    </dl>
   </section>
 
-  <section class="section quotes alt">
-    <div class="head"><h2>What readers say</h2><p>Sample testimonials — placeholders.</p></div>
-    <div class="cards three">
-      <blockquote>“Clear, well-organised and beautifully packaged.”<cite>— Reader A</cite></blockquote>
-      <blockquote>“The courses finally gave my study a roadmap.”<cite>— Student B</cite></blockquote>
-      <blockquote>“Fast delivery and genuine editions.”<cite>— Customer C</cite></blockquote>
+  <section id="faq" class="sec two">
+    <div><h2>Questions</h2></div>
+    <div>
+      <details><summary>Are the classes live?</summary><p>Each class has a live session every week. Recordings are posted afterwards for anyone who misses one.</p></details>
+      <details><summary>Can I bring a question to a teacher?</summary><p>Yes. Send it before the session and it will be answered in class or in writing.</p></details>
+      <details><summary>Do you ship outside the country?</summary><p>Yes. Shipping is calculated at checkout from the destination and the weight of the order.</p></details>
     </div>
   </section>
 
-  <section id="faq" class="section narrow">
-    <div class="head"><h2>Questions</h2></div>
-    <details><summary>How long does shipping take?</summary><p>Most orders ship within 48 hours. Delivery takes 3–10 business days depending on destination.</p></details>
-    <details><summary>Can I return a book?</summary><p>Yes, within 30 days if it is in original condition.</p></details>
-    <details><summary>Are the courses live?</summary><p>Each course mixes recorded lessons with scheduled live Q&amp;A sessions.</p></details>
-  </section>
-
-  <section id="join" class="join">
-    <h2>Join the newsletter</h2>
-    <p>New arrivals, reading lists and course dates — monthly, no spam.</p>
-    <form id="newsletter"><input type="email" required placeholder="you@email.com" aria-label="Email"><button class="btn primary">Subscribe</button></form>
+  <section id="join" class="sec join">
+    <h2>New titles and class dates</h2>
+    <p class="muted">One email a month. Unsubscribe any time.</p>
+    <form id="newsletter"><label class="sr" for="email">Email</label><input id="email" type="email" required placeholder="Email address"><button class="btn" type="submit">Subscribe</button></form>
     <p id="nlMsg" class="msg" role="status"></p>
   </section>
 </main>
 
 <footer class="foot">
-  <div><strong>Dar al-Athari</strong><p>Books &amp; knowledge.</p></div>
-  <div><a href="#books">Books</a> · <a href="#courses">Courses</a> · <a href="#faq">FAQ</a></div>
-  <small>© <span id="yr"></span> Dar al-Athari. Demo redesign.</small>
+  <span>Dar al-Athari</span>
+  <span>Demo redesign with placeholder content</span>
+  <span id="yr"></span>
 </footer>
 
 <div class="scrim" id="scrim" hidden></div>
 <aside class="drawer" id="drawer" aria-label="Cart" aria-hidden="true">
-  <div class="drawer-h"><h3>Your cart</h3><button class="icon-btn" id="cartClose" aria-label="Close">✕</button></div>
+  <div class="drawer-h"><h3>Cart</h3><button class="txt" id="cartClose" type="button">Close</button></div>
   <ul id="cartList"></ul>
-  <div class="drawer-f"><div class="total"><span>Total</span><b id="cartTotal">$0.00</b></div><button class="btn primary block" id="checkout">Checkout (demo)</button></div>
+  <div class="drawer-f"><div class="total"><span>Total</span><b id="cartTotal">£0.00</b></div><button class="btn full" id="checkout" type="button">Checkout (demo)</button></div>
 </aside>
 <script src="script.js"></script>
 </body>
