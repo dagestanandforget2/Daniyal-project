@@ -1,0 +1,42 @@
+/* The Book of Knowledge: promo film. Everything is positioned by film.js seek(t); no transitions/animations. */
+@font-face{font-family:'CG';font-style:normal;font-weight:500;src:url(assets/fonts/cormorant-garamond-latin-500-normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2212}
+@font-face{font-family:'CG';font-style:normal;font-weight:500;src:url(assets/fonts/cormorant-garamond-latin-ext-500-normal.woff2);unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+2020,U+2113}
+@font-face{font-family:'CG';font-style:normal;font-weight:600;src:url(assets/fonts/cormorant-garamond-latin-600-normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2212}
+@font-face{font-family:'CG';font-style:normal;font-weight:600;src:url(assets/fonts/cormorant-garamond-latin-ext-600-normal.woff2);unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+2020,U+2113}
+@font-face{font-family:'CG';font-style:italic;font-weight:500;src:url(assets/fonts/cormorant-garamond-latin-500-italic.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2212}
+@font-face{font-family:'CG';font-style:italic;font-weight:500;src:url(assets/fonts/cormorant-garamond-latin-ext-500-italic.woff2);unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+2020,U+2113}
+@font-face{font-family:'CG';font-style:italic;font-weight:600;src:url(assets/fonts/cormorant-garamond-latin-600-italic.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2212}
+@font-face{font-family:'CG';font-style:italic;font-weight:600;src:url(assets/fonts/cormorant-garamond-latin-ext-600-italic.woff2);unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F,U+2020,U+2113}
+@font-face{font-family:'AM';font-weight:400;src:url(assets/fonts/amiri-arabic-400-normal.woff2);unicode-range:U+0600-06FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE80-FEFC}
+@font-face{font-family:'AM';font-weight:700;src:url(assets/fonts/amiri-arabic-700-normal.woff2);unicode-range:U+0600-06FF,U+200C-200E,U+2010-2011,U+204F,U+2E41,U+FB50-FDFF,U+FE80-FEFC}
+@font-face{font-family:'AM';font-weight:400 700;src:url(assets/fonts/amiri-latin-400-normal.woff2);unicode-range:U+0000-00FF,U+0131,U+2000-206F}
+
+:root{--ink:#120d0a;--sienna:#9c3a1e;--gold:#c9a24a;--gold2:#e6c878;--cream:#efe3cc;--indigo:#2a2350}
+html,body{margin:0;background:#000;overflow:hidden}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden;background:var(--ink);color:var(--cream)}
+#bg{position:absolute;inset:0;background:
+ radial-gradient(ellipse 80% 55% at 50% 46%,#3a2216 0%,#1b120d 55%,#0c0806 100%)}
+#pattern{position:absolute;inset:0;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23c9a24a' stroke-width='1.2'%3E%3Cpath d='M60 6 L74 46 L114 60 L74 74 L60 114 L46 74 L6 60 L46 46 Z'/%3E%3Cpath d='M60 28 L92 60 L60 92 L28 60 Z'/%3E%3C/g%3E%3C/svg%3E")}
+#glow{position:absolute;left:-200px;top:300px;width:1480px;height:1200px;background:radial-gradient(ellipse at 50% 50%,rgba(201,130,60,.38),rgba(156,58,30,.12) 45%,transparent 70%)}
+#vig{position:absolute;inset:0;background:radial-gradient(ellipse 75% 60% at 50% 50%,transparent 45%,rgba(8,5,3,.78) 100%)}
+.mote{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(230,200,120,.9),rgba(230,200,120,0) 70%)}
+.p3d{position:absolute;left:0;top:0;width:1080px;height:1920px;perspective:2600px;perspective-origin:540px 960px;pointer-events:none}
+.book{position:absolute;left:0;top:0;width:0;height:0;transform-style:preserve-3d}
+.face{position:absolute;backface-visibility:hidden;-webkit-backface-visibility:hidden;background-size:100% 100%;background-repeat:no-repeat}
+.hinge{position:absolute;width:0;transform-style:preserve-3d}
+.leaf{position:absolute;transform-style:preserve-3d}
+.plane{position:absolute}
+.hl{position:absolute;mix-blend-mode:multiply;background:linear-gradient(180deg,rgba(255,196,40,.92),rgba(255,170,20,.92));border-radius:5px;box-shadow:0 0 18px 4px rgba(255,190,50,.55)}
+.gloss{position:absolute;inset:0;background:linear-gradient(105deg,rgba(255,240,200,0) 38%,rgba(255,240,200,.34) 50%,rgba(255,240,200,0) 62%);background-size:300% 100%;mix-blend-mode:screen}
+#thread{position:absolute;left:0;top:0;width:1080px;height:1920px;filter:drop-shadow(0 0 7px rgba(230,190,90,.75))}
+#thread path{fill:none;stroke:var(--gold2);stroke-width:4;stroke-linecap:round}
+#texts{position:absolute;left:0;top:0;width:1080px;height:1920px}
+.t{text-wrap:balance;position:absolute;left:70px;width:810px;text-align:center;line-height:1.12}
+.en{font-family:'CG','AM',serif;font-weight:500}
+.it{font-style:italic}
+.ar{font-family:'AM',serif;direction:rtl;line-height:1.75;font-weight:700}
+.gold{color:var(--gold2)}
+.caps{letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+.panel{background:rgba(14,10,7,.86);border:2px solid rgba(201,162,74,.7);border-radius:18px;padding:18px 28px;box-sizing:border-box}
+#logo{position:absolute;left:320px;top:600px;width:440px;height:440px;mix-blend-mode:screen}
+#motes,#books{position:absolute;inset:0}

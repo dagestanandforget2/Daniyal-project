@@ -1,0 +1,96 @@
+I want you to make a cinematic vertical promo video for a book my store sells.
+My store is Dar Al Athari (daralathari.com), an Islamic bookstore.
+
+THE BOOK
+- Title: The Book of Knowledge / كتاب العلم
+- Author: Shaykh Muhammad ibn Salih al-Uthaymeen (d. 1421H)
+- Editions I have photos of: BOTH the Arabic original (hardcover) and the
+  English translation (paperback). Build both as separate 3D books: show them
+  side by side at one point, labelled "The Arabic original" and "The English
+  translation". The Arabic book must have its spine on the right and open
+  from the right.
+- What the video should say: Everyone wants to seek knowledge, but few know
+  how to begin or how to carry it. In this book Shaykh Ibn Uthaymeen explains
+  the definition and virtue of knowledge, the manners a student needs, and
+  the way to seek it properly. It is the book to read before you start any
+  other.
+- Hook idea: "Before you seek knowledge, learn how to seek it."
+- Quotes to feature, with sources. Both hadith are printed on my page photos;
+  copy the Arabic from the Arabic page photo and the English from the English
+  page photo:
+  1. "Whoever Allah wants good for, He grants him understanding in the
+     religion." (al-Bukhari 71, Muslim 1037)
+  2. "Indeed, the Prophets did not leave behind dinars nor dirhams; rather,
+     they only left behind knowledge. So whosoever takes it has indeed taken
+     an abundant portion." (Ahmad, Abu Dawud 3641, at-Tirmidhi 2682,
+     Ibn Majah 223)
+- Inside pages to feature: en-page-definition.jpg (page 21, "The Definition
+  of Knowledge") and ar-page-definition.jpg (page 17, the same section in
+  Arabic). Open the English book to its page and highlight the first hadith.
+  You may also open the Arabic book to its page, from the right.
+
+FILES (in this folder)
+- photos/en-front.jpg, en-spine.jpg, en-back.jpg, en-page-definition.jpg
+- photos/ar-front.jpg, ar-spine.jpg, ar-back.jpg, ar-page-definition.jpg
+- logo.png      : my logo, white on black (use on dark backgrounds)
+- logo-dark.png : my logo, black on white (use on light backgrounds)
+Look at every photo before you plan anything, and tell me if any is unusable.
+Some have glare spots, shadows, or my fingers in frame: correct these as far
+as you can, and tell me which ones I should retake.
+
+OUTPUT
+- MP4, 1080x1920 (9:16), 30 fps, 45-60 seconds, H.264 + AAC, for TikTok and Reels.
+- Keep all text out of the top 10%, bottom 20% and right 12% of the frame,
+  because the apps cover those areas.
+
+HOW TO BUILD IT (this method worked well for me before)
+- Write the whole film as one HTML/CSS/JS page with a single function seek(t)
+  that sets every element's state for time t. No CSS transitions or timers:
+  everything must be a pure function of t so frames are repeatable.
+- Render it frame by frame with headless Chromium (Playwright): call seek(t),
+  screenshot, pipe the frames into ffmpeg. Use my machine's cores in parallel.
+- Build each book as a real 3D object in CSS (preserve-3d): front, back, spine,
+  page edges, a cover that swings open and pages that flip. Use my photos as
+  the textures, perspective-corrected and with the lighting evened out.
+- IMPORTANT for sharpness: lay out the 3D book faces at 3x their on-screen size
+  and scale the book down with the transform, and render at device scale
+  factor 2. Otherwise the browser draws the photos small and enlarges them,
+  and they come out blurry.
+- Remove fingers and thumbs from photos. Do not invent page content: if a page
+  photo is missing part of the page, leave it blank and tell me.
+- When showing an inside page, zoom in until the highlighted passage nearly
+  fills the width of the screen, then animate a highlight over the exact words.
+
+DESIGN
+- Pick ONE colour scheme and ONE type pairing that suit these two books
+  (take cues from their covers). Tell me your choice before building.
+- No pictures of people, faces or animate beings. No music or instruments.
+- Scenes I want: a strong hook in the first 2 seconds; the books making a
+  dramatic 3D entrance; a book opening to a real page with a highlighted
+  hadith; one or two quote scenes with Arabic and English; an end card with
+  my logo and daralathari.com.
+- Give it one memorable visual idea of its own, not a template.
+
+SOUND
+- Synthesize sound effects in code (whooshes, page flips, soft hits), timed to
+  the animation, and mix them into the MP4. Noise-based effects only, no
+  melody or instruments. Keep the level moderate.
+
+ACCURACY (this matters most)
+- Quran, hadith and scholars' words must be exact. Use only the Arabic that
+  is legible in my photos or that I give you. Never write Arabic religious
+  text from memory without telling me.
+- Give every quote its source on screen.
+- Any English translation you write yourself, list for me at the end so I can
+  check it.
+
+PROCESS
+1. Show me a short storyboard (scene, time range, on-screen text) and wait for
+   my OK.
+2. Build it, then render 10-12 still frames across the video and look at them
+   yourself. Fix anything cut off, overlapping, blurry or misaligned.
+3. Render a fast low-resolution preview first. Only do the full render after
+   I approve the preview.
+4. At the end, list everything I should verify: translations, Arabic text,
+   anything you guessed or left blank.
+Keep the project files so I can ask for changes or reuse this for another book.
