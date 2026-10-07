@@ -1,24 +1,55 @@
+const STORE = "https://daralathari.com";
 const COLORS = ["#7A2E2A", "#1F3B34", "#B07A1E", "#2B3A55", "#4A2F4F", "#33403A", "#8A4B2A", "#1E2F6B"];
+const AR = {Aqeedah:"عقيدة", Hadith:"حديث", Fiqh:"فقه", Tafsir:"تفسير", Seerah:"سيرة", "Duas & Heart":"أذكار", Clothing:"لباس"};
+// Snapshot of in-stock items from daralathari.com (7 Oct 2026). v = variant id for cart links; pick = size/colour must be chosen on the product page.
 const BOOKS = [
-  {id:1,no:"DA-0101",t:"The Foundations of Belief",a:"Author name",c:"Aqeedah",p:18.5,pg:162,bind:"Paperback",ar:"عقيدة",w:44,h:250},
-  {id:2,no:"DA-0102",t:"Purification of the Heart",a:"Author name",c:"Character",p:14,pg:174,bind:"Paperback",ar:"تزكية",w:38,h:220},
-  {id:3,no:"DA-0103",t:"Arabic Made Easy, Vol. 1",a:"Author name",c:"Arabic",p:24,pg:380,bind:"Hardback",ar:"عربية",w:58,h:280},
-  {id:4,no:"DA-0104",t:"Stories of the Prophets",a:"Author name",c:"Seerah",p:29,pg:520,bind:"Hardback",ar:"سيرة",w:64,h:300},
-  {id:5,no:"DA-0105",t:"A Guide to Daily Prayer",a:"Author name",c:"Fiqh",p:12,pg:96,bind:"Paperback",ar:"صلاة",w:36,h:265},
-  {id:6,no:"DA-0106",t:"Tafsir for Beginners",a:"Author name",c:"Qur’an",p:32,pg:430,bind:"Hardback",ar:"تفسير",w:56,h:270},
-  {id:7,no:"DA-0107",t:"Forty Hadith, Explained",a:"Author name",c:"Hadith",p:16.5,pg:204,bind:"Paperback",ar:"حديث",w:40,h:235},
-  {id:8,no:"DA-0108",t:"Raising Muslim Children",a:"Author name",c:"Family",p:21,pg:248,bind:"Paperback",ar:"أسرة",w:46,h:245}
+  {t:"Kitab At-Tauhid (The Book of Monotheism)",s:"Kitab At-Tauhid",c:"Aqeedah",p:17.99,n:21,h:"kitab-at-tauhid-the-book-of-monotheism",v:41782826926151,w:44,hh:250},
+  {t:"Commentary on the Three Fundamental Principles of Islam",s:"Three Fundamental Principles",c:"Aqeedah",p:19.99,n:28,h:"explanation-of-the-three-fundamental-principles-of-islam-shaykh-muhammad-ibn-saalih-al-uthaymeen",v:41780125630535,w:40,hh:225},
+  {t:"The Book of Tawheed (Fawzan)",s:"Book of Tawheed",c:"Aqeedah",p:17,n:6,h:"the-book-of-tawheed-fawzan",v:42060204474439,w:40,hh:235},
+  {t:"I’aanatul Mustafid bi Sharh Kitaab At-Tawheed",s:"I’aanatul Mustafid",c:"Aqeedah",p:45,n:9,h:"i-aanatul-mustafid-bi-sharh-kitaab-at-tawheed-sheikh-saleh-fawzan-إعانة-المستفيد-بشرح-كتاب-التوحيد",v:42554359152711,w:60,hh:285},
+  {t:"Commentary on Kitab At Tawheed by Salih Al-‘Uthaimeen (2 Vol.)",s:"Kitab At Tawheed, 2 Vol.",c:"Aqeedah",p:50,n:6,h:"commentary-on-kitab-at-tawheed-by-salih-al-uthaimeen-2-volume-set",v:41842389123143,w:54,hh:270},
+  {t:"An Explanation of Kitab al-Tawhid by Shaykh al-Sa'di",c:"Aqeedah",p:22.5,n:3,h:"an-explanation-of-kitab-al-tawhid-by-shaykh-al-sadi",v:41836190597191},
+  {t:"Fath ul Majeed (Darussalam)",c:"Aqeedah",p:24,n:5,h:"fathul-majeed-darussalam-فتح-المجيد-شرح-كتاب-التوحيد",v:41974145515591},
+  {t:"The Four Fundamental Principles Explained by Shaykh Fawzan",c:"Aqeedah",p:7,n:4,h:"the-four-fundamental-principles-explained-by-shaykh-fawzan",v:42305203535943},
+  {t:"The Pillars of Islam and Iman",c:"Aqeedah",p:17,n:14,h:"the-pillars-of-islam-and-iman",v:41836190695495},
+  {t:"A Summary of the Creed of Salaf Saalih",c:"Aqeedah",p:4,n:40,h:"a-summary-of-the-creed-of-salaf-saalih",v:41782935814215},
+  {t:"Sharh as Sunnah, Imam al-Barbahari (2 Vol., Leather)",c:"Aqeedah",p:70,n:1,h:"sharh-as-sunnah-imam-al-barbahari-2-vol-set",v:41951665258567},
+  {t:"The Crime of Tamayyu’ upon the Salafi Manhaj",c:"Aqeedah",p:12.5,n:2,h:"the-crime-of-tamayyu-upon-the-salafi-manhaj",v:41842333319239},
+  {t:"Bulugh Al Maram",s:"Bulugh Al Maram",c:"Hadith",p:25.99,n:3,h:"bulugh-al-maram",v:41791891963975,w:46,hh:245},
+  {t:"40 Hadith of An-Nawawi, Explained by Sheikh Fawzan (Leather)",s:"40 Hadith of An-Nawawi",c:"Hadith",p:34,n:13,h:"40-hadith-of-an-nawawi-explanation-sheikh-fawzan",v:41779256721479,w:38,hh:215},
+  {t:"Fiqh According to the Qur’an and Sunnah (Vols. 1 & 2)",s:"Fiqh, Qur’an & Sunnah",c:"Fiqh",p:44.99,n:6,h:"fiqh-according-to-the-qur-an-and-sunnah-volumes-1-2",v:41805176176711,w:58,hh:280},
+  {t:"The Description of Salah, Sheikh Salih al-Uthaymeen",c:"Fiqh",p:22,n:4,h:"the-description-of-salah-the-prayer-by-sheikh-salih-al-uthaymeen",v:41932841582663},
+  {t:"Tafsir Ibn Kathir, 10 Volume",s:"Tafsir Ibn Kathir",c:"Tafsir",p:240,n:4,h:"tafsir-ibn-kathir-10-volume",v:41842399969351,w:66,hh:300},
+  {t:"Tafsir As Sadi, 10 Volume",c:"Tafsir",p:240,n:2,h:"tafsir-as-sadi-10-volume",v:42060175179847},
+  {t:"Stories of the Prophets",s:"Stories of the Prophets",c:"Seerah",p:24,n:3,h:"stories-of-the-prophets",v:41951666733127,w:50,hh:260,pick:true},
+  {t:"When The Moon Split",c:"Seerah",p:25,n:1,h:"when-the-moon-split",v:42060056592455},
+  {t:"Great Women of Islam",c:"Seerah",p:19,n:1,h:"great-women-of-islam",v:42060047351879},
+  {t:"The Disease & The Cure, Imam Ibn al-Qayyim",s:"The Disease & The Cure",c:"Duas & Heart",p:60,n:7,h:"the-disease-the-cure-by-imam-ibn-al-qayyim-revised-second-edition",v:41836204195911,w:56,hh:270},
+  {t:"Fortress Of The Muslim",c:"Duas & Heart",p:4,n:36,h:"fortress-of-the-muslim",v:41842406031431},
+  {t:"Dar Al Athari Saudi Thobe (White)",c:"Clothing",p:45,n:37,h:"white-dar-al-athari-saudi-thobe",pick:true},
+  {t:"Dar Al Athari Saudi Thobe (Black)",c:"Clothing",p:49.99,n:26,h:"black-dar-al-athari-saudi-thobe",pick:true},
+  {t:"Classic Red Saudi Shemagh",c:"Clothing",p:25,n:2,h:"classic-red-white-saudi-shemagh",v:42428031402055},
+  {t:"Pristine White Yemeni Shemagh",c:"Clothing",p:25,n:3,h:"pristine-white-yemeni-shemagh",v:42428144713799},
+  {t:"Royal Navy Blue Yemeni Shemagh",c:"Clothing",p:25,n:1,h:"royal-navy-yemeni-shemagh",v:42428145762375},
+  {t:"An-Nur Collection (shemagh)",c:"Clothing",p:25,n:4,h:"an-nur-collection",pick:true}
+].map((b, i) => ({...b, id: i + 1, ar: AR[b.c], no: b.n}));
+const SHELF = BOOKS.filter(b => b.w).map(b => ({...b, h: b.hh}));
+const COLLECTIONS = [
+  ["Aqeedah","aqeedah",126],["Books for beginners","books-for-beginners",25],["Arabic books","arabic-books-books-in-arabic",83],
+  ["Fiqh","fiqh",20],["Hadith","hadith",17],["Thobes, shemaghs and kufis","thobes-shemaghs-kufis",28],
+  ["Limited edition shemaghs","limited-edition-shemaghs",17],["Bundles and deals","bundles-deals",6],["Damaged books, 25–40% off","damaged-books-25-40-off",20]
 ];
 const $ = s => document.querySelector(s);
-const money = n => "£" + n.toFixed(2);
+const money = n => "$" + n.toFixed(2);
 const safe = f => { try { return f(); } catch { return null; } };
 const color = b => COLORS[(b.id - 1) % COLORS.length];
-let cart = safe(() => JSON.parse(localStorage.getItem("cart"))) || {};
+const url = b => STORE + "/products/" + encodeURIComponent(b.h);
+let cart = safe(() => JSON.parse(localStorage.getItem("cart2"))) || {};
 let cat = "All";
 
-// Shelf: real titles plus a few filler spines and one leaning book
-$("#shelf").innerHTML = BOOKS.map((b, i) =>
-  `<a class="spine${i === 4 ? " lean" : ""}" href="#catalogue" data-find="${b.id}" style="background:${color(b)};width:${b.w}px;height:${b.h}px" title="${b.t}"><i lang="ar">${b.ar}</i>${b.t}<em>${b.no}</em></a>` +
+// Fallback CSS shelf (hidden when WebGL is available)
+$("#shelf").innerHTML = SHELF.map((b, i) =>
+  `<a class="spine" href="#catalogue" data-find="${b.id}" style="background:${color(b)};width:${b.w}px;height:${b.h}px" title="${b.t}"><i lang="ar">${b.ar}</i>${b.s || b.t}</a>` +
   (i % 3 === 1 ? `<span class="spine blank" aria-hidden="true" style="background:${COLORS[(i + 3) % COLORS.length]};width:${24 + i * 3}px;height:${170 + i * 9}px"></span>` : "")
 ).join("");
 $("#shelf").onclick = e => { const a = e.target.closest("[data-find]"); if (!a) return;
@@ -35,38 +66,43 @@ function render() {
   $("#ledger").innerHTML = list.map(b => `
     <li class="row">
       <div class="thumb" lang="ar" style="background:${color(b)}">${b.ar}</div>
-      <div class="ttl"><b>${b.t}</b><span>${b.a}</span></div>
+      <div class="ttl"><b><a href="${url(b)}" target="_blank" rel="noopener">${b.t}</a></b></div>
       <div class="cat">${b.c}</div>
-      <div class="fmt">${b.bind}, ${b.pg} pp<span class="no">${b.no}</span></div>
-      <div class="price">${money(b.p)}</div>
-      <button class="add" data-id="${b.id}" type="button">Add</button>
+      <div class="fmt">${b.n <= 3 ? "Last " + b.n + " in stock" : b.n + " in stock"}</div>
+      <div class="price">${b.pick ? "from " : ""}${money(b.p)}</div>
+      ${b.v && !b.pick ? `<button class="add" data-id="${b.id}" type="button">Add</button>` : `<a class="add" href="${url(b)}" target="_blank" rel="noopener">Choose</a>`}
     </li>`).join("");
   $("#empty").hidden = list.length > 0;
 }
 $("#tabs").onclick = e => { const c = e.target.dataset.c; if (!c) return; cat = c; syncTabs(); render(); };
 $("#search").oninput = render; $("#sort").onchange = render;
-$("#ledger").onclick = e => { const id = e.target.dataset.id; if (id) { cart[id] = (cart[id] || 0) + 1; saveCart(); openCart(); } };
+$("#ledger").onclick = e => { const id = e.target.dataset.id; if (id) { cart[id] = Math.min((cart[id] || 0) + 1, BOOKS[id - 1].n); saveCart(); openCart(); } };
 
-// Cart
-function saveCart() { safe(() => localStorage.setItem("cart", JSON.stringify(cart))); drawCart(); }
+// Collections
+$("#collections-body").innerHTML = COLLECTIONS.map(([n, h, k]) => `<tr><td><b>${n}</b></td><td class="m">${k} titles</td><td><a class="link" href="${STORE}/collections/${h}" target="_blank" rel="noopener">Browse</a></td></tr>`).join("");
+
+// Cart: checkout uses a Shopify cart permalink on the real store
+function saveCart() { safe(() => localStorage.setItem("cart2", JSON.stringify(cart))); drawCart(); }
 function drawCart() {
-  const items = Object.entries(cart).map(([id, q]) => ({b: BOOKS.find(x => x.id == id), q})).filter(i => i.b);
+  const items = Object.entries(cart).map(([id, q]) => ({b: BOOKS[id - 1], q})).filter(i => i.b);
   $("#cartList").innerHTML = items.length ? items.map(({b, q}) => `
     <li><div><b>${b.t}</b><br><small>${money(b.p)}</small></div>
     <div class="qty"><button data-d="-1" data-id="${b.id}" type="button" aria-label="Remove one">−</button>${q}<button data-d="1" data-id="${b.id}" type="button" aria-label="Add one">+</button></div></li>`).join("")
     : "<li>Nothing in the cart yet.</li>";
   $("#cartCount").textContent = items.reduce((n, i) => n + i.q, 0);
   $("#cartTotal").textContent = money(items.reduce((n, i) => n + i.q * i.b.p, 0));
+  const co = $("#checkout");
+  co.href = items.length ? STORE + "/cart/" + items.map(i => i.b.v + ":" + i.q).join(",") : STORE;
+  co.textContent = items.length ? "Checkout on daralathari.com" : "Visit daralathari.com";
 }
 $("#cartList").onclick = e => { const {id, d} = e.target.dataset; if (!d) return;
-  cart[id] = (cart[id] || 0) + +d; if (cart[id] <= 0) delete cart[id]; saveCart(); };
+  cart[id] = Math.min((cart[id] || 0) + +d, BOOKS[id - 1].n); if (cart[id] <= 0) delete cart[id]; saveCart(); };
 function openCart() { $("#drawer").classList.add("open"); $("#drawer").setAttribute("aria-hidden", "false"); $("#scrim").hidden = false; }
 function closeCart() { $("#drawer").classList.remove("open"); $("#drawer").setAttribute("aria-hidden", "true"); $("#scrim").hidden = true; }
 $("#cartOpen").onclick = openCart; $("#cartClose").onclick = closeCart; $("#scrim").onclick = closeCart;
 document.onkeydown = e => { if (e.key === "Escape") closeCart(); };
-$("#checkout").onclick = e => { e.target.textContent = "Demo only: checkout is not connected"; setTimeout(() => e.target.textContent = "Checkout (demo)", 2500); };
 
-// Theme, menu, newsletter, dates
+// Theme, menu, dates
 const root = document.documentElement;
 const saved = safe(() => localStorage.getItem("theme"));
 if (saved) root.dataset.theme = saved;
@@ -76,10 +112,9 @@ $("#theme").onclick = () => {
 };
 $("#burger").onclick = () => $("#links").classList.toggle("open");
 $("#links").onclick = () => $("#links").classList.remove("open");
-$("#newsletter").onsubmit = e => { e.preventDefault(); $("#nlMsg").textContent = "Thank you. You are on the list (demo)."; e.target.reset(); };
-const now = new Date();
-$("#yr").textContent = "© " + now.getFullYear();
+$("#yr").textContent = "© " + new Date().getFullYear();
 safe(() => {
+  const now = new Date();
   const g = now.toLocaleDateString("en-GB", {weekday: "short", day: "numeric", month: "short", year: "numeric"});
   const h = new Intl.DateTimeFormat("en-u-ca-islamic-umalqura", {day: "numeric", month: "long", year: "numeric"}).format(now);
   $("#dates").textContent = g + "  ·  " + h;
@@ -132,8 +167,8 @@ render(); drawCart();
     const t = new THREE.CanvasTexture(c); t.encoding = THREE.sRGBEncoding; t.anisotropy = 4; return t;
   };
   const items = [];
-  BOOKS.forEach((b, i) => {
-    items.push({book: b, t: b.t, ar: b.ar, col: color(b), th: b.w / 13, h: b.h / 9.5});
+  SHELF.forEach((b, i) => {
+    items.push({book: b, t: b.s || b.t, ar: b.ar, col: color(b), th: b.w / 13, h: b.h / 9.5});
     if (i % 3 === 1) items.push({t: "", col: COLORS[(i + 3) % COLORS.length], th: 2 + i * .25, h: 17 + i * .8});
   });
   const total = items.reduce((n, it) => n + it.th + .25, 0);

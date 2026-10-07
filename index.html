@@ -10,11 +10,11 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="strip"><span id="dates">&nbsp;</span><span>Orders placed before Thursday ship the same week</span></div>
+<div class="strip"><span id="dates">&nbsp;</span><span>Prices and stock as of 7 Oct 2026</span></div>
 
 <header class="nav">
   <a class="brand" href="#top">Dar al-Athari <span lang="ar" dir="rtl">دار الأثري</span></a>
-  <nav id="links" aria-label="Main"><a href="#catalogue">Catalogue</a><a href="#classes">Classes</a><a href="#shipping">Shipping</a><a href="#faq">Questions</a></nav>
+  <nav id="links" aria-label="Main"><a href="#catalogue">Books and clothing</a><a href="#collections">Collections</a><a href="https://daralathari.com" target="_blank" rel="noopener">Visit the store</a></nav>
   <div class="tools-r">
     <button class="txt" id="theme" type="button">Theme</button>
     <button class="txt" id="cartOpen" type="button">Cart (<span id="cartCount">0</span>)</button>
@@ -24,10 +24,10 @@
 
 <main id="top">
   <section class="hero">
-    <p class="kicker">Books and classes in the Islamic sciences</p>
+    <p class="kicker">Islamic books, thobes, shemaghs and kufis</p>
     <h1>Read slowly.<br>Understand properly.</h1>
-    <p class="lead">We stock a short list of books we would give to a friend, and teach the texts in small classes with a teacher you can ask.</p>
-    <p class="hero-links"><a class="btn" href="#catalogue">See the catalogue</a><a class="link" href="#classes">Next class dates</a></p>
+    <p class="lead">Books on creed, hadith, fiqh and tafsir, and traditional clothing, from a United States shop with more than 200 products listed.</p>
+    <p class="hero-links"><a class="btn" href="#catalogue">See what is in stock</a><a class="link" href="#collections">Browse collections</a></p>
   </section>
 
   <section class="shelf-wrap" aria-label="Shelf of featured books">
@@ -38,61 +38,33 @@
 
   <section id="catalogue" class="sec">
     <div class="sec-h">
-      <h2>Catalogue</h2>
-      <p>Sample titles. Replace with your real stock.</p>
+      <h2>In stock now</h2>
+      <p>A selection of the 217 active products. Titles and prices come from your store.</p>
     </div>
     <div class="filters">
       <div class="tabs" id="tabs" role="tablist" aria-label="Category"></div>
       <label class="srch"><span class="sr">Search</span><input id="search" type="search" placeholder="Search title"></label>
-      <label class="srt"><span class="sr">Sort</span><select id="sort"><option value="">Catalogue order</option><option value="asc">Price, low first</option><option value="desc">Price, high first</option></select></label>
+      <label class="srt"><span class="sr">Sort</span><select id="sort"><option value="">Store order</option><option value="asc">Price, low first</option><option value="desc">Price, high first</option></select></label>
     </div>
     <ol class="ledger" id="ledger"></ol>
     <p id="empty" class="empty" hidden>Nothing matches that search.</p>
   </section>
 
-  <section id="classes" class="sec">
-    <div class="sec-h"><h2>Classes</h2><p>Small groups, one teacher, one text at a time.</p></div>
-    <table class="tt">
-      <thead><tr><th>Class</th><th>Level</th><th>Starts</th><th>Length</th><th>Seats</th><th></th></tr></thead>
-      <tbody>
-        <tr><td><b>Foundations of Faith</b><span>Beliefs, pillars and daily practice</span></td><td>Beginner</td><td class="m">Sat 17 Oct</td><td class="m">8 weeks</td><td class="m">6 left</td><td><a class="link" href="#join">Reserve</a></td></tr>
-        <tr><td><b>Arabic for the Qur’an</b><span>Grammar and vocabulary from the text itself</span></td><td>Intermediate</td><td class="m">Mon 2 Nov</td><td class="m">12 weeks</td><td class="m">11 left</td><td><a class="link" href="#join">Reserve</a></td></tr>
-        <tr><td><b>Reading Classical Texts</b><span>Method, terminology and how to use a commentary</span></td><td>Advanced</td><td class="m">Thu 12 Nov</td><td class="m">16 weeks</td><td class="m">Waitlist</td><td><a class="link" href="#join">Join list</a></td></tr>
-      </tbody>
-    </table>
+  <section id="collections" class="sec">
+    <div class="sec-h"><h2>Collections</h2><p>Each one opens on daralathari.com.</p></div>
+    <table class="tt"><thead><tr><th>Collection</th><th>Size</th><th></th></tr></thead><tbody id="collections-body"></tbody></table>
   </section>
 
-  <section id="shipping" class="sec two">
-    <div><h2>Shipping and returns</h2><p class="muted">Plain terms, no surprises at checkout.</p></div>
-    <dl class="facts">
-      <div><dt>Dispatch</dt><dd>Within 2 working days, with tracking.</dd></div>
-      <div><dt>UK and Europe</dt><dd>3 to 6 working days.</dd></div>
-      <div><dt>Rest of world</dt><dd>7 to 14 working days.</dd></div>
-      <div><dt>Returns</dt><dd>30 days, book in original condition.</dd></div>
-      <div><dt>Editions</dt><dd>Each listing names the publisher, year and binding.</dd></div>
-    </dl>
-  </section>
-
-  <section id="faq" class="sec two">
-    <div><h2>Questions</h2></div>
-    <div>
-      <details><summary>Are the classes live?</summary><p>Each class has a live session every week. Recordings are posted afterwards for anyone who misses one.</p></details>
-      <details><summary>Can I bring a question to a teacher?</summary><p>Yes. Send it before the session and it will be answered in class or in writing.</p></details>
-      <details><summary>Do you ship outside the country?</summary><p>Yes. Shipping is calculated at checkout from the destination and the weight of the order.</p></details>
-    </div>
-  </section>
-
-  <section id="join" class="sec join">
-    <h2>New titles and class dates</h2>
-    <p class="muted">One email a month. Unsubscribe any time.</p>
-    <form id="newsletter"><label class="sr" for="email">Email</label><input id="email" type="email" required placeholder="Email address"><button class="btn" type="submit">Subscribe</button></form>
-    <p id="nlMsg" class="msg" role="status"></p>
+  <section class="sec visit">
+    <h2>The full store has 217 active products.</h2>
+    <p class="muted">This page is a demo of a new look. Ordering happens on your existing Shopify store.</p>
+    <p><a class="btn" href="https://daralathari.com" target="_blank" rel="noopener">Open daralathari.com</a></p>
   </section>
 </main>
 
 <footer class="foot">
   <span>Dar al-Athari</span>
-  <span>Demo redesign with placeholder content</span>
+  <span>Demo redesign using a snapshot of store data</span>
   <span id="yr"></span>
 </footer>
 
@@ -100,7 +72,7 @@
 <aside class="drawer" id="drawer" aria-label="Cart" aria-hidden="true">
   <div class="drawer-h"><h3>Cart</h3><button class="txt" id="cartClose" type="button">Close</button></div>
   <ul id="cartList"></ul>
-  <div class="drawer-f"><div class="total"><span>Total</span><b id="cartTotal">£0.00</b></div><button class="btn full" id="checkout" type="button">Checkout (demo)</button></div>
+  <div class="drawer-f"><div class="total"><span>Total</span><b id="cartTotal">$0.00</b></div><a class="btn full" id="checkout" href="https://daralathari.com" target="_blank" rel="noopener">Visit daralathari.com</a></div>
 </aside>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="script.js"></script>
