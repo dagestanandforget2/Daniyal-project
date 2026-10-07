@@ -1,0 +1,17 @@
+<footer class="foot">
+  <span>{{ shop.name }}</span>
+  <nav class="foot-links" aria-label="Footer">
+    {%- for link in linklists[section.settings.menu].links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}
+    {%- for policy in shop.policies -%}<a href="{{ policy.url }}">{{ policy.title }}</a>{%- endfor -%}
+  </nav>
+  <span>&copy; {{ 'now' | date: '%Y' }}</span>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "footer" }
+  ]
+}
+{% endschema %}

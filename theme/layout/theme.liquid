@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ page_title }}{% unless page_title contains shop.name %} – {{ shop.name }}{% endunless %}</title>
+  {%- if page_description != blank -%}<meta name="description" content="{{ page_description | escape }}">{%- endif -%}
+  <link rel="canonical" href="{{ canonical_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Young+Serif&display=swap" rel="stylesheet">
+  {{ 'theme.css' | asset_url | stylesheet_tag }}
+  {%- if settings.accent != blank -%}<style>:root{--accent:{{ settings.accent }}}</style>{%- endif -%}
+  {{ content_for_header }}
+</head>
+<body class="template-{{ request.page_type | handle }}">
+  <a class="sr" href="#top">Skip to content</a>
+  <div class="strip"><span id="dates">&nbsp;</span><span>{{ settings.announcement }}</span></div>
+  {% section 'header' %}
+  <main id="top">{{ content_for_layout }}</main>
+  {% section 'footer' %}
+
+  <div class="scrim" id="scrim" hidden></div>
+  <aside class="drawer" id="drawer" aria-label="Cart" aria-hidden="true">
+    <div class="drawer-h"><h3>Cart</h3><button class="txt" id="cartClose" type="button">Close</button></div>
+    <ul id="cartList"></ul>
+    <div class="drawer-f">
+      <div class="total"><span>Subtotal</span><b id="cartTotal">{{ cart.total_price | money }}</b></div>
+      <a class="btn full" id="checkout" href="{{ routes.cart_url }}">View cart and check out</a>
+    </div>
+  </aside>
+
+  <script>
+    window.THEME = {
+      currency: {{ cart.currency.iso_code | json }},
+      locale: {{ request.locale.iso_code | json }},
+      routes: { cart: {{ routes.cart_url | json }}, add: {{ routes.cart_add_url | json }}, change: {{ routes.cart_change_url | json }} }
+    };
+  </script>
+  <script src="{{ 'theme.js' | asset_url }}" defer></script>
+</body>
+</html>

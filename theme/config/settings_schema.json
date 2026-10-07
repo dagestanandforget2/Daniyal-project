@@ -1,0 +1,18 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Athari",
+    "theme_version": "1.0.0",
+    "theme_author": "Dar Al Athari",
+    "theme_documentation_url": "https://daralathari.com",
+    "theme_support_url": "https://daralathari.com"
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      { "type": "color", "id": "accent", "label": "Accent colour", "default": "#2230A0" },
+      { "type": "text", "id": "brand_arabic", "label": "Arabic wordmark next to the shop name", "default": "دار الأثري", "info": "Clear this to hide it." },
+      { "type": "text", "id": "announcement", "label": "Top bar message", "info": "Shown on the right of the thin bar above the header." }
+    ]
+  }
+]

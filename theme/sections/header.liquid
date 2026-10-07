@@ -1,0 +1,23 @@
+<header class="nav">
+  <a class="brand" href="{{ routes.root_url }}">{{ shop.name }}{% if settings.brand_arabic != blank %} <span lang="ar" dir="rtl">{{ settings.brand_arabic }}</span>{% endif %}</a>
+  <nav id="links" aria-label="Main">
+    {%- for link in linklists[section.settings.menu].links -%}
+      <a href="{{ link.url }}">{{ link.title }}</a>
+    {%- endfor -%}
+  </nav>
+  <div class="tools-r">
+    <a class="txt" href="{{ routes.search_url }}">Search</a>
+    <button class="txt" id="theme" type="button">Theme</button>
+    <a class="txt" id="cartOpen" href="{{ routes.cart_url }}">Cart (<span data-cart-count>{{ cart.item_count }}</span>)</a>
+    <button class="txt burger" id="burger" type="button" aria-label="Menu">Menu</button>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" }
+  ]
+}
+{% endschema %}

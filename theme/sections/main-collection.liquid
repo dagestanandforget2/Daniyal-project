@@ -1,0 +1,32 @@
+{%- paginate collection.products by 24 -%}
+<section class="sec">
+  <div class="sec-h">
+    <h1 class="h2">{{ collection.title }}</h1>
+    <p>{{ collection.products_count }} products</p>
+  </div>
+  {%- if collection.description != blank -%}<div class="prose lead-in">{{ collection.description }}</div>{%- endif -%}
+
+  <div class="filters">
+    <div class="tabs"><a class="tab" aria-selected="false" href="{{ routes.all_products_collection_url }}">All products</a></div>
+    {%- if collection.sort_options.size > 0 -%}
+      <label class="srt"><span class="sr">Sort</span>
+        <select data-sort>
+          {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+          {%- for opt in collection.sort_options -%}<option value="{{ opt.value }}"{% if opt.value == sort_by %} selected{% endif %}>{{ opt.name }}</option>{%- endfor -%}
+        </select>
+      </label>
+    {%- endif -%}
+  </div>
+
+  <ol class="ledger">
+    {%- for product in collection.products -%}{% render 'product-row', product: product %}
+    {%- else -%}<li class="empty">No products in this collection yet.</li>
+    {%- endfor -%}
+  </ol>
+  {%- if paginate.pages > 1 -%}<nav class="pagination" aria-label="Pages">{{ paginate | default_pagination }}</nav>{%- endif -%}
+</section>
+{%- endpaginate -%}
+
+{% schema %}
+{ "name": "Collection page" }
+{% endschema %}

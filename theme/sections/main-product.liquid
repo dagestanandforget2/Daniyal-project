@@ -1,0 +1,46 @@
+{%- assign current = product.selected_or_first_available_variant -%}
+<section class="pdp sec">
+  <div class="pdp-media">
+    {%- for media in product.media -%}
+      {%- if media.media_type == 'image' -%}
+        <div class="pdp-img{% if forloop.first %} is-main{% endif %}">
+          {%- assign load = 'lazy' -%}{%- if forloop.first -%}{%- assign load = 'eager' -%}{%- endif -%}
+          {{ media.preview_image | image_url: width: 1000 | image_tag: loading: load, widths: '400, 700, 1000', sizes: '(min-width: 820px) 40vw, 100vw', alt: media.alt | default: product.title }}
+        </div>
+      {%- endif -%}
+    {%- else -%}
+      <div class="pdp-img is-main pdp-empty">No photo yet</div>
+    {%- endfor -%}
+  </div>
+
+  <div class="pdp-info">
+    <p class="kicker"><a href="{{ routes.root_url }}">{{ shop.name }}</a>{% if product.type != blank %} · {{ product.type }}{% endif %}</p>
+    <h1>{{ product.title }}</h1>
+    <p class="pdp-price" data-price>{% if product.price_varies and current == nil %}from {% endif %}{{ current.price | default: product.price | money }}</p>
+
+    {%- form 'product', product, class: 'pdp-form', data-add-form: true -%}
+      {%- unless product.has_only_default_variant -%}
+        <label class="sr" for="variant-{{ section.id }}">Option</label>
+        <select id="variant-{{ section.id }}" name="id" data-variant-select>
+          {%- for v in product.variants -%}
+            <option value="{{ v.id }}" data-price="{{ v.price | money }}"{% if v == current %} selected{% endif %}{% unless v.available %} disabled{% endunless %}>{{ v.title }}{% unless v.available %} (sold out){% endunless %}</option>
+          {%- endfor -%}
+        </select>
+      {%- else -%}
+        <input type="hidden" name="id" value="{{ current.id }}">
+      {%- endunless -%}
+      <div class="pdp-buy">
+        <label class="sr" for="qty-{{ section.id }}">Quantity</label>
+        <input id="qty-{{ section.id }}" class="qty-in" type="number" name="quantity" value="1" min="1" inputmode="numeric">
+        <button class="btn" type="submit"{% unless product.available %} disabled{% endunless %}>{% if product.available %}Add to cart{% else %}Sold out{% endif %}</button>
+      </div>
+    {%- endform -%}
+
+    {%- if current.sku != blank -%}<p class="meta">SKU {{ current.sku }}</p>{%- endif -%}
+    <div class="prose">{{ product.description }}</div>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Product page" }
+{% endschema %}

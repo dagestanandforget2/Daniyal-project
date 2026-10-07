@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-shelf"
+    },
+    "catalogue": {
+      "type": "catalogue"
+    },
+    "collections": {
+      "type": "collection-table"
+    }
+  },
+  "order": [
+    "hero",
+    "catalogue",
+    "collections"
+  ]
+}

@@ -1,0 +1,26 @@
+{%- paginate search.results by 24 -%}
+<section class="sec">
+  <div class="sec-h"><h1 class="h2">Search</h1>{% if search.performed %}<p>{{ search.results_count }} results for “{{ search.terms | escape }}”</p>{% endif %}</div>
+  <form class="search-form" action="{{ routes.search_url }}" method="get" role="search">
+    <label class="sr" for="q">Search</label>
+    <input id="q" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search books and clothing" autofocus>
+    <input type="hidden" name="options[prefix]" value="last">
+    <button class="btn" type="submit">Search</button>
+  </form>
+  {%- if search.performed -%}
+    <ol class="ledger">
+      {%- for item in search.results -%}
+        {%- if item.object_type == 'product' -%}{% render 'product-row', product: item %}
+        {%- else -%}<li class="row plain-row"><div class="ttl"><b><a href="{{ item.url }}">{{ item.title }}</a></b></div></li>
+        {%- endif -%}
+      {%- else -%}<li class="empty">Nothing matched. Try a shorter word.</li>
+      {%- endfor -%}
+    </ol>
+    {%- if paginate.pages > 1 -%}<nav class="pagination" aria-label="Pages">{{ paginate | default_pagination }}</nav>{%- endif -%}
+  {%- endif -%}
+</section>
+{%- endpaginate -%}
+
+{% schema %}
+{ "name": "Search page" }
+{% endschema %}
