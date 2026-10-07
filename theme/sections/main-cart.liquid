@@ -1,0 +1,34 @@
+<section class="sec narrow-page">
+  <div class="sec-h"><h1 class="h2">Cart</h1></div>
+  {%- if cart.item_count > 0 -%}
+    <form action="{{ routes.cart_url }}" method="post" id="cart-form">
+      <ol class="ledger cart-lines">
+        {%- for item in cart.items -%}
+          <li class="row cart-row">
+            <a class="thumb" href="{{ item.url }}" tabindex="-1" aria-hidden="true">{% if item.image %}{{ item.image | image_url: width: 140 | image_tag: loading: 'lazy', alt: '', width: 48, height: 66 }}{% endif %}</a>
+            <div class="ttl"><b><a href="{{ item.url }}">{{ item.product.title }}</a></b>{% unless item.product.has_only_default_variant %}<span class="sub">{{ item.variant.title }}</span>{% endunless %}</div>
+            <div class="cat"><label class="sr" for="q-{{ item.index }}">Quantity</label><input id="q-{{ item.index }}" class="qty-in" type="number" name="updates[]" value="{{ item.quantity }}" min="0" inputmode="numeric"></div>
+            <div class="fmt"><a class="link" href="{{ item.url_to_remove }}">Remove</a></div>
+            <div class="price">{{ item.final_line_price | money }}</div>
+            <span></span>
+          </li>
+        {%- endfor -%}
+      </ol>
+      <div class="cart-foot">
+        <p class="total"><span>Subtotal</span> <b>{{ cart.total_price | money }}</b></p>
+        <p class="muted">Shipping and taxes are calculated at checkout.</p>
+        <div class="cart-actions">
+          <button class="btn ghost-btn" type="submit" name="update">Update cart</button>
+          <button class="btn" type="submit" name="checkout">Check out</button>
+        </div>
+      </div>
+    </form>
+  {%- else -%}
+    <p class="empty">Your cart is empty.</p>
+    <p><a class="btn" href="{{ routes.all_products_collection_url }}">Browse products</a></p>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{ "name": "Cart page" }
+{% endschema %}

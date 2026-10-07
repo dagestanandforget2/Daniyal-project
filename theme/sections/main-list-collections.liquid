@@ -1,0 +1,17 @@
+<section class="sec">
+  <div class="sec-h"><h1 class="h2">Collections</h1></div>
+  <table class="tt">
+    <thead><tr><th>Collection</th><th>Size</th><th></th></tr></thead>
+    <tbody>
+      {%- for c in collections -%}
+        {%- unless c.handle contains 'auto-' or c.products_count == 0 -%}
+          <tr><td><b>{{ c.title | capitalize }}</b></td><td class="m">{{ c.products_count }} products</td><td><a class="link" href="{{ c.url }}">Browse</a></td></tr>
+        {%- endunless -%}
+      {%- endfor -%}
+    </tbody>
+  </table>
+</section>
+
+{% schema %}
+{ "name": "All collections" }
+{% endschema %}

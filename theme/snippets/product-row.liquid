@@ -1,0 +1,35 @@
+{%- liquid
+  assign stock = 0
+  assign tracked = false
+  for v in product.variants
+    if v.inventory_management
+      assign tracked = true
+      assign stock = stock | plus: v.inventory_quantity
+    endif
+  endfor
+-%}
+<li class="row{% unless product.available %} is-out{% endunless %}">
+  <a class="thumb" href="{{ product.url }}" tabindex="-1" aria-hidden="true">
+    {%- if product.featured_image -%}
+      {{ product.featured_image | image_url: width: 140 | image_tag: loading: 'lazy', alt: '', width: 48, height: 66 }}
+    {%- endif -%}
+  </a>
+  <div class="ttl"><b><a href="{{ product.url }}">{{ product.title }}</a></b></div>
+  <div class="cat">{{ product.type }}</div>
+  <div class="fmt">
+    {%- if product.available == false -%}Sold out
+    {%- elsif tracked and stock <= 3 -%}Last {{ stock }} in stock
+    {%- elsif tracked -%}{{ stock }} in stock
+    {%- endif -%}
+  </div>
+  <div class="price">{% if product.price_varies %}from {% endif %}{{ product.price | money }}</div>
+  {%- if product.available -%}
+    {%- if product.variants.size == 1 -%}
+      <button class="add" type="button" data-add data-variant="{{ product.variants.first.id }}">Add</button>
+    {%- else -%}
+      <a class="add" href="{{ product.url }}">Choose</a>
+    {%- endif -%}
+  {%- else -%}
+    <a class="add is-disabled" href="{{ product.url }}">View</a>
+  {%- endif -%}
+</li>

@@ -1,0 +1,72 @@
+{%- liquid
+  assign shelf = section.settings.shelf_collection
+  if shelf == blank
+    assign shelf = collections['all-books']
+  endif
+  assign palette = '#7A2E2A,#1F3B34,#B07A1E,#2B3A55,#4A2F4F,#33403A,#8A4B2A,#1E2F6B' | split: ','
+-%}
+<section class="hero">
+  {%- if section.settings.kicker != blank -%}<p class="kicker">{{ section.settings.kicker }}</p>{%- endif -%}
+  <h1>{{ section.settings.headline | escape | newline_to_br }}</h1>
+  {%- if section.settings.lead != blank -%}<p class="lead">{{ section.settings.lead }}</p>{%- endif -%}
+  <p class="hero-links">
+    {%- if section.settings.primary_label != blank -%}<a class="btn" href="{{ section.settings.primary_link | default: '#catalogue' }}">{{ section.settings.primary_label }}</a>{%- endif -%}
+    {%- if section.settings.secondary_label != blank -%}<a class="link" href="{{ section.settings.secondary_link | default: '#collections' }}">{{ section.settings.secondary_label }}</a>{%- endif -%}
+  </p>
+</section>
+
+<section class="shelf-wrap" aria-label="Featured books">
+  {%- comment -%} Plain links shown until the 3D scene loads, and kept if WebGL is unavailable. {%- endcomment -%}
+  <div class="shelf" id="shelf">
+    {%- assign shown = 0 -%}
+    {%- for product in shelf.products -%}
+      {%- if product.available and shown < section.settings.shelf_count -%}
+        {%- assign shown = shown | plus: 1 -%}
+        {%- assign len = product.title.size -%}
+        {%- assign ci = forloop.index0 | modulo: 8 -%}
+        <a class="spine" href="{{ product.url }}" title="{{ product.title | escape }}" style="background:{{ palette[ci] }};width:{{ len | modulo: 5 | times: 7 | plus: 34 }}px;height:{{ len | modulo: 6 | times: 22 | plus: 190 }}px">{{ product.title | split: ' (' | first | split: ' by ' | first | truncate: 34 }}</a>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+  <div class="board" id="board"></div>
+  <div class="stage" id="stage" hidden>
+    <canvas id="gl" role="img" aria-label="3D shelf of books. Move the pointer to look around. Hover a book to see its cover. Click to open it."></canvas>
+    <div class="tip" id="tip" hidden></div>
+  </div>
+</section>
+
+<script>
+  window.SHELF = [];
+  {%- assign shown = 0 -%}
+  {%- for product in shelf.products -%}
+    {%- if product.available and shown < section.settings.shelf_count -%}
+      {%- assign shown = shown | plus: 1 -%}
+      window.SHELF.push({
+        t: {{ product.title | json }},
+        u: {{ product.url | json }},
+        p: {{ product.price | money | strip_html | json }},
+        img: {% if product.featured_image %}{{ product.featured_image | image_url: width: 600 | json }}{% else %}""{% endif %}
+      });
+    {%- endif -%}
+  {%- endfor -%}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<script src="{{ 'shelf3d.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Hero with 3D shelf",
+  "settings": [
+    { "type": "text", "id": "kicker", "label": "Small label", "default": "Islamic books, thobes, shemaghs and kufis" },
+    { "type": "textarea", "id": "headline", "label": "Headline", "info": "Use a new line to break the headline.", "default": "Read slowly.\nUnderstand properly." },
+    { "type": "textarea", "id": "lead", "label": "Intro text", "default": "Books on creed, hadith, fiqh and tafsir, and traditional clothing, from a United States shop." },
+    { "type": "text", "id": "primary_label", "label": "Main button label", "default": "See what is in stock" },
+    { "type": "url", "id": "primary_link", "label": "Main button link" },
+    { "type": "text", "id": "secondary_label", "label": "Second link label", "default": "Browse collections" },
+    { "type": "url", "id": "secondary_link", "label": "Second link" },
+    { "type": "collection", "id": "shelf_collection", "label": "Collection shown on the shelf", "info": "Leave empty to use the All Books collection. Only products in stock are shown." },
+    { "type": "range", "id": "shelf_count", "label": "Books on the shelf", "min": 6, "max": 14, "step": 1, "default": 11 }
+  ],
+  "presets": [{ "name": "Hero with 3D shelf" }]
+}
+{% endschema %}

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dar al-Athari</title>
+<meta name="description" content="Islamic books and structured classes. Demo redesign with placeholder catalogue.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Young+Serif&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="strip"><span id="dates">&nbsp;</span><span>Prices and stock as of 7 Oct 2026</span></div>
+
+<header class="nav">
+  <a class="brand" href="#top">Dar al-Athari <span lang="ar" dir="rtl">دار الأثري</span></a>
+  <nav id="links" aria-label="Main"><a href="#catalogue">Books and clothing</a><a href="#collections">Collections</a><a href="https://daralathari.com" target="_blank" rel="noopener">Visit the store</a></nav>
+  <div class="tools-r">
+    <button class="txt" id="theme" type="button">Theme</button>
+    <button class="txt" id="cartOpen" type="button">Cart (<span id="cartCount">0</span>)</button>
+    <button class="txt burger" id="burger" type="button" aria-label="Menu">Menu</button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <p class="kicker">Islamic books, thobes, shemaghs and kufis</p>
+    <h1>Read slowly.<br>Understand properly.</h1>
+    <p class="lead">Books on creed, hadith, fiqh and tafsir, and traditional clothing, from a United States shop with more than 200 products listed.</p>
+    <p class="hero-links"><a class="btn" href="#catalogue">See what is in stock</a><a class="link" href="#collections">Browse collections</a></p>
+  </section>
+
+  <section class="shelf-wrap" aria-label="Shelf of featured books">
+    <div class="shelf" id="shelf"></div>
+    <div class="board" id="board"></div>
+    <div class="stage" id="stage" hidden><canvas id="gl" aria-label="3D shelf of books. Move the pointer to look around, click a book to find it in the catalogue." role="img"></canvas><div class="tip" id="tip" hidden></div></div>
+  </section>
+
+  <section id="catalogue" class="sec">
+    <div class="sec-h">
+      <h2>In stock now</h2>
+      <p>A selection of the 217 active products. Titles and prices come from your store.</p>
+    </div>
+    <div class="filters">
+      <div class="tabs" id="tabs" role="tablist" aria-label="Category"></div>
+      <label class="srch"><span class="sr">Search</span><input id="search" type="search" placeholder="Search title"></label>
+      <label class="srt"><span class="sr">Sort</span><select id="sort"><option value="">Store order</option><option value="asc">Price, low first</option><option value="desc">Price, high first</option></select></label>
+    </div>
+    <ol class="ledger" id="ledger"></ol>
+    <p id="empty" class="empty" hidden>Nothing matches that search.</p>
+  </section>
+
+  <section id="collections" class="sec">
+    <div class="sec-h"><h2>Collections</h2><p>Each one opens on daralathari.com.</p></div>
+    <table class="tt"><thead><tr><th>Collection</th><th>Size</th><th></th></tr></thead><tbody id="collections-body"></tbody></table>
+  </section>
+
+  <section class="sec visit">
+    <h2>The full store has 217 active products.</h2>
+    <p class="muted">This page is a demo of a new look. Ordering happens on your existing Shopify store.</p>
+    <p><a class="btn" href="https://daralathari.com" target="_blank" rel="noopener">Open daralathari.com</a></p>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>Dar al-Athari</span>
+  <span>Demo redesign using a snapshot of store data</span>
+  <span id="yr"></span>
+</footer>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" aria-label="Cart" aria-hidden="true">
+  <div class="drawer-h"><h3>Cart</h3><button class="txt" id="cartClose" type="button">Close</button></div>
+  <ul id="cartList"></ul>
+  <div class="drawer-f"><div class="total"><span>Total</span><b id="cartTotal">$0.00</b></div><a class="btn full" id="checkout" href="https://daralathari.com" target="_blank" rel="noopener">Visit daralathari.com</a></div>
+</aside>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
