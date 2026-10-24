@@ -1,0 +1,10 @@
+node_modules/
+**/film.html
+**/assets
+!/assets
+**/_*
+**/chk.jpg
+**/sheet.jpg
+**/sfx.wav
+*.log
+package-lock.json

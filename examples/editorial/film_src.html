@@ -1,0 +1,114 @@
+<!--FONTS Bricolage Grotesque:bricolage-grotesque:latin:700,800:normal; Instrument Serif:instrument-serif:latin:400:italic -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Dar Al Athari: Editorial</title>
+<style>
+/*FONTS*/
+:root{--cream:#f2ece0;--ink:#16130f;--blue:#2337d6;--mut:#7b746a;--g:'Bricolage Grotesque','Helvetica Neue',sans-serif;--s:'Instrument Serif',Georgia,serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;background:var(--cream);color:var(--ink);font-family:var(--g)}
+.sc{position:absolute;inset:0;display:none;overflow:hidden}
+.m{position:absolute;overflow:hidden;white-space:nowrap;margin:0;padding-bottom:.08em}
+.m>span{display:inline-block;will-change:transform}
+.gk{font-weight:800;letter-spacing:-.045em;line-height:.95}
+.sf{font-family:var(--s);font-style:italic;font-weight:400;letter-spacing:-.01em}
+.blue{color:var(--blue)}
+.lab{position:absolute;font-weight:700;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--mut)}
+.card{position:absolute;overflow:hidden;border-radius:16px;background:#ddd5c6;box-shadow:0 18px 40px rgba(40,30,15,.18)}
+.card .im{position:absolute;inset:0;background-size:cover;background-position:center}
+.card .cap{position:absolute;left:0;right:0;bottom:0;padding:34px 14px 12px;background:linear-gradient(rgba(10,8,6,0),rgba(10,8,6,.78));color:#f6f1e7}
+.card .cap b{display:block;font-weight:800;font-size:17px;letter-spacing:-.02em}
+.card .cap small{font-weight:700;font-size:10px;letter-spacing:.2em;opacity:.8}
+#src{font-size:132px;font-weight:800;letter-spacing:-.05em;line-height:1;background-size:700px auto;-webkit-background-clip:text;background-clip:text;color:transparent}
+.band{position:absolute;left:-200px;white-space:nowrap;font-weight:800;letter-spacing:-.04em;line-height:1}
+.out{color:transparent;-webkit-text-stroke:1.6px var(--cream)}
+#wipe{position:absolute;left:0;width:540px;height:960px;background:var(--blue);z-index:40;pointer-events:none}
+.btn{display:inline-block;background:var(--blue);color:var(--cream);font-weight:800;font-size:22px;letter-spacing:-.02em;padding:15px 34px;border-radius:40px;box-shadow:0 14px 30px rgba(35,55,214,.3)}
+#grain{position:absolute;inset:0;opacity:.12;mix-blend-mode:multiply;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px;z-index:50}
+</style></head><body>
+<div id="stage">
+
+ <div class="sc" id="s1">
+  <p class="lab" style="left:38px;top:104px">Dar Al Athari — Islamic Bookstore</p>
+  <p class="m gk" data-m="0.15" style="left:34px;top:140px;font-size:96px"><span>Books</span></p>
+  <p class="m gk" data-m="0.3" style="left:34px;top:232px;font-size:96px"><span>that</span></p>
+  <p class="m sf blue" data-m="0.45" style="left:30px;top:316px;font-size:116px"><span>outlast</span></p>
+  <p class="m gk" data-m="0.6" style="left:34px;top:428px;font-size:96px"><span>trends.</span></p>
+  <div class="card" id="c1" style="left:262px;top:548px;width:206px;height:220px"><div class="im" style="background-image:url(assets/k_tw_front.jpg);background-position:50% 35%"></div></div>
+  <svg id="badge" width="150" height="150" viewBox="0 0 150 150" style="position:absolute;left:60px;top:590px">
+   <defs><path id="circ" d="M75,75 m-56,0 a56,56 0 1,1 112,0 a56,56 0 1,1 -112,0"/></defs>
+   <circle cx="75" cy="75" r="72" fill="#2337d6"/>
+   <text font-family="Bricolage Grotesque" font-weight="800" font-size="12.5" letter-spacing="2.1" fill="#f2ece0"><textPath href="#circ">ARABIC · ENGLISH · ARABIC · ENGLISH ·</textPath></text>
+   <circle cx="75" cy="75" r="20" fill="#f2ece0"/>
+  </svg>
+ </div>
+
+ <div class="sc" id="s2">
+  <p class="lab" style="left:38px;top:104px">02 — Our approach</p>
+  <p class="m gk" data-m="3.95" style="left:34px;top:250px;font-size:64px"><span>Read the</span></p>
+  <p class="m" data-m="4.15" style="left:22px;top:318px"><span id="src">source.</span></p>
+  <p class="m sf" data-m="4.7" style="left:36px;top:470px;font-size:46px"><span>not the <span class="blue">summary.</span></span></p>
+  <div style="position:absolute;left:36px;top:560px;width:0;height:2px;background:var(--ink)" id="rule2"></div>
+  <p class="lab" id="l2" style="left:38px;top:580px;opacity:0;width:440px;line-height:1.7">Classical works of the Salaf, as their authors wrote them.</p>
+ </div>
+
+ <div class="sc" id="s3">
+  <p class="m gk" data-m="7.35" style="left:34px;top:100px;font-size:62px"><span>Start <span class="sf blue" style="font-size:1.15em">here.</span></span></p>
+  <div id="grid"></div>
+ </div>
+
+ <div class="sc" id="s4" style="background:var(--blue);color:var(--cream)">
+  <div id="bands" style="position:absolute;left:-60px;top:120px;width:700px;height:760px;transform:rotate(-9deg)"></div>
+ </div>
+
+ <div class="sc" id="s5">
+  <img src="assets/logo_dark.png" id="lg" style="position:absolute;left:200px;top:120px;width:140px;height:140px;mix-blend-mode:multiply" alt="Dar Al Athari">
+  <p class="m sf blue" data-m="14.75" style="left:0;width:540px;text-align:center;top:300px;font-size:52px"><span>Your library</span></p>
+  <p class="m gk" data-m="14.9" style="left:0;width:540px;text-align:center;top:360px;font-size:62px"><span>starts here.</span></p>
+  <div style="position:absolute;left:0;width:540px;top:478px;text-align:center" id="btnw"><span class="btn" id="btn">Shop daralathari.com</span></div>
+  <p class="lab" id="tags" style="left:0;width:540px;text-align:center;top:570px;opacity:0">Books · Thobes · Shemaghs · Kufis</p>
+ </div>
+
+ <div id="wipe"></div><div id="grain"></div>
+</div>
+<script>
+var $=function(i){return document.getElementById(i)};
+function cl(x){return x<0?0:x>1?1:x} function sm(x){x=cl(x);return x*x*(3-2*x)} function oc(x){x=cl(x);return 1-Math.pow(1-x,3)}
+function io(x){x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2} function lerp(a,b,p){return a+(b-a)*p}
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+function ob(x){x=cl(x);var c=1.6;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)}
+var T=19;
+var SC=[['s1',0,3.6],['s2',3.6,7.0],['s3',7.0,10.6],['s4',10.6,14.0],['s5',14.0,99]];
+var MASK=[];document.querySelectorAll('[data-m]').forEach(function(e){MASK.push({w:e.firstElementChild,s:+e.dataset.m})});
+// bento grid
+var G=[['k_tw_front','01 — Aqeedah','Kitab at-Tawhid',36,196],['k_en_front','02 — Knowledge','The Book of Knowledge',282,196],['e_front','03 — Tazkiyah','The Disease and the Cure',36,486],['k_ar_front','04 — Arabic','Kitab al-\'Ilm',282,486]];
+var GC=G.map(function(g,i){var d=document.createElement('div');d.className='card';d.style.cssText='left:'+g[3]+'px;top:'+g[4]+'px;width:222px;height:276px';
+  d.innerHTML='<div class="im" style="background-image:url(assets/'+g[0]+'.jpg)"></div><div class="cap"><small>'+g[1]+'</small><b>'+g[2]+'</b></div>';$('grid').appendChild(d);return d});
+// marquee bands
+var BD=[['ARABIC / ENGLISH / ARABIC / ENGLISH / ',88,0,1],['AQEEDAH / KNOWLEDGE / TAZKIYAH / ',70,1,-1],['THOBES / SHEMAGHS / KUFIS / ',88,0,1],['SHIPPED FROM NEW JERSEY / ',62,1,-1],['DAR AL ATHARI / DAR AL ATHARI / ',88,0,1]];
+var BE=BD.map(function(b,i){var d=document.createElement('div');d.className='band'+(b[2]?' out':'');d.style.fontSize=b[1]+'px';d.style.top=(i*150)+'px';d.textContent=b[0]+b[0]+b[0];$('bands').appendChild(d);return d});
+window.__seek=function(t){
+  SC.forEach(function(s){$(s[0]).style.display=(t>=s[1]&&t<s[2])?'block':'none'});
+  // blue wipe sweeps up across each cut
+  var wy=960;[3.6,7.0,10.6,14.0].forEach(function(c){var a=(t-(c-.32))/.64;if(a>0&&a<1)wy=lerp(960,-960,io(a))});$('wipe').style.top=wy+'px';
+  MASK.forEach(function(m){var q=eo((t-m.s)/.7);m.w.style.transform='translateY('+((1-q)*110)+'%)'});
+  // 1
+  var c1=io((t-.7)/.7);$('c1').style.clipPath='inset('+((1-c1)*100)+'% 0 0 0 round 16px)';$('c1').firstChild.style.transform='scale('+(1.25-.15*c1+t*.01)+')';
+  var bq=ob((t-1.0)/.6);$('badge').style.transform='scale('+(t<1?0:Math.max(0,bq))+') rotate('+(t*40)+'deg)';
+  // 2: the image moves inside the letters
+  var s2=$('src');s2.style.backgroundImage='url(assets/a_front.jpg)';s2.style.backgroundPosition=(-40-(t-3.6)*18)+'px '+(-330+(t-3.6)*16)+'px';
+  s2.style.backgroundColor='transparent';
+  $('rule2').style.width=(io((t-5.0)/.8)*468)+'px';$('l2').style.opacity=sm((t-5.4)/.5);
+  // 3: cards reveal one by one
+  GC.forEach(function(d,i){var q=io((t-7.7-i*.22)/.6);d.style.clipPath='inset('+((1-q)*100)+'% 0 0 0 round 16px)';d.firstChild.style.transform='scale('+(1.3-.25*q+(t-7)*.012)+')';
+    d.lastChild.style.opacity=sm((t-8.1-i*.22)/.4);d.lastChild.style.transform='translateY('+((1-oc((t-8.1-i*.22)/.5))*14)+'px)'});
+  // 4: marquee
+  BE.forEach(function(b,i){var dir=BD[i][3],sp=110+i*18;b.style.transform='translateX('+(dir>0?-(t-10.6)*sp:-900+(t-10.6)*sp)+'px)';
+    b.style.opacity=sm((t-10.75-i*.08)/.3)});
+  // 5
+  var lq=ob((t-14.4)/.7);$('lg').style.transform='scale('+(t<14.4?0:Math.max(0,lq))+')';
+  var bt=ob((t-15.3)/.55);$('btnw').style.opacity=cl((t-15.3)/.2);$('btnw').style.transform='scale('+(t<15.3?0:Math.max(.3,bt))+')';
+  var pu=t>16?((t-16)%1.6)/1.6:-1;$('btn').style.transform=pu>=0?'scale('+(1+.045*Math.sin(Math.min(1,pu/.3)*Math.PI))+')':'none';
+  $('tags').style.opacity=sm((t-15.8)/.5);
+  $('stage').style.opacity=sm(t/.15)*(1-sm((t-(T-.3))/.3));
+};
+window.__seek(0);
+</script></body></html>

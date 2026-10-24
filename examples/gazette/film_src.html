@@ -1,0 +1,117 @@
+<!--FONTS UnifrakturMaguntia:unifrakturmaguntia:latin:400:normal; Abril Fatface:abril-fatface:latin:400:normal; Old Standard TT:old-standard-tt:latin:400,700:normal; Old Standard TT:old-standard-tt:latin:400:italic -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>The Athari Gazette</title>
+<style>
+/*FONTS*/
+:root{--paper:#efe8d8;--ink:#1b1916;--red:#c8281e;--frak:'UnifrakturMaguntia',serif;--abr:'Abril Fatface',Georgia,serif;--old:'Old Standard TT',Georgia,serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;background:radial-gradient(80% 60% at 50% 45%,#3a3530,#1d1a17 70%,#0e0c0b);font-family:var(--old);color:var(--ink)}
+.paper{position:absolute;left:0;top:0;width:540px;background:var(--paper);box-shadow:0 30px 80px rgba(0,0,0,.6);transform-origin:270px 480px;overflow:hidden}
+.paper:before{content:'';position:absolute;inset:0;background:url(assets/grain.png);background-size:160px;opacity:.18;mix-blend-mode:multiply;pointer-events:none}
+.mast{font-family:var(--frak);text-align:center;margin:0}
+.rule{height:0;border-top:2px solid var(--ink);margin:0 22px}
+.rule.thin{border-top-width:1px}
+.dl{display:flex;justify-content:space-between;font-family:var(--old);font-weight:700;font-size:10.5px;letter-spacing:.14em;margin:5px 24px;text-transform:uppercase}
+.hd{font-family:var(--abr);text-align:center;margin:0;line-height:.98;letter-spacing:.005em}
+.sub{font-style:italic;text-align:center;margin:0 34px;font-size:17px;line-height:1.35}
+.ht{position:relative;overflow:hidden;background:#ddd}
+.ht .im{position:absolute;inset:0;background-size:cover;background-position:center;filter:grayscale(1) contrast(1.35) brightness(1.05)}
+.ht .dots{position:absolute;inset:0;background:radial-gradient(circle,rgba(27,25,22,.55) 1.1px,rgba(0,0,0,0) 1.6px);background-size:4px 4px;mix-blend-mode:multiply}
+.ht .wash{position:absolute;inset:0;background:var(--paper);mix-blend-mode:multiply;opacity:.35}
+.cap{font-style:italic;font-size:11.5px;margin-top:5px;line-height:1.3}
+.body{font-size:13.2px;line-height:1.45;text-align:justify;hyphens:auto}
+.body:first-letter{font-family:var(--abr);font-size:42px;float:left;line-height:.9;margin:2px 6px 0 0}
+.col h4{font-family:var(--abr);font-weight:400;font-size:16px;letter-spacing:.06em;margin:6px 0 2px}
+.col p{font-size:12.4px;line-height:1.4;margin:4px 0 0}
+.kick{font-family:var(--old);font-weight:700;font-size:11px;letter-spacing:.24em;text-align:center;text-transform:uppercase;margin:0}
+.box{border:3px double var(--ink);padding:12px 14px;text-align:center}
+.box b{font-family:var(--abr);font-weight:400;font-size:30px;letter-spacing:.04em;display:block}
+.pill{display:inline-block;padding:14px 32px;border-radius:40px;background:var(--red);color:#fff6ea;font-family:var(--old);font-weight:700;font-size:20px;letter-spacing:.02em}
+#endc{position:absolute;inset:0;background:var(--paper);display:none}
+#endc:before{content:'';position:absolute;inset:0;background:url(assets/grain.png);background-size:160px;opacity:.18;mix-blend-mode:multiply}
+</style></head><body>
+<div id="stage">
+ <div class="paper" id="p1" style="height:1560px">
+  <div style="height:22px"></div>
+  <p class="mast" style="font-size:56px">The Athari Gazette</p>
+  <div class="rule" style="margin-top:6px"></div><div class="dl"><span>Vol. I</span><span>New Jersey Edition</span><span>daralathari.com</span></div><div class="rule thin"></div>
+  <p class="kick" style="margin-top:16px">Special Report</p>
+  <p class="hd" style="font-size:60px;margin-top:6px">CLASSICAL WORKS</p>
+  <p class="hd" style="font-size:60px">NOW IN STOCK</p>
+  <p class="sub" style="margin-top:10px">Arabic originals and English translations of the works of the Salaf, at Dar Al Athari.</p>
+  <div class="rule thin" style="margin-top:14px"></div>
+  <div style="display:flex;gap:16px;margin:14px 22px 0">
+   <div style="width:230px"><div class="ht" style="height:320px"><div class="im" style="background-image:url(assets/k_tw_front.jpg)"></div><div class="dots"></div><div class="wash"></div></div><div class="cap">Kitab at-Tawhid, by Shaykh Muhammad ibn Abd al-Wahhab.</div></div>
+   <div style="flex:1"><p class="body" style="margin:0">Students of knowledge looking for where to begin need look no further. Dar Al Athari carries the classical works of the Salaf, in the original Arabic and in English translation, chosen for those who want to learn their religion from its sources. From the foundations of aqeedah to the manners of seeking knowledge and the purification of the heart, each title on the shelf has been read by generations of students before you.</p></div>
+  </div>
+  <div class="rule" style="margin-top:22px"></div>
+  <p class="kick" style="margin-top:10px">Also in this edition</p>
+  <div style="display:flex;gap:14px;margin:12px 22px 0">
+   <div class="col" style="flex:1"><div class="ht" style="height:190px"><div class="im" style="background-image:url(assets/k_en_front.jpg)"></div><div class="dots"></div><div class="wash"></div></div><h4>KNOWLEDGE</h4><p>The Book of Knowledge, by Shaykh Ibn Uthaymeen.</p></div>
+   <div class="col" style="flex:1"><div class="ht" style="height:190px"><div class="im" style="background-image:url(assets/e_front.jpg)"></div><div class="dots"></div><div class="wash"></div></div><h4>TAZKIYAH</h4><p>The Disease and the Cure, by Imam Ibn al-Qayyim.</p></div>
+   <div class="col" style="flex:1"><div class="ht" style="height:190px"><div class="im" style="background-image:url(assets/k_ar_front.jpg)"></div><div class="dots"></div><div class="wash"></div></div><h4>ARABIC</h4><p>Kitab al-'Ilm, the original Arabic edition.</p></div>
+  </div>
+  <div class="rule thin" style="margin-top:22px"></div>
+  <div style="position:relative;margin:18px 70px 0" id="cls"><p class="kick" style="margin-bottom:6px">Classifieds</p><div class="box"><b>WANTED</b><span style="font-size:16px">Students of knowledge.</span><br><span style="font-size:13px;font-style:italic">Enquire within: daralathari.com</span></div>
+   <svg id="circ" width="460" height="220" viewBox="0 0 460 220" style="position:absolute;left:-70px;top:-10px;overflow:visible"><path d="M230,18 C370,14 448,60 440,118 C432,180 330,206 220,204 C100,202 18,176 20,112 C22,52 120,22 250,26" fill="none" stroke="#c8281e" stroke-width="5" stroke-linecap="round" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1;opacity:.9"/></svg></div>
+ <div class="rule" style="margin-top:40px"></div><p class="kick" style="margin-top:10px;font-style:italic;letter-spacing:.12em">Continued on page two</p>
+ </div>
+
+ <div class="paper" id="p2" style="height:960px;display:none">
+  <div style="height:22px"></div>
+  <p class="mast" style="font-size:56px">The Athari Gazette</p>
+  <div class="rule" style="margin-top:6px"></div><div class="dl"><span>Vol. I</span><span>Late Edition</span><span>daralathari.com</span></div><div class="rule thin"></div>
+  <p class="hd" id="extra" style="font-size:118px;color:var(--red);margin-top:26px">EXTRA!</p>
+  <p class="hd" style="font-size:58px;margin-top:14px">THOBES,</p>
+  <p class="hd" style="font-size:58px">SHEMAGHS</p>
+  <p class="hd" style="font-size:58px">&amp; KUFIS</p>
+  <p class="kick" style="margin-top:16px">Also available at Dar Al Athari</p>
+  <div class="rule thin" style="margin:20px 22px 0"></div>
+  <p class="sub" style="margin-top:14px">Traditional garments, on the same shelf as the books.</p>
+ </div>
+
+ <div id="endc">
+  <img src="assets/logo_dark.png" id="stamp" alt="Dar Al Athari" style="position:absolute;left:170px;top:130px;width:200px;height:200px;mix-blend-mode:multiply">
+  <p class="kick" id="e0" style="position:absolute;left:0;width:540px;top:356px">Read all about it at</p>
+  <p class="hd" id="e1" style="position:absolute;left:0;width:540px;top:384px;font-size:50px">daralathari.com</p>
+  <div id="pw" style="position:absolute;left:0;width:540px;text-align:center;top:480px"><span class="pill" id="pill">Shop now</span></div>
+  <p class="kick" id="e2" style="position:absolute;left:0;width:540px;top:560px;opacity:.7">Books · Thobes · Shemaghs · Kufis</p>
+ </div>
+</div>
+<script>
+var $=function(i){return document.getElementById(i)};
+function cl(x){return x<0?0:x>1?1:x} function sm(x){x=cl(x);return x*x*(3-2*x)} function oc(x){x=cl(x);return 1-Math.pow(1-x,3)}
+function io(x){x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2} function lerp(a,b,p){return a+(b-a)*p}
+function ob(x){x=cl(x);var c=1.6;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)}
+function keyed(K,t){var a=K[0],b=K[K.length-1];if(t<=a[0])return a.slice(1);if(t>=b[0])return b.slice(1);for(var i=0;i<K.length-1;i++)if(t>=K[i][0]&&t<=K[i+1][0]){a=K[i];b=K[i+1];break}var p=io((t-a[0])/(b[0]-a[0]));return a.slice(1).map(function(v,j){return lerp(v,b[j+1],p)})}
+var T=18;
+// camera on page one: t, scale, y offset (page px at the top of the frame), x offset
+var P1=[[1.6,1,0,0],[3.4,1,0,0],[6.6,1.06,560,0],[7.1,1.06,560,0],[8.6,1.4,700,0],[9.6,1.4,700,0]];
+window.__seek=function(t){
+  var p1=$('p1'),p2=$('p2');
+  // page one spins in like an old newsreel
+  if(t<10.1){p1.style.display='block';
+    var sp=io(t/1.5),k=keyed(P1,t);
+    var rot=lerp(900,-2,sp),sc=lerp(.04,1,sp)*k[0],ty=-k[1];
+    var out=io((t-9.55)/.55);
+    p1.style.transformOrigin='270px '+(480+k[1])+'px';
+    p1.style.transform='translateY('+ty+'px) rotate('+(rot+out*-160)+'deg) scale('+(sc*(1-out*.95))+')';
+    p1.style.opacity=1-sm((t-9.85)/.25);
+  } else p1.style.display='none';
+  // the classified gets circled in red marker
+  $('circ').firstChild.style.strokeDashoffset=1-io((t-8.4)/.9);
+  // page two
+  if(t>9.6&&t<13.9){p2.style.display='block';var s2=io((t-9.6)/1.3),o2=io((t-13.3)/.6);
+    p2.style.transform='rotate('+(lerp(-720,3,s2)+o2*25)+'deg) scale('+(lerp(.04,1,s2)*(1+o2*.2))+') translateY('+(o2*900)+'px)';
+    var ex=ob((t-10.9)/.4);$('extra').style.transform='scale('+(t<10.9?1.6:Math.max(.6,ex))+') rotate(-3deg)';$('extra').style.opacity=cl((t-10.9)/.1);
+  } else p2.style.display='none';
+  // end card on newsprint
+  var e=$('endc');e.style.display=t>13.5?'block':'none';e.style.opacity=sm((t-13.5)/.4);
+  var st=t-14.0,stq=st<0?0:(st<.18?lerp(2.4,.92,st/.18):(st<.35?lerp(.92,1,(st-.18)/.17):1));
+  $('stamp').style.transform='scale('+stq+') rotate(-7deg)';$('stamp').style.opacity=st<0?0:1;
+  [['e0',14.35],['e1',14.5],['e2',15.3]].forEach(function(x){var q=oc((t-x[1])/.5);$(x[0]).style.opacity=q*(x[0]==='e2'?.7:1);$(x[0]).style.transform='translateY('+((1-q)*14)+'px)'});
+  var pq=ob((t-14.9)/.5);$('pw').style.opacity=cl((t-14.9)/.2);$('pw').style.transform='scale('+(t<14.9?0:Math.max(.3,pq))+')';
+  var pu=t>15.7?((t-15.7)%1.6)/1.6:-1;$('pill').style.transform=pu>=0?'scale('+(1+.045*Math.sin(Math.min(1,pu/.3)*Math.PI))+')':'none';
+  $('stage').style.opacity=sm(t/.12)*(1-sm((t-(T-.3))/.3));
+};
+window.__seek(0);
+</script></body></html>

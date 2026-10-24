@@ -1,0 +1,122 @@
+<!--FONTS Big Shoulders Display:big-shoulders-display:latin:500,700,900:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>From Our Shelves</title>
+<style>
+/*FONTS*/
+:root{--stone:#CFD1CD;--stone2:#BFC2BE;--ink:#16181B;--ox:#6E1F24;--ox2:#8A2A30;--ivory:#F1EADB;--mute:#5C605F;--f:'Big Shoulders Display',sans-serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--ink);font-family:var(--f);
+  background:radial-gradient(120% 70% at 45% 38%,#DADCD8 0%,var(--stone) 55%,var(--stone2) 100%)}
+.st3d{position:absolute;inset:0;perspective:1200px;perspective-origin:270px 480px;overflow:hidden}
+.cam{position:absolute;left:270px;top:480px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#efe6d2 0 4.5px,#d3c6aa 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#efe6d2 0 4.5px,#d3c6aa 4.5px 7.5px)}
+.shd{transform-style:flat !important;background:radial-gradient(50% 50% at 50% 50%,rgba(20,22,24,.55),rgba(20,22,24,0) 100%)}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.04em}
+.m>span{display:block;will-change:transform}
+.hd{font-weight:900;text-transform:uppercase;line-height:.86;letter-spacing:-.005em}
+.sm{font-weight:500;font-size:25px;letter-spacing:.01em;color:var(--mute);line-height:1.25}
+#cat .m{left:40px}
+#lg{position:absolute;left:205px;top:150px;width:130px;height:130px;mix-blend-mode:multiply;opacity:0}
+.btn{display:inline-flex;align-items:center;gap:18px;background:var(--ox);color:var(--ivory);font-weight:700;font-size:30px;letter-spacing:.02em;
+  border-radius:60px;padding:10px 10px 10px 34px;box-shadow:0 24px 50px -18px rgba(70,15,20,.55),inset 0 1px 0 rgba(255,255,255,.14)}
+.btn i{display:flex;width:52px;height:52px;border-radius:50%;background:var(--ox2);align-items:center;justify-content:center;box-shadow:inset 0 1px 0 rgba(255,255,255,.18)}
+#grain{position:absolute;inset:0;opacity:.07;mix-blend-mode:multiply;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+#fade{position:absolute;inset:0;background:var(--stone);opacity:0;pointer-events:none}
+</style></head><body>
+<div id="stage">
+ <div class="st3d"><div class="cam" id="cam"></div></div>
+
+ <!-- 1: title -->
+ <div id="t1">
+  <p class="m hd" style="left:36px;top:180px;font-size:112px"><span data-a="0.15">From our</span></p>
+  <p class="m hd" style="left:36px;top:278px;font-size:112px"><span data-a="0.3">shelves</span></p>
+  <p class="m sm" style="left:40px;top:396px"><span data-a="0.75">Classical works at Dar Al Athari.</span></p>
+ </div>
+
+ <div id="t2">
+  <p class="m hd" style="left:40px;top:132px;font-size:76px"><span data-a="3.95">Eight titles.</span></p>
+  <p class="m hd" style="left:40px;top:200px;font-size:76px;color:var(--ox)"><span data-a="4.1">Nine volumes.</span></p>
+ </div>
+ <!-- 2: shelf sections -->
+ <div id="cat"></div>
+
+ <!-- 3: feature -->
+ <div id="t3">
+  <p class="m hd" style="left:40px;top:104px;font-size:76px"><span data-a="10.85">Tafsir as-Sa'di</span></p>
+  <p class="m sm" style="left:42px;top:186px"><span data-a="11.15">Shaykh Abd ar-Rahman as-Sa'di. Complete in one volume.</span></p>
+ </div>
+
+ <div id="fade"></div>
+ <!-- 4: end -->
+ <div id="t4">
+  <img id="lg" src="assets/logo_dark.png" alt="Dar Al Athari">
+  <p class="m hd" style="left:0;width:540px;text-align:center;top:322px;font-size:72px"><span data-a="14.55">daralathari.com</span></p>
+  <p class="m sm" style="left:0;width:540px;text-align:center;top:410px"><span data-a="14.8">Arabic and English. Shipped from New Jersey.</span></p>
+  <div id="btnw" style="position:absolute;left:0;width:540px;top:500px;text-align:center;opacity:0"><span class="btn" id="btn">Shop the collection<i><svg width="22" height="22" viewBox="0 0 22 22"><path d="M5 17L17 5M8 5h9v9" fill="none" stroke="#F1EADB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span></div>
+ </div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.45,-.55,.7],.42,.75);
+var cam=$('cam'),S=1.9,FLOOR=285,GAP=6;
+// shelf order and sections
+var ORDER=['sth','ks','ft','bi','pi','ts','fq1','fq2','fw'];
+var SECT=[{name:'Creed',n:'Five titles',keys:['sth','ks','ft','bi','pi']},{name:'Tafsir',n:'One volume',keys:['ts']},{name:'Fiqh',n:'Two volumes',keys:['fq1','fq2']},{name:'Tazkiyah',n:'Ibn al-Qayyim',keys:['fw']}];
+var B={},tot=0;ORDER.forEach(function(k){tot+=SPEC[k].D*S+GAP});tot-=GAP;
+var xx=-tot/2;
+ORDER.forEach(function(k,i){var b=makeBook(cam,k);b.i=i;b.x=xx+b.D*S/2;xx+=b.D*S+GAP;
+  b.sh=el('shd','left:'+(-(b.D*S+70)/2)+'px;top:'+(-(b.W*S)/2)+'px;width:'+(b.D*S+70)+'px;height:'+(b.W*S)+'px',cam);B[k]=b});
+// big floor shadow
+var fl=el('shd','left:-420px;top:-260px;width:840px;height:520px;opacity:.35',cam);
+// section labels
+SECT.forEach(function(s,i){var g=el('','',$('cat'));g.id='sec'+i;
+  g.innerHTML='<p class="m hd" style="top:104px;font-size:104px"><span>'+s.name+'</span></p><p class="m sm" style="top:198px"><span>'+s.n+'</span></p>';
+  s.cx=0;s.keys.forEach(function(k){s.cx+=B[k].x});s.cx/=s.keys.length;s.el=g});
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a})});
+// camera: t, x, y, z, rx, ry
+var C0=[0,-60,-330,0,0];
+var CK=[[0,0,-60,-620,0,0],[5.0,0,-60,-620,0,0],
+  [5.9,SECT[0].cx-40,-210,250,-3,-17],[7.5,SECT[0].cx+60,-210,250,-3,-17],
+  [8.2,SECT[1].cx,-210,250,-3,-17],[8.9,SECT[2].cx,-210,250,-3,-17],[9.7,SECT[3].cx,-210,250,-3,-17],[10.1,SECT[3].cx,-210,250,-3,-17],
+  [11.0,B.ts.x,-110,-300,0,0],[13.3,B.ts.x,-110,-240,0,0],[14.1,B.ts.x,-260,-500,10,0],[99,B.ts.x,-260,-500,10,0]];
+var SECT_T=[[5.75,7.65],[7.95,8.65],[8.65,9.45],[9.45,10.15]];
+window.__seek=function(t){
+  var c=keyed(CK,t);
+  cam.style.transform='translateZ('+c[2]+'px) rotateX('+c[3]+'deg) rotateY('+c[4]+'deg) translate3d('+(-c[0])+'px,'+(-c[1])+'px,0)';
+  // books drop onto the shelf one by one
+  ORDER.forEach(function(k){var b=B[k],t0=2.75+b.i*.17,q=cl((t-t0)/.55),y0=FLOOR-b.H*S/2;
+    var fall=q<1?(1-q*q)*-340:0, bounce=q>=1?-Math.abs(Math.sin((t-t0-.55)*14))*Math.exp(-(t-t0-.55)*9)*18:0;
+    var p={x:b.x,y:y0+fall+bounce,z:0,ry:b.dir*90,rx:0,rz:0,s:S,g:1};
+    if(k==='ts'){var o=io((t-10.15)/.9),r=io((t-10.5)/.9),back=io((t-13.3)/.7);
+      p.z=lerp(0,lerp(260,0,back),o);p.ry=lerp(b.dir*90,lerp(-6,b.dir*90,back),r);p.y=y0+fall+bounce-lerp(0,30,o*(1-back))}
+    else {var dim=sm((t-10.2)/.6)*(1-sm((t-13.3)/.6));p.g=1-dim*.35;p.blur=dim*2.2}
+    p.op=cl((t-t0)/.25);if(t<t0-.02){p.hide=true}
+    pose(b,p);
+    b.sh.style.transform='translate3d('+b.x+'px,'+FLOOR+'px,'+p.z+'px) rotateX(90deg)';b.sh.style.opacity=t<t0?0:(.25+.75*cl(q))*.75;
+  });
+  fl.style.transform='translate3d(0px,'+(FLOOR+1)+'px,0px) rotateX(90deg)';fl.style.opacity=.35*sm((t-2.8)/1.2);
+  // text masks
+  MASK.forEach(function(m){var q=eo((t-m.s)/.75);m.e.style.transform='translateY('+((1-q)*105)+'%)'});
+  // title exits upward
+  var ex=io((t-2.55)/.6);$('t1').style.transform='translateY('+(-ex*140)+'px)';$('t1').style.opacity=1-sm((t-2.6)/.45);
+  // section labels
+  SECT.forEach(function(s,i){var a=SECT_T[i][0],b2=SECT_T[i][1],sp=s.el.querySelectorAll('span');
+    s.el.style.display=(t>a-.05&&t<b2+.5)?'block':'none';
+    sp.forEach(function(e,j){var q=eo((t-a-j*.12)/.6),o=io((t-b2)/.35);e.style.transform='translateY('+((1-q)*105-o*105)+'%)'})});
+  var x2=io((t-5.25)/.45);$('t2').style.transform='translateY('+(-x2*60)+'px)';$('t2').style.opacity=1-x2;
+  $('t3').style.opacity=1-sm((t-13.1)/.4);
+  // end card
+  $('fade').style.opacity=sm((t-13.7)/.6);
+  var lq=ob((t-14.25)/.7);$('lg').style.opacity=cl((t-14.25)/.25);$('lg').style.transform='scale('+(t<14.25?.6:Math.max(.6,lq))+')';
+  var bq=ob((t-15.2)/.6);$('btnw').style.opacity=cl((t-15.2)/.2);$('btnw').style.transform='translateY('+((1-oc((t-15.2)/.6))*30)+'px) scale('+(t<15.2?.8:Math.max(.8,bq))+')';
+  var pu=t>16.1?((t-16.1)%1.5)/1.5:-1;$('btn').style.transform=pu>=0?'scale('+(1+.04*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+  $('btn').lastChild.style.transform=pu>=0?'translate('+(Math.sin(Math.min(1,pu/.35)*Math.PI)*3)+'px,'+(-Math.sin(Math.min(1,pu/.35)*Math.PI)*3)+'px)':'none';
+  $('stage').style.opacity=sm(t/.2);
+};
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+window.__seek(0);
+</script></body></html>

@@ -1,0 +1,14 @@
+# Video log (newest last). Each new video must differ in palette, type, layout and motion.
+- Ads 01-10 (book promos): domino, flip, this-or-that, torch, rapid, shelf, gift, wall, open-book, worldwide map.
+- Book of Knowledge cinematic: desert dawn, warm sand/gold, Playfair.
+- Let the light in: mashrabiya light pattern on a wood table, amber.
+- Motion (Book Room style): deep green, gold.
+- Motion 2: rejected as too similar to the first motion.
+- Thobes: black/white garment features (drawn thobes).
+- Foundation: lapis-blue geometric star pattern, Marcellus.
+- Split-flap departure board: black/yellow, Oswald.
+- Editorial: cream + cobalt, Bricolage + Instrument Serif, bento cards, marquee bands (owner said "perfect").
+- Arches: colour-blocked arch windows, DM Serif + Space Grotesk.
+- Countdown "3 books": plum/peach, Syne.
+- The Athari Gazette: old newspaper, blackletter masthead, red marker circle, halftone books.
+- 2026-10-24 From Our Shelves: stone-grey studio, oxblood, Big Shoulders Display; 9 books drop onto a 3D shelf, camera dollies along the real spines (Creed/Tafsir/Fiqh/Tazkiyah), Tafsir as-Sa'di pulls out. Never call stock "new".

@@ -1,0 +1,111 @@
+<!--FONTS DM Serif Display:dm-serif-display:latin:400:normal; DM Serif Display:dm-serif-display:latin:400:italic; Space Grotesk:space-grotesk:latin:500,700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Dar Al Athari: Arches</title>
+<style>
+/*FONTS*/
+:root{--terra:#c24f2c;--sand:#efe2c8;--forest:#1f3b2d;--must:#e3a72a;--ink:#1c1a17;--d:'DM Serif Display',Georgia,serif;--g:'Space Grotesk','Helvetica Neue',sans-serif;--ar:'Amiri',serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;font-family:var(--d)}
+.sc{position:absolute;inset:0;overflow:hidden;display:none}
+.t{position:absolute;margin:0;white-space:nowrap;line-height:.95;letter-spacing:-.02em}
+.it{font-style:italic}
+.lab{position:absolute;margin:0;font-family:var(--g);font-weight:700;font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;white-space:nowrap}
+.arch{position:absolute;background-size:cover;background-position:center}
+.ring{position:absolute;border:2px solid currentColor}
+.pill{display:inline-block;padding:15px 34px;border-radius:40px;font-family:var(--g);font-weight:700;font-size:20px;letter-spacing:-.01em}
+#grain{position:absolute;inset:0;opacity:.13;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px;z-index:20}
+.spark{position:absolute;width:28px;height:28px;background:var(--must);clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%)}
+</style></head><body>
+<div id="stage">
+
+ <div class="sc" id="s1" style="background:var(--terra);color:var(--sand)">
+  <p class="lab" data-f="0.2" style="left:40px;top:104px;opacity:.8">Dar Al Athari — Islamic Bookstore</p>
+  <p class="t it" data-r="0.35" style="left:40px;top:136px;font-size:58px">Seek</p>
+  <p class="t" data-r="0.55" style="left:34px;top:198px;font-size:90px">Knowledge.</p>
+  <div class="arch" id="a1o" style="left:108px;top:356px;width:324px;height:470px;background:none"></div>
+  <div class="arch" id="a1" style="left:120px;top:370px;width:300px;height:450px;background-image:url(assets/k_tw_front.jpg);background-position:50% 40%"></div>
+  <div class="spark" id="sp1" style="left:432px;top:372px"></div><div class="spark" id="sp2" style="left:70px;top:520px;width:20px;height:20px"></div><div class="spark" id="sp3" style="left:450px;top:640px;width:16px;height:16px;background:var(--sand)"></div>
+ </div>
+
+ <div class="sc" id="s2" style="background:var(--forest);color:var(--sand)">
+  <p class="t" data-r="3.6" style="left:40px;top:118px;font-size:56px">Pick your</p>
+  <p class="t it" data-r="3.78" style="left:40px;top:178px;font-size:84px;color:var(--must)">path.</p>
+  <div class="arch" id="a2a" style="left:34px;top:330px;width:148px;height:250px;background-image:url(assets/k_tw_front.jpg)"></div>
+  <div class="arch" id="a2b" style="left:196px;top:330px;width:148px;height:250px;background-image:url(assets/k_en_front.jpg)"></div>
+  <div class="arch" id="a2c" style="left:358px;top:330px;width:148px;height:250px;background-image:url(assets/e_front.jpg)"></div>
+  <p class="lab" data-f="4.55" style="left:34px;width:148px;text-align:center;top:600px">Aqeedah</p>
+  <p class="lab" data-f="4.7" style="left:196px;width:148px;text-align:center;top:600px">Knowledge</p>
+  <p class="lab" data-f="4.85" style="left:358px;width:148px;text-align:center;top:600px">Tazkiyah</p>
+  <p class="t it" data-f="5.1" style="left:0;width:540px;text-align:center;top:652px;font-size:16px;opacity:.85">Kitab at-Tawhid · The Book of Knowledge · The Disease and the Cure</p>
+ </div>
+
+ <div class="sc" id="s3" style="background:var(--must);color:var(--ink)">
+  <p class="t" data-r="6.85" style="left:40px;top:116px;font-size:100px">Arabic</p>
+  <p class="t it" data-r="7.05" style="left:44px;top:216px;font-size:70px;color:var(--terra)">&amp; English.</p>
+  <div class="arch" id="a3a" style="left:46px;top:370px;width:210px;height:330px;background-image:url(assets/k_ar_front.jpg)"></div>
+  <div class="arch" id="a3b" style="left:284px;top:390px;width:210px;height:330px;background-image:url(assets/k_en_front.jpg)"></div>
+  <p class="lab" data-f="7.9" style="left:46px;width:210px;text-align:center;top:722px">The original</p>
+  <p class="lab" data-f="8.05" style="left:284px;width:210px;text-align:center;top:742px">The translation</p>
+ </div>
+
+ <div class="sc" id="s4" style="background:var(--sand);color:var(--ink)">
+  <p class="lab" data-f="10.1" style="left:40px;top:150px;opacity:.7">Also in store</p>
+  <p class="t" data-x="10.2" style="left:36px;top:190px;font-size:90px;color:var(--terra)">Thobes.</p>
+  <p class="t" data-x="10.4" style="left:36px;top:300px;font-size:90px;color:var(--forest)">Shemaghs.</p>
+  <p class="t" data-x="10.6" style="left:36px;top:410px;font-size:90px">Kufis.</p>
+  <p class="t it" data-f="11.1" style="left:40px;top:540px;font-size:32px;color:var(--terra)">and, of course, books.</p>
+  <div class="arch" id="r4a" style="left:318px;top:560px;width:170px;height:200px;background:var(--forest)"></div>
+  <div class="arch" id="r4b" style="left:330px;top:572px;width:146px;height:188px;background-image:url(assets/a_front.jpg)"></div>
+ </div>
+
+ <div class="sc" id="s5" style="background:var(--ink);color:var(--sand)">
+  <div class="arch" id="a5o" style="left:126px;top:150px;width:288px;height:400px;background:var(--sand)"></div>
+  <div class="arch" id="a5" style="left:134px;top:158px;width:272px;height:384px;background:#000"><img src="assets/logo.png" alt="Dar Al Athari" style="position:absolute;left:46px;top:110px;width:180px;height:180px;mix-blend-mode:screen"></div>
+  <p class="t" data-r="13.6" style="left:0;width:540px;text-align:center;top:580px;font-size:46px">daralathari.com</p>
+  <div style="position:absolute;left:0;width:540px;text-align:center;top:652px;opacity:0" id="pillw"><span class="pill" id="pill" style="background:var(--terra);color:var(--sand)">Shop the collection</span></div>
+  <p class="lab" data-f="14.6" style="left:0;width:540px;text-align:center;top:732px;opacity:.7">Books · Thobes · Shemaghs · Kufis</p>
+ </div>
+ <div id="grain"></div>
+</div>
+<script>
+var $=function(i){return document.getElementById(i)};
+function cl(x){return x<0?0:x>1?1:x} function sm(x){x=cl(x);return x*x*(3-2*x)} function oc(x){x=cl(x);return 1-Math.pow(1-x,3)}
+function io(x){x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2} function lerp(a,b,p){return a+(b-a)*p}
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)} function ob(x){x=cl(x);var c=1.6;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)}
+var T=18;
+/* a pointed (Islamic) arch as a polygon: width w, height h, revealed fraction p from the bottom; ox,oy offset */
+function arch(w,h,p,ox,oy){ox=ox||0;oy=oy||0;var top=h*(1-p),r=w/2,crown=Math.min(h*p,w*.78),ys=top+crown,pts=[[0,h],[0,Math.max(top,ys)]];
+  for(var k=0;k<=24;k++){var th=Math.PI-k*Math.PI/24,c=Math.cos(th);pts.push([r+r*c,Math.max(top,ys-crown*Math.pow(1-Math.abs(c),.62))])}
+  pts.push([w,Math.max(top,ys)],[w,h]);return 'polygon('+pts.map(function(q){return (q[0]+ox).toFixed(1)+'px '+(q[1]+oy).toFixed(1)+'px'}).join(',')+')'}
+var SC=[['s1',0,3.4],['s2',3.4,6.6],['s3',6.6,9.8],['s4',9.8,12.8],['s5',12.8,99]];
+var R=[],F=[],X=[];
+document.querySelectorAll('[data-r]').forEach(function(e){var w=document.createElement('span');w.style.display='inline-block';while(e.firstChild)w.appendChild(e.firstChild);e.appendChild(w);e.style.overflow='hidden';e.style.paddingBottom='.12em';R.push({w:w,s:+e.dataset.r})});
+document.querySelectorAll('[data-f]').forEach(function(e){F.push({e:e,s:+e.dataset.f,o:+(e.style.opacity||1)})});
+document.querySelectorAll('[data-x]').forEach(function(e){X.push({e:e,s:+e.dataset.x})});
+function revealArch(id,s,d,extra){var e=$(id),w=e.offsetWidth,h=e.offsetHeight,p=io((t_-s)/d);e.style.clipPath=arch(w,h,p);e.style.visibility=p>0?'visible':'hidden';
+  if(extra!==false)e.style.backgroundPosition='50% '+(40+(1-p)*30)+'%'}
+var t_=0;
+window.__seek=function(t){t_=t;
+  // scenes, each later one opens through a growing arch
+  SC.forEach(function(s,i){var e=$(s[0]),nx=SC[i+1];var vis=t>=s[1]-.4&&(!nx||t<nx[1]+.45);e.style.display=vis?'block':'none';e.style.zIndex=i+1;
+    if(i>0){var p=io((t-(s[1]-.38))/.75);e.style.clipPath=p>=1?'none':arch(1500*Math.max(.001,p),2400*p,1,270-750*Math.max(.001,p),980-2400*p);}});
+  R.forEach(function(r){var q=eo((t-r.s)/.75);r.w.style.transform='translateY('+((1-q)*110)+'%)'});
+  F.forEach(function(f){var q=oc((t-f.s)/.6);f.e.style.opacity=q*f.o;f.e.style.transform='translateY('+((1-q)*10)+'px)'});
+  X.forEach(function(x){var q=eo((t-x.s)/.8);x.e.style.transform='translateX('+((1-q)*-560)+'px)'});
+  // 1
+  revealArch('a1',.55,1.1);var o=$('a1o');o.style.background='rgba(239,226,200,.0)';o.style.clipPath=arch(324,470,io((t-.4)/1.1));o.style.outline='none';o.style.background='var(--sand)';o.style.opacity=.9;
+  $('a1').style.transform='scale('+(1+t*.012)+')';
+  ['sp1','sp2','sp3'].forEach(function(id,i){var q=ob((t-1.2-i*.18)/.5);$(id).style.transform='scale('+(t<1.2+i*.18?0:Math.max(0,q))+') rotate('+(t*60*(i%2?-1:1))+'deg)'});
+  // 2
+  revealArch('a2a',4.0,.8);revealArch('a2b',4.15,.8);revealArch('a2c',4.3,.8);
+  // 3
+  revealArch('a3a',7.3,.8);revealArch('a3b',7.5,.8);$('a3a').style.transform='rotate(-4deg) translateY('+Math.sin(t*1.3)*4+'px)';$('a3b').style.transform='rotate(4deg) translateY('+Math.sin(t*1.3+1)*4+'px)';
+  // 4
+  revealArch('r4a',11.0,.8,false);revealArch('r4b',11.12,.8);
+  // 5
+  $('a5o').style.clipPath=arch(288,400,io((t-13.0)/.9));$('a5').style.clipPath=arch(272,384,io((t-13.1)/.9));
+  var pq=ob((t-14.2)/.55);$('pillw').style.opacity=cl((t-14.2)/.2);$('pillw').style.transform='scale('+(t<14.2?0:Math.max(.3,pq))+')';
+  var pu=t>15?((t-15)%1.6)/1.6:-1;$('pill').style.transform=pu>=0?'scale('+(1+.045*Math.sin(Math.min(1,pu/.3)*Math.PI))+')':'none';
+  $('stage').style.opacity=sm(t/.15)*(1-sm((t-(T-.3))/.3));
+};
+window.__seek(0);
+</script></body></html>

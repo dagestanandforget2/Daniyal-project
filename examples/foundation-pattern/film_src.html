@@ -1,0 +1,124 @@
+<!--FONTS Marcellus:marcellus:latin:400:normal; Inter Tight:inter-tight:latin:600,700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Dar Al Athari: Foundation</title>
+<style>
+/*FONTS*/
+:root{--gold:#e6c47a;--ivory:#f4ecdc;--mut:rgba(244,236,220,.72);--disp:'Marcellus',Georgia,serif;--sans:'Inter Tight','Helvetica Neue',sans-serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;background:#0b1b45;color:var(--ivory);font-family:var(--sans)}
+canvas{position:absolute;left:0;top:0;width:540px;height:960px}
+.star{position:absolute;overflow:hidden;opacity:0}
+.star{background:#0d2160}.star img{position:absolute;left:50%;top:50%;width:100%;height:100%;object-fit:contain;transform:translate(-50%,-50%)}
+#topband{position:absolute;left:0;top:0;width:540px;height:300px;pointer-events:none;background:linear-gradient(rgba(8,18,48,.92),rgba(8,18,48,.7) 60%,rgba(8,18,48,0))}
+.t{position:absolute;left:0;width:540px;text-align:center;margin:0;white-space:nowrap;opacity:0}
+.d{font-family:var(--disp);letter-spacing:.01em;line-height:1.05}
+.g{color:var(--gold)}
+.lab{font-family:var(--sans);font-weight:600;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--mut)}
+.pill{display:inline-block;padding:14px 30px;border-radius:40px;background:var(--gold);color:#0b1b45;font-family:var(--sans);font-weight:700;font-size:21px;letter-spacing:-.01em;box-shadow:0 12px 34px rgba(0,0,0,.35)}
+#vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(85% 65% at 50% 52%,rgba(0,0,0,0) 50%,rgba(2,6,20,.65) 100%)}
+#grain{position:absolute;inset:0;opacity:.08;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <canvas id="bg" width="1080" height="1920"></canvas>
+ <div id="stars"></div>
+ <canvas id="ln" width="1080" height="1920"></canvas>
+ <div id="topband"></div>
+ <p class="t d" data-w="0.8,3.0" style="top:120px;font-size:46px">Everything starts</p>
+ <p class="t d g" data-w="1.15,3.0" style="top:176px;font-size:46px">from one point.</p>
+ <p class="t lab" data-w="3.5,5.7" style="top:112px">Kitab at-Tawhid</p>
+ <p class="t d" data-w="3.6,5.7" style="top:138px;font-size:50px">Start with</p>
+ <p class="t d g" data-w="3.9,5.7" style="top:196px;font-size:54px">Tawhid.</p>
+ <p class="t d" data-w="6.3,9.0" style="top:120px;font-size:50px">Then build</p>
+ <p class="t d g" data-w="6.6,9.0" style="top:178px;font-size:50px">upon it.</p>
+ <p class="t lab" data-w="7.1,9.0" style="top:242px">Aqeedah · Knowledge · Tazkiyah</p>
+ <p class="t d" data-w="9.3,11.6" style="top:120px;font-size:50px">In Arabic</p>
+ <p class="t d g" data-w="9.6,11.6" style="top:178px;font-size:50px">&amp; English.</p>
+ <p class="t lab" data-w="10.0,11.6" style="top:242px">Classical works of the Salaf</p>
+ <p class="t d" data-w="13.6,99" style="top:120px;font-size:30px;letter-spacing:.14em">DAR AL ATHARI</p>
+ <div class="t" data-w="14.4,99" data-fx="pop" style="top:700px"><span class="pill" id="pill">Shop at daralathari.com</span></div>
+ <p class="t lab" data-w="14.9,99" style="top:772px;font-size:11px">Books · Thobes · Shemaghs · Kufis</p>
+ <div id="vig"></div><div id="grain"></div>
+</div>
+<script>
+var $=function(i){return document.getElementById(i)};
+function cl(x){return x<0?0:x>1?1:x} function sm(x){x=cl(x);return x*x*(3-2*x)} function oc(x){x=cl(x);return 1-Math.pow(1-x,3)}
+function io(x){x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2} function lerp(a,b,p){return a+(b-a)*p}
+function ob(x){x=cl(x);var c=1.6;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)}
+function keyed(K,t){var a=K[0],b=K[K.length-1];if(t<=a[0])return a.slice(1);if(t>=b[0])return b.slice(1);for(var i=0;i<K.length-1;i++)if(t>=K[i][0]&&t<=K[i+1][0]){a=K[i];b=K[i+1];break}var p=io((t-a[0])/(b[0]-a[0]));return a.slice(1).map(function(v,j){return lerp(v,b[j+1],p)})}
+var T=18, S=230, R=S/2, CY=548;
+var RIN=R*Math.cos(Math.PI/4)/Math.cos(Math.PI/8);
+/* geometry of one star (local, unit R) */
+function ang(k){return k*Math.PI/180}
+var OUT=[],SQ1=[],SQ2=[],OCT=[];
+for(var k=0;k<16;k++){var r=k%2?RIN/R:1,a=ang(k*22.5-90);OUT.push([Math.cos(a)*r,Math.sin(a)*r])}
+for(k=0;k<4;k++){var a1=ang(k*90-90),a2=ang(k*90-45);SQ1.push([Math.cos(a1),Math.sin(a1)]);SQ2.push([Math.cos(a2),Math.sin(a2)])}
+for(k=0;k<8;k++){var a3=ang(k*45-90+22.5);OCT.push([Math.cos(a3)*.5,Math.sin(a3)*.5])}
+// clip-path for the star frames
+var CLIP='polygon('+OUT.map(function(p){return (50+p[0]*50).toFixed(2)+'% '+(50+p[1]*50).toFixed(2)+'%'}).join(',')+')';
+/* background: lapis with flecks */
+(function(){var g=$('bg').getContext('2d');var gr=g.createRadialGradient(540,1000,60,540,1000,1300);gr.addColorStop(0,'#24499a');gr.addColorStop(.55,'#122d6b');gr.addColorStop(1,'#071640');g.fillStyle=gr;g.fillRect(0,0,1080,1920);
+  var s=11;function r(){s=(s*16807)%2147483647;return s/2147483647}
+  for(var i=0;i<900;i++){var x=r()*1080,y=r()*1920,a=r();g.fillStyle='rgba(235,200,120,'+(a*a*.55)+')';g.fillRect(x,y,a>.9?2.4:1.2,a>.9?2.4:1.2)}
+  for(i=0;i<60;i++){var x2=r()*1080,y2=r()*1920,rr=40+r()*160;var c=g.createRadialGradient(x2,y2,0,x2,y2,rr);c.addColorStop(0,'rgba(255,255,255,.035)');c.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=c;g.fillRect(x2-rr,y2-rr,rr*2,rr*2)}})();
+/* star frames with covers */
+var FR=[{i:0,j:0,img:'k_tw_front',t0:3.2},{i:-1,j:-1,img:'k_en_front',t0:6.6},{i:1,j:-1,img:'e_front',t0:6.85},{i:-1,j:1,img:'k_ar_front',t0:7.1},{i:1,j:1,img:'a_front',t0:7.35},{i:0,j:0,img:'logo',t0:12.9,logo:1}];
+FR.forEach(function(f){var d=document.createElement('div');d.className='star';d.style.clipPath=CLIP;
+  if(f.logo){d.style.background='#0a1a44';d.innerHTML='<img src="assets/logo.png" style="width:58%;height:58%;object-fit:contain;mix-blend-mode:screen">'}
+  else d.innerHTML='<img src="assets/'+f.img+'.jpg">';
+  $('stars').appendChild(d);f.el=d;f.im=d.firstChild});
+var g=$('ln').getContext('2d');
+function poly(pts,closed,p){if(p<=0)return;var P=closed?pts.concat([pts[0]]):pts,L=[],tot=0;for(var i=1;i<P.length;i++){var l=Math.hypot(P[i][0]-P[i-1][0],P[i][1]-P[i-1][1]);L.push(l);tot+=l}
+  var want=tot*cl(p);g.beginPath();g.moveTo(P[0][0],P[0][1]);for(i=1;i<P.length;i++){if(want>=L[i-1]){g.lineTo(P[i][0],P[i][1]);want-=L[i-1]}else{var f=want/L[i-1];g.lineTo(P[i-1][0]+(P[i][0]-P[i-1][0])*f,P[i-1][1]+(P[i][1]-P[i-1][1])*f);break}}g.stroke()}
+function tr(pts,cx,cy,rad){return pts.map(function(p){return [cx+p[0]*rad,cy+p[1]*rad]})}
+// camera: t, zoom, cx(world), cy(world)
+var CK=[[0,2.4,0,0],[2.3,2.4,0,0],[4.6,1.55,0,0],[5.9,1.55,0,0],[6.6,.86,0,0],[11.6,.86,0,0],[12.9,1.75,0,0],[99,1.75,0,0]];
+var TXT=[];document.querySelectorAll('[data-w]').forEach(function(e){var p=e.dataset.w.split(',').map(Number);TXT.push({e:e,s:p[0],en:p[1],fx:e.dataset.fx})});
+window.__seek=function(t){
+  var c=keyed(CK,t),z=c[0]*(1+.015*Math.sin(t*.5)),rot=0;
+  function W(x,y){return [270+(x-c[1])*z,CY+(y-c[2])*z]}
+  g.clearRect(0,0,1080,1920);g.save();g.scale(2,2);g.lineCap='round';g.lineJoin='round';
+  var endFade=sm((t-11.6)/.8)*(1-sm((t-12.9)/.8)); // pattern dims while covers leave, returns for the logo
+  // construction of the first star
+  var cc=W(0,0),rz=R*z;
+  var dot=cl(t/.25)*(1-sm((t-2.6)/.4));g.fillStyle='rgba(246,226,170,'+dot+')';g.beginPath();g.arc(cc[0],cc[1],3.2+2*Math.sin(Math.min(1,t/.6)*Math.PI),0,6.283);g.fill();
+  g.strokeStyle='rgba(230,196,122,'+(.45*(1-sm((t-2.6)/.6)))+')';g.lineWidth=1;g.setLineDash([4,5]);
+  if(t>.2){g.beginPath();g.arc(cc[0],cc[1],rz,-Math.PI/2,-Math.PI/2+6.283*io((t-.2)/.7));g.stroke()}
+  if(t>.7){g.beginPath();g.arc(cc[0],cc[1],rz*.5,-Math.PI/2,-Math.PI/2+6.283*io((t-.7)/.6));g.stroke()}
+  // axis guides
+  if(t>.5){var gp=io((t-.5)/.6);g.beginPath();g.moveTo(cc[0]-rz*gp,cc[1]);g.lineTo(cc[0]+rz*gp,cc[1]);g.moveTo(cc[0],cc[1]-rz*gp);g.lineTo(cc[0],cc[1]+rz*gp);g.stroke()}
+  g.setLineDash([]);
+  // all stars on the lattice, rippling out from the centre
+  for(var i=-4;i<=4;i++)for(var j=-5;j<=5;j++){
+    var d=Math.hypot(i,j), p0=i===0&&j===0?0:2.35+d*.32, pc=i===0&&j===0;
+    var ps=pc?io((t-1.0)/1.0):io((t-p0)/.75); if(ps<=0)continue;
+    var pos=W(i*S,j*S),rr=R*z; if(pos[0]<-rr||pos[0]>540+rr||pos[1]<-rr||pos[1]>960+rr)continue;
+    // a slow shimmer travels diagonally across the pattern
+    var sw=(t-9.0)*2.2-(i+j+6)*.55, sh=Math.exp(-sw*sw*1.6)*(t>8.8&&t<12?1:0);
+    var a=(.88+.12*Math.sin(t*1.4+i*.7+j))*(1-endFade*.55)+sh*.4;
+    g.lineWidth=(pc?2.2:1.6)*Math.min(1.6,z);g.strokeStyle='rgba(234,200,124,'+Math.min(1,a)+')';
+    g.shadowColor='rgba(240,200,120,'+(.5+sh*.5)+')';g.shadowBlur=6+sh*12;
+    if(pc){var fa=1-sm((t-2.5)/.7);g.globalAlpha=fa;poly(tr(SQ1,pos[0],pos[1],rr),true,io((t-1.0)/.7));poly(tr(SQ2,pos[0],pos[1],rr),true,io((t-1.35)/.7));g.globalAlpha=1;
+      poly(tr(OUT,pos[0],pos[1],rr),true,io((t-2.2)/.9));}
+    else{poly(tr(OUT,pos[0],pos[1],rr),true,ps);}
+    g.shadowBlur=0;g.lineWidth=1.1*Math.min(1.6,z);g.strokeStyle='rgba(234,200,124,'+(Math.min(1,a)*.6)+')';
+    poly(tr(OCT,pos[0],pos[1],rr),true,pc?io((t-1.8)/.6):io((t-p0-.25)/.7));
+  }
+  g.restore();
+  // covers inside the star frames
+  FR.forEach(function(f,k){var pos=W(f.i*S,f.j*S),rr=R*z*.985,el=f.el;
+    var on=f.logo?sm((t-f.t0)/.7):sm((t-f.t0)/.6)*(1-sm((t-11.6)/.6)),sc=f.logo?ob((t-f.t0)/.8):lerp(.7,1,oc((t-f.t0)/.7));
+    el.style.opacity=on;el.style.left=(pos[0]-rr)+'px';el.style.top=(pos[1]-rr)+'px';el.style.width=el.style.height=(2*rr)+'px';
+    el.style.transform='scale('+sc+')';
+    if(!f.logo)f.im.style.transform='translate(-50%,-50%) scale('+(.9+.03*Math.sin(t*.4+k))+')';
+  });
+  // text
+  TXT.forEach(function(o){var q=oc((t-o.s)/.6),out=sm((t-o.en)/.35);if(t<o.s-.05||t>o.en+.4){o.e.style.opacity=0;return}
+    o.e.style.opacity=(o.fx==='pop'?cl((t-o.s)/.2):q)*(1-out);
+    o.e.style.transform=o.fx==='pop'?'scale('+Math.max(.4,ob((t-o.s)/.5))+')':'translateY('+((1-q)*18-out*10)+'px)';
+    o.e.style.filter=o.fx==='pop'?'none':'blur('+((1-q)*5+out*4).toFixed(2)+'px)';
+    o.e.style.letterSpacing=o.e.classList.contains('d')&&!o.e.style.letterSpacing?lerp(.12,.01,q)+'em':o.e.style.letterSpacing;});
+  var pu=t>15.2?((t-15.2)%1.7)/1.7:-1;$('pill').style.transform=pu>=0?'scale('+(1+.045*Math.sin(Math.min(1,pu/.3)*Math.PI))+')':'none';
+  $('topband').style.opacity=t<2.3?.0+sm((t-.6)/.4)*.5:1;
+  $('stage').style.opacity=sm(t/.2)*(1-sm((t-(T-.3))/.3));
+};
+window.__seek(0);
+</script></body></html>
