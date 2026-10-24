@@ -16,8 +16,9 @@ Store: Dar Al Athari LLC, daralathari.com. An online Salafi/Athari Islamic books
 8. Schedule the post with Metricool `createScheduledPost`:
    - `blogId` "7251923", network `tiktok`
    - media URL: `https://raw.githubusercontent.com/dagestanandforget2/Daniyal-project/tiktok-studio/videos/<file>.mp4`
-   - publish time a few minutes from now, America/New_York; `autoPublish: true`
-   - `tiktokData`: `{"privacyOption":"PUBLIC_TO_EVERYONE","isAigc":false,"autoAddMusic":false}`
+   - `publicationDate` 12:00 today, America/New_York (if that has passed, 10 minutes from now); `autoPublish: true`, `draft: false`
+   - `tiktokData` is required and must include a `title` (a short hook line): `{"title":"...","privacyOption":"PUBLIC_TO_EVERYONE","isAigc":false,"autoAddMusic":false,"disableComment":false,"disableDuet":false,"disableStitch":false,"commercialContentOwnBrand":false,"commercialContentThirdParty":false}`
+   - Metricool copies the file from the raw GitHub URL, so push before scheduling and check that the URL returns HTTP 200.
 
 ## Page contract (how the tools expect a film)
 
