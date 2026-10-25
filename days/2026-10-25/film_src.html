@@ -1,0 +1,116 @@
+<!--FONTS Gloock:gloock:latin:400:normal; Reem Kufi:reem-kufi:arabic:500,700:normal; Schibsted Grotesk:schibsted-grotesk:latin:500,600:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Two Editions, One Cure</title>
+<style>
+/*FONTS*/
+:root{--teal:#12302D;--ink:#0B0B0C;--gold:#C9A54E;--paper:#EFE6D2;--cel:#8FB3A7;--d:'Gloock',serif;--ar:'Reem Kufi',sans-serif;--ui:'Schibsted Grotesk',sans-serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;background:var(--ink);color:var(--paper);font-family:var(--d)}
+#tealp{position:absolute;top:0;height:960px;background:radial-gradient(90% 60% at 50% 45%,#18403C 0%,var(--teal) 70%,#0E2624 100%)}
+#rule{position:absolute;top:0;height:960px;width:2px;background:linear-gradient(to bottom,transparent,var(--gold) 12%,var(--gold) 88%,transparent);transform-origin:50% 0}
+.st3d{position:absolute;inset:0;perspective:1100px;perspective-origin:270px 470px;overflow:hidden}
+.cam{position:absolute;left:270px;top:470px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#efe6d2 0 4.5px,#d3c6aa 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#efe6d2 0 4.5px,#d3c6aa 4.5px 7.5px)}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.08em}
+.m>span{display:block;will-change:transform}
+.ar{font-family:var(--ar);direction:rtl;text-align:right}
+.ui{font-family:var(--ui);font-weight:500;font-size:20px;color:var(--cel);letter-spacing:.005em}
+.lbl{width:200px;text-align:center}
+#pgw{position:absolute;inset:0;perspective:1000px;perspective-origin:270px 470px;opacity:0}
+#pg{position:absolute;left:90px;top:200px;width:360px;height:540px;background:url(assets/p23.jpg) center/100% 100%;box-shadow:0 40px 60px -20px rgba(0,0,0,.7);transform-origin:50% 78%}
+#hl{position:absolute;left:5%;top:74.6%;height:5.6%;width:0;background:#E2C46A;mix-blend-mode:multiply;opacity:.75}
+#blk{position:absolute;inset:0;background:var(--ink);opacity:0}
+#lg{position:absolute;left:200px;top:180px;width:140px;height:140px;mix-blend-mode:screen;opacity:0}
+.pill{display:inline-block;background:var(--gold);color:var(--ink);font-family:var(--ui);font-weight:600;font-size:26px;padding:16px 36px;border-radius:999px;box-shadow:0 18px 40px -14px rgba(201,165,78,.55)}
+#grain{position:absolute;inset:0;opacity:.06;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="tealp"></div>
+ <div id="rule"></div>
+ <div class="st3d"><div class="cam" id="cam"></div></div>
+
+ <!-- 1: mirrored title -->
+ <p class="m" style="left:28px;top:186px;font-size:38px;color:var(--cel)"><span data-a="0.2" data-o="2.6">The</span></p>
+ <p class="m" style="left:26px;top:226px;font-size:58px"><span data-a="0.32" data-o="2.65">Disease</span></p>
+ <p class="m" style="left:28px;top:330px;font-size:38px;color:var(--cel)"><span data-a="0.9" data-o="2.7">and the</span></p>
+ <p class="m" style="left:26px;top:370px;font-size:58px"><span data-a="1.02" data-o="2.75">Cure</span></p>
+ <p class="m ar" style="left:282px;width:182px;top:200px;font-size:84px;font-weight:700;line-height:1.25;color:var(--gold)"><span data-a="0.45" data-o="2.65">الداء</span></p>
+ <p class="m ar" style="left:282px;width:182px;top:350px;font-size:60px;font-weight:700;line-height:1.3;color:var(--gold)"><span data-a="1.15" data-o="2.75">والدواء</span></p>
+ <p class="m ui" style="left:28px;top:560px"><span data-a="1.6" data-o="2.7">English</span></p>
+ <p class="m ar" style="left:282px;width:182px;top:552px;font-size:26px;font-weight:500;color:var(--cel)"><span data-a="1.7" data-o="2.7">العربية</span></p>
+
+ <!-- 2: carousel -->
+ <p class="m" style="left:34px;top:140px;font-size:64px"><span data-a="3.4" data-o="7.35">One work.</span></p>
+ <p class="m" style="left:34px;top:214px;font-size:64px;color:var(--gold)"><span data-a="6.25" data-o="7.4">Two languages.</span></p>
+ <p class="m ui lbl" style="left:55px;top:640px"><span data-a="3.7" data-o="4.3">English</span></p>
+ <p class="m ar lbl" style="left:285px;top:632px;font-size:28px;font-weight:500;text-align:center;color:var(--cel)"><span data-a="3.8" data-o="4.3">العربية</span></p>
+ <p class="m ar lbl" style="left:55px;top:632px;font-size:28px;font-weight:500;text-align:center;color:var(--cel)"><span data-a="6.35" data-o="7.4">العربية</span></p>
+ <p class="m ui lbl" style="left:265px;top:640px"><span data-a="6.45" data-o="7.4">English</span></p>
+
+ <!-- 3: author -->
+ <p class="m ui" style="left:36px;top:120px;color:var(--gold)"><span data-a="7.9" data-o="10.95">Imam</span></p>
+ <p class="m" style="left:34px;top:146px;font-size:60px"><span data-a="8.0" data-o="11.0">Ibn al-Qayyim</span></p>
+ <p class="m ui" style="left:36px;top:226px"><span data-a="8.25" data-o="11.05">Died 751 AH</span></p>
+ <p class="m ui" style="left:36px;top:690px;color:var(--paper)"><span data-a="8.6" data-o="10.6">The Disease and the Cure, in English</span></p>
+ <p class="m ui" style="left:36px;top:718px;color:var(--paper)"><span data-a="8.72" data-o="10.65">Ad-Da' wa ad-Dawa', in Arabic</span></p>
+
+ <!-- 4: the page -->
+ <div id="pgw"><div id="pg"><div id="hl"></div></div></div>
+ <p class="m ui" style="left:90px;top:132px;color:var(--gold)"><span data-a="11.9" data-o="12.9">Page 23, The Disease and the Cure</span></p>
+ <p class="m" style="left:36px;top:700px;padding:0"><span data-a="13.2" data-o="14.3" style="font-family:var(--ui);font-weight:600;font-size:19px;background:var(--ink);color:var(--gold);padding:9px 16px;border-radius:6px">Al-Bukhari, Book of Medicine 5678</span></p>
+
+ <!-- 5: end -->
+ <div id="blk"></div>
+ <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+ <p class="m" style="left:0;width:540px;text-align:center;top:360px;font-size:44px"><span data-a="15.1">daralathari.com</span></p>
+ <p class="m ui" style="left:0;width:540px;text-align:center;top:428px"><span data-a="15.3">English and Arabic editions.</span></p>
+ <p class="m ui" style="left:0;width:540px;text-align:center;top:456px"><span data-a="15.4">Shipped from New Jersey.</span></p>
+ <div id="btnw" style="position:absolute;left:0;width:540px;top:540px;text-align:center;opacity:0"><span class="pill" id="btn">Browse the books</span></div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.35,-.5,.8],.4,.78);
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+var cam=$('cam'),E=makeBook(cam,'een'),A=makeBook(cam,'aar');
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a,o:e.dataset.o?+e.dataset.o:99})});
+window.__seek=function(t){
+  MASK.forEach(function(m){var q=eo((t-m.s)/.7),o=io((t-m.o)/.4);m.e.style.transform='translateY('+((1-q)*110-o*110)+'%)'});
+  // panels: teal left half, slides right during the turn, then floods full width
+  var sw=io((t-4.4)/1.8), fl=io((t-7.3)/.8);
+  var L=lerp(lerp(0,270,sw),0,fl), W=lerp(270,540,fl);
+  var open=oc(t/.9);
+  $('tealp').style.left=L+'px';$('tealp').style.width=W*open+'px';
+  $('rule').style.left='269px';
+  $('rule').style.transform='scaleY('+oc((t-.1)/1.1)+')';$('rule').style.opacity=1-fl;
+  // books
+  var R=118, th=io((t-4.4)/1.8)*Math.PI, inn=oc((t-2.9)/.9), s3=io((t-7.4)/1.1), ex=io((t-10.9)/.7);
+  var ey=lerp(560,0,inn), sp=Math.sin(th);
+  var pe={x:-R*Math.cos(th),y:ey+20,z:R*sp*1.5,ry:-sp*70+lerp(16,0,inn),rx:0,rz:0,s:.8,g:1};
+  var pa={x:R*Math.cos(th),y:ey+20,z:-R*sp*1.5,ry:-sp*70-lerp(16,0,inn),rx:0,rz:0,s:.8,g:1-sp*.25};
+  // scene 3: fan together
+  pe.x=lerp(pe.x,70,s3);pe.z=lerp(pe.z,40,s3);pe.ry=lerp(pe.ry,-14,s3);pe.rz=lerp(0,4,s3);pe.s=lerp(.8,.92,s3);pe.y=lerp(pe.y,-10,s3);
+  pa.x=lerp(pa.x,-70,s3);pa.z=lerp(pa.z,-30,s3);pa.ry=lerp(pa.ry,12,s3);pa.rz=lerp(0,-5,s3);pa.s=lerp(.8,.92,s3);pa.y=lerp(pa.y,-30,s3);pa.g=lerp(pa.g,.92,s3);
+  // slow drift in scene 3
+  var dr=sm((t-8.4)/2.6);pe.ry+=dr*8;pa.ry-=dr*6;
+  // exit
+  pe.y+=ex*1000;pa.y+=ex*1000;pe.blur=ex*4;pa.blur=ex*4;pe.rx=ex*-25;pa.rx=ex*-25;
+  if(t<2.85||t>11.62){pe.hide=pa.hide=true}
+  pose(E,pe);pose(A,pa);
+  // page
+  var pin=oc((t-11.4)/.9), push=io((t-12.9)/1.4), pout=sm((t-14.3)/.4);
+  $('pgw').style.opacity=cl((t-11.4)/.3)*(1-pout);
+  $('pg').style.transform='translateY('+lerp(500,0,pin)+'px) rotateX('+lerp(28,4,pin)*(1-push)+'deg) rotateZ('+lerp(-6,-1.5,pin)*(1-push)+'deg) scale('+lerp(1,1.3,push)+')';
+  $('hl').style.width=(io((t-12.4)/.9)*88)+'%';
+  // end
+  $('blk').style.opacity=sm((t-14.2)/.5);
+  var lq=ob((t-14.7)/.8);$('lg').style.opacity=cl((t-14.7)/.3);$('lg').style.transform='scale('+(t<14.7?.7:Math.max(.7,lq))+')';
+  var bq=ob((t-15.8)/.6);$('btnw').style.opacity=cl((t-15.8)/.2);$('btnw').style.transform='translateY('+((1-oc((t-15.8)/.6))*24)+'px) scale('+(t<15.8?.85:Math.max(.85,bq))+')';
+  var pu=t>16.6?((t-16.6)%1.4)/1.4:-1;$('btn').style.transform=pu>=0?'scale('+(1+.04*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+  $('stage').style.opacity=sm(t/.2);
+};
+window.__seek(0);
+</script></body></html>

@@ -12,3 +12,4 @@
 - Countdown "3 books": plum/peach, Syne.
 - The Athari Gazette: old newspaper, blackletter masthead, red marker circle, halftone books.
 - 2026-10-24 From Our Shelves: stone-grey studio, oxblood, Big Shoulders Display; 9 books drop onto a 3D shelf, camera dollies along the real spines (Creed/Tafsir/Fiqh/Tazkiyah), Tafsir as-Sa'di pulls out. Never call stock "new".
+- 2026-10-25 Two Editions, One Cure: mirrored split screen (teal left / black leather right, fixed gold centre rule), Gloock + Reem Kufi (Arabic) + Schibsted Grotesk; palette #12302D #0B0B0C #C9A54E #EFE6D2 #8FB3A7. English and Arabic titles mirror each other, then the two books orbit through the rule and swap sides while the teal panel slides across (hero), fan together for Ibn al-Qayyim, then page 23 with the hadith highlighted (Bukhari 5678). Books: een (The Disease and the Cure), aar (Ad-Da' wa ad-Dawa'), p23.
