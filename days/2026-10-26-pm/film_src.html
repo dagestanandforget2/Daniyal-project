@@ -1,0 +1,130 @@
+<!--FONTS Bodoni Moda:bodoni-moda:latin:500,700:italic; Bodoni Moda:bodoni-moda:latin:500,700:normal; Familjen Grotesk:familjen-grotesk:latin:500,600:normal; Aref Ruqaa:aref-ruqaa:arabic:700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>One Scholar, Four Books</title>
+<style>
+/*FONTS*/
+:root{--mus:#C8922E;--och:#9A6A1C;--ink:#17130F;--bone:#F3EAD8;--olive:#3B3F22;--d:'Bodoni Moda',serif;--ui:'Familjen Grotesk',sans-serif;--ar:'Aref Ruqaa',serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--ink);font-family:var(--d);
+  background:radial-gradient(110% 70% at 50% 62%,#D49C36 0%,var(--mus) 52%,#B07E24 100%)}
+.st3d{position:absolute;inset:0;perspective:1100px;perspective-origin:270px 300px;overflow:hidden}
+.cam{position:absolute;left:270px;top:480px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#f1e7d1 0 4.5px,#d2c29f 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#f1e7d1 0 4.5px,#d2c29f 4.5px 7.5px)}
+#shd{position:absolute;left:110px;top:668px;width:320px;height:90px;background:radial-gradient(50% 50% at 50% 50%,rgba(60,35,5,.5),rgba(60,35,5,0));opacity:0}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.1em}
+.m>span{display:block;will-change:transform}
+.it{font-style:italic;font-weight:500}
+.ui{font-family:var(--ui);font-weight:500;font-size:17px;letter-spacing:.01em;color:var(--olive)}
+.ar{font-family:var(--ar);direction:rtl}
+.row{position:absolute;left:34px;width:420px}
+.row .n{position:absolute;left:0;top:2px;font-style:italic;font-weight:500;font-size:30px;color:var(--olive)}
+.row .rl{position:absolute;left:0;top:-8px;height:1.5px;width:420px;background:var(--ink);opacity:.55;transform-origin:0 50%}
+#ink{position:absolute;left:0;top:0;width:540px;height:960px;background:var(--ink);transform:translateY(100%)}
+#lg{position:absolute;left:200px;top:168px;width:140px;height:140px;mix-blend-mode:screen;opacity:0}
+.end{color:var(--bone)}
+.pill{display:inline-block;background:var(--mus);color:var(--ink);font-family:var(--ui);font-weight:600;font-size:26px;padding:17px 38px;border-radius:999px}
+#grain{position:absolute;inset:0;opacity:.09;mix-blend-mode:multiply;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="shd"></div>
+ <div class="st3d"><div class="cam" id="cam"></div></div>
+
+ <!-- 1: one scholar + index -->
+ <p class="m it" style="left:30px;top:104px;font-size:86px;line-height:1"><span data-a="0.15" data-o="5.9">One scholar.</span></p>
+ <p class="m ar" style="left:34px;top:196px;font-size:46px;line-height:1.5;color:var(--olive)"><span data-a="0.5" data-o="5.95">ابن عثيمين</span></p>
+ <p class="m ui" style="left:36px;top:278px"><span data-a="0.75" data-o="6.0">Shaykh Muhammad ibn Salih al-Uthaymeen</span></p>
+ <div id="idx"></div>
+
+ <!-- 2: four books -->
+ <p class="m it" style="left:30px;top:104px;font-size:86px;line-height:1"><span data-a="7.3" data-o="9.45">Four books.</span></p>
+ <p class="m ui" style="left:36px;top:690px;font-size:19px;color:var(--ink)"><span data-a="8.0" data-o="9.5">Arabic and English, on one shelf.</span></p>
+
+ <!-- 3: same book, two languages -->
+ <p class="m" style="left:30px;top:110px;font-size:52px;font-weight:500;line-height:1"><span data-a="9.95" data-o="13.2">One book,</span></p>
+ <p class="m it" style="left:30px;top:166px;font-size:52px;line-height:1"><span data-a="10.1" data-o="13.25">in two languages.</span></p>
+ <p class="m" style="left:52px;width:180px;text-align:center;top:640px;font-size:22px;font-weight:500"><span data-a="10.7" data-o="13.1">Kitab al-'Ilm</span></p>
+ <p class="m ui" style="left:52px;width:180px;text-align:center;top:672px"><span data-a="10.8" data-o="13.1">Arabic</span></p>
+ <p class="m" style="left:224px;width:260px;text-align:center;top:640px;font-size:22px;font-weight:500"><span data-a="10.9" data-o="13.15">The Book of Knowledge</span></p>
+ <p class="m ui" style="left:224px;width:260px;text-align:center;top:672px"><span data-a="11.0" data-o="13.15">English</span></p>
+
+ <!-- 4: end -->
+ <div id="ink"></div>
+ <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+ <p class="m end" style="left:0;width:540px;text-align:center;top:350px;font-size:50px;font-weight:500"><span data-a="14.9">daralathari.com</span></p>
+ <p class="m end ui" style="left:0;width:540px;text-align:center;top:428px;color:#D9C9A6;font-size:19px"><span data-a="15.1">The works of Ibn Uthaymeen and more.</span></p>
+ <p class="m end ui" style="left:0;width:540px;text-align:center;top:456px;color:#D9C9A6;font-size:19px"><span data-a="15.2">Shipped from New Jersey.</span></p>
+ <div id="btnw" style="position:absolute;left:0;width:540px;top:546px;text-align:center;opacity:0"><span class="pill" id="btn">Browse the books</span></div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.3,-.6,.75],.42,.75);
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+var cam=$('cam');
+// stack order bottom -> top
+var ORD=[
+ {k:'kar',land:1.35,yaw:-5, en:"Kitab al-'Ilm",sub:'Arabic'},
+ {k:'ken',land:2.25,yaw:4,  en:'The Book of Knowledge',sub:'English'},
+ {k:'ks', land:3.1, yaw:-3, en:'Sharh Kashf ash-Shubuhat',sub:'Arabic'},
+ {k:'sth',land:3.9, yaw:6,  en:'Sharh Thalathat al-Usul',sub:'Arabic'}];
+var S=.85, BASE=250, acc=0;
+ORD.forEach(function(o,i){o.b=makeBook(cam,o.k);var th=o.b.D*S;o.rest=BASE-acc-th/2;acc+=th;o.dir=o.b.dir;
+  // index row
+  var y=338+i*60, r=el('row','top:'+y+'px;height:64px',$('idx'));
+  r.innerHTML='<div class="rl" id="rl'+i+'"></div><p class="m n" style="left:0;top:0"><span data-a="'+(o.land+.05)+'" data-o="'+(5.75+i*.05)+'">0'+(i+1)+'</span></p>'+
+   '<p class="m" style="left:58px;top:0;font-size:28px;font-weight:500"><span data-a="'+(o.land+.12)+'" data-o="'+(5.8+i*.05)+'">'+o.en+'</span></p>'+
+   '<p class="m ui" style="left:60px;top:36px;font-size:15px"><span data-a="'+(o.land+.22)+'" data-o="'+(5.85+i*.05)+'">'+o.sub+'</span></p>';
+});
+// fan targets (standing)
+var FAN=[{x:-160,rz:-14,z:-30},{x:-56,rz:-4,z:0},{x:54,rz:5,z:20},{x:160,rz:15,z:-10}];
+// order in fan: kar, ken, ks, sth left->right; top book lifts first
+var FT=[7.0,6.75,6.5,6.25];
+// scene 3: pair
+var PAIR=[{x:-130,y:-20,z:40,rz:-2,s:.78,g:1,op:1},{x:84,y:-20,z:40,rz:2,s:.78,g:1,op:1},{x:150,y:-40,z:-420,rz:12,s:.6,g:.55,op:0},{x:260,y:-60,z:-500,rz:18,s:.6,g:.5,op:0}];
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a,o:e.dataset.o?+e.dataset.o:99})});
+window.__seek=function(t){
+  MASK.forEach(function(m){var q=eo((t-m.s)/.75),o=io((t-m.o)/.4);m.e.style.transform='translateY('+((1-q)*112-o*112)+'%)'});
+  for(var i=0;i<4;i++){$('rl'+i).style.transform='scaleX('+(eo((t-ORD[i].land+.1)/.8)*(1-io((t-5.7-i*.05)/.5)))+')'}
+  // camera: slow push during stack, settle for fan
+  var push=io((t-.5)/5.5), fanc=io((t-6.2)/1.6);
+  cam.style.transform='translate3d(0,'+lerp(lerp(30,0,push),0,fanc)+'px,'+lerp(lerp(-60,40,push),0,fanc)+'px)';
+  var shOn=0;
+  ORD.forEach(function(o,i){
+    // drop
+    var p=cl((t-(o.land-.42))/.42), y=lerp(-900,o.rest,p*p);
+    var bt=t-o.land; if(bt>0) y-=7*Math.exp(-bt*9)*Math.abs(Math.sin(bt*22));
+    var flat={x:10,y:y,z:0,rx:90,rz:-90*o.dir,ry:o.yaw+(1-p)*14*(i%2?1:-1),s:S,g:1};
+    // settle shake of lower books when a book lands
+    for(var j=i+1;j<4;j++){var d=t-ORD[j].land;if(d>0)flat.y+=3*Math.exp(-d*14)*Math.sin(d*40)}
+    if(p>0)shOn=1;
+    // lift into fan
+    var q=io((t-FT[i])/1.15), F=FAN[i];
+    var P={x:lerp(flat.x,F.x,q),y:lerp(flat.y,0,q)-Math.sin(Math.PI*q)*160,z:lerp(0,F.z,q)+Math.sin(Math.PI*q)*120,
+      rx:lerp(90,0,q),rz:lerp(flat.rz,F.rz,q),ry:lerp(flat.ry,0,q),s:lerp(S,.72,q),g:1};
+    // settle overshoot when the fan locks
+    var lk=t-(FT[i]+1.15); if(lk>0)P.rz+=F.rz*.18*Math.exp(-lk*5)*Math.sin(lk*11);
+    // fan breathe
+    var br=sm((t-8.2)/1.4);P.ry+=br*(i-1.5)*-4;
+    // scene 3 pair
+    var r=io((t-9.55)/1.15),Q=PAIR[i];
+    P.x=lerp(P.x,Q.x,r);P.y=lerp(P.y,Q.y,r);P.z=lerp(P.z,Q.z,r);P.rz=lerp(P.rz,Q.rz,r);P.s=lerp(P.s,Q.s,r);P.g=lerp(1,Q.g,r);P.op=lerp(1,Q.op,io((t-9.7)/.9));
+    P.ry+=sm((t-10.8)/2.5)*(i==0?7:-7)*(i<2?1:0);
+    // exit
+    var ex=io((t-13.25)/.9);P.y+=ex*900;P.rx-=ex*30;P.blur=ex*3;
+    if(t<o.land-.45||t>14.3||P.op<.01)P.hide=true;
+    pose(o.b,P);
+  });
+  // floor shadow under the stack
+  var sh=cl((t-1)/.4)*(1-sm((t-6.3)/.6));$('shd').style.opacity=sh*.9;
+  // end card: ink rises
+  var ink=io((t-13.6)/.85);$('ink').style.transform='translateY('+((1-ink)*100)+'%)';
+  var lq=ob((t-14.4)/.8);$('lg').style.opacity=cl((t-14.4)/.3);$('lg').style.transform='scale('+(t<14.4?.7:Math.max(.7,lq))+')';
+  var bq=ob((t-15.7)/.6);$('btnw').style.opacity=cl((t-15.7)/.2);$('btnw').style.transform='translateY('+((1-oc((t-15.7)/.6))*24)+'px) scale('+(t<15.7?.85:Math.max(.85,bq))+')';
+  var pu=t>16.5?((t-16.5)%1.4)/1.4:-1;$('btn').style.transform=pu>=0?'scale('+(1+.04*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+  $('stage').style.opacity=sm(t/.2);
+};
+window.__seek(0);
+</script></body></html>
