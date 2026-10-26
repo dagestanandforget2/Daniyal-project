@@ -1,0 +1,139 @@
+<!--FONTS Unbounded:unbounded:latin:400,800:normal; Hanken Grotesk:hanken-grotesk:latin:500,600:normal; Amiri:amiri:arabic:700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>The Turntable</title>
+<style>
+/*FONTS*/
+:root{--pis:#D3DBB4;--aub:#2A1A2C;--saf:#E0A13A;--oli:#6F7D43;--pap:#F6F1E2;--d:'Unbounded',sans-serif;--ui:'Hanken Grotesk',sans-serif;--ar:'Amiri',serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--aub);font-family:var(--d);
+  background:radial-gradient(90% 60% at 50% 66%,#E3E9C9 0%,var(--pis) 55%,#BCC698 100%)}
+.st3d{position:absolute;inset:0;perspective:1000px;perspective-origin:270px 330px;overflow:hidden}
+.cam{position:absolute;left:270px;top:600px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#f4eedc 0 4.5px,#d6cba9 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#f4eedc 0 4.5px,#d6cba9 4.5px 7.5px)}
+.disk{left:-215px;top:-215px;width:430px;height:430px;border-radius:50%}
+#plate svg{position:absolute;left:0;top:0;width:430px;height:430px}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.12em}
+.m>span{display:block;will-change:transform}
+.big{font-weight:800;letter-spacing:-.02em;line-height:1}
+.ttl{font-weight:800;font-size:29px;letter-spacing:-.01em;line-height:1.08}
+.ui{font-family:var(--ui);font-weight:500;font-size:17px;color:#3c3a2a}
+.num{font-weight:400;font-size:15px;color:var(--oli)}
+.ar{font-family:var(--ar);direction:rtl;font-weight:700}
+#iris{position:absolute;left:270px;top:610px;width:0;height:0;border-radius:50%;background:var(--aub);transform:translate(-50%,-50%)}
+#lg{position:absolute;left:195px;top:170px;width:150px;height:150px;mix-blend-mode:screen;opacity:0}
+.end{color:var(--pap)}
+.pill{display:inline-block;background:var(--saf);color:var(--aub);font-family:var(--ui);font-weight:600;font-size:26px;padding:17px 40px;border-radius:999px}
+#grain{position:absolute;inset:0;opacity:.08;mix-blend-mode:multiply;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div class="st3d"><div class="cam" id="cam">
+   <div id="rim" class="disk"></div>
+   <div id="plate" class="disk"></div>
+ </div></div>
+
+ <!-- intro -->
+ <p class="m big" style="left:30px;top:112px;font-size:76px"><span data-a="0.2" data-o="2.55">Creed,</span></p>
+ <p class="m" style="left:32px;top:196px;font-size:40px;font-weight:400;letter-spacing:-.01em"><span data-a="0.45" data-o="2.6">in English.</span></p>
+
+ <!-- book 1 -->
+ <p class="m num" style="left:32px;top:110px"><span data-a="2.85" data-o="5.25">01</span></p>
+ <p class="m ar" style="left:32px;top:132px;font-size:26px;line-height:1.5;color:var(--oli)"><span data-a="2.9" data-o="5.25">التعليقات البهية على الرسائل العقدية</span></p>
+ <p class="m ttl" style="left:30px;top:184px"><span data-a="2.95" data-o="5.3">Five Foundational</span></p>
+ <p class="m ttl" style="left:30px;top:216px"><span data-a="3.05" data-o="5.33">Treatises of Creed</span></p>
+ <p class="m ui" style="left:32px;top:262px"><span data-a="3.3" data-o="5.36">Imam Muhammad bin Abdul Wahhab,</span></p>
+ <p class="m ui" style="left:32px;top:284px"><span data-a="3.38" data-o="5.38">explained by Shaykh Ahmad bin Yahya al-Najmi</span></p>
+
+ <!-- book 2 -->
+ <p class="m num" style="left:32px;top:110px"><span data-a="6.15" data-o="8.85">02</span></p>
+ <p class="m ttl" style="left:30px;top:136px;font-size:24px"><span data-a="6.2" data-o="8.9">The Great Blessing</span></p>
+ <p class="m ttl" style="left:30px;top:164px;font-size:24px"><span data-a="6.28" data-o="8.92">in Collecting the Beliefs</span></p>
+ <p class="m ttl" style="left:30px;top:192px;font-size:24px"><span data-a="6.36" data-o="8.94">of the Imams of the Sunnah</span></p>
+ <p class="m ui" style="left:32px;top:236px"><span data-a="6.6" data-o="8.97">Compiled by Shaykh, Dr. Khalid Al-Dhafiri</span></p>
+
+ <!-- book 3 -->
+ <p class="m num" style="left:32px;top:110px"><span data-a="9.75" data-o="11.4">03</span></p>
+ <p class="m ar" style="left:32px;top:132px;font-size:26px;line-height:1.5;color:var(--oli)"><span data-a="9.8" data-o="11.4">أركان الإسلام والإيمان</span></p>
+ <p class="m ttl" style="left:30px;top:184px"><span data-a="9.85" data-o="11.45">The Pillars of</span></p>
+ <p class="m ttl" style="left:30px;top:216px"><span data-a="9.93" data-o="11.48">Islam &amp; Iman</span></p>
+ <p class="m ui" style="left:32px;top:262px"><span data-a="10.15" data-o="11.5">Sheikh Muhammad bin Jamil Zeno</span></p>
+
+ <!-- hero -->
+ <p class="m big" style="left:30px;top:112px;font-size:44px"><span data-a="11.9" data-o="13.35">Start with</span></p>
+ <p class="m big" style="left:30px;top:162px;font-size:44px"><span data-a="12.02" data-o="13.38">the foundations.</span></p>
+
+ <!-- end -->
+ <div id="iris"></div>
+ <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+ <p class="m end" style="left:0;width:540px;text-align:center;top:350px;font-size:36px;font-weight:800;letter-spacing:-.01em"><span data-a="14.6">daralathari.com</span></p>
+ <p class="m end ui" style="left:0;width:540px;text-align:center;top:410px;color:#CDBFC9;font-size:19px"><span data-a="14.8">Books of creed in Arabic and English.</span></p>
+ <p class="m end ui" style="left:0;width:540px;text-align:center;top:438px;color:#CDBFC9;font-size:19px"><span data-a="14.9">Shipped from New Jersey.</span></p>
+ <div id="btnw" style="position:absolute;left:0;width:540px;top:530px;text-align:center;opacity:0"><span class="pill" id="btn">Browse the books</span></div>
+ <p class="m end ui" style="left:0;width:540px;text-align:center;top:624px;color:#CDBFC9;font-size:16px;font-weight:600"><span data-a="15.8">Link in bio</span></p>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.35,-.7,.62],.45,.72);
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+var cam=$('cam'),R=158,S=.7;
+// plinth: paper disk with an eight-point star inlay
+(function(){
+  var c=215,o='',r1=200,r2=150;
+  function sq(r,a){var p=[];for(var i=0;i<4;i++){var q=(a+i*90)*Math.PI/180;p.push((c+r*Math.cos(q)).toFixed(1)+','+(c+r*Math.sin(q)).toFixed(1))}return p.join(' ')}
+  o+='<circle cx="215" cy="215" r="212" fill="#F6F1E2"/><circle cx="215" cy="215" r="203" fill="none" stroke="#E0A13A" stroke-width="5"/>';
+  o+='<polygon points="'+sq(r1,0)+'" fill="#E9DFC2" stroke="#6F7D43" stroke-width="2.5"/><polygon points="'+sq(r1,45)+'" fill="#E9DFC2" stroke="#6F7D43" stroke-width="2.5"/>';
+  o+='<polygon points="'+sq(r2*.62,0)+'" fill="none" stroke="#2A1A2C" stroke-width="1.6" opacity=".55"/><polygon points="'+sq(r2*.62,45)+'" fill="none" stroke="#2A1A2C" stroke-width="1.6" opacity=".55"/>';
+  o+='<circle cx="215" cy="215" r="34" fill="#E0A13A"/><circle cx="215" cy="215" r="34" fill="none" stroke="#2A1A2C" stroke-width="1.5" opacity=".5"/>';
+  $('plate').innerHTML='<svg viewBox="0 0 430 430">'+o+'</svg>';
+  $('rim').style.background='#9C8A5C';
+})();
+var BK=[{k:'ft',a:0,land:1.15},{k:'bi',a:120,land:1.55},{k:'pi',a:240,land:1.95}];
+BK.forEach(function(o){o.b=makeBook(cam,o.k)});
+// turntable spin: indexed steps with a weighted settle
+var STEPS=[[5.3,0,-120,.95],[8.95,-120,-240,.95]];
+function spinAt(t){
+  var s=0;
+  STEPS.forEach(function(st){var u=(t-st[0])/st[3];if(u>0){var p=io(u);s=lerp(st[1],st[2],p);var d=t-st[0]-st[3];if(d>0)s+=(st[2]-st[1])*.035*Math.exp(-d*6)*Math.sin(d*13)}});
+  // hero whip: a full turn plus a little
+  var h=(t-11.55)/1.7;if(h>0)s=-240-360*io(h)-40*io((t-13.0)/1.2);
+  // idle drift
+  return s+Math.sin(t*.9)*1.2;
+}
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a,o:e.dataset.o?+e.dataset.o:99})});
+window.__seek=function(t){
+  MASK.forEach(function(m){var q=eo((t-m.s)/.75),o=io((t-m.o)/.4);m.e.style.transform='translateY('+((1-q)*112-o*112)+'%)'});
+  // camera: low three-quarter, slow push, then crane overhead for the hero
+  var crane=io((t-11.55)/1.6), push=io((t-.2)/10);
+  var tilt=lerp(-13,-62,crane), cz=lerp(lerp(-40,30,push),-60,crane), cy=lerp(0,-40,crane);
+  cam.style.transform='translate3d(0,'+cy+'px,'+cz+'px) rotateX('+tilt+'deg)';
+  var spin=spinAt(t);
+  // plinth grows in
+  var pg=ob((t-.15)/.9), ps=Math.max(.001,pg);
+  $('plate').style.transform='rotateX(90deg) rotateZ('+(-spin)+'deg) scale('+ps+')';
+  $('rim').style.transform='translateY(14px) rotateX(90deg) scale('+ps*1.0+')';
+  $('plate').style.opacity=$('rim').style.opacity=cl((t-.15)/.2);
+  BK.forEach(function(o,i){
+    var ang=o.a+spin, rad=ang*Math.PI/180;
+    var p=cl((t-(o.land-.45))/.45), drop=lerp(-760,0,p*p), bt=t-o.land;
+    if(bt>0)drop-=6*Math.exp(-bt*9)*Math.abs(Math.sin(bt*22));
+    var H=o.b.H*S;
+    var P={x:R*Math.sin(rad),z:R*Math.cos(rad),y:-H/2+drop,ry:ang,rx:0,rz:(1-p)*10*(i%2?1:-1),s:S,g:1};
+    // books jolt slightly when another lands
+    for(var j=0;j<3;j++){var d=t-BK[j].land;if(j!==i&&d>0&&t>o.land)P.y+=1.5*Math.exp(-d*14)*Math.sin(d*40)}
+    if(t<o.land-.46)P.hide=true;
+    if(t>14.2)P.hide=true;
+    pose(o.b,P);
+  });
+  // iris to the end card
+  var ir=io((t-13.35)/.9),dIr=ir*2300;$('iris').style.width=$('iris').style.height=dIr+'px';
+  $('iris').style.top=lerp(610,480,ir)+'px';
+  var lq=ob((t-14.15)/.8);$('lg').style.opacity=cl((t-14.15)/.3);$('lg').style.transform='scale('+(t<14.15?.7:Math.max(.7,lq))+')';
+  var bq=ob((t-15.35)/.6);$('btnw').style.opacity=cl((t-15.35)/.2);$('btnw').style.transform='translateY('+((1-oc((t-15.35)/.6))*24)+'px) scale('+(t<15.35?.85:Math.max(.85,bq))+')';
+  var pu=t>16.3?((t-16.3)%1.4)/1.4:-1;$('btn').style.transform=pu>=0?'scale('+(1+.04*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+  $('stage').style.opacity=sm(t/.2);
+};
+window.__seek(0);
+</script></body></html>
