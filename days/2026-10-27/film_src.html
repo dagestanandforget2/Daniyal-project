@@ -1,0 +1,175 @@
+<!--FONTS Archivo Black:archivo-black:latin:400:normal; Instrument Sans:instrument-sans:latin:400,600:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>From Our Shelves to Yours</title>
+<style>
+/*FONTS*/
+:root{--sky:#A9C3E8;--kr:#C28B55;--krd:#8A5A31;--ink:#14171F;--red:#D33A2C;--blu:#2F4FA8;--pap:#F4F6F9;--d:'Archivo Black',sans-serif;--ui:'Instrument Sans',sans-serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--ink);font-family:var(--ui);
+  background:radial-gradient(110% 70% at 50% 72%,#C2D5F0 0%,var(--sky) 55%,#93AEDA 100%)}
+.st3d{position:absolute;inset:0;perspective:1000px;perspective-origin:270px 300px;overflow:hidden}
+.cam{position:absolute;left:270px;top:480px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#f3ecdc 0 4.5px,#d6c8a8 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#f3ecdc 0 4.5px,#d6c8a8 4.5px 7.5px)}
+.kf{backface-visibility:hidden;-webkit-backface-visibility:hidden;transform-style:flat !important;
+  background:linear-gradient(180deg,rgba(255,240,215,.10),rgba(0,0,0,0) 40%),repeating-linear-gradient(90deg,rgba(0,0,0,.035) 0 2px,transparent 2px 7px),var(--kr)}
+.ki{backface-visibility:hidden;-webkit-backface-visibility:hidden;transform-style:flat !important;
+  background:repeating-linear-gradient(90deg,rgba(0,0,0,.05) 0 2px,transparent 2px 7px),var(--krd)}
+.fl{backface-visibility:visible;transform-style:flat !important;box-shadow:inset 0 0 0 1px rgba(90,55,25,.35);
+  background:repeating-linear-gradient(90deg,rgba(0,0,0,.035) 0 2px,transparent 2px 7px),#B98250}
+#shadow{left:-260px;top:-200px;width:520px;height:400px;border-radius:50%;background:radial-gradient(closest-side,rgba(25,40,80,.42),rgba(25,40,80,0));transform-style:flat !important}
+#tape{transform-style:flat !important;background:linear-gradient(90deg,rgba(255,255,255,.0),rgba(255,255,255,.22) 50%,rgba(255,255,255,0)),rgba(214,178,118,.93);
+  box-shadow:0 0 0 1px rgba(120,80,30,.25)}
+#label{transform-style:flat !important;background:repeating-linear-gradient(-45deg,var(--red) 0 13px,var(--pap) 13px 19px,var(--blu) 19px 32px,var(--pap) 32px 38px);
+  box-shadow:0 2px 0 rgba(0,0,0,.15)}
+#label .in{position:absolute;left:9px;top:9px;right:9px;bottom:9px;background:var(--pap);color:var(--ink);font-family:var(--ui)}
+#label .k{position:absolute;left:12px;font-size:10px;font-weight:600;letter-spacing:.08em}
+#label .v{position:absolute;left:46px;font-family:var(--d);font-size:17px;line-height:1}
+#label .s{position:absolute;left:46px;font-size:11.5px}
+#stamp{left:154px;top:70px;width:80px;height:80px;border-radius:50%;border:4px solid rgba(211,58,44,.85);transform-style:flat !important;
+  color:rgba(211,58,44,.9);font-family:var(--d);font-size:12px;line-height:1.15;text-align:center;box-sizing:border-box;padding-top:21px}
+#stamp:before{content:'';position:absolute;left:5px;top:5px;right:5px;bottom:5px;border-radius:50%;border:1.5px solid rgba(211,58,44,.8)}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.1em}
+.m>span{display:block}
+.hd{left:32px;font-family:var(--d);font-size:56px;line-height:1.02;letter-spacing:-.01em}
+#man{position:absolute;left:32px;top:112px;width:440px}
+#man .hdr{position:absolute;left:0;top:0;font-weight:600;font-size:15px;opacity:0}
+#man .rule{position:absolute;left:0;top:26px;height:2px;width:440px;background:var(--ink);transform-origin:0 50%}
+.row{position:absolute;left:0;width:440px;height:66px}
+.row .n{position:absolute;left:0;top:6px;font-family:var(--d);font-size:30px;line-height:1}
+.row .t{position:absolute;left:58px;top:4px;font-weight:600;font-size:20px;white-space:nowrap}
+.row .a{position:absolute;left:58px;top:32px;font-size:14.5px;white-space:nowrap;color:#2E3550}
+.row .hr{position:absolute;left:0;top:62px;height:1px;width:440px;background:rgba(20,23,31,.35);transform-origin:0 50%}
+.row .ck{position:absolute;right:4px;top:6px;width:24px;height:24px;border:2px solid var(--ink);border-radius:3px}
+.row .ck i{position:absolute;left:6px;top:0px;width:8px;height:15px;border-right:4px solid var(--red);border-bottom:4px solid var(--red);transform:rotate(40deg);transform-origin:50% 100%}
+#wipe{position:absolute;left:-200px;top:-200px;width:1000px;height:1400px;
+  background:repeating-linear-gradient(-45deg,var(--red) 0 46px,var(--pap) 46px 66px,var(--blu) 66px 112px,var(--pap) 112px 132px)}
+#env{position:absolute;inset:0;background:var(--pap);opacity:0}
+#env:before{content:'';position:absolute;inset:0;border:16px solid transparent;
+  border-image:repeating-linear-gradient(-45deg,var(--red) 0 16px,var(--pap) 16px 23px,var(--blu) 23px 39px,var(--pap) 39px 46px) 16}
+#lg{position:absolute;left:180px;top:132px;width:180px;height:180px;mix-blend-mode:multiply;opacity:0}
+.pill{display:inline-block;background:var(--ink);color:var(--pap);font-family:var(--ui);font-weight:600;font-size:23px;padding:17px 36px;border-radius:999px}
+#grain{position:absolute;inset:0;opacity:.08;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div class="st3d"><div class="cam" id="cam"><div id="world"><div id="box"></div></div></div></div>
+
+ <p class="m hd" style="top:108px"><span data-a="0.2" data-o="2.15">From our</span></p>
+ <p class="m hd" style="top:166px"><span data-a="0.35" data-o="2.2">shelves</span></p>
+
+ <div id="man">
+  <div class="hdr">Packing list</div><div class="rule" id="rule"></div>
+  <div class="row" style="top:40px"><div class="n">01</div><div class="t">Ad-Da' wa ad-Dawa'</div><div class="a">Imam Ibn al-Qayyim, in Arabic</div><div class="ck"><i></i></div><div class="hr"></div></div>
+  <div class="row" style="top:110px"><div class="n">02</div><div class="t">Five Foundational Treatises of Creed</div><div class="a">Explained by Shaykh Ahmad al-Najmi, in English</div><div class="ck"><i></i></div><div class="hr"></div></div>
+  <div class="row" style="top:180px"><div class="n">03</div><div class="t">Tafsir as-Sa'di</div><div class="a">Shaykh Abd ar-Rahman as-Sa'di, in Arabic</div><div class="ck"><i></i></div><div class="hr"></div></div>
+ </div>
+
+ <p class="m" style="left:32px;top:112px;font-family:var(--d);font-size:30px"><span data-a="9.0" data-o="12.15">Arabic and English.</span></p>
+ <p class="m" style="left:32px;top:152px;font-size:21px;font-weight:600"><span data-a="9.2" data-o="12.2">Shipped from New Jersey,</span></p>
+ <p class="m" style="left:32px;top:180px;font-size:21px;font-weight:600"><span data-a="9.32" data-o="12.25">near and far.</span></p>
+
+ <p class="m" style="left:32px;top:300px;font-family:var(--d);font-size:40px"><span data-a="12.45" data-o="14.15">From our shelves</span></p>
+ <p class="m hd" id="ty1" style="top:346px;font-size:112px;line-height:1"><span data-a="12.6" data-o="14.2">to</span></p>
+ <p class="m hd" id="ty2" style="top:458px;font-size:112px;line-height:1"><span data-a="12.75" data-o="14.25">yours.</span></p>
+
+ <div id="env"></div>
+ <img id="lg" src="assets/logo_dark.png" alt="Dar Al Athari">
+ <p class="m" style="left:0;width:540px;text-align:center;top:350px;font-family:var(--d);font-size:40px"><span data-a="14.95">daralathari.com</span></p>
+ <p class="m" style="left:0;width:540px;text-align:center;top:412px;font-size:18px;color:#2E3550"><span data-a="15.15">Arabic and English books,</span></p>
+ <p class="m" style="left:0;width:540px;text-align:center;top:438px;font-size:18px;color:#2E3550"><span data-a="15.25">thobes, shemaghs and kufis.</span></p>
+ <div id="btnw" style="position:absolute;left:0;width:540px;top:520px;text-align:center;opacity:0"><span class="pill" id="btn">Browse the books</span></div>
+ <p class="m" style="left:0;width:540px;text-align:center;top:604px;font-size:16px;font-weight:600;color:#2E3550"><span data-a="16.2">Link in bio</span></p>
+ <div id="wipe"></div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.3,-.85,.45],.42,.75);
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+// ---- the box (world units px). floor at y=+HB/2
+var WB=340,DB=250,HB=150,box=$('box'),world=$('world');
+function F(cls,css){return el(cls,css,box)}
+el('','left:0;top:0',box).id='sh0';
+var shd=el('','',box);shd.id='shadow';shd.style.transform='translateY('+(HB/2+1)+'px) rotateX(90deg)';
+// bottom (inner)
+F('ki','left:'+(-WB/2)+'px;top:'+(-DB/2)+'px;width:'+WB+'px;height:'+DB+'px;transform:translateY('+(HB/2-1)+'px) rotateX(90deg)');
+// walls: outer (kf) + inner (ki)
+function wall(w,tr){F('kf','left:'+(-w/2)+'px;top:'+(-HB/2)+'px;width:'+w+'px;height:'+HB+'px;transform:'+tr);
+  F('ki','left:'+(-w/2)+'px;top:'+(-HB/2)+'px;width:'+w+'px;height:'+HB+'px;transform:'+tr+' rotateY(180deg)')}
+wall(WB,'translateZ('+(DB/2)+'px)');wall(WB,'translateZ('+(-DB/2)+'px) rotateY(180deg)');
+wall(DB,'translateX('+(-WB/2)+'px) rotateY(-90deg)');wall(DB,'translateX('+(WB/2)+'px) rotateY(90deg)');
+// flaps
+var H={};
+function hinge(id,x,y,z){var h=el('','left:0;top:0',box);h.id=id;h._p=[x,y,z];return h}
+H.f=hinge('hf',0,-HB/2-1.5,DB/2); el('fl','left:'+(-WB/2)+'px;top:0;width:'+WB+'px;height:'+(DB/2)+'px',H.f);
+H.b=hinge('hb',0,-HB/2-1.5,-DB/2); el('fl','left:'+(-WB/2)+'px;top:0;width:'+WB+'px;height:'+(DB/2)+'px',H.b);
+H.l=hinge('hl',-WB/2,-HB/2,0); el('fl','left:0;top:'+(-DB/2)+'px;width:'+(WB*.36)+'px;height:'+DB+'px;transform-origin:0 50%;transform:rotateX(90deg)',H.l);
+H.r=hinge('hr',WB/2,-HB/2,0); el('fl','left:0;top:'+(-DB/2)+'px;width:'+(WB*.36)+'px;height:'+DB+'px;transform-origin:0 50%;transform:rotateX(90deg)',H.r);
+function setH(h,rot){var p=h._p;h.style.transform='translate3d('+p[0]+'px,'+p[1]+'px,'+p[2]+'px) '+rot}
+// tape + label + stamp on the lid
+var tape=el('','',box);tape.id='tape';
+var lab=el('','left:-120px;top:-78px;width:240px;height:156px',box,
+ '<div class="in"><div class="k" style="top:14px">FROM</div><div class="v" style="top:12px">Dar Al Athari</div><div class="s" style="top:34px">Hillsborough, New Jersey</div>'+
+ '<div style="position:absolute;left:12px;right:12px;top:62px;border-top:1.5px dashed rgba(20,23,31,.5)"></div>'+
+ '<div class="k" style="top:80px">TO</div><div class="v" style="top:78px">Your shelf</div><div class="s" style="top:100px">near or far</div></div>');lab.id='label';
+var stp=el('','',lab,'DAR AL<br>ATHARI');stp.id='stamp';
+// books lying flat, covers up
+var S=.62, ORD=['aar','ft','ts'], BK=[], yy=HB/2;
+var OFF=[[-28,-8,-7],[22,6,10],[-6,-4,-3]], DROP=[2.35,4.35,6.35];
+ORD.forEach(function(k,i){var b=makeBook(box,k);b.rest=[OFF[i][0],yy-b.D*S/2,OFF[i][1],OFF[i][2]];yy-=b.D*S;BK.push(b)});
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a,o:e.dataset.o?+e.dataset.o:99})});
+// camera keys: t, Y, Z, tilt, yaw
+var CAM=[[0,170,-90,34,-26],[2.2,175,-10,40,-16],[6.6,180,30,44,-8],[8.5,185,60,52,0],[10.3,175,130,74,0],[11.9,185,110,70,0],[13,185,110,70,0]];
+function grav(x){x=cl(x);return x*x}
+window.__seek=function(t){
+  MASK.forEach(function(m){var q=eo((t-m.s)/.75),o=io((t-m.o)/.4);m.e.style.transform='translateY('+((1-q)*112-o*112)+'%)'});
+  var c=keyed(CAM,t);
+  // tiny shake on each landing + stamp
+  var sh=0;DROP.forEach(function(d){var u=t-(d+.55);if(u>0&&u<.3)sh+=Math.sin(u*70)*(1-u/.3)*3});
+  var us=t-11.05;if(us>0&&us<.3)sh+=Math.sin(us*70)*(1-us/.3)*4;
+  world.style.transform='translate3d(0,'+(c[0]+sh)+'px,'+c[1]+'px) rotateX('+(-c[2])+'deg) rotateY('+c[3]+'deg)';
+  // box enters from below at start, exits right after sealing
+  var bin=eo((t-.0)/1.2), ex=io((t-12.05)/.9);
+  var bx=ex*760, by=(1-bin)*420 - Math.sin(ex*Math.PI)*60;
+  box.style.transform='translate3d('+bx+'px,'+by+'px,0) rotateY('+(-ex*28)+'deg) rotateZ('+(ex*10)+'deg)';
+  // flaps: side first, then long ones (ob overshoot = weight)
+  var fl=lerp(-120,0,ob((t-8.55)/.5)), fr=lerp(-60,-180,ob((t-8.7)/.5));
+  var ff=lerp(122,270,ob((t-9.05)/.55)), fb=lerp(238,90,ob((t-9.25)/.55));
+  setH(H.l,'rotateZ('+fl+'deg)');setH(H.r,'rotateZ('+fr+'deg)');
+  setH(H.f,'rotateX('+ff+'deg)');setH(H.b,'rotateX('+fb+'deg)');
+  // tape runs along the seam
+  var tp=io((t-9.85)/.5), tl=(WB+40)*tp;
+  tape.style.cssText='left:'+(-WB/2-20)+'px;top:-30px;width:'+Math.max(1,tl)+'px;height:60px;opacity:'+(t<9.85?0:1)+';transform:translateY('+(-HB/2-5)+'px) rotateX(90deg)';
+  // label slaps down
+  var lq=t-10.35, ld=grav(lq/.32);
+  var ly=-HB/2-8-(1-ld)*260, lsc=lerp(1.25,1,ld);
+  lab.style.opacity=lq<0?0:1;
+  lab.style.transform='translate3d(10px,'+ly+'px,4px) rotateX(90deg) rotateZ('+lerp(-14,-4,oc(lq/.4))+'deg) scale('+lsc+')';
+  // stamp thump
+  var sq=t-10.95;stp.style.opacity=sq<0?0:cl(1-0*sq);stp.style.transform='rotate(-14deg) scale('+(sq<0?1:lerp(1.6,1,oc(sq/.18)))+')';
+  // books drop in
+  BK.forEach(function(b,i){var d=DROP[i],u=(t-d)/.55,r=b.rest;
+    if(t<d){pose(b,{hide:true});return}
+    var fall=grav(u), bo=u>1?Math.exp(-(t-d-.55)*14)*Math.sin((t-d-.55)*40)*6:0;
+    var y=u<1?lerp(r[1]-560,r[1],fall):r[1]-Math.abs(bo);
+    pose(b,{x:r[0],y:y,z:r[2],rx:90,rz:r[3]+(1-cl(u))*30,s:S,g:1.05})});
+  // packing list
+  var m=$('man');m.style.opacity=1-io((t-8.35)/.35);m.style.transform='translateY('+(-io((t-8.35)/.35)*20)+'px)';
+  m.querySelector('.hdr').style.opacity=cl((t-2.25)/.3);$('rule').style.transform='scaleX('+eo((t-2.25)/.7)+')';
+  m.querySelectorAll('.row').forEach(function(rw,i){var d=DROP[i]+.15,q=eo((t-d)/.7);
+    rw.style.opacity=cl((t-d)/.25);rw.style.transform='translateX('+((1-q)*-30)+'px)';
+    rw.querySelector('.hr').style.transform='scaleX('+eo((t-d-.2)/.7)+')';
+    var ck=oc((t-(DROP[i]+.6))/.25);rw.querySelector('.ck i').style.transform='rotate(40deg) scale('+(t<DROP[i]+.6?0:lerp(1.6,1,ck))+')'});
+  // airmail wipe into the envelope end card
+  var w1=io((t-14.15)/.45), w2=io((t-14.55)/.45);
+  $('wipe').style.transform='translateX('+(t<14.6?lerp(-1100,0,w1):lerp(0,1100,w2))+'px)';
+  $('env').style.opacity=t>14.58?1:0;
+  var lq2=ob((t-14.7)/.8);$('lg').style.opacity=cl((t-14.7)/.3);$('lg').style.transform='scale('+(t<14.7?.7:Math.max(.7,lq2))+')';
+  var bq=ob((t-15.7)/.6);$('btnw').style.opacity=cl((t-15.7)/.2);$('btnw').style.transform='translateY('+((1-oc((t-15.7)/.6))*24)+'px) scale('+(t<15.7?.85:Math.max(.85,bq))+')';
+  var pu=t>16.6?((t-16.6)%1.4)/1.4:-1;$('btn').style.transform=pu>=0?'scale('+(1+.04*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+  $('stage').style.opacity=sm(t/.2);
+};
+window.__seek(0);
+</script></body></html>
