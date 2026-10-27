@@ -1,0 +1,124 @@
+<!--FONTS Young Serif:young-serif:latin:400:normal; Courier Prime:courier-prime:latin:400,700:normal; Amiri:amiri:arabic:400,700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>The Card Catalogue</title>
+<style>
+/*FONTS*/
+:root{--sl:#2B3439;--man:#EADCB8;--blu:#7FA0C4;--red:#B5402F;--oak:#6A4426;--ink:#1C1E20;--d:'Young Serif',serif;--ty:'Courier Prime',monospace;--ar:'Amiri',serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--man);font-family:var(--d);
+  background:radial-gradient(120% 80% at 40% 30%,#36424A 0%,var(--sl) 55%,#1F272B 100%)}
+.st3d{position:absolute;inset:0;perspective:820px;perspective-origin:270px 170px;overflow:hidden}
+.cam{position:absolute;left:270px;top:480px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#f1e7d1 0 4.5px,#d2c29f 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#f1e7d1 0 4.5px,#d2c29f 4.5px 7.5px)}
+#drw{position:absolute;inset:0}
+#well{position:absolute;left:28px;top:430px;width:444px;height:330px;background:linear-gradient(#141A1D,#232B2F);border-radius:4px}
+.card{position:absolute;left:-210px;top:-250px;width:420px;height:250px;transform-origin:50% 100%;backface-visibility:visible;
+  background:repeating-linear-gradient(to bottom,transparent 0 33px,rgba(127,160,196,.55) 33px 34.5px),linear-gradient(#EFE3C4,#E2D2AA);
+  box-shadow:inset 0 0 0 1px rgba(80,60,30,.25)}
+.card:before{content:'';position:absolute;left:0;right:0;top:40px;height:1.5px;background:rgba(181,64,47,.7)}
+.tab{position:absolute;top:-34px;height:36px;width:150px;background:#E9DBB5;border-radius:6px 6px 0 0;box-shadow:inset 0 0 0 1px rgba(80,60,30,.25);
+  font-family:var(--ty);font-weight:700;font-size:21px;color:var(--ink);text-align:center;line-height:38px}
+#panel{position:absolute;left:0;top:690px;width:540px;height:270px;background:linear-gradient(#7A4F2D,var(--oak) 30%,#4E3019);box-shadow:0 -6px 18px rgba(0,0,0,.45)}
+#panel:before{content:'';position:absolute;left:0;right:0;top:0;height:3px;background:rgba(255,220,170,.25)}
+#holder{position:absolute;left:150px;top:26px;width:200px;height:50px;border:5px solid #B9944A;border-radius:3px;background:#EADCB8;box-shadow:0 2px 0 #7d5f22,inset 0 2px 4px rgba(0,0,0,.25);
+  font-family:var(--ty);font-weight:700;font-size:17px;color:var(--ink);text-align:center;line-height:50px;letter-spacing:.04em}
+#pull{position:absolute;left:205px;top:100px;width:90px;height:34px;border-radius:0 0 45px 45px;border:6px solid #B9944A;border-top:none}
+#entry{position:absolute;left:40px;top:186px;width:420px;height:236px;opacity:0;transform-origin:50% 50%;
+  background:repeating-linear-gradient(to bottom,transparent 0 31px,rgba(127,160,196,.6) 31px 32.5px),linear-gradient(#F1E6C9,#E4D5AE);
+  box-shadow:0 18px 40px rgba(0,0,0,.45);color:var(--ink);font-family:var(--ty)}
+#entry:before{content:'';position:absolute;left:0;right:0;top:46px;height:2px;background:var(--red);opacity:.8}
+#entry .h{position:absolute;left:22px;top:12px;font-weight:700;font-size:22px;letter-spacing:.06em}
+#entry .no{position:absolute;right:20px;top:15px;font-size:15px;color:#6b5a3a}
+#entry .ln{position:absolute;left:22px;font-size:17.5px;white-space:nowrap}
+#entry .arw{position:absolute;right:22px;top:58px;font-family:var(--ar);font-size:26px;direction:rtl;color:#3a2a1a}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.12em}
+.m>span{display:block}
+.hd{left:38px;top:98px;font-size:58px;line-height:1.05}
+#lg{position:absolute;left:195px;top:170px;width:150px;height:150px;mix-blend-mode:screen;opacity:0}
+.pill{display:inline-block;background:var(--man);color:var(--ink);font-family:var(--ty);font-weight:700;font-size:24px;padding:17px 34px;border-radius:999px}
+#grain{position:absolute;inset:0;opacity:.1;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="drw">
+  <div id="well"></div>
+  <div class="st3d"><div class="cam" id="cards"></div></div>
+  <div class="st3d"><div class="cam" id="cam"></div></div>
+ </div>
+ <p class="m hd"><span data-a="0.15" data-o="1.25">Every subject,</span></p>
+ <p class="m hd" style="top:162px"><span data-a="0.3" data-o="1.3">filed.</span></p>
+ <p class="m hd"><span data-a="2.2" data-o="5.1">Fiqh.</span></p>
+ <p class="m hd"><span data-a="6.4" data-o="9.3">Tafsir.</span></p>
+ <p class="m hd"><span data-a="10.6" data-o="13.6">Tazkiyah.</span></p>
+ <div id="entry"><div class="h" id="eh"></div><div class="no" id="eno"></div><div class="arw" id="ear"></div>
+  <div class="ln" style="top:62px" id="l0"></div><div class="ln" style="top:94px" id="l1"></div><div class="ln" style="top:126px" id="l2"></div><div class="ln" style="top:158px" id="l3"></div><div class="ln" style="top:190px" id="l4"></div></div>
+ <div id="panel"><div id="holder">DAR AL ATHARI</div><div id="pull"></div></div>
+
+ <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+ <p class="m" style="left:0;width:540px;text-align:center;top:350px;font-size:46px"><span data-a="14.9">daralathari.com</span></p>
+ <p class="m" style="left:0;width:540px;text-align:center;top:420px;font-family:var(--ty);font-size:18px;color:#BFC9CC"><span data-a="15.15">Fiqh, tafsir, creed and more.</span></p>
+ <p class="m" style="left:0;width:540px;text-align:center;top:448px;font-family:var(--ty);font-size:18px;color:#BFC9CC"><span data-a="15.3">Shipped from New Jersey.</span></p>
+ <div id="btnw" style="position:absolute;left:0;width:540px;top:540px;text-align:center;opacity:0"><span class="pill" id="btn">Browse the catalogue</span></div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.35,-.5,.8],.45,.72);
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+// ---- the drawer of cards (front = 0)
+var N=18, DIV={3:'FIQH',8:'TAFSIR',13:'TAZKIYAH'}, CARDS=[];
+for(var i=0;i<N;i++){var c=el('card','',$('cards'));
+  if(DIV[i]){var tb=el('tab','left:'+[30,135,240][(i/5|0)%3]+'px',c,DIV[i]);}
+  else if(i%2==0){el('tab','left:'+(i*37%270)+'px;width:70px;height:16px;top:-14px;font-size:0',c)}
+  CARDS.push(c)}
+// ---- subjects
+var SUB=[
+ {A:1.4,to:3,h:'FIQH',no:'2 vols',ar:'',L:["Fiqh According to the","Qur'an & Sunnah, Vols. 1-2","Muhammad Subhi","bin Hasan Hallaq","Darussalam / English"],bk:['fq1','fq2']},
+ {A:5.6,to:8,h:'TAFSIR',no:'1 vol',ar:'تيسير الكريم الرحمن',L:["Tafsir as-Sa'di","Shaykh Abd ar-Rahman","ibn Nasir as-Sa'di","","Dar Ibn al-Jawzi / Arabic"],bk:['ts']},
+ {A:9.8,to:13,h:'TAZKIYAH',no:'1 vol',ar:'الفوائد',L:["Al-Fawa'id","Imam Ibn Qayyim","al-Jawziyyah","(691-751 AH)","Dar Ata'at al-'Ilm / Arabic"],bk:['fw']}];
+var cam=$('cam');
+SUB.forEach(function(s){s.B=s.bk.map(function(k){return makeBook(cam,k)})});
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a,o:e.dataset.o?+e.dataset.o:99})});
+function ptrAt(t){var p=0;SUB.forEach(function(s,i){var from=i?SUB[i-1].to:0;var q=io((t-s.A)/(i==2?1.0:.85));if(t>=s.A)p=lerp(from,s.to,q)});return p}
+window.__seek=function(t){
+  MASK.forEach(function(m){var q=eo((t-m.s)/.75),o=io((t-m.o)/.4);m.e.style.transform='translateY('+((1-q)*112-o*112)+'%)'});
+  // drawer slides in from below, leaves at the end
+  var din=eo((t-.05)/1.1), dout=io((t-13.9)/.7);
+  $('drw').style.transform='translateY('+((1-din)*520+dout*620)+'px)';
+  $('panel').style.transform='translateY('+((1-din)*520+dout*620)+'px)';
+  // riffle
+  var P=ptrAt(t);
+  for(var i=0;i<N;i++){var f=cl(P-i), fall=f<1?io(f):1;
+    // a flipped card leans forward and rests on the ones before it
+    var rx=-78*fall, z=-i*13, y=290 - (i*0) ;
+    var bounce=0, land=t;
+    CARDS[i].style.transform='translate3d(0,'+y+'px,'+z+'px) rotateX('+rx+'deg)';
+    var sh=Math.round(lerp(255,200,cl(i/N)));CARDS[i].style.filter='brightness('+(1-cl((i-P)/9)*.45-fall*.25)+')';
+  }
+  // entry card and books per subject
+  var shown=null,eu=0;
+  SUB.forEach(function(s,k){var A=s.A,up=oc((t-(A+.95))/.6),dn=io((t-(A+3.75))/.45),v=up*(1-dn);
+    if(v>.001){shown=s;eu=v;s._up=up;s._dn=dn}
+    var r=ob((t-(A+1.9))/.8),sk=io((t-(A+3.55))/.5);
+    s.B.forEach(function(b,j){var n=s.B.length,x=n>1?(j?95:-95):18,
+      P={x:x,y:lerp(560,62,t<A+1.9?0:r)+sk*560,z:60,ry:(n>1?(j?-14:14):-24)+(1-cl((t-(A+1.9))/.9))*(n>1?0:-40),rz:n>1?(j?3:-3):0,rx:4,s:n>1?.84:.95,g:1};
+      P.ry+=Math.sin((t-A)*1.3)*2;
+      if(t<A+1.85||t>A+4.1)P.hide=true; pose(b,P)})});
+  var E=$('entry');
+  if(shown){var s=shown;E.style.opacity=cl(eu*4);
+    E.style.transform='translateY('+((1-s._up)*420+s._dn*440)+'px) scale('+lerp(.86,1,s._up)+') rotate('+((1-s._up)*-4+s._dn*3)+'deg)';
+    $('eh').textContent=s.h;$('eno').textContent=s.no;$('ear').textContent=s.ar;
+    var t0=s.A+1.35, ch=0;
+    s.L.forEach(function(L,i){var n=Math.floor(cl((t-t0-ch*.015)/(L.length*.015+.0001))*L.length);ch+=L.length+4;$('l'+i).textContent=L.slice(0,Math.max(0,n))});
+    $('ear').style.opacity=cl((t-(s.A+2.6))/.4);
+  } else E.style.opacity=0;
+  // end card
+  var lq=ob((t-14.45)/.8);$('lg').style.opacity=cl((t-14.45)/.3);$('lg').style.transform='scale('+(t<14.45?.7:Math.max(.7,lq))+')';
+  var bq=ob((t-15.7)/.6);$('btnw').style.opacity=cl((t-15.7)/.2);$('btnw').style.transform='translateY('+((1-oc((t-15.7)/.6))*24)+'px) scale('+(t<15.7?.85:Math.max(.85,bq))+')';
+  var pu=t>16.5?((t-16.5)%1.4)/1.4:-1;$('btn').style.transform=pu>=0?'scale('+(1+.04*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+  $('stage').style.opacity=sm(t/.2);
+};
+window.__seek(0);
+</script></body></html>
