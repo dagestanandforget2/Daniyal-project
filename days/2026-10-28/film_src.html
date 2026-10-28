@@ -1,0 +1,183 @@
+<!--FONTS Darker Grotesque:darker-grotesque:latin:600,900:normal; JetBrains Mono:jetbrains-mono:latin:500,700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Cut With Room</title>
+<style>
+/*FONTS*/
+:root{--mat:#2F5D50;--line:#4C7C6E;--major:#6E9A8B;--tissue:#EADFC4;--ink:#161616;--tape:#E6B530;--chalk:#F7F4EC;
+ --d:'Darker Grotesque',sans-serif;--mono:'JetBrains Mono',monospace}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;background:var(--mat);color:var(--chalk);font-family:var(--d)}
+#grid{position:absolute;inset:0;
+ background:
+  repeating-linear-gradient(to right,var(--major) 0 1.5px,transparent 1.5px 150px),
+  repeating-linear-gradient(to bottom,var(--major) 0 1.5px,transparent 1.5px 150px),
+  repeating-linear-gradient(to right,var(--line) 0 1px,transparent 1px 30px),
+  repeating-linear-gradient(to bottom,var(--line) 0 1px,transparent 1px 30px);background-position:15px 15px}
+#nums{position:absolute;left:0;top:0;width:540px;height:960px;font-family:var(--mono);font-size:10px;color:var(--major)}
+#nums b{position:absolute;font-weight:500}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.06em}
+.m>span{display:block;will-change:transform}
+.hd{font-weight:900;line-height:.82;letter-spacing:-.02em}
+.sb{font-weight:600;font-size:30px;line-height:1;color:var(--chalk)}
+.mk{font-family:var(--mono);font-weight:700;font-size:13px;letter-spacing:.04em}
+#pat{position:absolute;left:0;top:0;width:540px;height:960px;transform-origin:270px 520px}
+#pat svg{position:absolute;left:0;top:0;overflow:visible}
+#tape{position:absolute;left:0;top:452px;height:74px;width:0;overflow:hidden;background:var(--tape);box-shadow:0 14px 26px -10px rgba(0,0,0,.45)}
+#tape .tk{position:absolute;top:0;width:1.5px;background:var(--ink)}
+#tape .tn{position:absolute;top:30px;font-family:var(--mono);font-weight:700;font-size:15px;color:var(--ink);transform:translateX(-50%)}
+#tapecase{position:absolute;top:426px;width:126px;height:126px;border-radius:24px;background:var(--ink);box-shadow:inset 0 0 0 6px #2a2a2a,0 18px 30px -10px rgba(0,0,0,.5)}
+#tapecase i{position:absolute;left:38px;top:38px;width:50px;height:50px;border-radius:50%;border:4px solid var(--tape);box-sizing:border-box}
+.sz{position:absolute;top:556px;width:90px;text-align:center;font-weight:900;font-size:60px;line-height:1;color:var(--chalk)}
+.sz small{display:block;font-family:var(--mono);font-weight:500;font-size:11px;color:var(--tissue);margin-top:6px}
+#blk,#wht{position:absolute;top:0;width:270px;height:960px}
+#blk{left:0;background:var(--ink);color:var(--chalk)}
+#wht{left:270px;background:var(--chalk);color:var(--ink)}
+.pr{position:absolute;left:30px}
+#lg{position:absolute;left:190px;top:150px;width:160px;height:160px;mix-blend-mode:screen;opacity:0}
+.btn{display:inline-block;background:var(--tape);color:var(--ink);font-weight:900;font-size:34px;line-height:1;padding:16px 34px 20px;border-radius:12px;box-shadow:0 18px 30px -12px rgba(0,0,0,.5)}
+#grain{position:absolute;inset:0;opacity:.09;mix-blend-mode:multiply;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="grid"></div>
+ <div id="nums"></div>
+
+ <!-- pattern pieces -->
+ <div id="pat">
+  <svg width="540" height="960" viewBox="0 0 540 960">
+   <defs><filter id="sh" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#0b1f19" flood-opacity=".45"/></filter></defs>
+   <g id="body">
+    <path id="bodyF" d="M34 330 L150 300 Q178 352 226 356 L300 360 L300 742 L24 742 Z" fill="#EADFC4" filter="url(#sh)"/>
+    <path id="bodyS" d="M34 330 L150 300 Q178 352 226 356 L300 360 L300 742 L24 742 Z" fill="none" stroke="#161616" stroke-width="2.2" pathLength="1"/>
+    <path id="bodyA" d="M46 342 L146 316 Q176 366 226 370 L288 372 L288 730 L36 730 Z" fill="none" stroke="#161616" stroke-width="1" stroke-dasharray="6 5" opacity="0"/>
+    <g id="bodyM" opacity="0" font-family="JetBrains Mono" font-weight="700" fill="#161616">
+     <line x1="150" y1="420" x2="150" y2="640" stroke="#161616" stroke-width="1.6"/>
+     <path d="M143 432 L150 420 L157 432 M143 628 L150 640 L157 628" fill="none" stroke="#161616" stroke-width="1.6"/>
+     <text x="64" y="470" font-size="22">FRONT</text>
+     <text x="64" y="496" font-size="13">CUT 2</text>
+     <text x="64" y="600" font-size="11" font-weight="500">GRAIN</text>
+     <path d="M296 520 l8 -8 l0 16 z M296 600 l8 -8 l0 16 z" fill="#161616"/>
+    </g>
+   </g>
+   <g id="gus">
+    <path d="M300 360 L360 360 L410 742 L300 742 Z" fill="#E3D5B4" filter="url(#sh)"/>
+    <path id="gusS" d="M300 360 L360 360 L410 742 L300 742 Z" fill="none" stroke="#161616" stroke-width="2.2" pathLength="1"/>
+    <g font-family="JetBrains Mono" font-weight="700" fill="#161616">
+     <text transform="translate(334 640) rotate(-90)" font-size="15">SIDE PANEL</text>
+     <text transform="translate(356 640) rotate(-90)" font-size="11">CUT 2</text>
+     <path d="M300 520 l8 -8 l0 16 z M300 600 l8 -8 l0 16 z" fill="#161616" transform="translate(-4 0)"/>
+    </g>
+   </g>
+   <g id="stitch" stroke="#F7F4EC" stroke-width="2.4" stroke-linecap="round">
+    <line id="st1" x1="293" y1="742" x2="293" y2="362" stroke-dasharray="8 6"/>
+    <line id="st2" x1="307" y1="742" x2="307" y2="362" stroke-dasharray="8 6"/>
+   </g>
+   <g id="needle"><circle r="9" fill="#E6B530" stroke="#161616" stroke-width="2"/><line x1="0" y1="-60" x2="0" y2="0" stroke="#C9CDD0" stroke-width="3"/></g>
+  </svg>
+ </div>
+
+ <!-- tape measure -->
+ <div id="tape"></div>
+ <div id="tapecase"><i></i></div>
+ <div id="sizes"></div>
+
+ <!-- 1 title -->
+ <div id="t1">
+  <p class="m hd" style="left:34px;top:120px;font-size:124px"><span data-a="0.25">Room</span></p>
+  <p class="m hd" style="left:34px;top:220px;font-size:124px"><span data-a="0.4">to move.</span></p>
+  <p class="m sb" style="left:38px;top:330px"><span data-a="0.95">Thobes at Dar Al Athari.</span></p>
+ </div>
+ <!-- 2 panels -->
+ <div id="t2">
+  <p class="m hd" style="left:34px;top:116px;font-size:84px"><span data-a="3.15">Extra panels</span></p>
+  <p class="m hd" style="left:34px;top:186px;font-size:84px"><span data-a="3.3">for flexibility.</span></p>
+ </div>
+ <!-- 3 stitch -->
+ <div id="t3">
+  <p class="m hd" style="left:34px;top:116px;font-size:84px"><span data-a="6.45">Double</span></p>
+  <p class="m hd" style="left:34px;top:186px;font-size:84px"><span data-a="6.6">stitched.</span></p>
+  <p class="m sb" style="left:38px;top:272px"><span data-a="8.95">Cut from cooling fabric.</span></p>
+ </div>
+ <!-- 4 sizes -->
+ <div id="t4">
+  <p class="m hd" style="left:34px;top:240px;font-size:96px"><span data-a="10.75">Sizes</span></p>
+  <p class="m hd" style="left:34px;top:322px;font-size:96px"><span data-a="10.9">52 to 60.</span></p>
+ </div>
+ <!-- 5 split -->
+ <div id="blk">
+  <p class="m sb pr" style="top:250px;font-size:36px;color:var(--chalk)"><span data-a="13.75">Black thobe</span></p>
+  <p class="m hd pr" style="top:300px;font-size:124px"><span data-a="13.9">$50</span></p>
+ </div>
+ <div id="wht">
+  <p class="m sb pr" style="top:470px;font-size:36px;color:var(--ink)"><span data-a="14.0">White thobe</span></p>
+  <p class="m hd pr" style="top:520px;font-size:124px"><span data-a="14.15">$45</span></p>
+ </div>
+ <!-- 6 end -->
+ <div id="t6">
+  <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+  <p class="m hd" style="left:0;width:540px;text-align:center;top:350px;font-size:76px"><span data-a="15.95">daralathari.com</span></p>
+  <p class="m sb" style="left:0;width:540px;text-align:center;top:432px;color:var(--tissue)"><span data-a="16.15">Shipped from New Jersey.</span></p>
+  <div id="btnw" style="position:absolute;left:0;width:540px;top:520px;text-align:center;opacity:0"><span class="btn" id="btn">Shop the thobes</span></div>
+ </div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+// mat numbers down the left edge
+for(var i=1;i<=5;i++){el('','left:4px;top:'+(15+i*150-6)+'px',$('nums'),String(i*5),'b')}
+// tape ticks: 1 unit = 6px
+var tp=$('tape');for(var u=0;u<=120;u++){var x=20+u*6,h=u%10===0?26:u%5===0?18:10;el('tk','left:'+x+'px;height:'+h+'px',tp)}
+for(u=0;u<=120;u+=10)el('tn','left:'+(20+u*6)+'px',tp,String(u));
+var SZ=[52,54,56,58,60],SX=[50,145,240,335,430],szEl=[];
+SZ.forEach(function(s,i){szEl.push(el('sz','left:'+(SX[i]-45)+'px',$('sizes'),s+'<small>SIZE</small>'))});
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a})});
+function grp(id,w){$(id).style.opacity=w;$(id).style.display=w>0.001?'block':'none'}
+window.__seek=function(t){
+  // grid draws in from top-left
+  var g=io(t/1.4);$('grid').style.clipPath='inset(0 '+(100-g*100)+'% '+(100-g*100)+'% 0)';$('nums').style.opacity=sm((t-.8)/.6);
+  MASK.forEach(function(m){var q=eo((t-m.s)/.75);m.e.style.transform='translateY('+((1-q)*108)+'%)'});
+  // title exit
+  var x1=io((t-2.55)/.5);$('t1').style.transform='translateY('+(-x1*90)+'px)';grp('t1',1-x1);
+  var x2=io((t-6.0)/.4);$('t2').style.transform='translateY('+(-x2*70)+'px)';grp('t2',t<3?0:1-x2);
+  var x3=io((t-10.2)/.45);$('t3').style.transform='translateY('+(-x3*70)+'px)';grp('t3',t<6.3?0:1-x3);
+  var x4=io((t-13.2)/.4);grp('t4',t<10.6?0:1-x4);
+  // pattern body: slides up, outline draws, fill follows
+  var bi=oc((t-2.4)/.9);
+  $('bodyS').style.strokeDasharray='1 1';$('bodyS').style.strokeDashoffset=1-io((t-2.4)/1.2);
+  $('bodyF').style.opacity=sm((t-2.9)/.6);$('bodyA').style.opacity=sm((t-3.4)/.5)*.7;$('bodyM').style.opacity=sm((t-3.6)/.5);
+  $('body').setAttribute('transform','translate(0 '+((1-bi)*60)+')');
+  // side panel: slides in from the right, hinged open, then stitched shut (hero)
+  var gi=io((t-4.0)/1.0),gx=lerp(300,0,gi);
+  var sp=io((t-6.7)/2.0);                          // stitch progress bottom -> top
+  var close=t<6.7?1:Math.max(0,1-Math.pow(sp,.8));
+  var settle=t>8.7?Math.sin((t-8.7)*16)*Math.exp(-(t-8.7)*7)*-1.6:0;
+  var ang=lerp(0,14,close)+settle;
+  $('gus').setAttribute('transform','translate('+gx+' 0) rotate('+ang+' 300 742)');
+  $('gus').style.opacity=t<4?0:1;
+  var y=742-sp*380;
+  ['st1','st2'].forEach(function(id,j){var L=$(id);L.setAttribute('y2',742-sp*380);L.style.opacity=t<6.7?0:1;L.setAttribute('stroke-dashoffset',String(-t*0))});
+  var nd=$('needle');nd.setAttribute('transform','translate(300 '+(y+Math.sin(t*80)*3)+')');nd.style.opacity=(t>6.6&&t<8.9)?sm((t-6.6)/.15)*(1-sm((t-8.7)/.2)):0;
+  // whole pattern: punch-in during stitch, then out and away
+  var pin=io((t-6.4)/.6)*(1-io((t-8.9)/.7)),pout=io((t-10.15)/.6);
+  var px=lerp(0,45,pin),pys=lerp(0,50,pin);
+  $('pat').style.transform='translate('+px+'px,'+(pys-pout*700)+'px) scale('+(1+pin*.2)+') rotate('+(-pout*8)+'deg)';
+  $('pat').style.display=(t<2.3||t>11)?'none':'block';
+  // tape measure (sizes)
+  var tw=io((t-10.5)/1.1),tout=io((t-13.0)/.4);
+  $('tape').style.width=(tw*560)+'px';$('tape').style.transform='translateX('+(-tout*620)+'px)';
+  var cx=lerp(-130,560,tw);$('tapecase').style.left=cx+'px';$('tapecase').style.transform='rotate('+(tw*540)+'deg)';
+  $('tapecase').style.display=(t>10.4&&t<11.7)?'block':'none';
+  $('tape').style.display=t>10.4&&t<13.5?'block':'none';
+  szEl.forEach(function(e,i){var a=10.65+(SX[i]+40)/560*1.1*.85,q=ob((t-a)/.45);e.style.opacity=cl((t-a)/.15)*(1-sm((t-13.0)/.3));e.style.transform='translateY('+((1-Math.max(0,q))*40)+'px) scale('+(.7+.3*Math.max(.0,q))+')'});
+  // split prices
+  var bq=io((t-13.2)/.6),wq=io((t-13.35)/.6),so=io((t-15.25)/.55);
+  $('blk').style.transform='translateY('+((1-bq)*-960+so*-960)+'px)';$('wht').style.transform='translateY('+((1-wq)*960+so*960)+'px)';
+  $('blk').style.display=$('wht').style.display=(t>13.1&&t<15.9)?'block':'none';
+  // end card
+  grp('t6',t<15.3?0:1);
+  var lq=ob((t-15.5)/.7);$('lg').style.opacity=cl((t-15.5)/.25);$('lg').style.transform='scale('+(t<15.5?.6:Math.max(.6,lq))+')';
+  var pq=ob((t-16.45)/.6);$('btnw').style.opacity=cl((t-16.45)/.2);$('btnw').style.transform='translateY('+((1-oc((t-16.45)/.6))*30)+'px) scale('+(t<16.45?.8:Math.max(.8,pq))+')';
+  var pu=t>17.1?((t-17.1)%1.2)/1.2:-1;$('btn').style.transform=pu>=0?'scale('+(1+.04*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+  $('stage').style.opacity=sm(t/.2);
+};
+window.__seek(0);
+</script></body></html>
