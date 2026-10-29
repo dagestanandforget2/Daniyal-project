@@ -1,0 +1,170 @@
+<!--FONTS Alfa Slab One:alfa-slab-one:latin:400:normal; Overpass Mono:overpass-mono:latin:400,600:normal; Noto Naskh Arabic:noto-naskh-arabic:arabic:600:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>The Bindery</title>
+<style>
+/*FONTS*/
+:root{--lea:#7A4A2A;--tob:#2B1A12;--gold:#E0B85C;--teal:#1F5C5A;--pap:#F3E9D4;--d:'Alfa Slab One',serif;--m:'Overpass Mono',monospace;--ar:'Noto Naskh Arabic',serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--pap);font-family:var(--m);
+ background:radial-gradient(120% 80% at 40% 38%,#8d5832 0%,#7A4A2A 45%,#4a2b18 100%)}
+#world{position:absolute;inset:0}
+.tool{position:absolute;left:22px;top:22px;right:22px;bottom:22px;border:2px solid rgba(43,26,18,.55);box-shadow:inset 0 0 0 6px transparent,inset 0 0 0 8px rgba(43,26,18,.35)}
+.st3d{position:absolute;inset:0;perspective:1300px;perspective-origin:270px 460px;overflow:hidden}
+.cam{position:absolute;left:270px;top:480px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#f1e7d2 0 4.5px,#d6c8ab 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#f1e7d2 0 4.5px,#d6c8ab 4.5px 7.5px)}
+#shadow{position:absolute;left:135px;top:275px;width:270px;height:370px;background:#1a0e08;filter:blur(18px);opacity:0}
+#platen{position:absolute;left:125px;top:270px;width:290px;height:380px;opacity:0;
+ background:linear-gradient(135deg,#f3d58a 0%,#c7973f 30%,#8a6224 55%,#d9b25e 75%,#a5782f 100%);
+ box-shadow:0 0 0 3px #5a3d14 inset,0 0 0 12px #b98b3a inset,0 0 0 14px #5a3d14 inset,0 30px 40px -10px rgba(0,0,0,.6)}
+#platen .die{position:absolute;left:34px;top:34px;right:34px;bottom:34px;border:2px solid rgba(90,61,20,.8);box-shadow:inset 0 0 0 6px rgba(255,240,200,.25),inset 0 0 0 8px rgba(90,61,20,.6)}
+#platen svg{position:absolute;left:85px;top:130px;width:120px;height:120px}
+#platen .rod{position:absolute;left:120px;top:-700px;width:50px;height:700px;background:linear-gradient(90deg,#4a3418,#b48a44 40%,#3a2810)}
+#sheen{position:absolute;left:0;top:0;width:0;height:0;mix-blend-mode:screen;opacity:0;pointer-events:none;overflow:hidden}
+#sheen i{position:absolute;top:-20%;height:140%;width:90px;background:linear-gradient(90deg,transparent,rgba(255,226,150,.85),transparent);transform:skewX(-18deg)}
+#flash{position:absolute;inset:0;background:#ffe9b0;opacity:0;mix-blend-mode:screen;pointer-events:none}
+.dust{position:absolute;width:5px;height:5px;background:#f0cd78;border-radius:1px;opacity:0}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.1em}
+.m>span{display:block}
+.hd{font-family:var(--d);line-height:1.05;color:var(--pap)}
+.ar{font-family:var(--ar);font-weight:600;direction:rtl}
+.tk{font-family:var(--m);font-weight:600;font-size:16px;color:var(--gold)}
+.cap{position:absolute;left:0;top:0;width:540px;height:960px;display:none}
+#end{position:absolute;inset:0;display:none}
+#cloth{position:absolute;left:0;top:0;width:540px;height:960px;background:
+ repeating-linear-gradient(45deg,rgba(0,0,0,.06) 0 2px,transparent 2px 4px),repeating-linear-gradient(-45deg,rgba(255,255,255,.04) 0 2px,transparent 2px 4px),#1F5C5A}
+#cloth .rule{position:absolute;left:40px;right:40px;height:2px;background:var(--gold)}
+#lg{position:absolute;left:190px;top:150px;width:160px;height:160px;mix-blend-mode:screen;opacity:0}
+.btn{display:inline-block;background:var(--gold);color:var(--tob);font-family:var(--m);font-weight:600;font-size:24px;border-radius:6px;padding:16px 30px;box-shadow:0 18px 40px -14px rgba(0,0,0,.6)}
+#grain{position:absolute;inset:0;opacity:.14;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+#vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(85% 60% at 50% 45%,transparent 50%,rgba(20,10,5,.6) 100%)}
+</style></head><body>
+<div id="stage">
+ <div id="world">
+  <div class="tool"></div>
+  <div id="shadow"></div>
+  <div class="st3d"><div class="cam" id="bcam"></div></div>
+  <div id="sheen"><i></i></div>
+  <div id="platen"><div class="rod"></div><div class="die"></div>
+   <svg viewBox="-50 -50 100 100"><g fill="none" stroke="#5a3d14" stroke-width="3"><rect x="-32" y="-32" width="64" height="64"/><rect x="-32" y="-32" width="64" height="64" transform="rotate(45)"/><circle r="14"/></g></svg>
+  </div>
+  <div id="dustL"></div>
+ </div>
+ <div id="vig"></div>
+ <div id="flash"></div>
+
+ <div id="hdA">
+  <p class="m hd" style="left:44px;top:108px;font-size:66px"><span data-a="0.3">Pressed</span></p>
+  <p class="m hd" style="left:44px;top:178px;font-size:66px;color:var(--gold)"><span data-a="0.45">in gold.</span></p>
+ </div>
+ <div id="hdB">
+  <p class="m hd" style="left:44px;top:108px;font-size:58px"><span data-a="13.95">Bound</span></p>
+  <p class="m hd" style="left:44px;top:172px;font-size:58px;color:var(--gold)"><span data-a="14.1">to last.</span></p>
+  <p class="m" style="left:46px;top:640px;font-size:19px;font-weight:600"><span data-a="14.5">Hardcover editions in</span></p>
+  <p class="m" style="left:46px;top:668px;font-size:19px;font-weight:600"><span data-a="14.6">Arabic and English.</span></p>
+ </div>
+ <div id="caps"></div>
+
+ <div id="end">
+  <div id="cloth"><div class="rule" style="top:356px"></div></div>
+  <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+  <p class="m hd" style="left:0;width:540px;text-align:center;top:378px;font-size:50px"><span data-a="16.0">daralathari.com</span></p>
+  <p class="m" style="left:0;width:540px;text-align:center;top:452px;font-size:18px;color:rgba(243,233,212,.85)"><span data-a="16.2">Islamic books, shipped from New Jersey.</span></p>
+  <div id="btnw" style="position:absolute;left:0;width:540px;top:520px;text-align:center;opacity:0"><span class="btn" id="btn">Browse the hardcovers</span></div>
+ </div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.35,-.4,.85],.5,.6);
+var bcam=$('bcam');
+var BK=['sth','fw','pi'];
+var SL=[2.2,6.35,10.25];            // slam times
+var EX=[5.75,9.75,13.55];           // exit times
+var BY=-20, S=1.12;
+var B={};BK.forEach(function(k){B[k]=makeBook(bcam,k)});
+var CAP={sth:{ar:'شرح ثلاثة الأصول',en:'Sharh Thalathat al-Usul',by:'Shaykh Muhammad ibn Salih',by2:'al-Uthaymeen',lang:'Arabic hardcover'},
+ fw:{ar:'الفوائد',en:"Al-Fawa'id",by:'Imam Ibn Qayyim',by2:'al-Jawziyyah',lang:'Arabic hardcover'},
+ pi:{ar:'أركان الإسلام والإيمان',en:'The Pillars of Islam & Iman',by:'Sheikh Muhammad bin',by2:'Jamil Zeno',lang:'English hardcover'}};
+BK.forEach(function(k,i){var c=CAP[k],a=SL[i]+.9,g=el('cap','',$('caps'));g.id='cap'+k;
+  var h=i===0?'':'<p class="m tk" style="left:46px;top:116px"><span data-a="'+(SL[i]+.3)+'">PRESS 0'+(i+1)+' / 03</span></p>';
+  if(i>0)h+='<p class="m hd" style="left:44px;top:140px;font-size:96px;color:rgba(224,184,92,.9)"><span data-a="'+(SL[i]+.35)+'">0'+(i+1)+'</span></p>';
+  h+='<p class="m ar" style="right:70px;top:628px;font-size:28px;color:var(--gold)"><span data-a="'+a+'">'+c.ar+'</span></p>';
+  h+='<p class="m hd" style="left:44px;top:672px;font-size:'+(k==='pi'?28:32)+'px"><span data-a="'+(a+.12)+'">'+c.en+'</span></p>';
+  h+='<p class="m" style="left:46px;top:716px;font-size:16px;font-weight:600"><span data-a="'+(a+.25)+'">'+c.by+' '+c.by2+'</span></p>';
+  h+='<p class="m tk" style="left:46px;top:742px;font-size:15px"><span data-a="'+(a+.35)+'">'+c.lang+'</span></p>';
+  g.innerHTML=h});
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a})});
+// dust particles
+var DU=[];_seed=11;for(var i=0;i<46;i++){var side=i%4,u=rnd();var x0,y0,vx,vy;
+  if(side===0){x0=125+u*290;y0=650;vx=(u-.5)*260;vy=-40-rnd()*120}
+  else if(side===1){x0=125+u*290;y0=270;vx=(u-.5)*260;vy=-160-rnd()*160}
+  else if(side===2){x0=125;y0=270+u*380;vx=-140-rnd()*220;vy=-80-rnd()*160}
+  else{x0=415;y0=270+u*380;vx=140+rnd()*220;vy=-80-rnd()*160}
+  DU.push({e:el('dust','',$('dustL')),x0:x0,y0:y0,vx:vx,vy:vy,s:.6+rnd()*1.2,r:rnd()*360})}
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+
+window.__seek=function(t){
+  // which press cycle
+  var ci=0;for(var i=1;i<3;i++)if(t>=SL[i]-.75)ci=i;
+  var s0=SL[ci], dt=t-s0;
+  // platen motion: drop over 0.9s accelerating (first one slower 1.6s), lift after
+  var dropD=ci===0?1.7:.75, py, pv=1;
+  if(t<14.0){
+    if(dt<-dropD){py=-720}
+    else if(dt<0){var q=(dt+dropD)/dropD;py=lerp(-720,0,ci===0?(q<.6?.45*io(q/.6):.45+.55*ic((q-.6)/.4)):ic(q));}
+    else if(dt<.18){py=Math.sin(dt/.18*Math.PI)*-6}
+    else py=lerp(0,-760,io((dt-.18)/.6));
+    // gap before cycle start: hide when way above
+  } else {py=-760;pv=0}
+  $('platen').style.opacity=pv*(py>-740?1:0);
+  $('platen').style.transform='translateY('+py+'px)';
+  var near=cl(1+py/720);$('shadow').style.opacity=(t<14?near*.75:0);$('shadow').style.transform='scale('+lerp(1.4,1,near)+')';
+  // impact effects
+  var imp=dt>=0?Math.exp(-dt*6):0, impN=dt>=0&&dt<1.2;
+  var amp=(ci===0?16:9)*imp, sh=dt>=0?Math.sin(dt*70)*amp:0, sh2=dt>=0?Math.cos(dt*53)*amp*.6:0;
+  var punch=ci===0?(1+.08*eo(dt/.25)*(1-io((dt-.25)/1.2))):1;
+  if(t<2.2-1.7)punch=1;
+  $('world').style.transformOrigin='270px 460px';$('world').style.transform='translate('+sh+'px,'+sh2+'px) scale('+(dt>=0?punch:1)+')';
+  $('flash').style.opacity=dt>=0?Math.max(0,1-dt/.22)*(ci===0?.55:.35):0;
+  DU.forEach(function(d){var e=d.e;if(dt<0||dt>1.3||t>14){e.style.opacity=0;return}
+    var x=d.x0+d.vx*dt*1.1,y=d.y0+d.vy*dt+380*dt*dt;e.style.opacity=(1-dt/1.3)*(ci===0?1:.7);
+    e.style.transform='translate('+x+'px,'+y+'px) rotate('+(d.r+dt*400)+'deg) scale('+d.s+')'});
+  // books
+  BK.forEach(function(k,i){var b=B[k],a=SL[i],e=EX[i];
+    if(t<13.6){
+      if(t<a||t>e+.75){pose(b,{hide:true});return}
+      var d=t-a,up=io((d-.75)/1.0),fl=up,ex=io((t-e)/.7);
+      var wob=d>1.75?Math.sin((d-1.75)*1.6)*4:0;
+      pose(b,{x:lerp(0,-620,ex),y:BY-up*10,z:up*70+Math.sin(Math.PI*up)*60,s:S,
+        ry:fl*(-22)+wob*fl-ex*30,rx:fl*7,rz:-fl*1.5+ex*-8,g:1});
+    } else {
+      // finale: three stand together
+      var q=ob((t-13.65-i*.12)/.8),xs=[-150,0,150][i];
+      if(t<13.65+i*.12){pose(b,{hide:true});return}
+      pose(b,{x:lerp(xs+(i-1)*260,xs,cl(q)),y:BY+(1-cl(q))*400,z:i===1?40:0,s:.68,ry:[22,-4,-22][i]+(1-cl(q))*-40,rx:4,rz:0,g:1});
+    }
+  });
+  // foil sheen across the freshly pressed cover
+  var sq=(dt-.2)/.7;if(dt>.2&&dt<.9&&t<14){var bk=SPEC[BK[ci]],w=bk.W*S,h=bk.H*S,sx=270-w/2,sy=460-h/2;
+    var sn=$('sheen');sn.style.left=sx+'px';sn.style.top=sy+'px';sn.style.width=w+'px';sn.style.height=h+'px';sn.style.opacity=Math.sin(Math.PI*cl(sq));
+    sn.firstChild.style.left=(lerp(-120,w+40,io(sq)))+'px'}else $('sheen').style.opacity=0;
+  // captions
+  BK.forEach(function(k,i){var g=$('cap'+k),a=SL[i],e=EX[i];g.style.display=(t>a&&t<e+.5)?'block':'none';
+    var o=io((t-e)/.4);g.style.transform='translateX('+(o*-40)+'px)';g.style.opacity=1-o});
+  MASK.forEach(function(m){var q=eo((t-m.s)/.75);m.e.style.transform='translateY('+((1-q)*110)+'%)'});
+  var ha=io((t-4.9)/.5);$('hdA').style.opacity=1-ha;$('hdA').style.transform='translateY('+(-ha*30)+'px)';
+  // headline A hidden behind press numbers after book 1
+  $('hdB').style.display=t>13.8&&t<15.6?'block':'none';
+  // end card: teal cloth slides up like a cover closing
+  var cq=io((t-15.25)/.6);$('end').style.display=t>15.2?'block':'none';
+  $('cloth').style.transform='translateY('+((1-cq)*960)+'px)';
+  $('lg').style.opacity=cl((t-15.75)/.25);var lq=ob((t-15.75)/.7);$('lg').style.transform='scale('+(t<15.75?.6:Math.max(.6,lq))+')';
+  var bq=ob((t-16.5)/.6);$('btnw').style.opacity=cl((t-16.5)/.2);$('btnw').style.transform='translateY('+((1-oc((t-16.5)/.6))*30)+'px) scale('+(t<16.5?.8:Math.max(.8,bq))+')';
+  var pu=t>17.1?((t-17.1)%1.2)/1.2:-1;$('btn').style.transform=pu>=0?'scale('+(1+.04*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+  $('stage').style.opacity=sm(t/.2);
+};
+window.__seek(0);
+</script></body></html>
