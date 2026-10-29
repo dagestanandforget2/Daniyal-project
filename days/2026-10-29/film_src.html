@@ -1,0 +1,143 @@
+<!--FONTS Antonio:antonio:latin:700:normal; Figtree:figtree:latin:500,600:normal; Markazi Text:markazi-text:arabic:600:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Take the Stairs</title>
+<style>
+/*FONTS*/
+:root{--lav:#B9B3DD;--ink:#1C1A3A;--step:#2E2A6B;--ver:#E5482D;--bone:#F4F0E6;--gold:#D8A93F;--d:'Antonio',sans-serif;--ui:'Figtree',sans-serif;--ar:'Markazi Text',serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--ink);font-family:var(--d);
+  background:radial-gradient(110% 70% at 40% 30%,#C9C4E6 0%,var(--lav) 50%,#9F98CC 100%)}
+.st3d{position:absolute;inset:0;perspective:1100px;perspective-origin:300px 520px;overflow:hidden}
+.cam{position:absolute;left:0;top:0;width:0;height:0;transform-style:preserve-3d;transform-origin:0 0}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#f4eedc 0 4.5px,#d6cba9 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#f4eedc 0 4.5px,#d6cba9 4.5px 7.5px)}
+.sTop{background:var(--bone)}
+.sTop::after{content:'';position:absolute;left:0;right:0;bottom:0;height:10px;background:var(--gold)}
+.sFront{background:linear-gradient(to bottom,#3A3584 0,var(--step) 120px,#1F1C4C 700px)}
+.sSide{background:linear-gradient(to bottom,#26225A 0,#17153A 600px)}
+.shadow{background:radial-gradient(closest-side,rgba(20,16,50,.45),rgba(20,16,50,0));}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.1em}
+.m>span{display:block;will-change:transform}
+.tt{font-weight:700;font-size:44px;line-height:1.02;text-transform:uppercase;letter-spacing:.005em}
+.ui{font-family:var(--ui);font-weight:500;font-size:17px;color:#2E2A55}
+.ui2{font-family:var(--ui);font-weight:600;font-size:15px;color:var(--ver)}
+.ar{font-family:var(--ar);direction:rtl;font-weight:600;font-size:30px;line-height:1.3;color:#3A3584}
+#num{position:absolute;left:22px;top:100px;width:118px;height:206px;overflow:hidden}
+#numcol{position:absolute;left:0;top:0;width:118px}
+#numcol div{height:260px;font-family:var(--d);font-weight:700;font-size:232px;line-height:206px;color:var(--ver);text-align:left}
+#panel{position:absolute;left:-20px;top:960px;width:580px;height:1100px;background:var(--ink)}
+#lg{position:absolute;left:195px;top:170px;width:150px;height:150px;mix-blend-mode:screen;opacity:0}
+.end{color:var(--bone)}
+.pill{display:inline-block;background:var(--ver);color:var(--bone);font-family:var(--ui);font-weight:600;font-size:26px;padding:17px 40px;border-radius:999px}
+#grain{position:absolute;inset:0;opacity:.07;mix-blend-mode:multiply;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div class="st3d"><div class="cam" id="cam"></div></div>
+
+ <!-- intro -->
+ <p class="m ui" style="left:30px;top:118px;font-size:24px;font-weight:600"><span data-a="0.25" data-o="2.3">Seeking knowledge?</span></p>
+ <p class="m tt" style="left:28px;top:156px;font-size:92px"><span data-a="0.5" data-o="2.35">Take the</span></p>
+ <p class="m tt" style="left:28px;top:250px;font-size:92px;color:var(--ver)"><span data-a="0.62" data-o="2.4">stairs.</span></p>
+
+ <div id="num"><div id="numcol"><div>1</div><div>2</div><div>3</div><div>4</div></div></div>
+
+ <!-- step 1 -->
+ <p class="m ar" style="left:150px;top:100px"><span data-a="2.8" data-o="4.85">كتاب العلم</span></p>
+ <p class="m tt" style="left:150px;top:146px"><span data-a="2.88" data-o="4.88">The Book of</span></p>
+ <p class="m tt" style="left:150px;top:191px"><span data-a="2.96" data-o="4.9">Knowledge</span></p>
+ <p class="m ui" style="left:152px;top:248px"><span data-a="3.15" data-o="4.92">Shaykh Ibn Uthaymeen</span></p>
+ <p class="m ui2" style="left:152px;top:274px"><span data-a="3.25" data-o="4.94">In English</span></p>
+
+ <!-- step 2 -->
+ <p class="m ar" style="left:150px;top:100px"><span data-a="5.7" data-o="7.75">شرح ثلاثة الأصول</span></p>
+ <p class="m tt" style="left:150px;top:146px"><span data-a="5.78" data-o="7.78">Sharh Thalathat</span></p>
+ <p class="m tt" style="left:150px;top:191px"><span data-a="5.86" data-o="7.8">al-Usul</span></p>
+ <p class="m ui" style="left:152px;top:248px"><span data-a="6.05" data-o="7.82">Shaykh Ibn Uthaymeen</span></p>
+ <p class="m ui2" style="left:152px;top:274px"><span data-a="6.15" data-o="7.84">In Arabic, hardcover</span></p>
+
+ <!-- step 3 -->
+ <p class="m ar" style="left:150px;top:100px"><span data-a="8.6" data-o="10.65">شرح كشف الشبهات</span></p>
+ <p class="m tt" style="left:150px;top:146px"><span data-a="8.68" data-o="10.68">Sharh Kashf</span></p>
+ <p class="m tt" style="left:150px;top:191px"><span data-a="8.76" data-o="10.7">ash-Shubuhat</span></p>
+ <p class="m ui" style="left:152px;top:248px"><span data-a="8.95" data-o="10.72">with Sharh al-Usul as-Sittah</span></p>
+ <p class="m ui" style="left:152px;top:272px"><span data-a="9.02" data-o="10.73">Shaykh Ibn Uthaymeen</span></p>
+ <p class="m ui2" style="left:152px;top:298px"><span data-a="9.12" data-o="10.75">In Arabic, hardcover</span></p>
+
+ <!-- step 4 -->
+ <p class="m ar" style="left:150px;top:100px"><span data-a="11.5" data-o="12.95">كتاب التوحيد</span></p>
+ <p class="m tt" style="left:150px;top:146px"><span data-a="11.58" data-o="12.98">Kitab</span></p>
+ <p class="m tt" style="left:150px;top:191px"><span data-a="11.66" data-o="13.0">at-Tawhid</span></p>
+ <p class="m ui" style="left:152px;top:248px"><span data-a="11.85" data-o="13.02">Shaykh Muhammad ibn Abd al-Wahhab</span></p>
+ <p class="m ui2" style="left:152px;top:274px"><span data-a="11.95" data-o="13.04">In English</span></p>
+
+ <!-- hero -->
+ <p class="m tt" style="left:28px;top:112px;font-size:84px"><span data-a="13.45" data-o="14.9">One step</span></p>
+ <p class="m tt" style="left:28px;top:198px;font-size:84px;color:var(--ver)"><span data-a="13.6" data-o="14.95">at a time.</span></p>
+
+ <!-- end -->
+ <div id="panel"></div>
+ <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+ <p class="m end tt" style="left:0;width:540px;text-align:center;top:350px;font-size:50px;text-transform:none"><span data-a="15.65">daralathari.com</span></p>
+ <p class="m end ui" style="left:0;width:540px;text-align:center;top:424px;color:#C9C4E6;font-size:19px"><span data-a="15.85">Books for every step, in Arabic and English.</span></p>
+ <p class="m end ui" style="left:0;width:540px;text-align:center;top:452px;color:#C9C4E6;font-size:19px"><span data-a="15.95">Shipped from New Jersey.</span></p>
+ <div id="btnw" style="position:absolute;left:0;width:540px;top:540px;text-align:center;opacity:0"><span class="pill" id="btn">Browse the books</span></div>
+ <p class="m end ui" style="left:0;width:540px;text-align:center;top:634px;color:#C9C4E6;font-size:16px;font-weight:600"><span data-a="16.7">Link in bio</span></p>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.45,-.6,.66],.5,.7);
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+var cam=$('cam'),S=.78,SW=200,SD=170,FH=1500,DX=200,DY=130,AX=300,AY=650;
+var KEYS=['ken','sth','ks','tw'], LAND=[2.75,5.65,8.55,11.45], STEPS=[];
+KEYS.forEach(function(k,i){
+  var X=i*DX,Y=-i*DY,g=el('','left:0;top:0;width:0;height:0',cam);
+  el('sSide','left:'+(X-SW/2-SD/2)+'px;top:'+Y+'px;width:'+SD+'px;height:'+FH+'px;transform:rotateY(-90deg)',g);
+  el('sFront','left:'+(X-SW/2)+'px;top:'+Y+'px;width:'+SW+'px;height:'+FH+'px;transform:translateZ('+(SD/2)+'px)',g);
+  el('sTop','left:'+(X-SW/2)+'px;top:'+(Y-SD/2)+'px;width:'+SW+'px;height:'+SD+'px;transform:rotateX(90deg)',g);
+  var sh=el('shadow','left:'+(X-90)+'px;top:'+(Y-50)+'px;width:180px;height:100px;transform:translateY(-1px) rotateX(90deg)',g);
+  if(i===3) el('sSide','left:'+(X+SW/2-SD/2)+'px;top:'+Y+'px;width:'+SD+'px;height:'+FH+'px;transform:rotateY(90deg)',g);
+  var b=makeBook(cam,k);
+  STEPS.push({X:X,Y:Y,g:g,sh:sh,b:b});
+});
+// camera keys: t, fx, fy, scale, yaw, tilt
+var CK=[[0,300,-164,.52,22,-9],[2.0,300,-164,.55,18,-9],[2.6,0,0,1,-14,-6],
+ [4.85,0,0,1.05,-11,-6],[5.45,200,-130,1,-14,-6],[7.75,200,-130,1.05,-11,-6],[8.35,400,-260,1,-14,-6],
+ [10.65,400,-260,1.05,-11,-6],[11.25,600,-390,1,-14,-6],[12.95,600,-390,1.06,-11,-6],[14.5,320,-189,.62,-30,-10],[18,320,-189,.6,-34,-10]];
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a,o:e.dataset.o?+e.dataset.o:99})});
+window.__seek=function(t){
+  MASK.forEach(function(m){var q=eo((t-m.s)/.75),o=io((t-m.o)/.4);m.e.style.transform='translateY('+((1-q)*112-o*112)+'%)'});
+  var c=keyed(CK,t),fx=c[0],fy=c[1],sc=c[2],yaw=c[3],tilt=c[4];
+  // landing jolt on the camera
+  var jy=0;LAND.forEach(function(L){var d=t-L;if(d>0)jy+=5*Math.exp(-d*10)*Math.sin(d*34)});
+  cam.style.transform='translate3d('+AX+'px,'+(AY+jy)+'px,0) scale3d('+sc+','+sc+','+sc+') rotateX('+tilt+'deg) rotateY('+yaw+'deg) translate3d('+(-fx)+'px,'+(-fy)+'px,0)';
+  STEPS.forEach(function(s,i){
+    // steps rise from below in a stagger
+    var r=ob((t-(.15+i*.18))/.7), oy=(1-r)*900;
+    s.g.style.transform='translateY('+oy+'px)';
+    s.g.style.opacity=t<.15+i*.18?0:1;
+    // book drops onto its step
+    var b=s.b,H=b.H*S,L=LAND[i],p=cl((t-(L-.42))/.42),drop=lerp(-700,0,p*p),bt=t-L;
+    if(bt>0)drop-=7*Math.exp(-bt*9)*Math.abs(Math.sin(bt*20));
+    // hero: a wave of hops up the stairs
+    var hw=t-(13.55+i*.16);if(hw>0&&hw<.5)drop-=36*Math.sin(hw/.5*Math.PI)*(1-hw/.5*.3);
+    var P={x:s.X,y:s.Y-H/2+drop,z:0,ry:-16+(1-p)*30,rz:(1-p)*8*(i%2?1:-1),s:S};
+    if(t<L-.43||t>15.6)P.hide=true;
+    pose(b,P);
+    s.sh.style.opacity=t<L-.2?0:cl((t-(L-.2))/.25)*(1-cl(-drop/60)*.6);
+  });
+  // odometer numeral
+  var k=0;[[5.25,1],[8.15,2],[11.05,3]].forEach(function(a){k+=io((t-a[0])/.55)*1});
+  var nin=eo((t-2.7)/.7),nout=io((t-12.95)/.45);
+  $('numcol').style.transform='translateY('+((-k*260)+(1-nin)*230-nout*240)+'px)';
+  // end card
+  var pr=io((t-14.95)/.7);$('panel').style.transform='translateY('+(-pr*1000)+'px)';
+  var lq=ob((t-15.35)/.8);$('lg').style.opacity=cl((t-15.35)/.3);$('lg').style.transform='scale('+(t<15.35?.7:Math.max(.7,lq))+')';
+  var bq=ob((t-16.25)/.6);$('btnw').style.opacity=cl((t-16.25)/.2);$('btnw').style.transform='translateY('+((1-oc((t-16.25)/.6))*24)+'px) scale('+(t<16.25?.85:Math.max(.85,bq))+')';
+  var pu=t>17.0?((t-17.0)%1.2)/1.2:-1;$('btn').style.transform=pu>=0?'scale('+(1+.04*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+  $('stage').style.opacity=sm(t/.2);
+};
+window.__seek(0);
+</script></body></html>
