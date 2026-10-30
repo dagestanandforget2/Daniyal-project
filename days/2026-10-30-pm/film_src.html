@@ -1,0 +1,141 @@
+<!--FONTS Krona One:krona-one:latin:400:normal; Manrope:manrope:latin:600,800:normal; Scheherazade New:scheherazade-new:arabic:700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Kept Together</title>
+<style>
+/*FONTS*/
+:root{--per:#E06A3B;--ink:#1B1716;--bone:#F4EDE4;--olive:#8E8B3F;--vein:#B9AFA4;--d:'Krona One',sans-serif;--u:'Manrope',sans-serif;--ar:'Scheherazade New',serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--ink);font-family:var(--u);
+ background:radial-gradient(110% 70% at 50% 40%,#ea7a4a 0%,#E06A3B 50%,#b9502a 100%)}
+#world{position:absolute;inset:0}
+#shelf{position:absolute;left:-20px;width:580px;top:620px;height:16px;background:linear-gradient(#3a302c,#1B1716 30%,#0f0c0b);box-shadow:0 22px 30px -8px rgba(60,20,5,.55)}
+#shelf:before{content:'';position:absolute;left:0;right:0;top:0;height:2px;background:rgba(244,237,228,.35)}
+.st3d{position:absolute;inset:0;perspective:1200px;perspective-origin:270px 420px;overflow:hidden}
+.cam{position:absolute;left:270px;top:480px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#f1e7d2 0 4.5px,#d6c8ab 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#f1e7d2 0 4.5px,#d6c8ab 4.5px 7.5px)}
+.shd{position:absolute;top:606px;height:18px;border-radius:50%;background:#5a200c;filter:blur(7px);opacity:0}
+.marble{background:
+ url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='600' viewBox='0 0 300 600'><g fill='none' stroke='%23d8cfc4' stroke-linecap='round'><path d='M-20 80 C60 120 90 60 160 150 S260 210 330 180' stroke-width='1.6' opacity='.55'/><path d='M-10 300 C70 260 120 360 190 330 S270 420 320 400' stroke-width='1' opacity='.45'/><path d='M40 -10 C70 90 20 160 90 250 S60 420 140 610' stroke-width='.8' opacity='.35'/><path d='M200 -10 C230 120 170 200 240 300 S210 480 280 610' stroke-width='2.2' opacity='.3'/><path d='M-10 500 C80 470 140 540 220 500 S300 520 320 560' stroke-width='1.2' opacity='.4'/></g></svg>") 0 0/300px 600px,
+ radial-gradient(80% 60% at 30% 25%,#3a3230 0%,#1B1716 60%,#110e0d 100%)}
+.bend{position:absolute;top:400px;width:64px;height:220px;box-shadow:inset 3px 0 0 rgba(244,237,228,.18),inset -3px 0 0 rgba(0,0,0,.4),0 18px 24px -10px rgba(40,10,0,.6)}
+#wipe{position:absolute;display:none;box-shadow:inset 3px 0 0 rgba(244,237,228,.18)}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.12em}
+.m>span{display:block}
+.hd{font-family:var(--d);line-height:1.1;letter-spacing:-.01em}
+.ti{font-weight:800;line-height:1.1}
+.by{font-weight:600;font-size:16px}
+.lg_{font-weight:600;font-size:14px;color:var(--bone)}
+.ar{font-family:var(--ar);font-weight:700;direction:rtl}
+.cap{position:absolute;left:0;top:0;width:540px;height:960px;display:none}
+#end{position:absolute;inset:0;display:none}
+#lgo{position:absolute;left:180px;top:140px;width:180px;height:180px;mix-blend-mode:screen;opacity:0}
+.btn{display:inline-block;background:var(--per);color:var(--ink);font-family:var(--u);font-weight:800;font-size:24px;border-radius:999px;padding:16px 34px}
+#grain{position:absolute;inset:0;opacity:.12;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+#vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(90% 65% at 50% 45%,transparent 55%,rgba(70,20,5,.45) 100%)}
+</style></head><body>
+<div id="stage">
+ <div id="world">
+  <div id="shds"></div>
+  <div class="st3d"><div class="cam" id="bcam"></div></div>
+  <div id="shelf"></div>
+  <div class="bend marble" id="bL"></div>
+  <div class="bend marble" id="bR"></div>
+ </div>
+ <div id="vig"></div>
+
+ <div id="hdA">
+  <p class="m hd" style="left:44px;top:350px;font-size:44px"><span data-a="0.25">Books</span></p>
+  <p class="m hd" style="left:44px;top:404px;font-size:44px"><span data-a="0.4">worth keeping</span></p>
+  <p class="m hd" style="left:44px;top:458px;font-size:44px;color:var(--bone)"><span data-a="0.55">close.</span></p>
+ </div>
+ <div id="caps"></div>
+ <div id="hdB">
+  <p class="m hd" style="left:44px;top:150px;font-size:46px"><span data-a="12.75">Kept</span></p>
+  <p class="m hd" style="left:44px;top:206px;font-size:46px;color:var(--bone)"><span data-a="12.9">together.</span></p>
+  <p class="m ti" style="left:46px;top:664px;font-size:24px"><span data-a="13.3">Tafsir, fiqh and creed,</span></p>
+  <p class="m ti" style="left:46px;top:696px;font-size:24px"><span data-a="13.42">in Arabic and English.</span></p>
+ </div>
+
+ <div id="wipe" class="marble"></div>
+ <div id="end">
+  <img id="lgo" src="assets/logo.png" alt="Dar Al Athari">
+  <p class="m hd" style="left:0;width:540px;text-align:center;top:372px;font-size:34px;color:var(--bone)"><span data-a="15.95">daralathari.com</span></p>
+  <p class="m" style="left:0;width:540px;text-align:center;top:430px;font-size:18px;font-weight:600;color:var(--vein)"><span data-a="16.15">Islamic books, shipped from New Jersey.</span></p>
+  <div id="btnw" style="position:absolute;left:0;width:540px;top:510px;text-align:center;opacity:0"><span class="btn" id="btn">Browse the books</span></div>
+ </div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.4,-.35,.85],.5,.6);
+var bcam=$('bcam');
+var KEYS=['ts','fq1','fq2','bi'];
+var B={};KEYS.forEach(function(k){B[k]=makeBook(bcam,k)});
+var SH={};KEYS.forEach(function(k){SH[k]=el('shd','',$('shds'))});
+// feature beats: [keys, arrive start, arrive end, exit start]
+var FE=[{k:['ts'],a:2.1,e:5.25,word:'Tafsir'},{k:['fq1','fq2'],a:5.45,e:8.55,word:'Fiqh'},{k:['bi'],a:8.75,e:10.75,word:'Creed'}];
+var CAPS=[
+ [['ar','<span>تيسير الكريم الرحمن في تفسير كلام المنان</span>',644,25],['ti',"Tafsir as-Sa'di",684,28],['by',"Shaykh Abd ar-Rahman ibn Nasir as-Sa'di",722],['lg_','Arabic, one volume',746]],
+ [['ti',"Fiqh According to the Qur'an",652,25],['ti','&amp; Sunnah, Volumes 1 and 2',684,25],['by','Compiled by Muhammad Subhi bin Hasan Hallaq',722],['lg_','English hardcover',746]],
+ [['ti','The Great Blessing',652,28],['by','in Collecting the Beliefs of the Imams of the Sunnah',690,],['by','Compiled by Shaykh, Dr. Khalid Al-Dhafiri',718],['lg_','English paperback',746]]];
+FE.forEach(function(f,i){var g=el('cap','',$('caps'));g.id='cap'+i;var a=f.a+.75,h='';
+  h+='<p class="m hd" style="left:44px;top:120px;font-size:52px"><span data-a="'+(f.a+.35)+'">'+f.word+'</span></p>';
+  CAPS[i].forEach(function(r,j){var st=r[0]==='ar'?'right:70px;':'left:46px;';if(r[3])st+='font-size:'+r[3]+'px;';if(r[0]==='by'&&i===2&&j===1)st+='font-size:15px;';
+    h+='<p class="m '+r[0]+'" style="'+st+'top:'+r[2]+'px"><span data-a="'+(a+j*.1)+'">'+r[1]+'</span></p>'});
+  g.innerHTML=h});
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a})});
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+function yOn(k,s){return 140-SPEC[k].H*s/2}
+// hero layout
+var HS=.52, LOOSE=[-197,-66,66,197], TIGHT=[-159,-53,53,159], HIN=[10.85,11.0,11.15,11.3];
+var TC=12.3, TI=12.5; // contact, impact
+function place(k,x,y,s,rz,ry,op){pose(B[k],{x:x,y:y,s:s,rz:rz||0,ry:ry||0,rx:-3,op:op==null?1:op});
+  var w=SPEC[k].W*s,sh=SH[k];sh.style.left=(270+x-w*.55)+'px';sh.style.width=(w*1.1)+'px';sh.style.opacity=.55*(op==null?1:op)}
+
+window.__seek=function(t){
+  KEYS.forEach(function(k){pose(B[k],{hide:true});SH[k].style.opacity=0});
+  // feature beats
+  FE.forEach(function(f,i){if(t<f.a||t>f.e+.8)return;
+    var n=f.k.length,s=n>1?.88:1.1;
+    f.k.forEach(function(k,j){var a=f.a+j*.12,p=io((t-a)/.8),lean=(1-ob((t-a-.55)/.7));
+      var xo=n>1?(j?97:-97):0,x=lerp(560,xo,p),ex=io((t-f.e-j*.08)/.7);x=lerp(x,xo-620,ex);
+      var rz=t<a+.55?-7*sm((t-a)/.4):-7*lean; rz+=ex*-6;
+      place(k,x,yOn(k,s),s,rz,-10+ex*-10)})});
+  // hero: books slide on, bookends clamp
+  var hb=t>=10.85;
+  if(hb){
+    var cp=oc(cl((t-TC)/(TI-TC))), di=t>TI?t-TI:0, dmp=t>TI?Math.exp(-di*5):0;
+    KEYS.forEach(function(k,i){var a=HIN[i],p=io((t-a)/.75);if(t<a)return;
+      var x=lerp(560,LOOSE[i],p);x=lerp(x,TIGHT[i],cp);
+      var rz=(t<a+.75?-6*sm((t-a)/.3)*(1-sm((t-a-.45)/.3)):0)+Math.sin(di*24+i)*3.2*dmp*(i<2?-1:1);
+      var sp=t>15.0?io((t-15.0)/.5):0;
+      place(k,x-sp*0,yOn(k,HS),HS,rz,0)});
+    // bookends
+    var bx;if(t<11.9)bx=-420;else if(t<TC)bx=lerp(-420,-247,ic((t-11.9)/(TC-11.9)));else if(t<TI)bx=lerp(-247,-213,cp);else bx=-213+Math.sin(di*30)*5*dmp;
+    $('bL').style.left=(270+bx-64)+'px';$('bR').style.left=(270-bx)+'px';
+    $('bL').style.display=$('bR').style.display='block';
+  } else {$('bL').style.display=$('bR').style.display='none'}
+  // impact shake + punch
+  var di2=t>TI?t-TI:-1,imp=di2>=0?Math.exp(-di2*6):0,sh=di2>=0?Math.sin(di2*70)*10*imp:0;
+  var punch=1+(t>TI?.06*eo(di2/.2)*(1-io((di2-.3)/1.4)):0)+ (t>13.2?.03*io((t-13.2)/1.8):0);
+  $('world').style.transformOrigin='270px 560px';$('world').style.transform='translate('+sh+'px,'+(sh*.4)+'px) scale('+punch+')';
+  // captions
+  FE.forEach(function(f,i){var g=$('cap'+i);g.style.display=(t>f.a&&t<f.e+.5)?'block':'none';var o=io((t-f.e)/.4);g.style.opacity=1-o;g.style.transform='translateX('+(-o*40)+'px)'});
+  MASK.forEach(function(m){var q=eo((t-m.s)/.75);m.e.style.transform='translateY('+((1-q)*112)+'%)'});
+  var ha=io((t-1.85)/.4);$('hdA').style.opacity=1-ha;$('hdA').style.transform='translateY('+(-ha*30)+'px)';
+  $('hdB').style.display=t>12.6&&t<15.6?'block':'none';
+  // end: right bookend sweeps across as a marble wipe
+  var w=$('wipe');if(t>15.0){var q=io((t-15.0)/.6);w.style.display='block';
+    w.style.left=lerp(270+213,0,q)+'px';w.style.top=lerp(400,0,q)+'px';w.style.width=lerp(64,560,q)+'px';w.style.height=lerp(220,960,q)+'px';$('bR').style.display='none'}
+  else w.style.display='none';
+  $('end').style.display=t>15.5?'block':'none';
+  $('lgo').style.opacity=cl((t-15.7)/.25);var lq=ob((t-15.7)/.7);$('lgo').style.transform='scale('+(t<15.7?.6:Math.max(.6,lq))+')';
+  var bq=ob((t-16.45)/.6);$('btnw').style.opacity=cl((t-16.45)/.2);$('btnw').style.transform='translateY('+((1-oc((t-16.45)/.6))*30)+'px) scale('+(t<16.45?.8:Math.max(.8,bq))+')';
+  var pu=t>17.05?((t-17.05)%1.2)/1.2:-1;$('btn').style.transform=pu>=0?'scale('+(1+.04*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+  $('stage').style.opacity=sm(t/.2);
+};
+window.__seek(0);
+</script></body></html>
