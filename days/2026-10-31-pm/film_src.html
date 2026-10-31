@@ -1,0 +1,130 @@
+<!--FONTS Rozha One:rozha-one:latin:400:normal; Sora:sora:latin:400,600:normal; Lateef:lateef:arabic:400,700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>The Rahl</title>
+<style>
+/*FONTS*/
+:root{--rose:#E7C6BC;--rose2:#D6A99C;--wal:#5A3622;--wal2:#3A2114;--ink:#241612;--grn:#1F4B3C;--gold:#C99A3E;--paper:#F6EEE6;--d:'Rozha One',serif;--ui:'Sora',sans-serif;--ar:'Lateef',serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--ink);font-family:var(--ui);
+  background:radial-gradient(90% 55% at 50% 66%,#F1D6CD 0%,var(--rose) 50%,var(--rose2) 100%)}
+.st3d{position:absolute;inset:0;perspective:1300px;perspective-origin:270px 520px;overflow:hidden}
+.cam{position:absolute;left:270px;top:480px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#efe6d2 0 4.5px,#d3c6aa 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#efe6d2 0 4.5px,#d3c6aa 4.5px 7.5px)}
+.bd{transform-style:flat !important;width:300px;height:380px;left:-150px;top:-120px;transform-origin:150px 120px}
+.bd svg,.bd i{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
+.shd{transform-style:flat !important;background:radial-gradient(50% 50% at 50% 50%,rgba(60,25,15,.5),rgba(60,25,15,0) 100%)}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.06em}
+.m>span{display:block}
+.hd{font-family:var(--d);font-weight:400;line-height:1.0;letter-spacing:-.01em}
+.ar{font-family:var(--ar);font-weight:700;direction:rtl;line-height:1.25}
+.sb{font-family:var(--ui);font-weight:400;font-size:19px;line-height:1.35;color:#5b3a2e}
+.lb{font-family:var(--ui);font-weight:600;font-size:16px;color:var(--grn)}
+.no{position:absolute;left:38px;font-family:var(--d);font-size:150px;line-height:1;color:var(--gold);opacity:.0}
+#panel{position:absolute;left:0;top:0;width:540px;height:960px;background:var(--grn);transform:translateY(100%)}
+#lg{position:absolute;left:200px;top:170px;width:140px;height:140px;mix-blend-mode:screen;opacity:0}
+.btn{display:inline-block;background:var(--gold);color:var(--ink);font-family:var(--ui);font-weight:600;font-size:26px;border-radius:50px;padding:16px 40px;box-shadow:0 20px 40px -18px rgba(0,0,0,.6)}
+#grain{position:absolute;inset:0;opacity:.07;mix-blend-mode:multiply;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div class="st3d"><div class="cam" id="cam"></div></div>
+
+ <div id="t1">
+  <p class="m hd" style="left:38px;top:118px;font-size:62px"><span data-a="0.2">Every good book</span></p>
+  <p class="m hd" style="left:38px;top:184px;font-size:62px"><span data-a="0.38">needs a place</span></p>
+  <p class="m hd" style="left:38px;top:250px;font-size:62px;font-style:normal"><span data-a="0.56">to rest.</span></p>
+ </div>
+
+ <div id="bk"></div>
+
+ <div id="panel"></div>
+ <div id="t4">
+  <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+  <p class="m hd" style="left:0;width:540px;text-align:center;top:340px;font-size:64px;color:var(--paper)"><span data-a="15.7">daralathari.com</span></p>
+  <p class="m sb" style="left:0;width:540px;text-align:center;top:428px;color:#CFE0D6"><span data-a="15.95">Arabic and English books, shipped from New Jersey.</span></p>
+  <div id="btnw" style="position:absolute;left:0;width:540px;top:520px;text-align:center;opacity:0"><span class="btn" id="btn">Browse the books</span></div>
+ </div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.35,-.6,.72],.45,.72);
+var cam=$('cam'),PY=150,BS=.92;
+// --- the rahl: two carved walnut boards crossing in an X
+function boardSVG(id,shade){
+  // outer board with arched top, two legs, an eight-point star cut out
+  var star='',R=34,r=15;for(var i=0;i<16;i++){var a=Math.PI*i/8-Math.PI/2,rr=i%2?r:R;star+=(i?'L':'M')+(150+rr*Math.cos(a)).toFixed(1)+','+(232+rr*Math.sin(a)).toFixed(1)}star+='Z';
+  var p='M10,40 Q150,-6 290,40 L290,380 L196,380 Q150,300 104,380 L10,380 Z '+star;
+  return '<svg viewBox="0 0 300 380" preserveAspectRatio="none"><defs><linearGradient id="g'+id+'" x1="0" x2="1"><stop offset="0" stop-color="#4A2B1A"/><stop offset=".45" stop-color="#6B4129"/><stop offset="1" stop-color="#43271A"/></linearGradient>'+
+   '<pattern id="w'+id+'" width="300" height="14" patternUnits="userSpaceOnUse"><path d="M0,7 Q75,3 150,8 T300,6" stroke="rgba(30,14,8,.28)" stroke-width="1.4" fill="none"/></pattern></defs>'+
+   '<path d="'+p+'" fill-rule="evenodd" fill="url(#g'+id+')"/><path d="'+p+'" fill-rule="evenodd" fill="url(#w'+id+')"/>'+
+   '<path d="M24,52 Q150,14 276,52" stroke="#C99A3E" stroke-width="2.2" fill="none" opacity=".85"/>'+
+   '<path d="'+star+'" fill="none" stroke="#C99A3E" stroke-width="2" opacity=".9"/></svg><i id="sh'+id+'" style="background:#1a0a04;opacity:0"></i>';
+}
+var rahl=el('','left:0;top:0;width:0;height:0',cam);
+var bA=el('bd','',rahl,boardSVG('A')), bB=el('bd','height:330px;top:-70px;transform-origin:150px 70px',rahl,boardSVG('B'));
+var fl=el('shd','left:-260px;top:-90px;width:520px;height:180px',cam);
+// books
+var KEYS=['ts','ken','fw'],B={};
+KEYS.forEach(function(k){B[k]=makeBook(cam,k)});
+// text blocks
+var INFO=[
+ {k:'ts',ar:'تيسير الكريم الرحمن',en:"Tafsir as-Sa'di",by:"Shaykh Abd ar-Rahman ibn Nasir as-Sa'di",ed:'Arabic. The complete tafsir in one volume.',t:[4.3,7.0]},
+ {k:'ken',ar:'كتاب العلم',en:'The Book of Knowledge',by:'Shaykh Muhammad ibn Salih al-Uthaymeen',ed:'English translation.',t:[8.1,10.8]},
+ {k:'fw',ar:'الفوائد',en:"Al-Fawa'id",by:'Imam Ibn Qayyim al-Jawziyyah',ed:'Arabic hardcover.',t:[11.9,14.1]}];
+INFO.forEach(function(o,i){var g=el('','',$('bk'));o.el=g;
+  g.innerHTML='<p class="m ar" style="left:38px;top:104px;font-size:44px;color:var(--grn);direction:ltr;text-align:left"><span dir="rtl">'+o.ar+'</span></p>'+
+  '<p class="m hd" style="left:38px;top:164px;font-size:'+(o.en.length>16?42:58)+'px"><span>'+o.en+'</span></p>'+
+  '<p class="m sb" style="left:40px;top:'+(o.en.length>16?232:244)+'px;font-weight:600;color:var(--ink)"><span>'+o.by+'</span></p>'+
+  '<p class="m sb" style="left:40px;top:'+(o.en.length>16?262:274)+'px"><span>'+o.ed+'</span></p>'});
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a})});
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+// camera: t, x, y, z, rx, ry
+var CK=[[0,0,120,-380,-14,38],[1.6,0,120,-380,-14,38],[2.7,0,90,-260,-12,26],[3.8,0,40,60,-20,4],
+  [6.8,0,30,110,-20,-6],[7.6,0,30,60,-20,2],[10.6,0,30,110,-20,8],[11.3,0,30,60,-20,0],[14.0,0,30,110,-20,-5],[15.2,0,90,-420,-14,-20],[99,0,90,-420,-14,-20]];
+// rahl open angle
+function theta(t){
+  var u=t<3.0?0:ob((t-3.0)/.75)*40;                // hero unfold
+  [4.3,8.0,11.8].forEach(function(a){if(t>a)u+=Math.sin((t-a)*20)*Math.exp(-(t-a)*7)*3.2});  // flex on each landing
+  u*=1-io((t-14.3)/.6);                             // folds shut
+  return u}
+// book drop / lift
+var BT={ts:[3.65,7.0],ken:[7.35,10.8],fw:[11.15,14.05]};
+window.__seek=function(t){
+  var c=keyed(CK,t);
+  var sh=0;[3.75,4.3].forEach(function(a){if(t>a)sh+=Math.sin((t-a)*60)*Math.exp(-(t-a)*14)*4});
+  cam.style.transform='translateY('+sh+'px) translateZ('+c[2]+'px) rotateX('+c[3]+'deg) rotateY('+c[4]+'deg) translate3d('+(-c[0])+'px,'+(-c[1])+'px,0)';
+  var th=theta(t),R=Math.PI/180;
+  // rahl rises folded, then unfolds
+  var rise=t<1.2?900:lerp(900,0,oc((t-1.2)/1.5)), drop=io((t-14.9)/.6)*900;
+  var ry=rise+drop;
+  bA.style.transform='translate3d(0px,'+(PY+ry)+'px,-1px) rotateX('+th+'deg)';
+  bB.style.transform='translate3d(0px,'+(PY+ry)+'px,1px) rotateX('+(-th)+'deg)';
+  $('shA').style.opacity=(.05+th*.006).toFixed(3);$('shB').style.opacity=(.18+th*.01).toFixed(3);
+  var foot=PY+ry+260*Math.cos(th*R);
+  fl.style.transform='translate3d(0px,'+foot+'px,0px) rotateX(90deg) scale('+(.55+th/40*.45)+','+(.4+th/40*.9)+')';fl.style.opacity=(t<1.2?0:sm((t-1.6)/1))*(1-sm((t-14.9)/.4));
+  // books rest on board A's upper face
+  KEYS.forEach(function(k){var b=B[k],w=BT[k],H=b.H*BS,D=b.D*BS;
+    if(t<w[0]-.02||t>w[1]+.9){pose(b,{hide:true});return}
+    var a=th*R,cx=0,cy=PY+ry-(H/2-6)*Math.cos(a)-(D/2+4)*Math.sin(a),cz=-(H/2-6)*Math.sin(a)+(D/2+4)*Math.cos(a)+2;
+    var q=cl((t-w[0])/.55),fall=q<1?-(1-q*q)*1100:0,bn=q>=1?-Math.abs(Math.sin((t-w[0]-.55)*13))*Math.exp(-(t-w[0]-.55)*8)*16:0;
+    var rz=q<1?(1-q)*(k==='ken'?-14:12):0;
+    var L=io((t-w[1])/.75);
+    var p={x:cx+L*420,y:cy+fall+bn-L*620,z:cz+L*120,rx:th+(1-q)*-20+L*-30,ry:L*-40,rz:rz+L*18,s:BS};
+    pose(b,p)});
+  MASK.forEach(function(m){var q=eo((t-m.s)/.75);m.e.style.transform='translateY('+((1-q)*110)+'%)'});
+  var ex=io((t-2.45)/.55);$('t1').style.transform='translateY('+(-ex*90)+'px)';$('t1').style.opacity=1-sm((t-2.5)/.4);
+  INFO.forEach(function(o){var a=o.t[0],b2=o.t[1],sp=o.el.querySelectorAll('span');o.el.style.display=(t>a-.05&&t<b2+.5)?'block':'none';
+    sp.forEach(function(e,j){var q=eo((t-a-j*.12)/.7),x=io((t-b2-j*.05)/.4);e.style.transform='translateY('+((1-q)*110-x*110)+'%)'});
+    });
+  // end card
+  var pq=io((t-14.85)/.75);$('panel').style.transform='translateY('+((1-pq)*100)+'%)';
+  var lq=ob((t-15.35)/.7);$('lg').style.opacity=cl((t-15.35)/.25);$('lg').style.transform='scale('+(t<15.35?.6:Math.max(.6,lq))+')';
+  var bq=ob((t-16.3)/.6);$('btnw').style.opacity=cl((t-16.3)/.2);$('btnw').style.transform='translateY('+((1-oc((t-16.3)/.6))*30)+'px) scale('+(t<16.3?.8:Math.max(.8,bq))+')';
+  var pu=t>17.0?((t-17.0)%1.2)/1.2:-1;$('btn').style.transform=pu>=0?'scale('+(1+.04*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+  $('stage').style.opacity=sm(t/.2);
+};
+window.__seek(0);
+</script></body></html>
