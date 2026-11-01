@@ -1,0 +1,125 @@
+<!--FONTS Dela Gothic One:dela-gothic-one:latin:400:normal; Onest:onest:latin:400,600:normal; Cairo:cairo:arabic:700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Between the Lines</title>
+<style>
+/*FONTS*/
+:root{--tl:#12333A;--bone:#F1ECE2;--tan:#EE7A2B;--ink:#14181B;--sage:#8FB0A6;--d:'Dela Gothic One',sans-serif;--ui:'Onest',sans-serif;--ar:'Cairo',sans-serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--bone);font-family:var(--ui);
+  background:radial-gradient(70% 45% at 50% 36%,#1E4C55 0%,#12333A 60%,#0C2328 100%)}
+#lattice{position:absolute;inset:0;opacity:.10;background-image:
+  linear-gradient(45deg,transparent 46%,#8FB0A6 46%,#8FB0A6 54%,transparent 54%),linear-gradient(-45deg,transparent 46%,#8FB0A6 46%,#8FB0A6 54%,transparent 54%);
+  background-size:60px 60px}
+.st3d{position:absolute;inset:0;perspective:1400px;perspective-origin:270px 420px;overflow:hidden}
+.cam{position:absolute;left:270px;top:480px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#efe6d2 0 4.5px,#d3c6aa 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#efe6d2 0 4.5px,#d3c6aa 4.5px 7.5px)}
+.shd{transform-style:flat !important;background:radial-gradient(50% 50% at 50% 50%,rgba(0,0,0,.55),rgba(0,0,0,0) 100%)}
+#blinds{position:absolute;inset:0;perspective:5200px;perspective-origin:270px 480px}
+.slat{position:absolute;left:-10px;width:560px;height:121px;transform-style:preserve-3d}
+.slat>div{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.slat .fr{background:linear-gradient(to bottom,#F6F2EA 0%,#F1ECE2 70%,#E2DACB 100%)}
+.slat .fr:after{content:'';position:absolute;left:0;right:0;bottom:14px;height:2px;background:#14181B;opacity:.85}
+.slat .bk{transform:rotateX(180deg);background:linear-gradient(to bottom,#F48A3C 0%,#EE7A2B 70%,#D9671D 100%)}
+.slat .bk:after{content:'';position:absolute;left:0;right:0;bottom:14px;height:2px;background:#14181B;opacity:.35}
+.slat i{position:absolute;inset:0;background:#000;opacity:0;pointer-events:none}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.1em}
+.m>span{display:block}
+.hd{font-family:var(--d);font-weight:400;line-height:1.0;letter-spacing:-.01em}
+.ar{font-family:var(--ar);font-weight:700;line-height:1.35;color:var(--tan)}
+.sb{font-family:var(--ui);font-size:17px;line-height:1.35}
+#lg{position:absolute;left:200px;top:150px;width:140px;height:140px;mix-blend-mode:multiply;opacity:0}
+.btn{display:inline-block;background:var(--ink);color:var(--bone);font-family:var(--ui);font-weight:600;font-size:25px;border-radius:50px;padding:16px 40px;box-shadow:0 18px 36px -16px rgba(20,24,27,.7)}
+#grain{position:absolute;inset:0;opacity:.07;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="lattice"></div>
+ <div class="st3d"><div class="cam" id="cam"></div></div>
+ <div id="blinds"></div>
+ <div id="info"></div>
+ <div id="t1">
+  <p class="m hd" style="left:38px;top:150px;font-size:66px;color:var(--ink)"><span data-a="0.25" data-o="2.15">Read</span></p>
+  <p class="m hd" style="left:38px;top:226px;font-size:66px;color:var(--ink)"><span data-a="0.4" data-o="2.2">between</span></p>
+  <p class="m hd" style="left:38px;top:302px;font-size:66px;color:var(--tan)"><span data-a="0.55" data-o="2.25">the lines.</span></p>
+  <p class="m sb" style="left:40px;top:400px;color:#3A3F42;font-size:19px"><span data-a="0.95" data-o="2.2">Books worth reading closely.</span></p>
+ </div>
+ <div id="t3">
+  <p class="m hd" style="left:38px;top:120px;font-size:46px"><span data-a="14.2" data-o="14.9">Worth reading,</span></p>
+  <p class="m hd" style="left:38px;top:174px;font-size:46px;color:var(--tan)"><span data-a="14.32" data-o="14.95">line by line.</span></p>
+  <p class="m sb" style="left:40px;top:612px;color:#CFDDD8"><span data-a="14.45" data-o="14.9">Arabic and English books,</span></p>
+  <p class="m sb" style="left:40px;top:636px;color:#CFDDD8"><span data-a="14.55" data-o="14.9">shipped from New Jersey.</span></p>
+ </div>
+ <div id="t4">
+  <img id="lg" src="assets/logo_dark.png" alt="Dar Al Athari">
+  <p class="m hd" style="left:0;width:540px;text-align:center;top:330px;font-size:34px;color:var(--ink)"><span data-a="16.05">daralathari.com</span></p>
+  <p class="m sb" style="left:0;width:540px;text-align:center;top:392px;color:#3A2210"><span data-a="16.2">Islamic books and garments, shipped worldwide.</span></p>
+  <div id="btnw" style="position:absolute;left:0;width:540px;top:470px;text-align:center;opacity:0"><span class="btn" id="btn">Browse the books</span></div>
+ </div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.35,-.5,.8],.42,.8);
+var cam=$('cam');
+var KEYS=['kar','fq1','pi'],B={},SH={};
+KEYS.forEach(function(k){SH[k]=el('shd','left:-150px;top:-30px;width:300px;height:60px',cam);B[k]=makeBook(cam,k)});
+// slats
+var NS=8,SL=[];
+for(var i=0;i<NS;i++){var s=el('slat','top:'+(i*120)+'px',$('blinds'));el('fr','',s);el('bk','',s);SL.push({e:s,sh:el('','',s,null,'i')})}
+// base angle segments: [t0,t1,a0,a1,ease]
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+var SEG=[[2.45,3.2,0,90,'io'],[5.45,6.0,90,180,'ob'],[6.15,6.75,180,270,'io'],[9.05,9.6,270,360,'ob'],[9.75,10.35,360,450,'io'],
+ [12.45,13.0,450,540,'ob'],[13.15,14.05,540,810,'io'],[15.3,15.95,810,900,'ob']];
+function ang(t){var a=0;for(var j=0;j<SEG.length;j++){var g=SEG[j];if(t<g[0])return a;var p=(t-g[0])/(g[1]-g[0]);
+  if(p>=1){a=g[3];continue}var e=g[4]==='io'?io(p):ob(p);return lerp(g[2],g[3],e)}return a}
+// book info
+var INFO=[
+ {ar:'كتاب العلم',en:["Kitab al-'Ilm"],fs:36,by:'Shaykh Muhammad ibn Salih al-Uthaymeen',ed:'Arabic edition.',t:[3.0,5.1]},
+ {ar:'',en:['Fiqh According to the',"Qur'an & Sunnah"],fs:25,by:'Compiled by Muhammad Subhi bin Hasan Hallaq',ed:'English hardcover, Vol. 1. Darussalam.',t:[6.55,8.7]},
+ {ar:'أركان الإسلام والإيمان',en:['The Pillars of','Islam & Iman'],fs:31,by:'Sheikh Muhammad bin Jamil Zeno',ed:'English hardcover. Darussalam.',t:[10.15,12.05]}];
+INFO.forEach(function(o){var g=el('','',$('info'));o.el=g;var y=556,h='';
+  if(o.ar){h+='<p class="m ar" style="left:38px;top:'+(y-6)+'px;font-size:28px;direction:ltr;text-align:left"><span dir="rtl">'+o.ar+'</span></p>';y+=42}
+  o.en.forEach(function(l){h+='<p class="m hd" style="left:38px;top:'+y+'px;font-size:'+o.fs+'px"><span>'+l+'</span></p>';y+=o.fs*1.12});
+  y+=8;h+='<p class="m sb" style="left:40px;top:'+y+'px;font-weight:600"><span>'+o.by+'</span></p>';
+  h+='<p class="m sb" style="left:40px;top:'+(y+24)+'px;color:#A9C2BA"><span>'+o.ed+'</span></p>';g.innerHTML=h});
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a,out:e.dataset.o?+e.dataset.o:99})});
+var BY=-140,S=1.0;
+// book keyframes: t,x,y,z,rx,ry,rz,s   (each book appears while blinds are shut)
+var BK={
+ kar:[[0,0,BY,-260,-4,-38,-3,S],[3.3,0,BY,0,-4,-16,0,S],[5.6,0,BY,60,-4,-8,0,S]],
+ fq1:[[5.9,0,BY,-260,-4,34,3,S],[6.85,0,BY,0,-4,14,0,S],[9.2,0,BY,60,-4,6,0,S]],
+ pi:[[9.5,0,BY,-260,-4,-34,-3,S],[10.45,0,BY,0,-4,-14,0,S],[12.6,0,BY,60,-4,-6,0,S]]};
+var WIN={kar:[0,6.0],fq1:[6.0,9.65],pi:[9.65,13.05]};
+var FIN={kar:[-150,24,-6],fq1:[0,0,0],pi:[150,-24,6]};
+window.__seek=function(t){
+  // slats: staggered wave (top to bottom when opening, bottom to top when closing)
+  var base=ang(t);
+  SL.forEach(function(s,i){var a=ang(t-i*.045);var c=Math.cos(a*Math.PI/180);
+    s.e.style.transform='rotateX('+a+'deg)';s.sh.style.opacity=(1-Math.abs(c))*.55});
+  // camera: gentle breathing, punch at hero
+  var hz=(t>13.15&&t<15.4)?io((t-13.15)/.9)*80:0;
+  cam.style.transform='translateZ('+(30*Math.sin(t*.4)+hz)+'px) rotateX(-4deg)';
+  KEYS.forEach(function(k){var b=B[k],w=WIN[k],v;
+    var inHero=t>=13.05&&t<15.95;
+    if(!inHero&&(t<w[0]||t>=w[1])){pose(b,{hide:true});SH[k].style.opacity=0;return}
+    if(inHero){var q=ob((t-13.15)/1.0),f=FIN[k];
+      v=[f[0]*1.15*q,BY+80,lerp(-300,0,oc((t-13.15)/.9)),-4,lerp(f[1]*3,f[1],cl(q)),f[2]*cl(q),.78];}
+    else v=keyed(BK[k],t);
+    pose(b,{x:v[0],y:v[1],z:v[2],rx:v[3],ry:v[4],rz:v[5],s:v[6]});
+    var hh=b.H*v[6]/2;SH[k].style.transform='translate3d('+v[0]+'px,'+(v[1]+hh-2)+'px,'+(v[2]-10)+'px) rotateX(90deg) scale('+(v[6]*1.1)+','+(v[6]*1.3)+')';SH[k].style.opacity=.8;
+  });
+  MASK.forEach(function(m){var q=eo((t-m.s)/.75),x=io((t-m.out)/.4);m.e.style.transform='translateY('+((1-q)*110-x*110)+'%)'});
+  INFO.forEach(function(o){var a=o.t[0],b2=o.t[1],sp=o.el.querySelectorAll('span');o.el.style.display=(t>a-.05&&t<b2+.5)?'block':'none';
+    sp.forEach(function(e,j){var q=eo((t-a-j*.1)/.7),x=io((t-b2-j*.04)/.35);e.style.transform='translateY('+((1-q)*110-x*110)+'%)'})});
+  $('t1').style.display=t<2.8?'block':'none';
+  $('t3').style.display=(t>14.1&&t<15.32)?'block':'none';
+  $('t4').style.display=t>15.8?'block':'none';
+  var lq=ob((t-15.8)/.7);$('lg').style.opacity=cl((t-15.8)/.25);$('lg').style.transform='scale('+(t<15.8?.6:Math.max(.6,lq))+')';
+  var bq=ob((t-16.5)/.6);$('btnw').style.opacity=cl((t-16.5)/.2);$('btnw').style.transform='translateY('+((1-oc((t-16.5)/.6))*30)+'px) scale('+(t<16.5?.8:Math.max(.8,bq))+')';
+  var pu=t>17.1?((t-17.1)%.9)/.9:-1;$('btn').style.transform=pu>=0?'scale('+(1+.04*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+  $('stage').style.opacity=sm(t/.2);
+};
+window.__seek(0);
+</script></body></html>
