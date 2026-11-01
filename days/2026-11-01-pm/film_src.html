@@ -1,0 +1,142 @@
+<!--FONTS Gloock:gloock:latin:400:normal; Schibsted Grotesk:schibsted-grotesk:latin:400,600:normal; Amiri:amiri:arabic:700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>By Lamplight</title>
+<style>
+/*FONTS*/
+:root{--nt:#0E1A2E;--dusk:#2C4468;--amb:#F4C26B;--pap:#FFF1D6;--brass:#9A6A3A;--d:'Gloock',serif;--ui:'Schibsted Grotesk',sans-serif;--ar:'Amiri',serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--pap);font-family:var(--ui);
+  background:linear-gradient(to bottom,#0B1526 0%,#13233D 55%,#0E1A2E 100%)}
+#desk{position:absolute;left:-20px;top:706px;width:580px;height:280px;background:linear-gradient(to bottom,#2A1C13 0,#1A110B 60%,#0F0A07 100%)}
+#deskEdge{position:absolute;left:-20px;top:700px;width:580px;height:8px;background:linear-gradient(to bottom,#5A3B24,#2A1C13)}
+#warm{position:absolute;inset:0;opacity:0;background:radial-gradient(60% 38% at 52% 70%,rgba(244,194,107,.55) 0%,rgba(244,160,80,.18) 55%,rgba(244,160,80,0) 100%)}
+#beam{position:absolute;inset:0;opacity:0;mix-blend-mode:screen;
+  clip-path:polygon(392px 92px,498px 92px,600px 760px,-30px 760px);
+  background:linear-gradient(to bottom,rgba(255,214,140,.55) 0%,rgba(255,200,120,.16) 60%,rgba(255,200,120,.05) 100%)}
+#pool{position:absolute;left:30px;top:660px;width:480px;height:110px;border-radius:50%;opacity:0;
+  background:radial-gradient(50% 50% at 50% 50%,rgba(255,210,130,.7),rgba(255,190,110,.0) 100%);mix-blend-mode:screen}
+#lamp{position:absolute;left:350px;top:-30px;width:200px;height:130px}
+#chain{position:absolute;left:470px;top:84px;width:2px;background:repeating-linear-gradient(to bottom,#C9A15C 0 3px,#6b5230 3px 5px)}
+#bead{position:absolute;left:463px;width:16px;height:16px;border-radius:50%;background:radial-gradient(35% 35% at 35% 35%,#FFE3A8,#B5853E 60%,#6b4a20)}
+.st3d{position:absolute;inset:0;perspective:1400px;perspective-origin:270px 500px;overflow:hidden}
+.cam{position:absolute;left:270px;top:480px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#efe6d2 0 4.5px,#d3c6aa 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#efe6d2 0 4.5px,#d3c6aa 4.5px 7.5px)}
+.shd{transform-style:flat !important;background:radial-gradient(50% 50% at 50% 50%,rgba(0,0,0,.65),rgba(0,0,0,0) 100%)}
+#motes i{position:absolute;width:3px;height:3px;border-radius:50%;background:#FFE2A6}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.08em}
+.m>span{display:block}
+.hd{font-family:var(--d);font-weight:400;line-height:1.02}
+.ar{font-family:var(--ar);font-weight:700;line-height:1.3;color:var(--amb)}
+.sb{font-family:var(--ui);font-size:18px;line-height:1.35}
+#panel{position:absolute;left:270px;top:700px;width:10px;height:10px;border-radius:50%;background:var(--amb);transform:translate(-50%,-50%) scale(0)}
+#lg{position:absolute;left:195px;top:160px;width:150px;height:150px;mix-blend-mode:multiply;opacity:0}
+.btn{display:inline-block;background:var(--nt);color:var(--amb);font-family:var(--ui);font-weight:600;font-size:26px;border-radius:50px;padding:16px 42px;box-shadow:0 18px 36px -16px rgba(14,26,46,.7)}
+#grain{position:absolute;inset:0;opacity:.08;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="desk"></div><div id="deskEdge"></div>
+ <div id="warm"></div>
+ <div class="st3d"><div class="cam" id="cam"></div></div>
+ <div id="beam"></div><div id="pool"></div><div id="motes"></div>
+ <svg id="lamp" viewBox="0 0 200 130"><defs><linearGradient id="sh" x1="0" x2="1"><stop offset="0" stop-color="#5E3F1F"/><stop offset=".4" stop-color="#C9954B"/><stop offset=".7" stop-color="#9A6A3A"/><stop offset="1" stop-color="#4A3017"/></linearGradient></defs>
+  <rect x="140" y="0" width="10" height="40" fill="#6b4a20"/>
+  <path d="M95,38 L195,38 L215,122 L75,122 Z" fill="url(#sh)"/>
+  <path d="M75,122 L215,122" stroke="#E8C27A" stroke-width="3"/>
+  <ellipse id="bulb" cx="145" cy="124" rx="58" ry="7" fill="#FFE6B0" opacity="0"/></svg>
+ <div id="chain"></div><div id="bead"></div>
+
+ <div id="t1">
+  <p class="m hd" style="left:38px;top:150px;font-size:60px"><span data-a="0.25">The day is done.</span></p>
+  <p class="m hd" style="left:38px;top:218px;font-size:60px"><span data-a="0.55">Open a book.</span></p>
+ </div>
+ <div id="bk"></div>
+ <div id="t3">
+  <p class="m hd" style="left:38px;top:132px;font-size:58px"><span data-b="13.0">Read by</span></p>
+  <p class="m hd" style="left:38px;top:196px;font-size:58px"><span data-b="13.12">lamplight.</span></p>
+  <p class="m sb" style="left:40px;top:274px;color:#C9D3E3"><span data-b="13.3">Arabic and English books,</span></p>
+  <p class="m sb" style="left:40px;top:298px;color:#C9D3E3"><span data-b="13.4">shipped from New Jersey.</span></p>
+ </div>
+
+ <div id="panel"></div>
+ <div id="t4">
+  <img id="lg" src="assets/logo_dark.png" alt="Dar Al Athari">
+  <p class="m hd" style="left:0;width:540px;text-align:center;top:338px;font-size:58px;color:var(--nt)"><span data-a="15.85">daralathari.com</span></p>
+  <p class="m sb" style="left:0;width:540px;text-align:center;top:420px;color:#3A3020"><span data-a="16.05">Islamic books and garments, shipped worldwide.</span></p>
+  <div id="btnw" style="position:absolute;left:0;width:540px;top:500px;text-align:center;opacity:0"><span class="btn" id="btn">Browse the books</span></div>
+ </div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([.45,-.7,.55],.5,.7);
+var cam=$('cam');
+var KEYS=['sth','ks','aar'],B={},SH={};
+KEYS.forEach(function(k){SH[k]=el('shd','left:-150px;top:-30px;width:300px;height:60px',cam);B[k]=makeBook(cam,k)});
+// motes
+var MO=[];for(var i=0;i<26;i++){var e=el('','',$('motes'));MO.push({e:e,x:rnd(),y:rnd(),s:.4+rnd()*.8,ph:rnd()*6})}
+var INFO=[
+ {ar:'شرح ثلاثة الأصول',en:'Sharh Thalathat al-Usul',by:'Shaykh Muhammad ibn Salih al-Uthaymeen',ed:'Arabic hardcover. Collected works, No. 4.',t:[3.9,6.0]},
+ {ar:'شرح كشف الشبهات',en:'Sharh Kashf ash-Shubuhat',by:'Shaykh Muhammad ibn Salih al-Uthaymeen',ed:'Arabic hardcover, with Sharh al-Usul as-Sittah.',t:[7.3,9.4]},
+ {ar:'الداء والدواء',en:"Ad-Da' wa ad-Dawa'",by:'Imam Ibn al-Qayyim',ed:'Arabic edition.',t:[10.6,12.6]}];
+INFO.forEach(function(o){var g=el('','',$('bk'));o.el=g;var fs=o.en.length>19?34:46;
+  g.innerHTML='<p class="m ar" style="left:38px;top:112px;font-size:40px;direction:ltr;text-align:left"><span dir="rtl">'+o.ar+'</span></p>'+
+  '<p class="m hd" style="left:38px;top:178px;font-size:'+fs+'px"><span>'+o.en+'</span></p>'+
+  '<p class="m sb" style="left:40px;top:'+(178+fs*1.15+8)+'px;font-weight:600"><span>'+o.by+'</span></p>'+
+  '<p class="m sb" style="left:40px;top:'+(178+fs*1.15+34)+'px;color:#AFBCD2"><span>'+o.ed+'</span></p>'});
+var MASK=[];document.querySelectorAll('[data-a],[data-b]').forEach(function(e){MASK.push({e:e,s:+(e.dataset.a||e.dataset.b),out:e.dataset.b?14.75:(e.dataset.a<3?2.75:99)})});
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+// lamp level with flicker
+function lamp(t){if(t<2.32)return 0;if(t<2.40)return .8;if(t<2.47)return .1;if(t<2.53)return .9;if(t<2.6)return .25;return oc((t-2.6)/.3)}
+var BY=95, S=.86;
+// book keyframes: t,x,y,z,rx,ry,rz,s
+var BK={
+ sth:[[2.85,30,BY+150,40,-88,0,6,S],[3.75,30,BY,40,-4,-14,0,S],[5.95,10,BY,60,-4,-24,0,S],[6.6,-560,BY-20,0,-4,-50,-8,S]],
+ ks:[[6.25,600,BY,-60,-4,-70,0,S],[7.15,20,BY,40,-4,-12,0,S],[9.35,0,BY,60,-4,-22,0,S],[10.0,-560,BY-20,0,-4,-50,-8,S]],
+ aar:[[9.65,30,BY-900,40,-4,10,-14,S],[10.35,30,BY,40,-4,-14,0,S],[12.55,20,BY,60,-4,-20,0,S]]};
+var FIN={sth:[-150,-6],ks:[0,0],aar:[150,6]};
+window.__seek=function(t){
+  var L=lamp(t);
+  // camera drift + punch on lamp
+  var pz=40*Math.sin(t*.35)+(t>2.6?30*Math.exp(-(t-2.6)*3):0), sh=t>2.6?Math.sin((t-2.6)*50)*Math.exp(-(t-2.6)*9)*3:0;
+  var fz=io((t-12.7)/.9)*-260;
+  cam.style.transform='translateY('+sh+'px) translateZ('+(pz+fz)+'px) rotateX(-6deg) rotateY('+(Math.sin(t*.3)*4)+'deg)';
+  $('warm').style.opacity=L;$('beam').style.opacity=L*.9;$('pool').style.opacity=L;$('bulb').setAttribute('opacity',L);
+  // chain pulls (2.2 and 14.95)
+  var pull=Math.max(Math.sin(cl((t-2.08)/.3)*Math.PI),Math.sin(cl((t-14.85)/.3)*Math.PI))*38;
+  var swing=(t>2.3?Math.sin((t-2.3)*6)*Math.exp(-(t-2.3)*1.5)*7:0);
+  $('chain').style.height=(150+pull)+'px';$('bead').style.top=(232+pull)+'px';$('bead').style.transform='translateX('+swing+'px)';$('chain').style.transform='rotate('+(-swing*.18)+'deg)';$('chain').style.transformOrigin='top';
+  // motes in beam
+  MO.forEach(function(m,i){var yy=((m.y+t*.012*m.s)%1),y=110+yy*620,xc=445-(y-92)*(445-270)/668,w=50+(y-92)*.4;
+    m.e.style.transform='translate('+(xc+(m.x-.5)*2*w+Math.sin(t*m.s+m.ph)*8)+'px,'+y+'px)';m.e.style.opacity=L*(.25+.5*Math.abs(Math.sin(t*m.s*1.3+m.ph)))});
+  // books
+  KEYS.forEach(function(k){var b=B[k],K_=BK[k],p;
+    if(t<K_[0][0]-.01){pose(b,{hide:true});SH[k].style.opacity=0;return}
+    var v=keyed(K_,t);
+    if(t>12.6){var q=ob((t-12.75)/.8),f=FIN[k],last=K_[K_.length-1];
+      var st=k==='aar'?last:[0,f[0]+(k==='sth'?-400:400),BY,0,-4,0,0,S];
+      if(k==='aar')st=[0].concat(last.slice(1));
+      v=[lerp(st[1],f[0],q),BY+68,lerp(st[3],0,cl(q)),-4,lerp(st[5],f[1]*-2,cl(q)),0,lerp(S,.62,cl(q))];
+      if(k==='aar'){v[0]=lerp(last[1],f[0],q);v[1]=BY+68;}
+    }
+    var x=v[0],gx=1-cl((Math.abs(x)-120)/360)*.7;
+    var p={x:x,y:v[1],z:v[2],rx:v[3],ry:v[4],rz:v[5],s:v[6],g:lerp(.22,1.08,L)*gx};
+    // land bounce for drop-in
+    pose(b,p);
+    var hh=b.H*v[6]/2;SH[k].style.transform='translate3d('+x+'px,'+(v[1]+hh-4)+'px,'+(v[2]-10)+'px) rotateX(90deg) scale('+(v[6]*1.1)+','+(v[6]*1.4)+')';SH[k].style.opacity=L*cl(1-Math.abs(x)/500);
+  });
+  MASK.forEach(function(m){var q=eo((t-m.s)/.75),x=io((t-m.out)/.4);m.e.style.transform='translateY('+((1-q)*110-x*110)+'%)'});
+  INFO.forEach(function(o){var a=o.t[0],b2=o.t[1],sp=o.el.querySelectorAll('span');o.el.style.display=(t>a-.05&&t<b2+.5)?'block':'none';
+    sp.forEach(function(e,j){var q=eo((t-a-j*.12)/.7),x=io((t-b2-j*.05)/.4);e.style.transform='translateY('+((1-q)*110-x*110)+'%)'})});
+  // end card: the lamp pool swells to fill the screen
+  var pq=io((t-15.05)/.8);$('panel').style.transform='translate(-50%,-50%) scale('+(pq*240)+')';
+  var lq=ob((t-15.55)/.7);$('lg').style.opacity=cl((t-15.55)/.25);$('lg').style.transform='scale('+(t<15.55?.6:Math.max(.6,lq))+')';
+  var bq=ob((t-16.4)/.6);$('btnw').style.opacity=cl((t-16.4)/.2);$('btnw').style.transform='translateY('+((1-oc((t-16.4)/.6))*30)+'px) scale('+(t<16.4?.8:Math.max(.8,bq))+')';
+  var pu=t>17.0?((t-17.0)%1.0)/1.0:-1;$('btn').style.transform=pu>=0?'scale('+(1+.04*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+  $('lamp').style.opacity=$('chain').style.opacity=$('bead').style.opacity=1-sm((t-15.3)/.3);
+  $('stage').style.opacity=sm(t/.2);
+};
+window.__seek(0);
+</script></body></html>
