@@ -1,0 +1,135 @@
+<!--FONTS Bagel Fat One:bagel-fat-one:latin:400:normal; Atkinson Hyperlegible:atkinson-hyperlegible:latin:400,700:normal; Changa:changa:arabic:600:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Pop-Up Shelf</title>
+<style>
+/*FONTS*/
+:root{--olv:#66703B;--dol:#3F4624;--bone:#EFE7D3;--chr:#C2273F;--ink:#1E1F14;--gold:#E8C66A;--d:'Bagel Fat One',serif;--ui:'Atkinson Hyperlegible',sans-serif;--ar:'Changa',sans-serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--bone);font-family:var(--ui);
+  background:radial-gradient(85% 55% at 50% 62%,#77814A 0%,#66703B 50%,#4A5229 100%)}
+#world{position:absolute;left:0;top:0;width:540px;height:960px;transform-origin:0 0}
+#fold{position:absolute;inset:0;perspective:1100px;perspective-origin:270px 520px}
+#acc{position:absolute;left:30px;top:380px;width:0;height:340px;transform-style:preserve-3d}
+.pn{position:absolute;top:0;width:160px;height:340px;transform-style:preserve-3d;transform-origin:0 50%}
+.pf,.pb{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden}
+.pf{background:var(--bone);box-shadow:inset 0 0 0 10px #EFE7D3,inset 0 0 0 12px #8C9460}
+.pf:before{content:'';position:absolute;left:22px;right:22px;top:38px;height:1px;background:#8C9460;box-shadow:0 6px 0 #8C9460}
+.pb{background:var(--chr);transform:rotateY(180deg)}
+.star{position:absolute;left:62px;top:74px;width:36px;height:36px}
+.star:before,.star:after{content:'';position:absolute;inset:6px;background:var(--gold)}
+.star:after{transform:rotate(45deg)}
+.sh{position:absolute;inset:0;background:#000;opacity:0}
+#fshadow{position:absolute;left:30px;top:712px;width:480px;height:40px;border-radius:50%;background:radial-gradient(50% 50% at 50% 50%,rgba(20,22,8,.5),rgba(20,22,8,0));transform-origin:50% 50%}
+.st3d{position:absolute;inset:0;perspective:1300px;perspective-origin:270px 520px}
+.cam{position:absolute;left:270px;top:480px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#efe6d2 0 4.5px,#d3c6aa 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#efe6d2 0 4.5px,#d3c6aa 4.5px 7.5px)}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.12em}
+.m>span{display:block}
+.hd{font-family:var(--d);font-weight:400;line-height:1.0;color:var(--bone)}
+.ar{font-family:var(--ar);font-weight:600;line-height:1.4;color:var(--gold)}
+.sb{font-family:var(--ui);font-size:18px;line-height:1.35}
+#iris{position:absolute;left:270px;top:550px;width:20px;height:20px;border-radius:50%;background:#8F1D2E;transform:translate(-50%,-50%) scale(0)}
+#lg{position:absolute;left:195px;top:150px;width:150px;height:150px;mix-blend-mode:screen;opacity:0}
+.btn{display:inline-block;background:var(--bone);color:#8F1D2E;font-family:var(--ui);font-weight:700;font-size:26px;border-radius:50px;padding:16px 42px;box-shadow:0 18px 36px -16px rgba(0,0,0,.6)}
+#grain{position:absolute;inset:0;opacity:.09;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="world">
+  <div id="fshadow"></div>
+  <div id="fold"><div id="acc">
+   <div class="pn" id="p0" style="left:0"><div class="pf"><div class="star"></div><div class="sh"></div></div><div class="pb"></div>
+    <div class="pn" id="p1" style="left:160px"><div class="pf"><div class="star"></div><div class="sh"></div></div><div class="pb"></div>
+     <div class="pn" id="p2" style="left:160px"><div class="pf"><div class="star"></div><div class="sh"></div></div><div class="pb"></div></div>
+    </div>
+   </div>
+  </div></div>
+  <div class="st3d"><div class="cam" id="cam"></div></div>
+ </div>
+
+ <div id="t1">
+  <p class="m hd" style="left:38px;top:108px;font-size:66px"><span data-a="0.25" data-o="2.65">Read it</span></p>
+  <p class="m hd" style="left:38px;top:176px;font-size:66px"><span data-a="0.4" data-o="2.7">in Arabic.</span></p>
+  <p class="m sb" style="left:40px;top:262px;color:#E4E2C8"><span data-a="0.95" data-o="2.6">Three books, as they were written.</span></p>
+ </div>
+ <div id="bk"></div>
+ <div id="t3">
+  <p class="m hd" style="left:38px;top:118px;font-size:58px"><span data-a="13.55" data-o="14.95">Unfold</span></p>
+  <p class="m hd" style="left:38px;top:180px;font-size:58px"><span data-a="13.68" data-o="15.0">the originals.</span></p>
+ </div>
+
+ <div id="iris"></div>
+ <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+ <div id="t4">
+  <p class="m hd" style="left:0;width:540px;text-align:center;top:330px;font-size:50px"><span data-a="15.95" data-o="99">daralathari.com</span></p>
+  <p class="m sb" style="left:0;width:540px;text-align:center;top:406px;color:#F3D6D4"><span data-a="16.15" data-o="99">Arabic and English books, shipped worldwide.</span></p>
+  <div id="btnw" style="position:absolute;left:0;width:540px;top:490px;text-align:center;opacity:0"><span class="btn" id="btn">Browse the Arabic books</span></div>
+ </div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.35,-.55,.76],.45,.72);
+var cam=$('cam');
+var KEYS=['aar','sth','ks'],B={};
+KEYS.forEach(function(k){B[k]=makeBook(cam,k)});
+var INFO=[
+ {ar:'الداء والدواء',en:"Ad-Da' wa ad-Dawa'",by:'Imam Ibn al-Qayyim',ed:'Arabic edition.',t:[4.75,7.35]},
+ {ar:'شرح ثلاثة الأصول',en:'Sharh Thalathat al-Usul',by:'Shaykh Muhammad ibn Salih al-Uthaymeen',ed:'Arabic hardcover. Collected works, No. 4.',t:[7.85,10.35]},
+ {ar:'شرح كشف الشبهات',en:'Sharh Kashf ash-Shubuhat',by:'Shaykh Muhammad ibn Salih al-Uthaymeen',ed:'With Sharh al-Usul as-Sittah. No. 5.',t:[10.85,13.25]}];
+INFO.forEach(function(o){var g=el('','',$('bk'));o.el=g;var fs=o.en.length>20?36:46;
+  g.innerHTML='<p class="m ar" style="left:38px;top:100px;font-size:34px;direction:ltr;text-align:left"><span dir="rtl">'+o.ar+'</span></p>'+
+  '<p class="m hd" style="left:38px;top:160px;font-size:'+fs+'px"><span>'+o.en+'</span></p>'+
+  '<p class="m sb" style="left:40px;top:'+(160+fs*1.05+12)+'px;font-weight:700"><span>'+o.by+'</span></p>'+
+  '<p class="m sb" style="left:40px;top:'+(160+fs*1.05+38)+'px;color:#DCDDBF"><span>'+o.ed+'</span></p>'});
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a,out:+e.dataset.o})});
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+var S=.64, BASE=700-480; // book bottom in cam coords
+var CX=[-160,0,160];
+// camera: t, focusX, focusY, zoom  (screen point that goes to 270,640)
+var CAMK=[[0,270,550,1],[4.3,270,550,1],[4.95,110,585,1.55],[7.25,110,585,1.55],[7.95,270,585,1.55],[10.25,270,585,1.55],[10.95,430,585,1.55],[13.2,430,585,1.55],[13.9,270,550,1]];
+window.__seek=function(t){
+  // concertina: unfolds in a cascade (hero), folds shut at the end
+  var u=[0,1,2].map(function(i){return os((t-2.75-i*.2)/.62)-io((t-14.95-(2-i)*.1)/.42)});
+  var a=[-82*(1-u[0]),164*(1-u[1]),-164*(1-u[2])];
+  var open=(u[0]+u[1]+u[2])/3;
+  $('acc').style.transform='translateX('+lerp(226,0,open)+'px) rotateX(6deg)';
+  ['p0','p1','p2'].forEach(function(id,i){var e=$(id);e.style.transform='rotateY('+a[i]+'deg)';
+    var tot=a.slice(0,i+1).reduce(function(x,y){return x+y},0);
+    e.querySelector('.sh').style.opacity=(cl(Math.abs(Math.sin(tot*Math.PI/180)))*.45).toFixed(3)});
+  $('fshadow').style.transform='translateX('+lerp(226-240+80,0,open)*0+'px) scaleX('+lerp(.35,1,open)+')';
+  $('fshadow').style.opacity=lerp(.6,1,open);
+  // camera
+  var c=keyed(CAMK,t),Z=c[2];
+  var hit=function(a0,amp,dec){return t>a0?Math.sin((t-a0)*46)*Math.exp(-(t-a0)*dec)*amp:0};
+  var shk=hit(3.35,4,8)+hit(3.85,4,9);
+  var pun=(t>3.35?.045*Math.exp(-(t-3.35)*2.8):0);
+  Z*=1+pun;
+  $('world').style.transform='translate('+(270-c[0]*Z)+'px,'+(640-c[1]*Z+shk)+'px) scale('+Z+')';
+  cam.style.transform='rotateX(-3deg) rotateY('+(Math.sin(t*.4)*2.5)+'deg)';
+  // books pop up from the panels in a wave
+  KEYS.forEach(function(k,i){var b=B[k];
+    var p=t<15?ob((t-3.25-i*.16)/.55):1-io((t-14.55-(2-i)*.06)/.36);
+    if(p<=0.001){pose(b,{hide:true});return}
+    var r=lerp(90,0,Math.min(p,1.15)), h=b.H*S/2, rr=r*Math.PI/180;
+    var y=BASE-h*Math.cos(rr), z=-h*Math.sin(rr)+20;
+    // focus beat: lift forward and swing
+    var bt=INFO[i].t, f=sm((t-bt[0]+.3)/.6)*(1-sm((t-bt[1]+.1)/.6));
+    var sw=Math.sin(cl((t-bt[0])/(bt[1]-bt[0]))*Math.PI*2)*14*f;
+    var ry=lerp(0,-18,f)+sw+(i-1)*-6*(1-f);
+    pose(b,{x:CX[i],y:y-f*18,z:z+f*70,rx:r,ry:ry,s:S,g:1.05,op:cl(p*2.5)});
+  });
+  MASK.forEach(function(m){var q=eo((t-m.s)/.75),x=io((t-m.out)/.4);m.e.style.transform='translateY('+((1-q)*110+x*110)+'%)'});
+  INFO.forEach(function(o){var a0=o.t[0],b2=o.t[1],sp=o.el.querySelectorAll('span');o.el.style.display=(t>a0-.05&&t<b2+.5)?'block':'none';
+    sp.forEach(function(e,j){var q=eo((t-a0-j*.1)/.7),x=io((t-b2-j*.05)/.4);e.style.transform='translateY('+((1-q)*110+x*110)+'%)'})});
+  // end card: cherry iris opens from the closed concertina
+  var pq=io((t-15.35)/.7);$('iris').style.transform='translate(-50%,-50%) scale('+(pq*120)+')';
+  var lq=ob((t-15.7)/.7);$('lg').style.opacity=cl((t-15.7)/.25);$('lg').style.transform='scale('+(t<15.7?.6:Math.max(.6,lq))+')';
+  var bq=ob((t-16.4)/.6);$('btnw').style.opacity=cl((t-16.4)/.2);$('btnw').style.transform='translateY('+((1-oc((t-16.4)/.6))*30)+'px) scale('+(t<16.4?.8:Math.max(.8,bq))+')';
+  var pu=t>17.0?((t-17.0)%1.0)/1.0:-1;$('btn').style.transform=pu>=0?'scale('+(1+.04*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+  $('stage').style.opacity=sm(t/.2);
+};
+window.__seek(0);
+</script></body></html>
