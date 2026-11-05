@@ -1,0 +1,158 @@
+<!--FONTS Cinzel:cinzel:latin:600,800:normal; Urbanist:urbanist:latin:400,600:normal; Kufam:kufam:arabic:600:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Open the Door</title>
+<style>
+/*FONTS*/
+:root{--lime:#D8CBB3;--cedar:#5A2D1A;--brass:#D2A245;--lapis:#1F2D6B;--light:#FFF3D9;--ink:#1A1410;--d:'Cinzel',serif;--ui:'Urbanist',sans-serif;--ar:'Kufam',sans-serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--light);font-family:var(--ui);background:var(--lime)}
+#world{position:absolute;left:0;top:0;width:540px;height:960px;transform-origin:270px 640px}
+#in{position:absolute;inset:0;background:radial-gradient(55% 34% at 50% 66%,#FFF3D9 0%,#E9C98A 14%,#3A4C97 46%,#1F2D6B 70%,#121A42 100%)}
+#in svg{position:absolute;inset:0;width:100%;height:100%;opacity:.16}
+#flash{position:absolute;inset:0;background:radial-gradient(50% 40% at 50% 62%,#FFF8E8,rgba(255,243,217,0) 80%);opacity:0}
+#dw{position:absolute;inset:0;perspective:1100px;perspective-origin:270px 600px}
+.leaf{position:absolute;top:300px;width:170px;height:680px;transform-style:preserve-3d}
+.leaf svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+#wall{position:absolute;inset:0;width:540px;height:960px}
+#spill{position:absolute;left:40px;top:860px;width:460px;height:120px;background:radial-gradient(50% 60% at 50% 0%,rgba(255,243,217,.75),rgba(255,243,217,0));opacity:0}
+.st3d{position:absolute;inset:0;perspective:1200px;perspective-origin:270px 560px}
+.cam{position:absolute;left:270px;top:480px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#efe6d2 0 4.5px,#d3c6aa 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#efe6d2 0 4.5px,#d3c6aa 4.5px 7.5px)}
+#bshadow{position:absolute;left:150px;top:790px;width:240px;height:34px;border-radius:50%;background:radial-gradient(50% 50% at 50% 50%,rgba(8,10,30,.55),rgba(8,10,30,0));opacity:0}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.14em}
+.m>span{display:block}
+.hd{font-family:var(--d);font-weight:800;line-height:1.04;letter-spacing:.005em}
+.ar{font-family:var(--ar);font-weight:600;line-height:1.5;color:var(--brass)}
+.ti{font-family:var(--d);font-weight:600;font-size:25px;line-height:1.2;color:var(--light)}
+.sb{font-family:var(--ui);font-weight:400;font-size:18px;line-height:1.35;color:#DCE1F4}
+#lg{position:absolute;left:205px;top:100px;width:130px;height:130px;mix-blend-mode:multiply;opacity:0}
+.btn{display:inline-block;background:var(--lapis);color:var(--light);font-family:var(--ui);font-weight:600;font-size:26px;border-radius:50px;padding:16px 40px;box-shadow:0 18px 36px -14px rgba(10,6,4,.7);border:2px solid var(--brass)}
+#grain{position:absolute;inset:0;opacity:.09;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="world">
+  <div id="in">
+   <svg viewBox="0 0 540 960"><defs><pattern id="st" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M30,6 L36,24 L54,30 L36,36 L30,54 L24,36 L6,30 L24,24Z M13,13 L47,47 M47,13 L13,47" fill="none" stroke="#D2A245" stroke-width="1.2"/></pattern></defs>
+    <rect width="540" height="960" fill="url(#st)"/></svg>
+   <div id="flash"></div>
+  </div>
+  <div id="dw">
+   <div class="leaf" id="L" style="left:100px;transform-origin:0 50%"><svg viewBox="0 0 170 680"><use href="#leafart"/></svg></div>
+   <div class="leaf" id="R" style="left:270px;transform-origin:100% 50%"><svg viewBox="0 0 170 680" style="transform:scaleX(-1)"><use href="#leafart"/></svg></div>
+  </div>
+  <svg id="wall" viewBox="0 0 540 960">
+   <defs>
+    <linearGradient id="lm" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#DED2BB"/><stop offset="1" stop-color="#C9BA9E"/></linearGradient>
+    <pattern id="studs" width="34" height="40" patternUnits="userSpaceOnUse"><circle cx="17" cy="20" r="3.2" fill="#D2A245"/><circle cx="16" cy="19" r="1.2" fill="#FFF3D9" opacity=".7"/></pattern>
+    <linearGradient id="wd" x1="0" x2="1"><stop offset="0" stop-color="#4A2213"/><stop offset=".5" stop-color="#6A3620"/><stop offset="1" stop-color="#4E2515"/></linearGradient>
+    <g id="leafart">
+     <path d="M0,680 L0,220 A300,300 0 0 1 170,0 L170,680Z" fill="url(#wd)"/>
+     <g fill="none" stroke="#3A180B" stroke-width="1.4" opacity=".55"><path d="M42,680V110 M85,680V40 M128,680V8"/></g>
+     <path d="M0,680 L0,220 A300,300 0 0 1 170,0 L170,680Z" fill="url(#studs)" opacity=".9"/>
+     <path d="M14,666 L14,226 A286,286 0 0 1 156,22 L156,666Z" fill="none" stroke="#D2A245" stroke-width="3"/>
+     <rect x="30" y="300" width="112" height="112" fill="#4E2515"/>
+     <path d="M86,306 L100,340 L136,356 L100,372 L86,406 L72,372 L36,356 L72,340Z" fill="#5A2D1A" stroke="#D2A245" stroke-width="3"/>
+     <circle cx="86" cy="356" r="10" fill="#D2A245"/>
+     <circle cx="150" cy="470" r="16" fill="none" stroke="#D2A245" stroke-width="5"/>
+     <circle cx="150" cy="452" r="6" fill="#D2A245"/>
+     <rect x="0" y="0" width="5" height="680" fill="#2A1008" opacity=".5"/>
+    </g>
+   </defs>
+   <path fill-rule="evenodd" fill="url(#lm)" d="M-200,-200H740V1160H-200Z M100,990 L100,520 A300,300 0 0 1 270,300 A300,300 0 0 1 440,520 L440,990Z"/>
+   <g fill="none">
+    <path d="M100,990 L100,520 A300,300 0 0 1 270,300 A300,300 0 0 1 440,520 L440,990" stroke="#9C8A6A" stroke-width="8"/>
+    <path d="M78,990 L78,516 A322,322 0 0 1 270,274 A322,322 0 0 1 462,516 L462,990" stroke="#5A2D1A" stroke-width="3"/>
+    <path d="M66,990 L66,514 A334,334 0 0 1 270,262 A334,334 0 0 1 474,514 L474,990" stroke="#D2A245" stroke-width="2"/>
+   </g>
+  </svg>
+  
+ </div>
+ <div class="st3d" id="bl"><div id="bshadow"></div><div class="cam" id="cam"></div></div>
+
+ <div id="t1">
+  <p class="m hd" style="left:36px;top:104px;font-size:50px;color:var(--ink)"><span data-a="0.3" data-o="2.45">Every book</span></p>
+  <p class="m hd" style="left:36px;top:160px;font-size:50px;color:var(--ink)"><span data-a="0.45" data-o="2.5">is a door.</span></p>
+  <p class="m sb" style="left:38px;top:228px;font-size:19px;color:#4A3A2A;font-weight:600"><span data-a="1.0" data-o="2.4">Three to open tonight.</span></p>
+ </div>
+ <div id="bk"></div>
+ <div id="t3">
+  <p class="m hd" style="left:36px;top:110px;font-size:54px;color:var(--ink)"><span data-a="13.8" data-o="15.0">Step</span></p>
+  <p class="m hd" style="left:36px;top:168px;font-size:54px;color:var(--ink)"><span data-a="13.95" data-o="15.05">inside.</span></p>
+ </div>
+
+ <img id="lg" src="assets/logo_dark.png" alt="Dar Al Athari">
+ <div id="t4">
+  <p class="m hd" style="left:0;width:540px;text-align:center;top:236px;font-size:30px;color:var(--ink)"><span data-a="16.0" data-o="99">daralathari.com</span></p>
+  <div id="btnw" style="position:absolute;left:0;width:540px;top:540px;text-align:center;opacity:0"><span class="btn" id="btn">Browse the books</span></div>
+ </div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.2,-.5,.85],.45,.75);
+var cam=$('cam');
+var KEYS=['ken','pi','tw'],B={};
+KEYS.forEach(function(k){B[k]=makeBook(cam,k)});
+var INFO=[
+ {lab:'Open to knowledge.',ar:'كتاب العلم',en:'The Book of Knowledge',by:'Shaykh Ibn Uthaymeen',ed:'English edition.',t:[4.1,6.95]},
+ {lab:'Open to the pillars.',ar:'أركان الإسلام والإيمان',en:'The Pillars of Islam & Iman',by:'Sheikh Muhammad bin Jamil Zeno',ed:'English hardcover. Darussalam.',t:[7.1,9.95]},
+ {lab:'Open to tawhid.',ar:'كتاب التوحيد',en:'Kitab at-Tawhid',by:'Shaykh Muhammad ibn Abd al-Wahhab',ed:'English edition.',t:[10.1,12.8]}];
+INFO.forEach(function(o){var g=el('','',$('bk'));o.el=g;var y=104,h='';
+  h+='<p class="m hd" style="left:36px;top:'+y+'px;font-size:34px;color:var(--light)"><span>'+o.lab+'</span></p>';y+=54;
+  h+='<p class="m ar" style="left:38px;top:'+y+'px;font-size:28px;direction:ltr;text-align:left"><span dir="rtl">'+o.ar+'</span></p>';y+=48;
+  h+='<p class="m ti" style="left:38px;top:'+y+'px"><span>'+o.en+'</span></p>';y+=36;
+  h+='<p class="m sb" style="left:38px;top:'+y+'px;font-weight:600;color:var(--light)"><span>'+o.by+'</span></p>';y+=26;
+  h+='<p class="m sb" style="left:38px;top:'+y+'px"><span>'+o.ed+'</span></p>';
+  g.innerHTML=h});
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a,out:+e.dataset.o})});
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+function hit(t,a0,amp,dec){return t>a0?Math.sin((t-a0)*46)*Math.exp(-(t-a0)*dec)*amp:0}
+window.__seek=function(t){
+  // doors: knocks, swing open (weighted), later swing shut with a bounce
+  var knock=hit(t,1.85,1.2,14)+hit(t,2.12,1.2,14);
+  var op=ob((t-2.6)/1.1), cls=t<15.15?0:ic((t-15.15)/.5), A;
+  A=100*op*(1-cls); if(t>15.65)A=Math.abs(Math.sin((t-15.65)*16))*7*Math.exp(-(t-15.65)*7);
+  $('L').style.transform='rotateY('+(A+knock*.6)+'deg)';$('R').style.transform='rotateY('+(-A-knock*.6)+'deg)';
+  var lightOn=sm((t-2.6)/.8)*(1-sm((t-15.3)/.4));
+  $('flash').style.opacity=lightOn*(.55+.45*Math.exp(-Math.max(0,t-2.9)*2.2));
+  
+  // camera: push through the doorway, pull back for the finale
+  var push=io((t-3.0)/1.2)*(1-io((t-12.85)/.95));
+  var S=1+1.75*push;
+  var shk=hit(t,3.25,4,8)+hit(t,15.65,6,7);
+  var pun=(t>3.25?.035*Math.exp(-(t-3.25)*3):0)+(t>15.65?.04*Math.exp(-(t-15.65)*3):0);
+  $('world').style.transform='translateY('+shk+'px) scale('+(S*(1+pun))+')';
+  $('bl').style.transform='translateY('+shk+'px)';
+  cam.style.transform='rotateX(-3deg)';
+  // books
+  var bsh=0;
+  KEYS.forEach(function(kk,i){var b=B[kk],bt=INFO[i].t;
+    var pin=ob((t-bt[0]+.25)/.85), q=io((t-bt[1]+.15)/.6);
+    if(t<13.2&&pin>0&&q<1){
+      var z=lerp(-1500,0,pin)+lerp(0,-1700,q), ry=lerp(-200,-14,Math.min(1,pin))+Math.sin(t*1.2+i)*4+q*190,
+          y=lerp(200,175,Math.min(1,pin))+q*-30, x=lerp(0,30,Math.min(1,pin))-q*30, o=cl(pin*3)*(1-cl((q-.6)/.4));
+      bsh=Math.max(bsh,cl(pin)*(1-q));
+      pose(b,{x:x,y:y,z:z,ry:ry,rx:0,rz:0,s:.86,op:o,g:1.08});return}
+    // finale: three books standing inside the doorway
+    var hp=ob((t-13.55-i*.14)/.75), dn=io((t-14.95+i*.05)/.5);
+    if(hp<=0||dn>=1){pose(b,{hide:true});return}
+    var FX=[-98,0,98][i],FR=[16,0,-16][i];
+    pose(b,{x:FX,y:248+Math.sin(t*1.5+i)*2,z:lerp(-900,0,hp)+lerp(0,-1000,dn),ry:lerp(-160,FR,Math.min(1,hp)),s:.43,op:cl(hp*3)*(1-dn),g:1.05});
+  });
+  $('bshadow').style.opacity=bsh*.9;
+  // text
+  MASK.forEach(function(m){var q=eo((t-m.s)/.75),x=io((t-m.out)/.4);m.e.style.transform='translateY('+((1-q)*135+x*135)+'%)'});
+  INFO.forEach(function(o){var a0=o.t[0],b2=o.t[1],sp=o.el.querySelectorAll('span');o.el.style.display=(t>a0-.05&&t<b2+.5)?'block':'none';
+    sp.forEach(function(e,j){var q=eo((t-a0-j*.09)/.7),x=io((t-b2-j*.04)/.4);e.style.transform='translateY('+((1-q)*135+x*135)+'%)'})});
+  // end card on the closed doors
+  var lq=ob((t-15.85)/.7);$('lg').style.opacity=cl((t-15.85)/.25);$('lg').style.transform='scale('+(t<15.85?.6:Math.max(.6,lq))+')';
+  var bq=ob((t-16.3)/.6);$('btnw').style.opacity=cl((t-16.3)/.2);$('btnw').style.transform='translateY('+((1-oc((t-16.3)/.6))*30)+'px) scale('+(t<16.3?.8:Math.max(.8,bq))+')';
+  var pu=t>17.0?((t-17.0)%1.0)/1.0:-1;$('btn').style.transform=pu>=0?'scale('+(1+.04*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+  $('stage').style.opacity=sm(t/.2);
+};
+window.__seek(0);
+</script></body></html>
