@@ -1,0 +1,212 @@
+<!--FONTS Bungee:bungee:latin:400:normal; Lexend:lexend:latin:400,600:normal; IBM Plex Sans Arabic:ibm-plex-sans-arabic:arabic:600:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Pick Your Next Read</title>
+<style>
+/*FONTS*/
+:root{--brick:#B5552E;--enamel:#F3E7D0;--navy:#1B2A4A;--brass:#E0B14A;--mint:#8FE3C0;--ink:#15110E;--d:'Bungee',sans-serif;--ui:'Lexend',sans-serif;--ar:'IBM Plex Sans Arabic',sans-serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--ink);font-family:var(--ui);background:var(--brick)}
+#bgp{position:absolute;inset:0;opacity:.13}
+#world{position:absolute;left:0;top:0;width:540px;height:960px;transform-origin:224px 600px}
+#mach{position:absolute;left:0;top:0;width:540px;height:960px}
+.lay{position:absolute;inset:0;width:540px;height:960px}
+.st3d{position:absolute;inset:0;perspective:1200px;perspective-origin:270px 480px}
+.cam{position:absolute;left:270px;top:480px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#efe6d2 0 4.5px,#d3c6aa 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#efe6d2 0 4.5px,#d3c6aa 4.5px 7.5px)}
+#dim{position:absolute;inset:0;background:rgba(21,17,14,.62);opacity:0}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.12em}
+.m>span{display:block}
+.hd{font-family:var(--d);font-weight:400;line-height:1.02;color:var(--enamel)}
+.ar{font-family:var(--ar);font-weight:600;line-height:1.45;color:var(--brass)}
+.ti{font-family:var(--ui);font-weight:600;font-size:21px;line-height:1.2;color:var(--enamel)}
+.sb{font-family:var(--ui);font-weight:400;font-size:16px;line-height:1.35;color:#F6D9C8}
+#lcd{position:absolute;left:408px;top:398px;width:76px;height:38px;font-family:var(--d);font-size:22px;line-height:38px;text-align:center;color:var(--mint);text-shadow:0 0 8px rgba(143,227,192,.8)}
+#shut{position:absolute;left:0;top:0;width:540px;height:960px;background:repeating-linear-gradient(to bottom,#1B2A4A 0 44px,#14203A 44px 47px,#24365C 47px 50px);transform:translateY(-100%)}
+#shut:after{content:'';position:absolute;left:0;right:0;bottom:0;height:22px;background:var(--brass);box-shadow:0 6px 14px rgba(0,0,0,.4)}
+#lg{position:absolute;left:200px;top:120px;width:140px;height:140px;mix-blend-mode:screen;opacity:0}
+.btn{display:inline-block;background:var(--brass);color:var(--ink);font-family:var(--d);font-size:24px;border-radius:12px;padding:16px 34px;box-shadow:0 6px 0 #9A7428,0 20px 30px -12px rgba(0,0,0,.6)}
+#grain{position:absolute;inset:0;opacity:.09;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <svg id="bgp" viewBox="0 0 540 960"><defs><pattern id="st" width="54" height="54" patternUnits="userSpaceOnUse">
+  <path d="M27,9 L32,22 L45,27 L32,32 L27,45 L22,32 L9,27 L22,22Z" fill="none" stroke="#F3E7D0" stroke-width="1.3"/></pattern></defs>
+  <rect width="540" height="960" fill="url(#st)"/></svg>
+ <div id="world">
+  <div id="mach">
+   <!-- interior (behind books) -->
+   <svg class="lay" viewBox="0 0 540 960">
+    <defs><linearGradient id="inn" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#22355C"/><stop offset="1" stop-color="#101A30"/></linearGradient></defs>
+    <rect x="54" y="380" width="338" height="222" fill="url(#inn)"/>
+    <rect x="54" y="380" width="338" height="16" fill="#0B1222" opacity=".6"/>
+    <path d="M166.7,380V600 M279.3,380V600" stroke="#0E1628" stroke-width="3"/>
+    <rect x="70" y="660" width="306" height="78" rx="6" fill="#0B0F18"/>
+   </svg>
+   <div class="st3d" id="b3"><div class="cam" id="bcam"></div></div>
+   <!-- coils + frame (in front of books) -->
+   <svg class="lay" id="front" viewBox="0 0 540 960">
+    <defs>
+     <clipPath id="w"><rect x="54" y="380" width="338" height="222"/></clipPath>
+     <linearGradient id="en" x1="0" x2="1"><stop offset="0" stop-color="#E9DAC0"/><stop offset=".55" stop-color="#F6ECD8"/><stop offset="1" stop-color="#DCCBAE"/></linearGradient>
+     <linearGradient id="gl" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".16"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/><stop offset=".55" stop-color="#fff" stop-opacity=".09"/><stop offset=".7" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    </defs>
+    <g clip-path="url(#w)" id="coils"></g>
+    <rect x="54" y="590" width="338" height="14" fill="#C9C2B4"/>
+    <rect x="54" y="590" width="338" height="3" fill="#fff" opacity=".5"/>
+    <g font-family="Bungee" font-size="10" fill="#1B2A4A" text-anchor="middle"><text x="110" y="601.5">A1</text><text x="223" y="601.5">A2</text><text x="336" y="601.5">A3</text></g>
+    <rect x="54" y="380" width="338" height="222" fill="url(#gl)"/>
+    <path fill-rule="evenodd" fill="url(#en)" d="M30,300 Q30,270 60,270 H480 Q510,270 510,300 V1000 H30Z M54,380 H392 V602 H54Z M70,660 H376 V738 H70Z"/>
+    <rect x="44" y="282" width="452" height="78" rx="10" fill="#1B2A4A"/>
+    <rect x="50" y="288" width="440" height="66" rx="7" fill="none" stroke="#E0B14A" stroke-width="2"/>
+    <text x="270" y="333" font-family="Bungee" font-size="27" fill="#E0B14A" text-anchor="middle" letter-spacing="2">DAR AL ATHARI</text>
+    <rect x="54" y="380" width="338" height="222" fill="none" stroke="#B9A988" stroke-width="4"/>
+    <rect x="404" y="384" width="84" height="232" rx="6" fill="#E3D3B6" stroke="#B9A988" stroke-width="2"/>
+    <rect x="408" y="398" width="76" height="38" rx="3" fill="#0F2A22"/>
+    <g id="keys"></g>
+    <rect x="432" y="586" width="28" height="6" rx="3" fill="#15110E"/>
+    <rect x="64" y="644" width="318" height="8" rx="4" fill="#B9A988"/>
+    <rect x="70" y="660" width="306" height="22" fill="#2B3550" opacity=".85" id="flap"/>
+    <text x="223" y="676" font-family="Bungee" font-size="11" fill="#E0B14A" text-anchor="middle" letter-spacing="3">PUSH</text>
+    <rect x="30" y="760" width="480" height="5" fill="#B5552E"/>
+    <rect x="30" y="772" width="480" height="5" fill="#1B2A4A"/>
+   </svg>
+   <div id="lcd"></div>
+  </div>
+ </div>
+ <div id="dim"></div>
+ <div class="st3d" id="f3"><div class="cam" id="fcam"></div></div>
+
+ <div id="t1">
+  <p class="m hd" style="left:34px;top:104px;font-size:46px;color:var(--enamel)"><span data-a="0.3" data-o="2.1">Pick your</span></p>
+  <p class="m hd" style="left:34px;top:156px;font-size:46px;color:var(--ink)"><span data-a="0.45" data-o="2.15">next read.</span></p>
+ </div>
+ <div id="bk"></div>
+ <div id="t2">
+  <p class="m hd" style="left:34px;top:110px;font-size:46px"><span data-a="12.35" data-o="13.95">Can't</span></p>
+  <p class="m hd" style="left:34px;top:162px;font-size:46px;color:var(--ink)"><span data-a="12.5" data-o="14.0">decide?</span></p>
+ </div>
+ <div id="t3">
+  <p class="m hd" style="left:34px;top:110px;font-size:46px"><span data-a="14.25" data-o="15.35">Take all</span></p>
+  <p class="m hd" style="left:34px;top:162px;font-size:46px;color:var(--ink)"><span data-a="14.4" data-o="15.4">three.</span></p>
+ </div>
+
+ <div id="shut"></div>
+ <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+ <div id="t4">
+  <p class="m hd" style="left:0;width:540px;text-align:center;top:300px;font-size:30px;color:var(--enamel)"><span data-a="16.1" data-o="99">daralathari.com</span></p>
+  <p class="m sb" style="left:0;width:540px;text-align:center;top:350px;font-size:18px;color:#C9D3EA"><span data-a="16.25" data-o="99">Shipped from New Jersey.</span></p>
+  <div id="btnw" style="position:absolute;left:0;width:540px;top:520px;text-align:center;opacity:0"><span class="btn" id="btn">Browse the books</span></div>
+ </div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.2,-.5,.85],.42,.78);
+var bcam=$('bcam'),fcam=$('fcam');
+var KEYS=['ft','ks','fq2'],F={},Bk={},P={};
+KEYS.forEach(function(k){Bk[k]=makeBook(bcam,k);F[k]=makeBook(bcam,k);P[k]=makeBook(fcam,k)});
+var SX=[-160,-47,66], SY=45, BS=.43, TRAY=222;
+var CODES=['A1','A2','A3'], A0=[2.0,5.4,8.8];
+var INFO=[
+ {lab:'Start with creed.',ar:'التعليقات البهية على الرسائل العقدية',en:'Five Foundational Treatises of Creed',by:'Explained by Shaykh Ahmad bin Yahya al-Najmi',ed:'English paperback. Hikmah Publications.'},
+ {lab:'Go deeper.',ar:'شرح كشف الشبهات ويليه شرح الأصول الستة',en:'Sharh Kashf ash-Shubuhat',by:'Shaykh Muhammad ibn Salih al-Uthaymeen',ed:'With Sharh al-Usul as-Sittah. Arabic hardcover.'},
+ {lab:'Learn the fiqh.',ar:'اللباب في فقه السنة والكتاب',en:"Fiqh According to the Qur'an & Sunnah",by:'Compiled by Muhammad Subhi bin Hasan Hallaq',ed:'Volume 2. English hardcover. Darussalam.'}];
+INFO.forEach(function(o){var g=el('','',$('bk'));o.el=g;var y=104,h='';
+  h+='<p class="m hd" style="left:34px;top:'+y+'px;font-size:31px"><span>'+o.lab+'</span></p>';y+=46;
+  h+='<p class="m ar" style="left:36px;top:'+y+'px;font-size:21px;direction:ltr;text-align:left"><span dir="rtl">'+o.ar+'</span></p>';y+=38;
+  h+='<p class="m ti" style="left:36px;top:'+y+'px"><span>'+o.en+'</span></p>';y+=30;
+  h+='<p class="m sb" style="left:36px;top:'+y+'px;font-weight:600;color:var(--enamel)"><span>'+o.by+'</span></p>';y+=23;
+  h+='<p class="m sb" style="left:36px;top:'+y+'px"><span>'+o.ed+'</span></p>';
+  g.innerHTML=h});
+// keypad
+(function(){var h='',L='123456789*0#';for(var r=0;r<4;r++)for(var c=0;c<3;c++){var i=r*3+c;
+  h+='<g id="k'+i+'"><circle cx="'+(420+c*26)+'" cy="'+(462+r*30)+'" r="10" fill="#1B2A4A"/><text x="'+(420+c*26)+'" y="'+(466+r*30)+'" font-family="Bungee" font-size="10" fill="#F3E7D0" text-anchor="middle">'+L[i]+'</text></g>'}
+  $('keys').innerHTML=h;
+  // coils: each slot gets a helix of loops along its depth, seen from the front as stacked ellipses
+  var c='';for(var s=0;s<3;s++){c+='<g id="c'+s+'">';for(var j=0;j<7;j++)c+='<ellipse rx="44" ry="9" fill="none" stroke="#E0B14A" stroke-width="2.4" opacity=".9"/>';c+='</g>'}
+  $('coils').innerHTML=c})();
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a,out:+e.dataset.o})});
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+function hit(t,a0,amp,dec){return t>a0?Math.sin((t-a0)*46)*Math.exp(-(t-a0)*dec)*amp:0}
+var CX=[110.3,223,335.7];
+function drawCoil(s,ph){var g=$('c'+s).children;for(var j=0;j<g.length;j++){
+  var d=((j+ph)%7)/7; // 0 = front, 1 = back
+  var y=588-d*34, sc=1-d*.22, e=g[j];
+  e.setAttribute('cx',CX[s]+Math.sin((j+ph)*2.1)*1.5);e.setAttribute('cy',y);e.setAttribute('rx',44*sc);e.setAttribute('ry',9*sc);e.setAttribute('opacity',(.95-d*.6).toFixed(2))}}
+// vend: front copy pushed forward by the coil, tips over and drops into the tray
+function vendPose(i,u){ // u: time since coil starts
+  var push=io(u/.6), tip=ic((u-.55)/.5), x=SX[i];
+  var y=SY+tip*(TRAY-SY), z=push*55+tip*70, rx=-tip*82, rz=tip*(i-1)*-6;
+  return {x:x,y:y,z:z,rx:rx,ry:0,rz:rz,s:BS,g:1};
+}
+window.__seek=function(t){
+  // machine rises in
+  var rise=ob((t-.15)/1.1);$('mach').style.transform='translateY('+((1-rise)*700)+'px)';
+  // per-book timings
+  var coilPh=[0,0,0],lcd='',press=-1,bsh=0,dimv=0;
+  var landT=[],heroLand=14.0;
+  for(var i=0;i<3;i++){var a=A0[i];
+    if(t>a&&t<a+3.4){var n=Math.floor(cl((t-a)/.4)*2+ (t>a+.1?1:0));n=Math.min(2,n);lcd=CODES[i].slice(0,n);
+      if(t>a+.42&&t<a+.62)press=11; else if(t>a+.15&&t<a+.35)press=i;}
+    coilPh[i]+=io((t-a-.5)/.6)*7/6*1; // one loop advance
+    coilPh[i]+=io((t-a-1.4)/.5)*7/6*.0;
+  }
+  if(t>12.4&&t<15){lcd=t<12.6?'A':t<12.8?'AL':'ALL';if(t>12.85&&t<13.05)press=11}
+  for(var s=0;s<3;s++){coilPh[s]+=io((t-12.95)/.7)*7/6;drawCoil(s,coilPh[s])}
+  $('lcd').textContent=lcd;
+  for(var k=0;k<12;k++){var kg=$('k'+k);kg.firstChild.setAttribute('fill',k===press?'#8FE3C0':'#1B2A4A')}
+  // camera
+  var shk=0,pun=0;
+  A0.forEach(function(a){shk+=hit(t,a+1.55,3,9);pun+=t>a+1.55?.025*Math.exp(-(t-a-1.55)*4):0});
+  shk+=hit(t,13.68,7,7);pun+=t>13.68?.05*Math.exp(-(t-13.68)*3):0;
+  shk+=hit(t,15.95,5,8);
+  var zoomIn=io((t-12.4)/.5)*(1-io((t-13.9)/.5));
+  var S=1+pun+zoomIn*.12;
+  $('world').style.transform='translateY('+shk+'px) scale('+S+')';
+  $('b3').style.transform='translateY('+shk+'px)';
+  $('b3').firstChild.style.transform='translateY('+(-(1-rise)*0)+'px)';
+  // back copies sit in the machine; front copies vend
+  KEYS.forEach(function(kk,i){var a=A0[i],u=t-a-.5,f=F[kk],b=Bk[kk],p=P[kk];
+    var my=(1-rise)*700;
+    // front copy
+    if(u<0) pose(f,{x:SX[i],y:SY+my,z:0,s:BS});
+    else if(u<1.08) pose(f,vendPose(i,u));
+    else pose(f,{hide:true});
+    // back copy: slides forward once the front has gone, then vends in the hero
+    var adv=io((u-1.0)/.5), hu=t-12.95;
+    if(hu<0) pose(b,{x:SX[i],y:SY+my,z:-62+adv*62,s:BS,g:.75+adv*.25});
+    else if(hu<.73+i*.0) {var v=vendPose(i,hu+.35);pose(b,v)}
+    else pose(b,{hide:true});
+    // presentation copy (front layer)
+    var pu=t-a-1.58;
+    var hp=t-13.68;
+    if(pu>=0&&pu<1.9){var q=ob(pu/.75),o=io((pu-1.55)/.35);
+      var x=lerp(SX[i],-10,oc(pu/.6))+o*320, y=lerp(TRAY,95,q)-o*260, z=lerp(125,60,oc(pu/.6))-o*300, rx=lerp(-82,4,oc(pu/.7)), ry=lerp(0,-16,oc(pu/.8))+Math.sin(t*1.4+i)*4+o*60;
+      pose(p,{x:x,y:y,z:z,rx:rx,ry:ry,rz:o*20,s:lerp(BS,.66,oc(pu/.6)),g:1.06});dimv=Math.max(dimv,cl(pu/.4)*(1-o));}
+    else if(hp>=0&&hp<2.2){var q2=ob((hp-.1-i*.08)/.8),o2=io((hp-1.75)/.4);
+      var FX=[-130,0,130][i],FR=[-12,0,12][i];
+      pose(p,{x:lerp(SX[i],FX,oc((hp-i*.08)/.6)),y:lerp(TRAY,95-(i===1?18:0),q2)+Math.sin(t*1.6+i)*2+o2*700,z:lerp(150,40+(i===1?40:0),oc(hp/.6)),rx:lerp(-82,2,oc((hp-i*.06)/.6)),ry:lerp(0,FR*1.6,oc(hp/.8)),rz:FR*.6*oc(hp/.8),s:lerp(BS,.57,oc(hp/.6)),g:1.06});
+      dimv=Math.max(dimv,cl(hp/.3)*(1-o2));}
+    else pose(p,{hide:true});
+  });
+  $('dim').style.opacity=dimv;
+  // flap swings when something drops
+  var fl=0;A0.forEach(function(a){fl+=hit(t,a+1.55,1,10)});fl+=hit(t,13.68,1.4,9);
+  $('flap').setAttribute('transform','translate(0,'+(Math.abs(fl)*6)+')');
+  // text
+  MASK.forEach(function(m){var q=eo((t-m.s)/.7),x=io((t-m.out)/.4);m.e.style.transform='translateY('+((1-q)*135+x*135)+'%)'});
+  INFO.forEach(function(o,i){var a0=A0[i]+1.65,b2=A0[i]+3.05,sp=o.el.querySelectorAll('span');o.el.style.display=(t>a0-.05&&t<b2+.5)?'block':'none';
+    sp.forEach(function(e,j){var q=eo((t-a0-j*.08)/.7),x=io((t-b2-j*.03)/.4);e.style.transform='translateY('+((1-q)*135+x*135)+'%)'})});
+  // roller shutter rolls down into the end card
+  var sh=t<15.4?0:oc((t-15.4)/.55);if(t>15.95)sh=1;
+  var bounce=t>15.95?-Math.abs(Math.sin((t-15.95)*14))*10*Math.exp(-(t-15.95)*6):0;
+  $('shut').style.transform='translateY('+((sh-1)*100)+'%) translateY('+bounce+'px)';
+  var lq=ob((t-16.0)/.7);$('lg').style.opacity=cl((t-16.0)/.25);$('lg').style.transform='scale('+(t<16.0?.6:Math.max(.6,lq))+')';
+  var bq=ob((t-16.45)/.6);$('btnw').style.opacity=cl((t-16.45)/.2);$('btnw').style.transform='translateY('+((1-oc((t-16.45)/.6))*30)+'px) scale('+(t<16.45?.8:Math.max(.8,bq))+')';
+  var pz=t>17.1?((t-17.1)%.9)/.9:-1;$('btn').style.transform=pz>=0?'translateY('+(Math.sin(Math.min(1,pz/.3)*Math.PI)*3)+'px)':'none';
+  $('stage').style.opacity=sm(t/.2);
+};
+window.__seek(0);
+</script></body></html>
