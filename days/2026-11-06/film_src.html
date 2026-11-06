@@ -1,0 +1,147 @@
+<!--FONTS Rubik Mono One:rubik-mono-one:latin:400:normal; Caveat:caveat:latin:700:normal; Work Sans:work-sans:latin:400,600:normal; Almarai:almarai:arabic:700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Instant Classics</title>
+<style>
+/*FONTS*/
+:root{--sky:#2E6FD8;--deep:#1B4FA8;--film:#FAF8F2;--ink:#0E1730;--tom:#F2542D;--cloud:#CFE0F7;--d:'Rubik Mono One',sans-serif;--hand:'Caveat',cursive;--ui:'Work Sans',sans-serif;--ar:'Almarai',sans-serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--film);font-family:var(--ui);background:radial-gradient(120% 80% at 50% 45%,#3A7BE0 0%,#2E6FD8 45%,#1B4FA8 100%)}
+#star{position:absolute;left:270px;top:470px;width:0;height:0}
+#star svg{position:absolute;left:-430px;top:-430px;width:860px;height:860px;opacity:.12}
+#world{position:absolute;left:0;top:0;width:540px;height:960px;transform-origin:270px 470px}
+.pol{position:absolute;left:0;top:0;background:#FAF8F2;border-radius:3px;box-shadow:0 2px 0 #e4dfd2,0 24px 40px -14px rgba(8,16,40,.55),0 6px 12px rgba(8,16,40,.18)}
+.pol .ph{position:absolute;overflow:hidden;background:linear-gradient(160deg,#E2ECFA,#B9CDEB)}
+.pol .ph img{position:absolute;left:50%;top:50%;height:82%;transform:translate(-50%,-50%);box-shadow:0 10px 18px -6px rgba(14,23,48,.5)}
+.pol .dev{position:absolute;inset:0;background:radial-gradient(90% 90% at 40% 35%,#3b3a33,#1d1f1c)}
+.pol .cp{position:absolute;left:0;right:0;text-align:center;font-family:var(--hand);font-weight:700;color:#1d2a52;white-space:nowrap}
+.st3d{position:absolute;inset:0;perspective:1200px;perspective-origin:270px 470px}
+.cam{position:absolute;left:270px;top:470px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#efe6d2 0 4.5px,#d3c6aa 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#efe6d2 0 4.5px,#d3c6aa 4.5px 7.5px)}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.12em}
+.m>span{display:block}
+.hd{font-family:var(--d);font-weight:400;line-height:1.05;color:var(--film)}
+.ar{font-family:var(--ar);font-weight:700;line-height:1.5;color:var(--ink)}
+.sb{font-family:var(--ui);font-weight:400;font-size:16px;line-height:1.35;color:var(--cloud)}
+#vf{position:absolute;left:0;top:0;width:540px;height:960px}
+#flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+#lg{position:absolute;left:192px;top:282px;width:156px;height:156px;mix-blend-mode:screen;opacity:0}
+.btn{display:inline-block;background:var(--tom);color:var(--film);font-family:var(--d);font-size:17px;border-radius:40px;padding:16px 30px;box-shadow:0 14px 26px -10px rgba(8,16,40,.6)}
+#grain{position:absolute;inset:0;opacity:.08;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="star"><svg viewBox="-100 -100 200 200"><g fill="none" stroke="#FAF8F2" stroke-width=".8">
+  <rect x="-60" y="-60" width="120" height="120"/><rect x="-60" y="-60" width="120" height="120" transform="rotate(45)"/>
+  <rect x="-42" y="-42" width="84" height="84"/><rect x="-42" y="-42" width="84" height="84" transform="rotate(45)"/>
+  <circle r="86"/><circle r="22"/></g></svg></div>
+ <svg id="vf" viewBox="0 0 540 960"><g fill="none" stroke="#FAF8F2" stroke-width="3" stroke-linecap="square">
+  <path d="M60,250 V214 H96"/><path d="M444,214 H480 V250"/><path d="M60,690 V726 H96"/><path d="M444,726 H480 V690"/>
+  </g></svg>
+ <div id="world"></div>
+ <div class="st3d" id="f3"><div class="cam" id="fcam"></div></div>
+
+ <div id="t1">
+  <p class="m hd" style="left:34px;top:330px;font-size:50px"><span data-a="0.3" data-o="1.85">Instant</span></p>
+  <p class="m hd" style="left:34px;top:388px;font-size:50px;color:var(--ink)"><span data-a="0.45" data-o="1.9">classics.</span></p>
+  <p class="m sb" style="left:36px;top:464px;font-size:19px;font-weight:600;color:var(--film)"><span data-a="0.7" data-o="1.9">Three from our shelves.</span></p>
+ </div>
+ <div id="bk"></div>
+ <div id="t2">
+  <p class="m hd" style="left:34px;top:112px;font-size:38px"><span data-a="13.55" data-o="15.3">Picture</span></p>
+  <p class="m hd" style="left:34px;top:158px;font-size:38px;color:var(--ink)"><span data-a="13.7" data-o="15.35">your shelf.</span></p>
+ </div>
+ <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+ <div id="btnw" style="position:absolute;left:0;width:540px;top:690px;text-align:center;opacity:0"><span class="btn" id="btn">Browse the books</span></div>
+ <div id="flash"></div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.25,-.45,.86],.42,.78);
+var W=$('world'),fcam=$('fcam');
+function mkPol(src,cap,w,h,fs){
+  var p=el('pol','width:'+w+'px;height:'+h+'px',W),m=Math.round(w*.06),ph=el('ph','left:'+m+'px;top:'+m+'px;width:'+(w-2*m)+'px;height:'+(h*.76)+'px',p);
+  var im=null;if(src){im=el('','',ph,null,'img');im.src=src}
+  var dv=el('dev','',ph);
+  var c=el('cp','top:'+(m+h*.76+(h*.24-m)/2-fs*.62)+'px;font-size:'+fs+'px',p,cap);
+  return {e:p,w:w,h:h,ph:ph,im:im,dv:dv,c:c};
+}
+function place(P,cx,cy,s,r,op){P.e.style.transform='translate('+(cx-P.w/2)+'px,'+(cy-P.h/2)+'px) rotate('+r+'deg) scale('+s+')';P.e.style.opacity=op==null?1:op}
+function develop(P,d){P.dv.style.opacity=(1-d).toFixed(3);if(P.im)P.im.style.filter='saturate('+(.2+.8*d).toFixed(2)+') brightness('+(.75+.25*d).toFixed(2)+') blur('+((1-d)*3).toFixed(2)+'px)'}
+function write(P,w){P.c.style.clipPath='inset(-20% '+((1-cl(w))*100).toFixed(1)+'% -20% 0)'}
+
+var KEYS=['ts','bi','kar'],A0=[2.0,5.6,9.2],ROT=[-4,3.5,-3],EXIT=[-1,1,-1];
+var INFO=[
+ {lab:'For tafsir.',cap:"Tafsir as-Sa'di",ar:'تيسير الكريم الرحمن في تفسير كلام المنان',by:"Shaykh Abd ar-Rahman ibn Nasir as-Sa'di",ed:'Arabic, one volume. Dar Ibn al-Jawzi.'},
+ {lab:'For creed.',cap:'The Great Blessing',ar:'',by:'Compiled by Shaykh, Dr. Khalid Al-Dhafiri',ed:'English paperback. Hikmah Publications.'},
+ {lab:'For knowledge.',cap:"Kitab al-'Ilm",ar:'كتاب العلم',by:'Shaykh Muhammad ibn Salih al-Uthaymeen',ed:'Arabic edition.'}];
+var POL=[],HP=[],BK={};
+KEYS.forEach(function(k,i){POL.push(mkPol(SPEC[k].front,INFO[i].cap,300,372,34))});
+KEYS.forEach(function(k,i){HP.push(mkPol(SPEC[k].front,'',300,372,34));BK[k]=makeBook(fcam,k)});
+var END=mkPol(null,'daralathari.com',420,530,46);END.ph.style.background='radial-gradient(90% 90% at 50% 40%,#1B2C58,#0E1730)';
+INFO.forEach(function(o,i){var g=el('','',$('bk'));o.el=g;var h='',y=640;
+  h+='<p class="m hd" style="left:34px;top:110px;font-size:32px"><span>'+o.lab+'</span></p>';
+  if(o.ar){h+='<p class="m ar" style="left:36px;top:'+y+'px;font-size:20px;direction:ltr;text-align:left"><span dir="rtl">'+o.ar+'</span></p>';y+=36}
+  h+='<p class="m sb" style="left:36px;top:'+y+'px;font-weight:600;font-size:18px;color:var(--film)"><span>'+o.by+'</span></p>';y+=27;
+  h+='<p class="m sb" style="left:36px;top:'+y+'px;font-size:17px"><span>'+o.ed+'</span></p>';
+  g.innerHTML=h});
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a,out:+e.dataset.o})});
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+function hit(t,a0,amp,dec){return t>a0?Math.sin((t-a0)*46)*Math.exp(-(t-a0)*dec)*amp:0}
+var CX=270,CY=405,HX=[135,270,405],HY=[478,452,478],HR=[-8,0,8],HS=.55;
+window.__seek=function(t){
+  $('star').style.transform='rotate('+(t*4)+'deg) scale('+(1+t*.01)+')';
+  // viewfinder: brackets close in during the intro, flash at first shot
+  var vf=oc((t-.1)/.8),vo=1-sm((t-2.0)/.3);
+  $('vf').style.opacity=vf*vo*.85;$('vf').style.transform='scale('+lerp(1.15,1,vf)+')';$('vf').style.transformOrigin='270px 470px';
+  var fl=0,shk=0,pun=0;
+  // three shots
+  POL.forEach(function(P,i){var u=t-A0[i];
+    fl=Math.max(fl,u>=0?.85*Math.exp(-u*9)*cl(u/.03):0);
+    if(u<.12||u>3.7){P.e.style.opacity=0;return}
+    var ej=oc((u-.12)/.75),y=lerp(-640,0,ej),r=lerp(0,ROT[i],ob((u-.4)/.7));
+    var wig=Math.sin(u*28)*7*sm((u-.95)/.15)*(1-sm((u-1.6)/.2));
+    var ex=io((u-3.05)/.5),x=EXIT[i]*ex*560;y+=ex*140;r+=EXIT[i]*ex*28;
+    place(P,CX+x+wig,CY+y,1,r+wig*.25,1);
+    develop(P,sm((u-.75)/1.4));write(P,(u-1.55)/.6);
+  });
+  for(var i=0;i<3;i++){var u=t-A0[i];shk+=hit(t,A0[i]+.85,2.2,10);}
+  // hero: three developed prints slide up, big flash, the books step out of the pictures
+  var H0=12.9,hu=t-H0,HF=13.45;
+  KEYS.forEach(function(k,i){var P=HP[i],b=BK[k];
+    if(hu<-.05||t>15.0){P.e.style.opacity=0}else{
+      var inn=ob((hu-i*.08)/.55),drop=ic((t-HF-.45-i*.05)/.6);
+      place(P,HX[i],lerp(1150,HY[i],inn)+drop*700,HS,HR[i]*(1+drop),1);
+      develop(P,1);if(P.im)P.im.style.opacity=t<HF?1:0;
+      P.ph.style.background=t<HF?'':'linear-gradient(160deg,#F4F7FC,#DCE6F5)';}
+    var bu=t-HF;
+    if(bu<0||t>16.1){pose(b,{hide:true});return}
+    var q=ob(bu/.7),o=io((t-15.35-i*.06)/.5),FR=[-1,0,1][i];
+    var x=lerp(HX[i]-270,FR*138,oc(bu/.55)),y=lerp(HY[i]-470-15,FR===0?-28:-6,q)+Math.sin(t*1.5+i)*3-o*760;
+    pose(b,{x:x,y:y,z:lerp(0,90-Math.abs(FR)*30,oc(bu/.6)),ry:lerp(0,-FR*24,oc(bu/.8))+Math.sin(t*1.2+i*2)*3,rx:lerp(0,4,oc(bu/.6)),rz:FR*7*oc(bu/.7)+o*FR*-20,s:lerp(.42,.68,oc(bu/.6)),g:lerp(1.6,1.05,oc(bu/.5))});
+  });
+  if(t>=HF)fl=Math.max(fl,Math.exp(-(t-HF)*5)*cl((t-HF)/.03));
+  shk+=hit(t,HF,7,7);pun+=t>HF?.06*Math.exp(-(t-HF)*3):0;
+  // end card: one last shot ejects and develops
+  var E0=15.55,eu=t-E0;
+  if(eu>=0)fl=Math.max(fl,.8*Math.exp(-eu*7)*cl(eu/.03));
+  if(eu<.1){END.e.style.opacity=0}else{
+    var ej=oc((eu-.1)/.8),y2=lerp(-700,0,ej),r2=lerp(-2.5,0,ob((eu-.5)/.8));
+    place(END,270,416,1,r2,1);END.e.style.transform+=' translateY('+y2+'px)';
+    develop(END,sm((eu-.7)/.9));write(END,(eu-1.25)/.65);}
+  shk+=hit(t,E0+.9,3,9);
+  var ld=sm((t-E0-.95)/.8);$('lg').style.opacity=ld;$('lg').style.transform='scale('+lerp(.9,1,ld)+')';
+  var bq=ob((t-16.7)/.6);$('btnw').style.opacity=cl((t-16.7)/.2);$('btnw').style.transform='translateY('+((1-oc((t-16.7)/.6))*24)+'px) scale('+(t<16.7?.85:Math.max(.85,bq))+')';
+  var pz=t>17.3?((t-17.3)%.8)/.8:-1;$('btn').style.transform=pz>=0?'scale('+(1+.04*Math.sin(Math.min(1,pz/.35)*Math.PI))+')':'none';
+  $('flash').style.opacity=fl;
+  $('world').style.transform='translate('+(shk*.4)+'px,'+shk+'px) scale('+(1+pun)+')';
+  $('f3').style.transform='translateY('+shk+'px) scale('+(1+pun*.6)+')';
+  MASK.forEach(function(m){var q=eo((t-m.s)/.7),x=io((t-m.out)/.4);m.e.style.transform='translateY('+((1-q)*135+x*135)+'%)'});
+  INFO.forEach(function(o,i){var a0=A0[i]+.55,b2=A0[i]+3.0,sp=o.el.querySelectorAll('span');o.el.style.display=(t>a0-.05&&t<b2+.5)?'block':'none';
+    sp.forEach(function(e,j){var dl=j===0?0:.85+j*.08,q=eo((t-a0-dl)/.7),x=io((t-b2-j*.03)/.4);e.style.transform='translateY('+((1-q)*135+x*135)+'%)'})});
+  $('stage').style.opacity=sm(t/.2);
+};
+window.__seek(0);
+</script></body></html>
