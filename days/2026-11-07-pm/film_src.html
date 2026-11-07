@@ -1,0 +1,164 @@
+<!--FONTS Staatliches:staatliches:latin:400:normal; Sen:sen:latin:400,700:normal; Baloo Bhaijaan 2:baloo-bhaijaan-2:arabic:700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>A Page a Day</title>
+<style>
+/*FONTS*/
+:root{--field:#C9D24B;--forest:#1F3A2E;--paper:#FAF6EA;--ink:#17201B;--verm:#D8432E;--brass:#B4892F;--d:'Staatliches',sans-serif;--ui:'Sen',sans-serif;--ar:'Baloo Bhaijaan 2',sans-serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--ink);font-family:var(--ui);background:var(--field)}
+#lines{position:absolute;inset:0;opacity:.18;background:repeating-linear-gradient(to bottom,transparent 0 31px,#6E7A1E 31px 32px)}
+#world{position:absolute;left:0;top:0;width:540px;height:960px;transform-origin:270px 600px}
+#blk{position:absolute;left:150px;top:396px;width:300px;height:350px;transform-origin:150px 190px}
+#shadow{position:absolute;left:10px;top:24px;width:300px;height:336px;background:rgba(23,32,27,.28);filter:blur(10px)}
+#under{position:absolute;left:0;top:30px;width:300px;height:318px;background:#E9E2CF;box-shadow:0 2px 0 #d6cdb4,0 4px 0 #e2dbc6,0 6px 0 #d1c8ae}
+#pages{position:absolute;left:0;top:30px;width:300px;height:318px;perspective:900px;perspective-origin:150px 0}
+.pg{position:absolute;left:0;top:0;width:300px;height:318px;background:var(--paper);transform-origin:0 0;
+ clip-path:polygon(0 4px,4% 0,8% 4px,12% 0,16% 4px,20% 0,24% 4px,28% 0,32% 4px,36% 0,40% 4px,44% 0,48% 4px,52% 0,56% 4px,60% 0,64% 4px,68% 0,72% 4px,76% 0,80% 4px,84% 0,88% 4px,92% 0,96% 4px,100% 0,100% 100%,0 100%);
+ backface-visibility:visible}
+.pg .num{position:absolute;right:18px;bottom:-22px;font-family:var(--d);font-size:250px;line-height:1;color:var(--ink);letter-spacing:-4px}
+.pg .tag{position:absolute;right:22px;top:20px;font-family:var(--d);font-size:15px;letter-spacing:1px;color:var(--verm)}
+.pg .rule{position:absolute;left:22px;right:22px;top:46px;height:2px;background:var(--ink);opacity:.8}
+.pg .sh{position:absolute;inset:0;background:#000;opacity:0}
+#bar{position:absolute;left:-6px;top:0;width:312px;height:38px;background:var(--forest);border-radius:5px 5px 2px 2px;box-shadow:0 3px 0 #13261d}
+.ring{position:absolute;top:-10px;width:9px;height:26px;border-radius:5px;background:linear-gradient(to right,#7a5a1a,#E2C26E 45%,#8a6720)}
+#endp{position:absolute;inset:0;background:var(--paper)}
+.st3d{position:absolute;inset:0;perspective:1300px;perspective-origin:270px 420px}
+.cam{position:absolute;left:270px;top:480px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#efe6d2 0 4.5px,#d3c6aa 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#efe6d2 0 4.5px,#d3c6aa 4.5px 7.5px)}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.1em}
+.m>span{display:block}
+.hd{font-family:var(--d);font-weight:400;line-height:.98;color:var(--ink)}
+.ar{font-family:var(--ar);font-weight:700;line-height:1.5;color:var(--forest)}
+.ti{font-family:var(--ui);font-weight:700;font-size:21px;line-height:1.2;color:var(--ink)}
+.sb{font-family:var(--ui);font-weight:400;font-size:16px;line-height:1.35;color:#2E3A22}
+#lg{position:absolute;left:190px;top:150px;width:160px;height:160px;mix-blend-mode:multiply;opacity:0}
+.btn{display:inline-block;background:var(--forest);color:var(--paper);font-family:var(--d);font-size:28px;letter-spacing:1px;border-radius:40px;padding:14px 38px;box-shadow:0 14px 26px -12px rgba(23,32,27,.6)}
+#grain{position:absolute;inset:0;opacity:.08;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="lines"></div>
+ <div id="world">
+  <div id="blk">
+   <div id="shadow"></div>
+   <div id="under"></div>
+   <div id="pages"><div id="endp"></div></div>
+   <div id="bar"></div>
+  </div>
+  <div class="st3d" id="b3"><div class="cam" id="bcam"></div></div>
+ </div>
+
+ <div id="t1">
+  <p class="m hd" style="left:34px;top:104px;font-size:64px"><span data-a="0.35" data-o="2.15">A page</span></p>
+  <p class="m hd" style="left:34px;top:166px;font-size:64px;color:var(--verm)"><span data-a="0.5" data-o="2.2">a day.</span></p>
+  <p class="m sb" style="left:36px;top:240px;font-size:18px"><span data-a="0.9" data-o="2.25">That is how a library is read.</span></p>
+ </div>
+ <div id="bk"></div>
+ <div id="t2">
+  <p class="m hd" style="left:34px;top:104px;font-size:60px"><span data-a="13.3" data-o="14.75">Page by page.</span></p>
+  <p class="m hd" style="left:34px;top:164px;font-size:60px;color:var(--verm)"><span data-a="13.75" data-o="14.8">Book by book.</span></p>
+ </div>
+
+ <img id="lg" src="assets/logo_dark.png" alt="Dar Al Athari">
+ <div id="t4">
+  <p class="m hd" style="left:0;width:540px;text-align:center;top:338px;font-size:40px"><span data-a="15.95" data-o="99">daralathari.com</span></p>
+  <p class="m sb" style="left:0;width:540px;text-align:center;top:388px;font-size:18px"><span data-a="16.1" data-o="99">Shipped from New Jersey.</span></p>
+  <div id="btnw" style="position:absolute;left:0;width:540px;top:520px;text-align:center;opacity:0"><span class="btn" id="btn">Browse the books</span></div>
+ </div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.3,-.5,.82],.45,.75);
+var bcam=$('bcam');
+var KEYS=['ken','sth','fw'],B={};
+KEYS.forEach(function(k){B[k]=makeBook(bcam,k)});
+var INFO=[
+ {lab:'Begin with knowledge.',ar:'كتاب العلم',en:'The Book of Knowledge',by:'Shaykh Muhammad ibn Salih al-Uthaymeen',ed:'English edition.'},
+ {lab:'Then the foundations.',ar:'شرح ثلاثة الأصول',en:'Sharh Thalathat al-Usul',by:'Shaykh Muhammad ibn Salih al-Uthaymeen',ed:'Arabic hardcover. Collected works, No. 4.'},
+ {lab:'Then the benefits.',ar:'الفوائد',en:"Al-Fawa'id",by:'Imam Ibn Qayyim al-Jawziyyah',ed:"Arabic hardcover. Dar Ata'at al-'Ilm."}];
+INFO.forEach(function(o){var g=el('','',$('bk'));o.el=g;var y=104,h='';
+  h+='<p class="m hd" style="left:34px;top:'+y+'px;font-size:44px"><span>'+o.lab+'</span></p>';y+=54;
+  h+='<p class="m ar" style="left:36px;top:'+y+'px;font-size:24px;direction:ltr;text-align:left"><span dir="rtl">'+o.ar+'</span></p>';y+=40;
+  h+='<p class="m ti" style="left:36px;top:'+y+'px"><span>'+o.en+'</span></p>';y+=30;
+  h+='<p class="m sb" style="left:36px;top:'+y+'px;font-weight:700;color:var(--ink)"><span>'+o.by+'</span></p>';y+=23;
+  h+='<p class="m sb" style="left:36px;top:'+y+'px"><span>'+o.ed+'</span></p>';
+  g.innerHTML=h});
+// binding rings
+(function(){for(var i=0;i<9;i++)el('ring','left:'+(22+i*32)+'px',$('bar'))})();
+// pages 1..30, page 1 on top
+var N=30,PG=[];
+for(var i=0;i<N;i++){var p=el('pg','z-index:'+(200-i),$('pages'),'<div class="tag">DAR AL ATHARI</div><div class="rule"></div><div class="num">'+(i+1)+'</div><div class="sh"></div>');PG.push(p)}
+// tear times: page index -> start time, duration, direction
+var TEAR=[];TEAR[0]=[5.25,1.0,1];TEAR[1]=[8.65,1.0,-1];
+_seed=11;
+for(var i=2;i<29;i++){var k=i-2,q=k/26; // accelerating flurry 11.55..12.95
+  TEAR[i]=[11.55+1.4*(1-Math.pow(1-q,1.6)),.75+rnd()*.3,rnd()<.5?-1:1,rnd()]}
+TEAR[29]=[14.85,.9,1,.5];
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a,out:+e.dataset.o})});
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+function hit(t,a0,amp,dec){return t>a0?Math.sin((t-a0)*46)*Math.exp(-(t-a0)*dec)*amp:0}
+function drawPage(i,t){var p=PG[i],tr=TEAR[i],u=(t-tr[0])/tr[1],d=tr[2],r=tr[3]||.5;
+  if(u>=1){p.style.display='none';return}
+  // only the next few pages need drawing
+  p.style.display='block';
+  if(u<=0){p.style.transform='none';p.lastChild.style.opacity=0;return}
+  var pull=sm(u/.18), fly=ic((u-.12)/.88);
+  var x=d*(pull*6+fly*(260+r*160)), y=pull*10+fly*820, rz=d*(pull*7+fly*(50+r*40)), rx=fly*(70+r*60)*Math.sin(u*5+r*3), ry=fly*d*30;
+  p.style.transform='translate3d('+x+'px,'+y+'px,'+(pull*30+fly*120)+'px) rotateZ('+rz+'deg) rotateX('+rx+'deg) rotateY('+ry+'deg)';
+  p.lastChild.style.opacity=(pull*.05+fly*.25).toFixed(3);
+}
+var LAND=[2.45,5.85,9.25];
+function standPose(i,u,out){ // drop in, stand leaning in front of the pad
+  var s=.78,y0=143-(i===2?0:0),x0=-95;
+  var p=cl(u/.42),y=lerp(-760,y0,p*p);
+  if(u>.42)y-=Math.abs(Math.sin((u-.42)*11))*26*Math.exp(-(u-.42)*7);
+  var rz=u<.42?lerp(-14,0,p):Math.sin((u-.42)*11)*3*Math.exp(-(u-.42)*6);
+  var o=io(out);
+  return {x:x0-o*420,y:y+o*30,z:60,rx:-3,ry:22+Math.sin(u*1.3)*3+o*20,rz:rz-o*28,s:s,g:1.05};
+}
+window.__seek=function(t){
+  // pad drops in
+  var dropP=cl((t-.1)/.55),padY=lerp(-900,0,dropP*dropP);
+  if(t>.65)padY-=Math.abs(Math.sin((t-.65)*10))*30*Math.exp(-(t-.65)*6);
+  // pages
+  var top=N;for(var j=0;j<N;j++){if(t<TEAR[j][0]){top=j;break}}
+  for(var i=0;i<N;i++){var tr=TEAR[i];
+    if(t>=tr[0]+tr[1]||(i>top+1))PG[i].style.display='none';else drawPage(i,t)}
+  // camera
+  var shk=0,pun=0;
+  shk+=hit(t,.65,6,8);
+  LAND.forEach(function(a){shk+=hit(t,a+.42,3,9);pun+=t>a+.42?.02*Math.exp(-(t-a-.42)*4):0});
+  var fl=sm((t-11.5)/.4)*(1-sm((t-13.1)/.4));shk+=Math.sin(t*61)*fl*1.6;
+  [13.55,13.8,14.05].forEach(function(a,k){shk+=hit(t,a,3+k*1.5,9);pun+=t>a?.02*Math.exp(-(t-a)*4):0});
+  var push=io((t-11.4)/1.6)*(1-io((t-13.2)/.6))*.08;
+  var S=1+pun+push;
+  $('world').style.transform='translateY('+shk+'px) scale('+S+')';
+  // end: pad scales up to fill the screen
+  var ez=io((t-15.1)/.75);
+  $('blk').style.transform='translateY('+(padY+ez*(-200))+'px) scale('+lerp(1,4.2,ez)+')';
+  $('blk').style.left='150px';
+  // books
+  KEYS.forEach(function(k,i){var b=B[k],a=LAND[i],u=t-a,outT=[5.15,8.55,11.35][i];
+    var hp=t-([13.35,13.6,13.85][i]-.42);
+    if(u>=0&&t<outT+.6){pose(b,standPose(i,u,(t-outT)/.55))}
+    else if(hp>=0&&t<15.3){ // hero: lie flat, stacked in front of the pad
+      var p=cl(hp/.42),y=lerp(760,150-(i===1?14:0),ob(hp/.42));
+      var o=io((t-14.75)/.5);
+      pose(b,{x:[-138,2,142][i],y:y+o*700,z:[40,110,40][i],rx:-3,ry:[26,0,-26][i]+Math.sin(t*1.2+i)*2,rz:[-7,0,7][i]*lerp(2,1,p),s:.7,g:1.08});}
+    else pose(b,{hide:true});
+  });
+  // text
+  MASK.forEach(function(m){var q=eo((t-m.s)/.7),x=io((t-m.out)/.4);m.e.style.transform='translateY('+((1-q)*135+x*135)+'%)'});
+  INFO.forEach(function(o,i){var a0=LAND[i]+.45,b2=[4.75,8.15,11.05][i],sp=o.el.querySelectorAll('span');o.el.style.display=(t>a0-.05&&t<b2+.5)?'block':'none';
+    sp.forEach(function(e,j){var q=eo((t-a0-j*.08)/.7),x=io((t-b2-j*.03)/.4);e.style.transform='translateY('+((1-q)*135+x*135)+'%)'})});
+  // end card
+  var lq=ob((t-15.75)/.7);$('lg').style.opacity=cl((t-15.75)/.25);$('lg').style.transform='scale('+(t<15.75?.6:Math.max(.6,lq))+')';
+  var bq=ob((t-16.4)/.6);$('btnw').style.opacity=cl((t-16.4)/.2);$('btnw').style.transform='translateY('+((1-oc((t-16.4)/.6))*30)+'px) scale('+(t<16.4?.8:Math.max(.8,bq))+')';
+  var pz=t>17.0?((t-17.0)%.9)/.9:-1;$('btn').style.transform=pz>=0?'scale('+(1+Math.sin(Math.min(1,pz/.3)*Math.PI)*.04)+')':'none';
+  $('stage').style.opacity=sm(t/.2);
+};
+window.__seek(0);
+</script></body></html>
