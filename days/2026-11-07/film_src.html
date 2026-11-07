@@ -1,0 +1,165 @@
+<!--FONTS Barlow Condensed:barlow-condensed:latin:600,800:normal; Space Mono:space-mono:latin:400,700:normal; Noto Sans Arabic:noto-sans-arabic:arabic:700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Next on the Line</title>
+<style>
+/*FONTS*/
+:root{--field:#F28C7C;--gr:#26272B;--steel:#9AA3A8;--cream:#FFF4DC;--cob:#2140A8;--amb:#F6C445;--d:'Barlow Condensed',sans-serif;--mono:'Space Mono',monospace;--ar:'Noto Sans Arabic',sans-serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--gr);font-family:var(--mono);background:var(--field)}
+#floor{position:absolute;left:0;right:0;top:700px;bottom:0;background:linear-gradient(#E27565,#D9685A)}
+#world{position:absolute;left:0;top:0;width:540px;height:960px;transform-origin:270px 560px}
+#line{position:absolute;left:0;top:0;width:540px;height:960px}
+#gate{position:absolute;left:96px;top:356px;width:348px;height:290px}
+.post{position:absolute;top:26px;width:26px;height:264px;background:linear-gradient(to right,#1b1c1f,#3a3c42 50%,#1b1c1f)}
+#beam{position:absolute;left:-8px;top:0;width:364px;height:34px;background:repeating-linear-gradient(-45deg,var(--amb) 0 14px,var(--gr) 14px 28px);box-shadow:0 4px 0 #15161a}
+#lamp{position:absolute;left:150px;top:34px;width:48px;height:10px;background:var(--cob);border-radius:0 0 6px 6px}
+#belt{position:absolute;left:-60px;width:660px;top:640px;height:30px;background:var(--gr);border-top:4px solid #3c3e45}
+#slats{position:absolute;inset:0;background:repeating-linear-gradient(to right,transparent 0 30px,rgba(255,255,255,.08) 30px 33px)}
+#frame{position:absolute;left:-60px;width:660px;top:674px;height:46px;background:var(--steel);box-shadow:inset 0 -6px 0 #7d868b}
+.rol{position:absolute;top:678px;width:34px;height:34px;border-radius:50%;background:radial-gradient(circle,#c6cdd0 0 5px,#5c6368 5px 7px,#aeb6ba 7px);}
+.rol i{position:absolute;left:15px;top:2px;width:4px;height:30px;background:#5c6368}
+.leg{position:absolute;top:720px;width:22px;height:260px;background:#7d868b}
+#scan{position:absolute;left:122px;width:296px;height:8px;top:400px;background:#8fb0ff;box-shadow:0 0 18px 6px rgba(80,120,255,.75),0 0 60px 18px rgba(33,64,168,.45);opacity:0;mix-blend-mode:screen}
+#tape{position:absolute;left:444px;top:396px;width:0;height:34px;background:var(--cream);overflow:hidden;box-shadow:0 6px 14px -6px rgba(0,0,0,.4)}
+#tape span{position:absolute;left:10px;top:8px;font-family:var(--mono);font-weight:700;font-size:13px;white-space:nowrap;color:var(--gr)}
+.shd{position:absolute;top:628px;width:190px;height:20px;margin-left:-95px;border-radius:50%;background:rgba(0,0,0,.45);filter:blur(7px)}
+.st3d{position:absolute;inset:0;perspective:1300px;perspective-origin:270px 440px}
+.cam{position:absolute;left:270px;top:480px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#efe6d2 0 4.5px,#d3c6aa 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#efe6d2 0 4.5px,#d3c6aa 4.5px 7.5px)}
+#slab{position:absolute;left:0;width:540px;top:960px;height:960px;background:var(--gr)}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.08em}
+.m>span{display:block}
+.hd{font-family:var(--d);font-weight:800;line-height:.92;color:var(--gr);letter-spacing:-.5px}
+.ar{font-family:var(--ar);font-weight:700;line-height:1.5;color:var(--cob)}
+.ti{font-family:var(--d);font-weight:600;font-size:27px;line-height:1.1;color:var(--gr)}
+.sb{font-family:var(--mono);font-weight:400;font-size:13px;line-height:1.4;color:#3a2622}
+.sb b{font-weight:700}
+#lg{position:absolute;left:190px;top:150px;width:160px;height:160px;mix-blend-mode:screen;opacity:0}
+.btn{display:inline-block;background:var(--field);color:var(--gr);font-family:var(--d);font-weight:800;font-size:30px;border-radius:40px;padding:12px 40px;box-shadow:0 14px 26px -12px rgba(0,0,0,.7)}
+#grain{position:absolute;inset:0;opacity:.08;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="floor"></div>
+ <div id="world">
+  <div id="line">
+   <div id="gate"><div class="post" style="left:0"></div><div class="post" style="right:0"></div><div id="beam"></div><div id="lamp"></div></div>
+   <div id="legs"></div>
+   <div id="frame"></div>
+   <div id="rols"></div>
+   <div id="belt"><div id="slats"></div></div>
+   <div id="shds"></div>
+  </div>
+  <div class="st3d"><div class="cam" id="bcam"></div></div>
+  <div id="scan"></div>
+  <div id="tape"><span id="tapet"></span></div>
+ </div>
+ <div id="slab"></div>
+
+ <div id="t1">
+  <p class="m hd" style="left:34px;top:104px;font-size:96px"><span data-a="0.4" data-o="2.0">Next</span></p>
+  <p class="m hd" style="left:34px;top:190px;font-size:96px;color:var(--cream)"><span data-a="0.55" data-o="2.05">on the line.</span></p>
+ </div>
+ <div id="bk"></div>
+ <div id="t2">
+  <p class="m hd" style="left:34px;top:104px;font-size:80px"><span data-a="13.75" data-o="15.0">Lined up</span></p>
+  <p class="m hd" style="left:34px;top:176px;font-size:80px;color:var(--cream)"><span data-a="13.9" data-o="15.05">for you.</span></p>
+ </div>
+
+ <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+ <div id="t4">
+  <p class="m hd" style="left:0;width:540px;text-align:center;top:336px;font-size:48px;color:var(--cream)"><span data-a="16.0" data-o="99">daralathari.com</span></p>
+  <p class="m sb" style="left:0;width:540px;text-align:center;top:394px;font-size:15px;color:var(--steel)"><span data-a="16.15" data-o="99">Shipped from New Jersey.</span></p>
+  <div id="btnw" style="position:absolute;left:0;width:540px;top:520px;text-align:center;opacity:0"><span class="btn" id="btn">Browse the books</span></div>
+ </div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.35,-.45,.82],.42,.8);
+var bcam=$('bcam');
+var KEYS=['tw','aar','pi'],B={};
+KEYS.forEach(function(k){B[k]=makeBook(bcam,k)});
+var INFO=[
+ {lab:'Tawhid first.',ar:'كتاب التوحيد',en:'Kitab at-Tawhid',by:'Shaykh Muhammad ibn Abd al-Wahhab',ed:'English edition.',tag:'KITAB AT-TAWHID / EN'},
+ {lab:'Then the heart.',ar:'الداء والدواء',en:"Ad-Da' wa ad-Dawa'",by:'Imam Ibn al-Qayyim',ed:'Arabic edition.',tag:"AD-DA' WA AD-DAWA' / AR"},
+ {lab:'Then the pillars.',ar:'أركان الإسلام والإيمان',en:'The Pillars of Islam & Iman',by:'Sheikh Muhammad bin Jamil Zeno',ed:'English hardcover. Darussalam.',tag:'PILLARS OF ISLAM & IMAN / EN'}];
+INFO.forEach(function(o){var g=el('','',$('bk'));o.el=g;var y=104,h='';
+  h+='<p class="m hd" style="left:34px;top:'+y+'px;font-size:62px"><span>'+o.lab+'</span></p>';y+=66;
+  h+='<p class="m ar" style="left:36px;top:'+y+'px;font-size:24px;direction:ltr;text-align:left"><span dir="rtl">'+o.ar+'</span></p>';y+=42;
+  h+='<p class="m ti" style="left:36px;top:'+y+'px"><span>'+o.en+'</span></p>';y+=32;
+  h+='<p class="m sb" style="left:36px;top:'+y+'px"><span><b>'+o.by+'</b></span></p>';y+=20;
+  h+='<p class="m sb" style="left:36px;top:'+y+'px"><span>'+o.ed+'</span></p>';
+  g.innerHTML=h});
+var ROL=[];for(var i=0;i<12;i++){ROL.push(el('rol','left:'+(-20+i*50)+'px',$('rols'),'<i></i>'))}
+for(var i=0;i<4;i++)el('leg','left:'+(40+i*150)+'px',$('legs'));
+var SH=KEYS.map(function(){return el('shd','',$('shds'))});
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a,out:+e.dataset.o})});
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+function hit(t,a0,amp,dec){return t>a0?Math.sin((t-a0)*46)*Math.exp(-(t-a0)*dec)*amp:0}
+// belt travel (px) — monotonic; the belt stops while a book is scanned
+var ARR=[2.0,5.2,8.4];
+function beltSpeed(t){var v=150;ARR.forEach(function(a){v*=1-win(t,a+.85,a+2.5,.2,.25)*.9});v+=sm((t-11.6)/.6)*(1-sm((t-13.3)/.3))*1100;v*=1-sm((t-14.9)/.4)*.8;return v}
+function beltOff(t){var s=0,n=Math.max(1,Math.floor(t*60));for(var i=0;i<n;i++)s+=beltSpeed((i+.5)*t/n)*t/n;return s}
+var S0=.8,BY=40;  // books stand on the belt: centre y in cam space
+function bookOnBelt(i,t){var a=ARR[i],u=t-a;
+  var x,rz=0,y=BY;
+  if(u<.85){var p=oc(u/.85);x=lerp(-470,0,p);rz=-(1-p)*4}
+  else if(u<2.6){x=0;var q=u-.85;rz=Math.sin(q*12)*3.2*Math.exp(-q*5)}
+  else{var q=io((u-2.6)/.6);x=q*520;rz=q*3}
+  return {x:x,y:y,z:0,rx:-2,ry:-24+Math.sin(t*1.1+i)*2,rz:rz,s:S0,g:1.05}}
+window.__seek=function(t){
+  var off=beltOff(t);
+  $('slats').style.backgroundPosition=off+'px 0';
+  ROL.forEach(function(r){r.style.transform='rotate('+(off/17*57.3)+'deg)'});
+  // intro: line slides up from below
+  var lin=oc((t-.05)/.8);
+  var shk=0,pun=0;
+  // camera
+  ARR.forEach(function(a){shk+=hit(t,a+.85,2.5,10);pun+=t>a+.85?.015*Math.exp(-(t-a-.85)*4):0});
+  var rush=sm((t-11.6)/.6)*(1-sm((t-13.3)/.3));shk+=Math.sin(t*67)*rush*1.4;
+  shk+=hit(t,13.5,7,7);pun+=t>13.5?.05*Math.exp(-(t-13.5)*3.5):0;
+  var push=io((t-11.4)/1.8)*(1-io((t-14.6)/.8))*.06;
+  $('world').style.transform='translateY('+(shk+(1-lin)*420)+'px) scale('+(1+pun+push)+')';
+  // scanner
+  var sc=0,sy=400,tape=0,tt='';
+  ARR.forEach(function(a,i){var u=t-a-1.0;if(u>0&&u<1.0){var p=io(u/.8);sc=Math.max(sc,sm(u/.1)*(1-sm((u-.85)/.15)));sy=lerp(392,630,p)}
+    var w=t-a-1.5;if(w>0&&w<1.3){tape=oc(w/.4)*(1-io((w-1.05)/.25));tt=INFO[i].tag}});
+  var fl=t>13.3&&t<13.9?(1-sm((t-13.3)/.6)):0; // hero scan flash
+  if(t>12.85&&t<13.4){var p=io((t-12.85)/.45);sc=Math.max(sc,sm((t-12.85)/.08));sy=lerp(392,630,p)}
+  $('scan').style.opacity=Math.max(sc,fl).toFixed(3);$('scan').style.top=sy+'px';
+  $('scan').style.height=(6+fl*240)+'px';if(fl>0)$('scan').style.top=(392+(1-fl)*0)+'px';
+  $('tape').style.width=(tape*330)+'px';$('tape').style.left=(444-tape*0)+'px';$('tapet').textContent=tt;
+  $('tape').style.left='36px';$('tape').style.top='298px';$('tape').style.transformOrigin='0 50%';
+  // books
+  KEYS.forEach(function(k,i){var b=B[k],a=ARR[i],u=t-a,P=null;
+    var hs=11.75+i*.18; // hero ride-in
+    if(u>=0&&u<3.25)P=bookOnBelt(i,t);
+    else if(t>=hs&&t<15.6){
+      var r=oc((t-hs)/1.0),X=[-150,0,150][i],x=lerp(-470-(2-i)*150,X,r);
+      var L=ob((t-13.5)/.6),Lp=cl((t-13.5)/.6);
+      var y=lerp(BY+22,10-(i===1?16:0),t>13.5?L:0),s=lerp(.62,.74,Lp),z=lerp(0,[60,120,60][i],Lp);
+      var ry=lerp(-20,[26,0,-26][i],Lp)+Math.sin(t*1.2+i)*2,rz=lerp(0,[-8,0,8][i],Lp);
+      var o=io((t-15.0)/.55);y+=o*-40-(0);z+=0;
+      P={x:x,y:y-o*0,z:z,rx:-2,ry:ry,rz:rz,s:s,g:1.06};
+      if(t>15.0){P.y=lerp(y,y+900,o)}
+    }
+    if(P){pose(b,P);var onBelt=P.y>=BY-2;SH[i].style.display=onBelt?'block':'none';SH[i].style.left=(270+P.x)+'px';SH[i].style.width=(190*P.s/S0)+'px';SH[i].style.marginLeft=(-95*P.s/S0)+'px'}
+    else{pose(b,{hide:true});SH[i].style.display='none'}
+  });
+  // slab rises from belt into end card
+  var e=io((t-15.05)/.7);$('slab').style.top=lerp(960,0,e)+'px';
+  // text
+  MASK.forEach(function(m){var q=eo((t-m.s)/.7),x=io((t-m.out)/.4);m.e.style.transform='translateY('+((1-q)*135+x*135)+'%)'});
+  INFO.forEach(function(o,i){var a0=ARR[i]+.9,b2=ARR[i]+2.55,sp=o.el.querySelectorAll('span');o.el.style.display=(t>a0-.05&&t<b2+.5)?'block':'none';
+    sp.forEach(function(e,j){var q=eo((t-a0-j*.08)/.7),x=io((t-b2-j*.03)/.4);e.style.transform='translateY('+((1-q)*135+x*135)+'%)'})});
+  // end card
+  var lq=ob((t-15.75)/.7);$('lg').style.opacity=cl((t-15.75)/.25);$('lg').style.transform='scale('+(t<15.75?.6:Math.max(.6,lq))+')';
+  var bq=ob((t-16.4)/.6);$('btnw').style.opacity=cl((t-16.4)/.2);$('btnw').style.transform='translateY('+((1-oc((t-16.4)/.6))*30)+'px) scale('+(t<16.4?.8:Math.max(.8,bq))+')';
+  var pz=t>17.0?((t-17.0)%.9)/.9:-1;$('btn').style.transform=pz>=0?'scale('+(1+Math.sin(Math.min(1,pz/.3)*Math.PI)*.04)+')':'none';
+  $('stage').style.opacity=sm(t/.2);
+};
+window.__seek(0);
+</script></body></html>
