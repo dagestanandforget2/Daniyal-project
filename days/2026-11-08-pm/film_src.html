@@ -1,0 +1,129 @@
+<!--FONTS Anton:anton:latin:400:normal; Gabarito:gabarito:latin:400,700:normal; Marhey:marhey:arabic:600:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Go Deeper</title>
+<style>
+/*FONTS*/
+:root{--field:#2430C9;--ink:#0D0E2E;--peach:#FFB38A;--gold:#E8B04B;--cream:#FFF6EA;--d:'Anton',sans-serif;--ui:'Gabarito',sans-serif;--ar:'Marhey',sans-serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--cream);font-family:var(--ui);background:var(--field)}
+#world{position:absolute;left:0;top:0;width:540px;height:960px;transform-origin:270px 560px}
+#deep{position:absolute;inset:0;background:radial-gradient(circle at 270px 560px,#05061A 0,#0D0E2E 70px,rgba(36,48,201,0) 360px)}
+#tun{position:absolute;inset:0;z-index:auto}
+.fr{position:absolute;left:170px;top:460px;width:200px;height:200px;transform-origin:100px 100px}
+.fr svg{width:200px;height:200px;display:block;overflow:visible}
+#flash{position:absolute;inset:0;z-index:950;background:var(--cream);opacity:0}
+.st3d{position:absolute;inset:0;z-index:500;perspective:1300px;perspective-origin:270px 560px}
+.cam{position:absolute;left:270px;top:560px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#efe6d2 0 4.5px,#d3c6aa 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#efe6d2 0 4.5px,#d3c6aa 4.5px 7.5px)}
+#endstar{position:absolute;left:170px;top:460px;width:200px;height:200px;transform-origin:100px 100px;transform:scale(0)}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.08em}
+.m>span{display:block}
+.hd{font-family:var(--d);font-weight:400;line-height:1.02;color:var(--cream);letter-spacing:.5px;text-shadow:0 2px 14px rgba(13,14,46,.45)}
+.pk{color:var(--peach)}
+.ar{font-family:var(--ar);font-weight:600;line-height:1.55;color:var(--gold);text-shadow:0 2px 10px rgba(13,14,46,.5)}
+.ti{font-family:var(--ui);font-weight:700;font-size:21px;line-height:1.2;color:var(--cream);text-shadow:0 2px 10px rgba(13,14,46,.5)}
+.sb{font-family:var(--ui);font-weight:400;font-size:16px;line-height:1.35;color:#DCE0FF;text-shadow:0 2px 10px rgba(13,14,46,.5)}
+#lg{position:absolute;left:190px;top:150px;width:160px;height:160px;mix-blend-mode:multiply;opacity:0}
+.ec{position:absolute;left:0;width:540px;text-align:center;margin:0;color:var(--ink)}
+.btn{display:inline-block;background:var(--field);color:var(--cream);font-family:var(--d);font-size:28px;letter-spacing:1px;border-radius:40px;padding:14px 38px;box-shadow:0 18px 30px -16px rgba(13,14,46,.55)}
+#grain{position:absolute;inset:0;opacity:.07;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="world">
+  <div id="deep"></div>
+  <div id="tun"></div>
+  <div class="st3d"><div class="cam" id="bcam"></div></div>
+  <div id="flash"></div>
+ </div>
+ <div id="endstar"></div>
+
+ <div id="t1">
+  <p class="m hd" style="left:34px;top:104px;font-size:96px"><span data-a="0.3" data-o="2.0">Go</span></p>
+  <p class="m hd pk" style="left:34px;top:200px;font-size:96px"><span data-a="0.45" data-o="2.05">deeper.</span></p>
+  <p class="m sb" style="left:37px;top:306px;font-size:19px"><span data-a="0.85" data-o="2.1">Three books to take you there.</span></p>
+ </div>
+ <div id="bk"></div>
+ <div id="t2">
+  <p class="m hd" style="left:34px;top:104px;font-size:60px"><span data-a="14.0" data-o="14.95">There is always</span></p>
+  <p class="m hd pk" style="left:34px;top:166px;font-size:60px"><span data-a="14.15" data-o="15.0">more to learn.</span></p>
+ </div>
+
+ <img id="lg" src="assets/logo_dark.png" alt="Dar Al Athari">
+ <div id="t4">
+  <p class="m ec" style="top:338px;font-family:var(--d);font-size:42px;letter-spacing:.5px"><span data-a="16.0" data-o="99">daralathari.com</span></p>
+  <p class="m ec" style="top:394px;font-size:18px;color:#3A3D6B"><span data-a="16.15" data-o="99">Shipped from New Jersey.</span></p>
+  <div id="btnw" style="position:absolute;left:0;width:540px;top:520px;text-align:center;opacity:0"><span class="btn" id="btn">Browse the books</span></div>
+ </div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.25,-.45,.86],.42,.8);
+var bcam=$('bcam');
+var KEYS=['ts','een','ft'],B={};
+KEYS.forEach(function(k){B[k]=makeBook(bcam,k)});
+var INFO=[
+ {h1:'Deeper into',h2:'the Qur\'an.',ar:'تيسير الكريم الرحمن في تفسير كلام المنان',en:"Tafsir as-Sa'di",by:["Shaykh Abd ar-Rahman ibn Nasir as-Sa'di"],ed:'Arabic, one volume. Dar Ibn al-Jawzi.'},
+ {h1:'Deeper into',h2:'the heart.',ar:'الداء والدواء',en:'The Disease and the Cure',by:['Imam Ibn al-Qayyim'],ed:'English edition.'},
+ {h1:'Deeper into',h2:'the creed.',ar:'التعليقات البهية على الرسائل العقدية',en:'Five Foundational Treatises of Creed',by:['Imam Muhammad bin Abdul Wahhab,','explained by Shaykh Ahmad bin Yahya al-Najmi'],ed:'English paperback. Hikmah Publications.'}];
+INFO.forEach(function(o){var g=el('','',$('bk'));o.el=g;var y=104,h='';
+  h+='<p class="m hd" style="left:34px;top:'+y+'px;font-size:52px"><span>'+o.h1+'</span></p>';y+=54;
+  h+='<p class="m hd pk" style="left:34px;top:'+y+'px;font-size:52px"><span>'+o.h2+'</span></p>';y+=66;
+  h+='<p class="m ar" style="left:36px;top:'+y+'px;font-size:22px;direction:ltr;text-align:left"><span dir="rtl">'+o.ar+'</span></p>';y+=40;
+  h+='<p class="m ti" style="left:36px;top:'+y+'px"><span>'+o.en+'</span></p>';y+=30;
+  o.by.forEach(function(b){h+='<p class="m sb" style="left:36px;top:'+y+'px;font-weight:700;color:var(--cream)"><span>'+b+'</span></p>';y+=22});
+  h+='<p class="m sb" style="left:36px;top:'+(y+1)+'px"><span>'+o.ed+'</span></p>';
+  g.innerHTML=h});
+// eight-point star ring
+function starPts(R){var a=[];for(var i=0;i<16;i++){var r=i%2?R*0.7654:R,an=(i*22.5-90)*Math.PI/180;a.push((r*Math.cos(an)).toFixed(2)+','+(r*Math.sin(an)).toFixed(2))}return 'M'+a.join('L')+'Z'}
+var RING='<svg viewBox="-100 -100 200 200"><path fill-rule="evenodd" d="'+starPts(100)+starPts(84)+'"/><path fill="none" stroke-width="1.2" stroke="rgba(255,246,234,.35)" d="'+starPts(90)+'"/></svg>';
+$('endstar').innerHTML='<svg viewBox="-100 -100 200 200" style="width:200px;height:200px;overflow:visible"><path fill="#FFF6EA" d="'+starPts(100)+'"/></svg>';
+var NF=18,FR=[];for(var i=0;i<NF;i++){var f=el('fr','',$('tun'),RING);FR.push(f)}
+var COLS=['#3B48E6','#161C8C','#3B48E6','#161C8C','#E8B04B'];
+function camZ(t){return .14*t+3*io((t-2.0)/.9)+3*io((t-5.4)/.9)+3*io((t-8.8)/.9)+22*io((t-12.2)/1.6)+1.2*io((t-15.0)/.9)}
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a,out:+e.dataset.o})});
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+function hit(t,a0,amp,dec){return t>a0?Math.sin((t-a0)*46)*Math.exp(-(t-a0)*dec)*amp:0}
+var ARR=[2.45,5.85,9.25],EXIT=[5.35,8.75,12.15],TXT_OUT=[5.0,8.4,11.8];
+window.__seek=function(t){
+  var c=camZ(t),spin=8*Math.sin(t*.45)+135*io((t-12.2)/1.6),base=Math.floor(c);
+  for(var j=0;j<NF;j++){var k=base+j,z=k-c+1,f=FR[j];
+    if(z<.1){f.style.display='none';continue}
+    f.style.display='block';
+    var r=260/z, op=cl((12-z)/5)*(z<.35?cl((z-.1)/.25):1);
+    f.style.transform='rotate('+(k*7.5+spin*(1+.04*j))+'deg) scale('+(r/100).toFixed(4)+')';
+    f.style.opacity=op.toFixed(3);f.style.zIndex=z<1.15?900:Math.max(1,400-Math.round(z*20));
+    f.firstChild.firstChild.setAttribute('fill',COLS[((k%5)+5)%5]);
+  }
+  // shake / punch
+  var shk=hit(t,13.8,7,7), sp=sm((t-12.4)/.4)*(1-sm((t-13.6)/.3));shk+=Math.sin(t*63)*sp*2.2;
+  ARR.forEach(function(a){shk+=hit(t,a+.85,1.6,9)});
+  var pun=(t>13.8?.06*Math.exp(-(t-13.8)*3.5):0)+sp*.03;
+  $('world').style.transform='translate('+(shk*.4)+'px,'+shk+'px) scale('+(1+pun)+')';
+  $('flash').style.opacity=t>13.8?(.85*Math.exp(-(t-13.8)*6)).toFixed(3):0;
+  // books
+  KEYS.forEach(function(k,i){var b=B[k],u=t-ARR[i],q=io((t-EXIT[i])/.6);
+    if(u>=0&&q<.98){var p=oc(u/1.0);
+      pose(b,{x:lerp(0,48,p),y:lerp(0,8,p)+Math.sin(t*1.5)*6,z:lerp(-2600,0,p)+q*1000,ry:lerp(-200,-14,p)+Math.sin(t*.9)*4+q*30,rx:4+Math.sin(t*1.1)*2,rz:lerp(-20,3,p),s:.98,g:lerp(.35,1.05,p),op:cl(u/.25)*(1-sm((q-.5)/.48)),blur:q*4});}
+    else{var h=t-13.8,o=io((t-15.0)/.6);
+      if(h>=0&&o<.98){var p=oc(h/.7);
+        pose(b,{x:lerp(0,[-150,0,150][i],p),y:lerp(0,[30,0,30][i],p)+Math.sin(t*1.3+i)*5,z:lerp(-2400,[0,80,0][i],p)-o*2600,ry:lerp(220,[24,0,-24][i],p),rx:3,rz:lerp(0,[-9,0,9][i],p),s:.66,g:lerp(.4,1.05,p),op:cl(h/.15)*(1-o)});}
+      else pose(b,{hide:true});}
+  });
+  // end: a cream star opens from the centre
+  var es=io((t-15.05)/.9);$('endstar').style.transform='rotate('+(lerp(-60,0,es)+spin*.2)+'deg) scale('+(es*11)+')';
+  // text
+  MASK.forEach(function(m){var q=eo((t-m.s)/.7),x=io((t-m.out)/.4);m.e.style.transform='translateY('+((1-q)*135+x*135)+'%)'});
+  INFO.forEach(function(o,i){var a0=ARR[i]+.55,b2=TXT_OUT[i],sp2=o.el.querySelectorAll('span');o.el.style.display=(t>a0-.05&&t<b2+.5)?'block':'none';
+    sp2.forEach(function(e,j){var q=eo((t-a0-j*.08)/.7),x=io((t-b2-j*.03)/.4);e.style.transform='translateY('+((1-q)*135+x*135)+'%)'})});
+  // end card
+  var lq=ob((t-15.8)/.7);$('lg').style.opacity=cl((t-15.8)/.25);$('lg').style.transform='scale('+(t<15.8?.6:Math.max(.6,lq))+')';
+  var bq=ob((t-16.45)/.6);$('btnw').style.opacity=cl((t-16.45)/.2);$('btnw').style.transform='translateY('+((1-oc((t-16.45)/.6))*30)+'px) scale('+(t<16.45?.8:Math.max(.8,bq))+')';
+  var pz=t>17.0?((t-17.0)%.9)/.9:-1;$('btn').style.transform=pz>=0?'scale('+(1+Math.sin(Math.min(1,pz/.3)*Math.PI)*.04)+')':'none';
+  $('stage').style.opacity=sm(t/.2);
+};
+window.__seek(0);
+</script></body></html>
