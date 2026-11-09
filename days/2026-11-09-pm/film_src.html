@@ -1,0 +1,177 @@
+<!--FONTS Cormorant Garamond:cormorant-garamond:latin:700:italic; Cormorant Garamond:cormorant-garamond:latin:600:normal; Rethink Sans:rethink-sans:latin:400,700:normal; Mirza:mirza:arabic:700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Break the Seal</title>
+<style>
+/*FONTS*/
+:root{--field:#8A7563;--deep:#5E4E42;--paper:#F1E4C6;--wax:#2F5A44;--gold:#CFA14A;--ink:#1B1512;--d:'Cormorant Garamond',serif;--ui:'Rethink Sans',sans-serif;--ar:'Mirza',serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--paper);font-family:var(--ui);background:var(--field)}
+#world{position:absolute;left:0;top:0;width:540px;height:960px;transform-origin:270px 625px}
+#bg{position:absolute;inset:0;background:radial-gradient(ellipse 420px 520px at 270px 520px,#A08A76 0,#8A7563 55%,#5E4E42 100%)}
+#linen{position:absolute;inset:0;opacity:.18;background:repeating-linear-gradient(0deg,rgba(255,255,255,.18) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(0,0,0,.14) 0 1px,transparent 1px 4px)}
+#env{position:absolute;left:0;top:0;width:540px;height:960px}
+.lay{position:absolute;left:0;top:0;width:540px;height:960px;overflow:visible}
+#shadow{position:absolute;left:70px;top:478px;width:420px;height:270px;border-radius:6px;background:rgba(27,21,18,.55);filter:blur(18px)}
+.st3d{position:absolute;inset:0;perspective:1300px;perspective-origin:270px 520px;clip-path:inset(0 0 225px 0)}
+.cam{position:absolute;left:270px;top:520px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#efe6d2 0 4.5px,#d3c6aa 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#efe6d2 0 4.5px,#d3c6aa 4.5px 7.5px)}
+#flap{transform-origin:270px 465px}
+.seal{position:absolute;left:222px;top:577px;width:96px;height:96px;transform-origin:48px 48px}
+.seal svg{width:96px;height:96px;display:block;overflow:visible}
+#flash{position:absolute;inset:0;background:#FFF3D6;opacity:0;pointer-events:none}
+.chip{position:absolute;left:266px;top:621px;width:9px;height:7px;background:#2F5A44;border-radius:3px}
+#disc{position:absolute;left:222px;top:552px;width:96px;height:96px;transform-origin:48px 48px;transform:scale(0)}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.1em}
+.m>span{display:block}
+.hd{font-family:var(--d);font-style:italic;font-weight:700;line-height:.98;color:var(--paper);text-shadow:0 2px 16px rgba(27,21,18,.35)}
+.ar{font-family:var(--ar);font-weight:700;line-height:1.5;color:#E2C27A;text-shadow:0 2px 10px rgba(27,21,18,.4)}
+.ti{font-family:var(--d);font-weight:600;font-size:26px;line-height:1.1;color:var(--paper);text-shadow:0 2px 10px rgba(27,21,18,.4)}
+.sb{font-family:var(--ui);font-weight:400;font-size:15px;line-height:1.35;color:#F3EADB;text-shadow:0 1px 8px rgba(27,21,18,.45)}
+.rule{position:absolute;left:36px;height:2px;width:60px;background:var(--gold);transform-origin:0 50%}
+#lg{position:absolute;left:190px;top:160px;width:160px;height:160px;mix-blend-mode:screen;opacity:0}
+.ec{position:absolute;left:0;width:540px;text-align:center;margin:0}
+.btn{display:inline-block;background:var(--gold);color:var(--ink);font-family:var(--ui);font-weight:700;font-size:22px;border-radius:40px;padding:15px 38px;box-shadow:0 18px 30px -16px rgba(0,0,0,.55)}
+#grain{position:absolute;inset:0;opacity:.08;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="world">
+  <div id="bg"></div><div id="linen"></div>
+  <div id="env">
+   <div id="shadow"></div>
+   <svg class="lay" id="back" viewBox="0 0 540 960"><rect x="60" y="465" width="420" height="270" rx="5" fill="#CDB68C"/><rect x="60" y="465" width="420" height="270" rx="5" fill="url(#gi)"/>
+    <defs><linearGradient id="gi" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8E7553" stop-opacity=".55"/><stop offset=".6" stop-color="#8E7553" stop-opacity="0"/></linearGradient>
+    <radialGradient id="wx" cx=".38" cy=".34" r=".75"><stop offset="0" stop-color="#4E8467"/><stop offset=".55" stop-color="#2F5A44"/><stop offset="1" stop-color="#173426"/></radialGradient></defs></svg>
+   <div class="st3d" id="st3d"><div class="cam" id="bcam"></div></div>
+   <svg class="lay" id="pocket" viewBox="0 0 540 960"><path d="M60 465 L270 612 L480 465 L480 730 Q480 735 475 735 L65 735 Q60 735 60 730 Z" fill="#EBDDBB"/>
+    <path d="M60 735 L232 600 M480 735 L308 600" stroke="#C9B48A" stroke-width="1.6" fill="none"/>
+    <path d="M60 465 L270 612 L480 465" stroke="#B9A27A" stroke-width="1.6" fill="none"/>
+    <rect x="82" y="702" width="376" height="1.4" fill="#CFA14A" opacity=".7"/><rect x="82" y="707" width="376" height=".8" fill="#CFA14A" opacity=".55"/></svg>
+   <svg class="lay" id="flap" viewBox="0 0 540 960"><path id="flapP" d="M60 465 L480 465 L282 632 Q270 641 258 632 Z" fill="#E4D3AC" stroke="#B9A27A" stroke-width="1.4"/></svg>
+   <div class="seal" id="seal"></div>
+   <div class="seal" id="sealL"></div><div class="seal" id="sealR"></div>
+   <div id="chips"></div>
+  </div>
+  <div id="flash"></div>
+ </div>
+ <div id="disc"></div>
+
+ <div id="t1">
+  <p class="m hd" style="left:34px;top:110px;font-size:92px"><span data-a="0.35" data-o="2.15">Worth</span></p>
+  <p class="m hd" style="left:34px;top:198px;font-size:92px"><span data-a="0.5" data-o="2.2">opening.</span></p>
+  <p class="m sb" style="left:38px;top:306px;font-size:18px"><span data-a="0.95" data-o="2.25">Three books to break the seal on tonight.</span></p>
+ </div>
+ <div id="bk"></div>
+ <div id="t2">
+  <p class="m hd" style="left:34px;top:112px;font-size:70px"><span data-a="14.05" data-o="15.35">Every one</span></p>
+  <p class="m hd" style="left:34px;top:180px;font-size:70px"><span data-a="14.2" data-o="15.4">worth opening.</span></p>
+ </div>
+
+ <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+ <div id="t4">
+  <p class="m ec" style="top:340px;font-family:var(--d);font-style:italic;font-weight:700;font-size:50px;color:var(--paper)"><span data-a="16.1" data-o="99">daralathari.com</span></p>
+  <p class="m ec" style="top:410px;font-size:17px;color:#CFE0D3"><span data-a="16.25" data-o="99">Shipped from New Jersey.</span></p>
+  <div id="btnw" style="position:absolute;left:0;width:540px;top:520px;text-align:center;opacity:0"><span class="btn" id="btn">Browse the books</span></div>
+ </div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.3,-.5,.82],.45,.75);
+var bcam=$('bcam');
+var KEYS=['fw','pi','kar'],B={};
+KEYS.forEach(function(k){B[k]=makeBook(bcam,k)});
+var INFO=[
+ {h1:'Open it for',h2:'the benefits.',ar:'الفوائد',en:"Al-Fawa'id",by:'Imam Ibn Qayyim al-Jawziyyah',ed:"Arabic hardcover. Dar Ata'at al-'Ilm."},
+ {h1:'Open it for',h2:'the pillars.',ar:'أركان الإسلام والإيمان',en:'The Pillars of Islam & Iman',by:'Sheikh Muhammad bin Jamil Zeno',ed:'English hardcover. Darussalam.'},
+ {h1:'Open it for',h2:'knowledge.',ar:'كتاب العلم',en:"Kitab al-'Ilm",by:'Shaykh Ibn Uthaymeen',ed:'Arabic edition.'}];
+INFO.forEach(function(o){var g=el('','',$('bk'));o.el=g;var y=104,h='';
+  h+='<p class="m hd" style="left:34px;top:'+y+'px;font-size:54px"><span>'+o.h1+'</span></p>';y+=52;
+  h+='<p class="m hd" style="left:34px;top:'+y+'px;font-size:54px"><span>'+o.h2+'</span></p>';y+=66;
+  h+='<div class="rule" style="top:'+y+'px"></div>';y+=8;
+  h+='<p class="m ar" style="left:36px;top:'+y+'px;font-size:22px;direction:ltr;text-align:left"><span dir="rtl">'+o.ar+'</span></p>';y+=36;
+  h+='<p class="m ti" style="left:36px;top:'+y+'px"><span>'+o.en+'</span></p>';y+=30;
+  h+='<p class="m sb" style="left:36px;top:'+y+'px;font-weight:700"><span>'+o.by+'</span></p>';y+=20;
+  h+='<p class="m sb" style="left:36px;top:'+y+'px"><span>'+o.ed+'</span></p>';
+  g.innerHTML=h});
+// wax seal svg
+function blob(R,n,j,seed){var a=[];_seed=seed;for(var i=0;i<n;i++){var an=i/n*Math.PI*2,r=R*(1+(rnd()-.5)*j);a.push([r*Math.cos(an),r*Math.sin(an)])}
+  var d='M'+((a[0][0]+a[n-1][0])/2).toFixed(1)+','+((a[0][1]+a[n-1][1])/2).toFixed(1);
+  for(var i=0;i<n;i++){var p=a[i],q=a[(i+1)%n];d+='Q'+p[0].toFixed(1)+','+p[1].toFixed(1)+' '+((p[0]+q[0])/2).toFixed(1)+','+((p[1]+q[1])/2).toFixed(1)}return d+'Z'}
+function star(R){var a=[];for(var i=0;i<16;i++){var r=i%2?R*0.62:R,an=(i*22.5-90)*Math.PI/180;a.push((r*Math.cos(an)).toFixed(2)+','+(r*Math.sin(an)).toFixed(2))}return 'M'+a.join('L')+'Z'}
+var SEAL='<path d="'+blob(46,14,.16,11)+'" fill="url(#wx)"/>'+
+ '<circle r="31" fill="none" stroke="#173426" stroke-width="3" opacity=".7"/><circle r="31" fill="none" stroke="#6FA285" stroke-width="1.2" transform="translate(-1,-1)" opacity=".8"/>'+
+ '<path d="'+star(22)+'" fill="#244A37" transform="translate(1.2,1.6)"/><path d="'+star(22)+'" fill="#3F7458"/><path d="'+star(10)+'" fill="#CFA14A" opacity=".85"/>'+
+ '<ellipse cx="-16" cy="-22" rx="12" ry="6" fill="#fff" opacity=".18" transform="rotate(-30)"/>';
+function sealSvg(clip){return '<svg viewBox="-48 -48 96 96">'+(clip?'<defs><clipPath id="c'+clip+'"><path d="'+(clip==='L'?'M-60,-60 L4,-60 L-3,-28 L6,-8 L-4,10 L5,30 L-2,60 L-60,60Z':'M4,-60 L60,-60 L60,60 L-2,60 L5,30 L-4,10 L6,-8 L-3,-28Z')+'"/></clipPath></defs><g clip-path="url(#c'+clip+')">'+SEAL+'</g>':SEAL)+'</svg>'}
+$('seal').innerHTML=sealSvg();$('sealL').innerHTML=sealSvg('L');$('sealR').innerHTML=sealSvg('R');
+$('disc').innerHTML='<svg viewBox="-48 -48 96 96" style="width:96px;height:96px;overflow:visible"><path d="'+blob(46,14,.16,11)+'" fill="#2F5A44"/></svg>';
+var CH=[];_seed=5;for(var i=0;i<14;i++){var c=el('chip','',$('chips'));CH.push({e:c,a:rnd()*Math.PI*2,v:160+rnd()*260,r:rnd()*720-360,s:.6+rnd()*1.1})}
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a,out:+e.dataset.o})});
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+function hit(t,a0,amp,dec){return t>a0?Math.sin((t-a0)*46)*Math.exp(-(t-a0)*dec)*amp:0}
+var ARR=[2.75,6.05,9.35],EXIT=[5.55,8.85,12.0],TXT_OUT=[5.25,8.55,11.75];
+var HIT=13.65;
+// flap: 1=closed,-1=open
+function flapC(t){var o1=io((t-2.15)/.6),c1=ob((t-12.2)/.5),o2=t>HIT?ob((t-HIT)/.35):0;
+  return lerp(lerp(1,-1,o1),1,c1)*(1-o2)+(-1)*o2*(t>HIT?1:0)*1+0*o2}
+window.__seek=function(t){
+  // envelope arrival
+  var ar=ob((t-.15)/.8),de=io((t-15.45)/.7);
+  var ey=lerp(-560,0,ar)+de*520, er=lerp(-9,0,oc((t-.15)/.9));
+  $('env').style.transform='translateY('+ey+'px) rotate('+er+'deg)';$('env').style.transformOrigin='270px 600px';
+  $('env').style.opacity=t<.15?0:1;
+  // flap
+  var fc=t>HIT?lerp(1,-1,ob((t-HIT)/.4)):flapC(t);
+  $('flap').style.transform='scaleY('+fc.toFixed(4)+')';
+  $('flapP').setAttribute('fill',fc>=0?'#E4D3AC':'#C2AB7F');
+  $('flap').parentNode.insertBefore($('flap'),fc>=0?$('seal'):$('st3d'));
+  // seal 1: pops off at 2.0
+  var s=$('seal'),pp=t-1.95;
+  if(t<1.95){s.style.display='block';s.style.transform='scale('+(t<.15?1:1)+')'}
+  else if(pp<.9){var q=oc(pp/.9);s.style.display='block';s.style.transform='translate('+(q*230)+'px,'+(-260*q+520*q*q)+'px) rotate('+(q*260)+'deg) scale('+lerp(1,1.15,q)+')';s.style.opacity=1-sm((pp-.6)/.3)}
+  else s.style.display='none';
+  // seal 2: slams on at 12.75, cracks at HIT
+  var sL=$('sealL'),sR=$('sealR'),sa=t-12.72;
+  if(sa<0||t>HIT+1.2){sL.style.display=sR.style.display='none'}
+  else{sL.style.display=sR.style.display='block';var lan=oc(sa/.18),k=t-HIT;
+    var sc=lerp(2.6,1,lan)*(1+hit(t,12.9,.06,10)),op=cl(sa/.08);
+    if(k<0){var tr='scale('+sc+')';sL.style.transform=sR.style.transform=tr;sL.style.opacity=sR.style.opacity=op}
+    else{var q=oc(k/.9);sL.style.transform='translate('+(-150*q)+'px,'+(-90*q+260*q*q)+'px) rotate('+(-80*q)+'deg)';sR.style.transform='translate('+(150*q)+'px,'+(-110*q+280*q*q)+'px) rotate('+(90*q)+'deg)';sL.style.opacity=sR.style.opacity=1-sm((k-.7)/.4)}}
+  // chips
+  CH.forEach(function(c){var k=t-HIT;if(k<0||k>1.1){c.e.style.display='none';return}c.e.style.display='block';var q=oc(k/1.1);
+    c.e.style.transform='translate('+(Math.cos(c.a)*c.v*q)+'px,'+(Math.sin(c.a)*c.v*q+380*k*k)+'px) rotate('+(c.r*q)+'deg) scale('+c.s+')';c.e.style.opacity=1-sm((k-.7)/.4)});
+  // camera: push into the seal, snap back on the crack
+  var push=io((t-12.95)/.7)*(1-oc((t-HIT)/.5));
+  var shk=hit(t,HIT,9,6.5)+hit(t,12.9,2.5,10)+hit(t,.95,3,9);
+  ARR.forEach(function(a){shk+=hit(t,a+.95,1.2,10)});
+  var sc=1+push*1.35+(t>HIT?.05*Math.exp(-(t-HIT)*3.5):0);
+  $('world').style.transform='translate('+(shk*.4)+'px,'+shk+'px) scale('+sc.toFixed(4)+')';
+  $('flash').style.opacity=t>HIT?(.7*Math.exp(-(t-HIT)*7)).toFixed(3):0;
+  // books
+  var stz=1;
+  KEYS.forEach(function(k,i){var b=B[k],u=t-ARR[i],q=io((t-EXIT[i])/.65);
+    if(u>=0&&q<.98){var p=oc(u/1.1),p2=ob((u-.15)/1.0);
+      pose(b,{x:lerp(0,62,p)+q*-460,y:lerp(270,-34,p2)+Math.sin(t*1.4)*4-q*360,z:lerp(-80,60,p)+q*200,ry:lerp(0,-16,p)+Math.sin(t*.8)*3,rx:lerp(8,4,p),rz:lerp(0,4,p)-q*25,s:.92,g:lerp(.7,1.05,p),op:1});}
+    else{var h=t-HIT-.05,o=io((t-15.25)/.6);
+      if(h>=0&&o<.98){var p=ob(h/.75);
+        pose(b,{x:lerp(0,[-148,0,148][i],oc(h/.6)),y:lerp(270,[-30,-60,-30][i],p)+Math.sin(t*1.3+i)*4-o*760,z:[0,70,0][i],ry:lerp(0,[22,0,-22][i],oc(h/.6)),rx:4,rz:lerp(0,[-9,0,9][i],oc(h/.6)),s:.64,g:1.02,op:1});}
+      else pose(b,{hide:true});}
+  });
+  // end: green wax disc floods the screen
+  var es=io((t-15.5)/.85);$('disc').style.transform='rotate('+lerp(-40,0,es)+'deg) scale('+(es*13)+')';
+  // text
+  MASK.forEach(function(m){var q=eo((t-m.s)/.7),x=io((t-m.out)/.4);m.e.style.transform='translateY('+((1-q)*135+x*135)+'%)'});
+  INFO.forEach(function(o,i){var a0=ARR[i]+.6,b2=TXT_OUT[i],sp2=o.el.querySelectorAll('span');o.el.style.display=(t>a0-.05&&t<b2+.5)?'block':'none';
+    sp2.forEach(function(e,j){var q=eo((t-a0-j*.08)/.7),x=io((t-b2-j*.03)/.4);e.style.transform='translateY('+((1-q)*135+x*135)+'%)'});
+    var r=o.el.querySelector('.rule');r.style.transform='scaleX('+(io((t-a0-.2)/.5)*(1-io((t-b2)/.35)))+')'});
+  // end card
+  var lq=ob((t-15.95)/.7);$('lg').style.opacity=cl((t-15.95)/.25);$('lg').style.transform='scale('+(t<15.95?.6:Math.max(.6,lq))+')';
+  var bq=ob((t-16.55)/.6);$('btnw').style.opacity=cl((t-16.55)/.2);$('btnw').style.transform='translateY('+((1-oc((t-16.55)/.6))*30)+'px) scale('+(t<16.55?.8:Math.max(.8,bq))+')';
+  var pz=t>17.1?((t-17.1)%.9)/.9:-1;$('btn').style.transform=pz>=0?'scale('+(1+Math.sin(Math.min(1,pz/.3)*Math.PI)*.04)+')':'none';
+  $('stage').style.opacity=sm(t/.2);
+};
+window.__seek(0);
+</script></body></html>

@@ -1,0 +1,22 @@
+import os; os.environ.setdefault('SFXT','18')
+import sys; sys.path.insert(0,'../../tools'); from sfxlib import *
+add(rumble(18.4),.08,.05)
+add(whoosh(.8,200,1200,400,.6,1.0),.1,.16); add(thud(110,50,.3,.25,13),.95,.35)
+txt(.35,.08); txt(.5,.08); txt(.95,.05)
+add(click(1.0),1.95,.5); add(whoosh(.6,700,2400,900,.4,1.0),1.98,.08)
+add(flip(.6),2.15,.22)
+for a in (2.75,6.05,9.35):
+    add(scrape(.7),a,.16); add(whoosh(.8,400,1600,700,.5,1.0),a+.1,.08)
+    txt(a+.6,.08); txt(a+.75,.06)
+for a in (5.55,8.85,12.0):
+    add(whoosh(.7,300,1800,600,.4,1.0),a,.12)
+add(flip(.5),12.2,.2); add(slap(.14),12.7,.18)
+add(thud(90,40,.45,.3,9),12.72,.55); add(clack(.6),12.74,.25)
+add(whoosh(.8,120,900,300,.7,1.0),12.95,.16)
+add(slap(.2),13.65,.35); add(thud(70,32,.7,.4,6),13.65,.65); add(clack(1.0),13.66,.3)
+for i in range(6): add(click(.6),13.7+i*.07,.18,(-1)**i*.5)
+add(whoosh(.9,300,2600,900,.4,.9),13.7,.18)
+txt(14.05,.09); txt(14.2,.08)
+add(whoosh(.9,180,900,300,.5,1.0),15.25,.18)
+endcard(15.95)
+master('sfx.wav')
