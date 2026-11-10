@@ -1,0 +1,188 @@
+<!--FONTS Paytone One:paytone-one:latin:400:normal; Epilogue:epilogue:latin:400,700:normal; Noto Kufi Arabic:noto-kufi-arabic:arabic:700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Turn It Again</title>
+<style>
+/*FONTS*/
+:root{--field:#3A2219;--deep:#22130D;--rose:#F2A7B5;--teal:#2FB3A6;--cream:#FBF1E3;--saf:#E9B44C;--d:'Paytone One',sans-serif;--ui:'Epilogue',sans-serif;--ar:'Noto Kufi Arabic',sans-serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--cream);font-family:var(--ui);background:var(--field)}
+#world{position:absolute;left:0;top:0;width:540px;height:960px;transform-origin:270px 600px}
+#bg{position:absolute;inset:0;background:radial-gradient(circle 420px at 270px 600px,#563326 0,#3A2219 60%,#22130D 100%)}
+#dots{position:absolute;left:-230px;top:-170px;width:1000px;height:1000px;transform-origin:500px 500px;opacity:.5}
+#barrel{position:absolute;left:30px;top:360px;width:480px;height:480px;transform-origin:240px 240px}
+#rim{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,#2FB3A6,#24877D,#2FB3A6,#3FD0C2,#2FB3A6,#24877D,#2FB3A6);box-shadow:0 30px 60px -20px rgba(0,0,0,.7)}
+#rimt{position:absolute;inset:0;width:480px;height:480px}
+#scope{position:absolute;left:22px;top:22px;width:436px;height:436px;border-radius:50%;overflow:hidden;background:#120A07;-webkit-mask-image:radial-gradient(circle,#000 70%,#000 71%);}
+.wedge{position:absolute;left:0;top:0;width:436px;height:436px;transform-origin:218px 218px}
+.wc{position:absolute;left:0;top:0;width:436px;height:436px;clip-path:polygon(218px 222px,150px -14px,286px -14px)}
+.wi{position:absolute;left:0;top:0;background-size:100% 100%;transform-origin:0 0}
+#glass{position:absolute;left:22px;top:22px;width:436px;height:436px;border-radius:50%;background:radial-gradient(circle at 35% 28%,rgba(255,255,255,.22),rgba(255,255,255,0) 40%),radial-gradient(circle,rgba(0,0,0,0) 62%,rgba(0,0,0,.45) 100%);pointer-events:none}
+#hole{position:absolute;left:22px;top:22px;width:436px;height:436px;border-radius:50%;background:radial-gradient(circle,#2a1710 0,#120A07 75%);opacity:0}
+.st3d{position:absolute;inset:0;perspective:1300px;perspective-origin:270px 520px}
+.cam{position:absolute;left:270px;top:480px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#f3ead8 0 4.5px,#d6c7ab 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#f3ead8 0 4.5px,#d6c7ab 4.5px 7.5px)}
+#flash{position:absolute;inset:0;background:#FFE9EE;opacity:0;pointer-events:none}
+#iris{position:absolute;left:270px;top:600px;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:var(--rose);opacity:0}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.14em}
+.m>span{display:block}
+.hd{font-family:var(--d);font-weight:400;line-height:1.0;color:var(--cream)}
+.hd.r{color:var(--rose)}
+.ar{font-family:var(--ar);font-weight:700;line-height:1.5;color:var(--saf)}
+.ti{font-family:var(--ui);font-weight:700;font-size:22px;line-height:1.15;color:var(--cream)}
+.sb{font-family:var(--ui);font-weight:400;font-size:15px;line-height:1.35;color:#E6D3C0}
+.rule{position:absolute;left:37px;height:3px;width:56px;background:var(--teal);transform-origin:0 50%}
+#lg{position:absolute;left:180px;top:150px;width:180px;height:180px;mix-blend-mode:multiply;opacity:0}
+.ec{position:absolute;left:0;width:540px;text-align:center;margin:0}
+.btn{display:inline-block;background:var(--teal);color:var(--deep);font-family:var(--ui);font-weight:700;font-size:22px;border-radius:40px;padding:16px 38px;box-shadow:0 18px 30px -16px rgba(58,34,25,.6)}
+#grain{position:absolute;inset:0;opacity:.07;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="world">
+  <div id="bg"></div>
+  <svg id="dots" viewBox="0 0 1000 1000"></svg>
+  <div id="barrel">
+   <div id="rim"></div>
+   <svg id="rimt" viewBox="-240 -240 480 480"></svg>
+   <div id="scope"></div>
+   <div id="hole"></div>
+   <div id="glass"></div>
+  </div>
+  <div class="st3d"><div class="cam" id="bcam"></div></div>
+  <div id="flash"></div>
+ </div>
+ <div id="iris"></div>
+
+ <div id="t1">
+  <p class="m hd" style="left:34px;top:110px;font-size:80px"><span data-a="0.35" data-o="2.35">Turn it</span></p>
+  <p class="m hd r" style="left:34px;top:192px;font-size:80px"><span data-a="0.5" data-o="2.4">once more.</span></p>
+  <p class="m sb" style="left:38px;top:292px;font-size:18px"><span data-a="0.9" data-o="2.45">Three books that reward a second look.</span></p>
+ </div>
+ <div id="bk"></div>
+ <div id="t2">
+  <p class="m hd" style="left:34px;top:110px;font-size:80px"><span data-a="14.05" data-o="15.35">Read it</span></p>
+  <p class="m hd r" style="left:34px;top:192px;font-size:80px"><span data-a="14.2" data-o="15.4">again.</span></p>
+ </div>
+
+ <img id="lg" src="assets/logo_dark.png" alt="Dar Al Athari">
+ <div id="t4">
+  <p class="m ec" style="top:352px;font-family:var(--d);font-size:46px;color:var(--deep)"><span data-a="16.15" data-o="99">daralathari.com</span></p>
+  <p class="m ec" style="top:420px;font-size:17px;color:#6B3A2E"><span data-a="16.3" data-o="99">Shipped from New Jersey.</span></p>
+  <div id="btnw" style="position:absolute;left:0;width:540px;top:520px;text-align:center;opacity:0"><span class="btn" id="btn">Browse the books</span></div>
+ </div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.3,-.5,.82],.42,.8);
+var bcam=$('bcam');
+var KEYS=['een','bi','sth'],B={};
+KEYS.forEach(function(k){B[k]=makeBook(bcam,k)});
+var SAMP={een:[330,0,-13],bi:[520,0,-130],sth:[360,0,10]};
+var COV={een:'assets/e_front.jpg',bi:'assets/bi_front.jpg',sth:'assets/sth_front.jpg'};
+var INFO=[
+ {h1:'For the',h2:'heart.',ar:'الداء والدواء',en:'The Disease and the Cure',by:'Imam Ibn al-Qayyim',ed:'English edition.'},
+ {h1:'For the',h2:'creed.',ar:'',en:'The Great Blessing',en2:'in Collecting the Beliefs of the Imams of the Sunnah',by:'Compiled by Shaykh, Dr. Khalid Al-Dhafiri',ed:'English paperback. Hikmah Publications.'},
+ {h1:'For the',h2:'foundations.',ar:'شرح ثلاثة الأصول',en:'Sharh Thalathat al-Usul',by:'Shaykh Muhammad ibn Salih al-Uthaymeen',ed:'Arabic hardcover. Collected works, No. 4.'}];
+INFO.forEach(function(o){var g=el('','',$('bk'));o.el=g;var y=108,h='';
+  h+='<p class="m hd" style="left:34px;top:'+y+'px;font-size:52px"><span>'+o.h1+'</span></p>';y+=54;
+  h+='<p class="m hd r" style="left:34px;top:'+y+'px;font-size:52px"><span>'+o.h2+'</span></p>';y+=70;
+  h+='<div class="rule" style="top:'+y+'px"></div>';y+=12;
+  if(o.ar){h+='<p class="m ar" style="left:36px;top:'+y+'px;font-size:21px;direction:ltr;text-align:left"><span dir="rtl">'+o.ar+'</span></p>';y+=38;}
+  h+='<p class="m ti" style="left:36px;top:'+y+'px"><span>'+o.en+'</span></p>';y+=27;
+  if(o.en2){h+='<p class="m sb" style="left:36px;top:'+y+'px;font-size:14px"><span>'+o.en2+'</span></p>';y+=22;}
+  h+='<p class="m sb" style="left:36px;top:'+y+'px;font-weight:700"><span>'+o.by+'</span></p>';y+=21;
+  h+='<p class="m sb" style="left:36px;top:'+y+'px"><span>'+o.ed+'</span></p>';
+  g.innerHTML=h});
+// kaleidoscope: 12 mirrored wedges
+var N=12,W=[],curKey='een';
+(function(){var sc=$('scope');for(var k=0;k<N;k++){var w=el('wedge','',sc),c=el('wc','',w),i=el('wi','',c);
+  w.style.transform='rotate('+(k*30)+'deg)'+(k%2?' scaleX(-1)':'');W.push({w:w,i:i,k:k,src:''})}})();
+// rim ticks + teal studs
+(function(){var s='<circle r="232" fill="none" stroke="#FBF1E3" stroke-width="1.5" opacity=".55"/><circle r="222" fill="none" stroke="#22130D" stroke-width="3"/>';
+ for(var i=0;i<72;i++){var L=i%6===0?9:4;s+='<line x1="0" y1="-238" x2="0" y2="'+(-238+L)+'" stroke="#22130D" stroke-width="'+(i%6===0?2.4:1.2)+'" transform="rotate('+(i*5)+')"/>'}
+ for(var i=0;i<8;i++){s+='<circle cx="0" cy="-229" r="3.4" fill="#F2A7B5" transform="rotate('+(i*45+22.5)+')"/>'}
+ $('rimt').innerHTML=s;
+ // faint eight-point stars field
+ var d='';for(var gy=0;gy<9;gy++)for(var gx=0;gx<9;gx++){var cx=gx*120+(gy%2?60:0),cy=gy*120;var a=[];for(var i=0;i<16;i++){var r=i%2?7:16,an=(i*22.5)*Math.PI/180;a.push((cx+r*Math.cos(an)).toFixed(1)+','+(cy+r*Math.sin(an)).toFixed(1))}d+='<path d="M'+a.join('L')+'Z" fill="none" stroke="#F2A7B5" stroke-width="1.2" opacity=".35"/>'}
+ $('dots').innerHTML=d;})();
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a,out:+e.dataset.o})});
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+function hit(t,a0,amp,dec){return t>a0?Math.sin((t-a0)*46)*Math.exp(-(t-a0)*dec)*amp:0}
+// per-book timeline: rosette forms at F, opens at O (book emerges), book leaves at X
+var F=[0.0,5.6,9.3],O=[2.55,6.35,10.05],X=[5.45,9.15,12.6],TOUT=[5.2,8.9,12.35];
+var HERO=12.75,HIT=13.75;
+function srcAt(t){
+  if(t>=HERO&&t<HIT){var n=Math.floor(Math.pow((t-HERO),1.6)*9);return KEYS[n%3]}
+  if(t>=HIT)return 'sth';
+  if(t<F[1])return 'een'; if(t<F[2])return 'bi'; return 'sth'}
+function setSrc(key){var u=COV[key];W.forEach(function(o){if(o.src!==u){o.i.style.backgroundImage='url('+u+')';o.src=u}})}
+// how open the rosette is (0 closed rosette, 1 blown apart)
+function openAmt(t){
+  var a=0;
+  for(var i=0;i<3;i++){
+    var inn=i===0?1:io((t-F[i])/.75); // reform
+    var out=io((t-O[i])/.7);
+    if(t>=F[i]-.01&&(i===2||t<F[i+1])){a=i===0?out:(1-inn)+out; if(i===2&&t>=HERO)a=0;}
+  }
+  if(t>=HERO&&t<HIT)a=1-io((t-HERO)/.5);
+  if(t>=HIT)a=io((t-HIT)/.45);
+  return cl(a)}
+window.__seek=function(t){
+  // barrel rises in, sinks out at the end
+  var br=ob((t-.05)/.95),bd=io((t-15.35)/.6);
+  var by=lerp(560,0,br)+bd*620;
+  var heroGrow=io((t-HERO)/.9)*(1-io((t-HIT)/.4));
+  var bs=1+heroGrow*.42;
+  var spin=t*14+(t>HERO?Math.pow(Math.min(t,HIT)-HERO,2.2)*260:0)+(t>HIT?Math.pow(HIT-HERO,2.2)*260+(1-Math.exp(-(t-HIT)*5))*40:0);
+  $('barrel').style.transform='translateY('+by+'px) scale('+bs.toFixed(4)+')';
+  $('rimt').style.transform='rotate('+(-spin*.6)+'deg)';
+  $('dots').style.transform='rotate('+(t*2.2)+'deg)';
+  // kaleidoscope content
+  curKey=srcAt(t);setSrc(curKey);
+  var op=openAmt(t);
+  var ph=t*.9;
+  W.forEach(function(o){var k=o.k;
+    var sp=SAMP[curKey],iw=sp[0],ih=iw*1.5;
+    var ox=-iw/2+218+sp[1]+Math.sin(ph*1.3)*60, oy=-ih/2+60+sp[2]+Math.cos(ph)*70;
+    o.i.style.width=iw+'px';o.i.style.height=ih+'px';
+    o.i.style.transform='translate('+ox.toFixed(1)+'px,'+oy.toFixed(1)+'px) rotate('+(Math.sin(ph*.7)*25).toFixed(2)+'deg) translate(0,0)';
+    var rr=op*360, ang=(spin)+(k*30);
+    o.w.style.transform='rotate('+ang.toFixed(2)+'deg)'+(k%2?' scaleX(-1)':'')+' translateY('+(-rr).toFixed(1)+'px) scale('+(1-op*.35).toFixed(3)+')';
+    o.w.style.opacity=(1-op*1.1).toFixed(3)});
+  $('hole').style.opacity=(op*.9).toFixed(3);
+  // camera
+  var shk=hit(t,HIT,9,6.5)+hit(t,1.0,3,9);
+  O.forEach(function(a){shk+=hit(t,a+.15,1.6,10)});
+  if(t>HERO&&t<HIT)shk+=Math.sin(t*95)*heroGrow*1.6;
+  var sc=1+(t>HIT?.06*Math.exp(-(t-HIT)*3.5):0);
+  $('world').style.transform='translate('+(shk*.4)+'px,'+shk+'px) scale('+sc.toFixed(4)+')';
+  $('flash').style.opacity=t>HIT?(.75*Math.exp(-(t-HIT)*7)).toFixed(3):0;
+  // books rise out of the scope
+  KEYS.forEach(function(k,i){var b=B[k],u=t-O[i]-.1,q=io((t-X[i])/.6);
+    if(u>=0&&q<.98){var p=oc(u/.9),p2=ob(u/1.0);
+      pose(b,{x:lerp(0,40,p)-q*520+Math.sin(t*1.1)*5,y:lerp(130,125,p2)+Math.sin(t*1.4)*4-q*520,z:lerp(-700,40,p)+q*120,ry:lerp(180*(i%2?-1:1)*1.2,-12,p2)+Math.sin(t*.8)*3,rx:lerp(30,4,p),rz:lerp(40,-4,p2)-q*30,s:.8,g:lerp(.6,1.05,p),op:cl(u/.25)});}
+    else{var h=t-HIT-.1,o=io((t-15.2)/.6);
+      if(h>=0&&o<.98){var pp=oc(h/.65),pb=ob(h/.8);
+        pose(b,{x:lerp(0,[-150,0,150][i],pp),y:lerp(120,[150,120,150][i],pb)+Math.sin(t*1.3+i)*4+o*820,z:lerp(-500,[0,70,0][i],pp),ry:lerp(i*120,[22,0,-22][i],pp),rx:4,rz:lerp(0,[-10,0,10][i],pb),s:.62,g:1.02,op:cl(h/.15)});}
+      else pose(b,{hide:true});}
+  });
+  // end: rose iris opens from the scope centre
+  var ir=io((t-15.45)/.75);
+  $('iris').style.opacity=t>15.45?1:0;
+  $('iris').style.transform='scale('+(ir*230).toFixed(2)+')';
+  // text
+  MASK.forEach(function(m){var q=eo((t-m.s)/.7),x=io((t-m.out)/.4);m.e.style.transform='translateY('+((1-q)*135+x*135)+'%)'});
+  INFO.forEach(function(o,i){var a0_=O[i]+.45,b2=TOUT[i],sp2=o.el.querySelectorAll('span');o.el.style.display=(t>a0_-.05&&t<b2+.5)?'block':'none';
+    sp2.forEach(function(e,j){var q=eo((t-a0_-j*.07)/.7),x=io((t-b2-j*.03)/.4);e.style.transform='translateY('+((1-q)*135+x*135)+'%)'});
+    var r=o.el.querySelector('.rule');r.style.transform='scaleX('+(io((t-a0_-.25)/.5)*(1-io((t-b2)/.35)))+')'});
+  // end card
+  var lq=ob((t-15.95)/.7);$('lg').style.opacity=cl((t-15.95)/.25);$('lg').style.transform='scale('+(t<15.95?.6:Math.max(.6,lq))+')';
+  var bq=ob((t-16.6)/.6);$('btnw').style.opacity=cl((t-16.6)/.2);$('btnw').style.transform='translateY('+((1-oc((t-16.6)/.6))*30)+'px) scale('+(t<16.6?.8:Math.max(.8,bq))+')';
+  var pz=t>17.15?((t-17.15)%.9)/.9:-1;$('btn').style.transform=pz>=0?'scale('+(1+Math.sin(Math.min(1,pz/.3)*Math.PI)*.04)+')':'none';
+  $('stage').style.opacity=sm(t/.2);
+};
+window.__seek(0);
+</script></body></html>
