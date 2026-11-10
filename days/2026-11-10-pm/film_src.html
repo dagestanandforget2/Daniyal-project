@@ -1,0 +1,175 @@
+<!--FONTS Limelight:limelight:latin:400:normal; Be Vietnam Pro:be-vietnam-pro:latin:400,700:normal; Rubik:rubik:arabic:600:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Set Your Course</title>
+<style>
+/*FONTS*/
+:root{--field:#9FAE8E;--shade:#6F7E62;--ink:#1D2A22;--brass:#C8973A;--card:#F4EEDD;--brick:#B83A2A;--d:'Limelight',serif;--ui:'Be Vietnam Pro',sans-serif;--ar:'Rubik',sans-serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--ink);font-family:var(--ui);background:var(--field)}
+#world{position:absolute;left:0;top:0;width:540px;height:960px;transform-origin:270px 600px}
+#bg{position:absolute;inset:0;background:radial-gradient(ellipse 460px 560px at 270px 560px,#B3C1A2 0,#9FAE8E 55%,#7E8D70 100%)}
+#map{position:absolute;inset:-200px;transform-origin:470px 920px}
+#comp{position:absolute;left:40px;top:490px;width:460px;height:460px;transform-origin:230px 230px}
+#comp svg{width:460px;height:460px;display:block;overflow:visible}
+#cshadow{position:absolute;left:62px;top:540px;width:430px;height:430px;border-radius:50%;background:rgba(29,42,34,.45);filter:blur(22px)}
+.st3d{position:absolute;inset:0;perspective:1300px;perspective-origin:270px 480px}
+.cam{position:absolute;left:270px;top:480px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#efe6d2 0 4.5px,#d3c6aa 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#efe6d2 0 4.5px,#d3c6aa 4.5px 7.5px)}
+#flash{position:absolute;inset:0;background:#FFF8E6;opacity:0;pointer-events:none}
+#sweep{position:absolute;inset:0;background:var(--ink);opacity:0}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.12em}
+.m>span{display:block}
+.hd{font-family:var(--d);font-weight:400;line-height:1.02;color:var(--ink)}
+.ar{font-family:var(--ar);font-weight:600;line-height:1.5;color:var(--brick)}
+.ti{font-family:var(--ui);font-weight:700;font-size:22px;line-height:1.15;color:var(--ink)}
+.sb{font-family:var(--ui);font-weight:400;font-size:15px;line-height:1.35;color:#24352B}
+.hdg{font-family:var(--d);font-size:17px;color:var(--brick);letter-spacing:.04em}
+.rule{position:absolute;left:36px;height:2px;width:64px;background:var(--brick);transform-origin:0 50%}
+#lg{position:absolute;left:190px;top:170px;width:160px;height:160px;mix-blend-mode:screen;opacity:0}
+.ec{position:absolute;left:0;width:540px;text-align:center;margin:0}
+.btn{display:inline-block;background:var(--brass);color:var(--ink);font-family:var(--ui);font-weight:700;font-size:22px;border-radius:40px;padding:15px 38px;box-shadow:0 18px 30px -16px rgba(0,0,0,.55)}
+#grain{position:absolute;inset:0;opacity:.08;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="world">
+  <div id="bg"></div>
+  <svg id="map" viewBox="0 0 940 1360" style="position:absolute;left:-200px;top:-200px;width:940px;height:1360px;opacity:.22"></svg>
+  <div id="cshadow"></div>
+  <div id="comp"><svg viewBox="-230 -230 460 460">
+   <defs><radialGradient id="br" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#F0CB7A"/><stop offset=".5" stop-color="#C8973A"/><stop offset="1" stop-color="#7A5520"/></radialGradient>
+   <radialGradient id="cd" cx=".5" cy=".45" r=".6"><stop offset="0" stop-color="#FBF7EC"/><stop offset="1" stop-color="#E6DCC3"/></radialGradient>
+   <linearGradient id="gl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
+   <circle r="226" fill="url(#br)"/><circle r="212" fill="#7A5520" opacity=".5"/><circle r="208" fill="url(#br)"/>
+   <circle r="196" fill="url(#cd)"/>
+   <g id="card"></g>
+   <g id="needle"></g>
+   <circle r="196" fill="url(#gl)"/>
+  </svg></div>
+  <div class="st3d"><div class="cam" id="bcam"></div></div>
+  <div id="flash"></div>
+ </div>
+ <div id="sweep"></div>
+
+ <div id="t1">
+  <p class="m hd" style="left:34px;top:112px;font-size:84px"><span data-a="0.45" data-o="2.2">Which way</span></p>
+  <p class="m hd" style="left:34px;top:198px;font-size:84px"><span data-a="0.6" data-o="2.25">first?</span></p>
+  <p class="m sb" style="left:38px;top:300px;font-size:18px"><span data-a="1.0" data-o="2.3">Three books to set your course.</span></p>
+ </div>
+ <div id="bk"></div>
+ <div id="t3">
+  <p class="m hd" style="left:34px;top:112px;font-size:76px"><span data-a="12.2" data-o="13.45">Can't</span></p>
+  <p class="m hd" style="left:34px;top:190px;font-size:76px"><span data-a="12.35" data-o="13.5">choose?</span></p>
+ </div>
+ <div id="t2">
+  <p class="m hd" style="left:34px;top:112px;font-size:76px;display:none"><span data-a="99"></span></p>
+  <p class="m hd" style="left:34px;top:112px;font-size:76px"><span data-a="14.0" data-o="15.3">Set your</span></p>
+  <p class="m hd" style="left:34px;top:190px;font-size:76px"><span data-a="14.15" data-o="15.35">course.</span></p>
+ </div>
+
+ <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+ <div id="t4">
+  <p class="m ec" style="top:350px;font-family:var(--d);font-size:46px;color:var(--card)"><span data-a="16.1" data-o="99">daralathari.com</span></p>
+  <p class="m ec" style="top:418px;font-size:17px;color:#B9C7A9"><span data-a="16.25" data-o="99">Shipped from New Jersey.</span></p>
+  <div id="btnw" style="position:absolute;left:0;width:540px;top:520px;text-align:center;opacity:0"><span class="btn" id="btn">Browse the books</span></div>
+ </div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.35,-.5,.8],.42,.8);
+var bcam=$('bcam');
+var KEYS=['ft','ts','fq2'],B={};
+KEYS.forEach(function(k){B[k]=makeBook(bcam,k)});
+var INFO=[
+ {hd:'NORTH-WEST',h1:'Head for',h2:'the creed.',ar:'التعليقات البهية على الرسائل العقدية',en:'Five Foundational Treatises of Creed',by:'Explained by Shaykh Ahmad bin Yahya al-Najmi',ed:'English paperback. Hikmah Publications.'},
+ {hd:'NORTH-EAST',h1:'Then to',h2:'the tafsir.',ar:'تيسير الكريم الرحمن',en:"Tafsir as-Sa'di",by:"Shaykh Abd ar-Rahman ibn Nasir as-Sa'di",ed:'Arabic, one volume. Dar Ibn al-Jawzi.'},
+ {hd:'WEST',h1:'Then on to',h2:'the fiqh.',ar:'',en:"Fiqh According to the Qur'an & Sunnah",by:'Compiled by Muhammad Subhi bin Hasan Hallaq',ed:'Volume 2. English hardcover. Darussalam.'}];
+INFO.forEach(function(o){var g=el('','',$('bk'));o.el=g;var y=104,h='';
+  h+='<p class="m hdg" style="left:37px;top:'+y+'px"><span>'+o.hd+'</span></p>';y+=28;
+  h+='<p class="m hd" style="left:34px;top:'+y+'px;font-size:50px"><span>'+o.h1+'</span></p>';y+=52;
+  h+='<p class="m hd" style="left:34px;top:'+y+'px;font-size:50px"><span>'+o.h2+'</span></p>';y+=66;
+  h+='<div class="rule" style="top:'+y+'px"></div>';y+=10;
+  if(o.ar){h+='<p class="m ar" style="left:36px;top:'+y+'px;font-size:20px;direction:ltr;text-align:left"><span dir="rtl">'+o.ar+'</span></p>';y+=34;}
+  h+='<p class="m ti" style="left:36px;top:'+y+'px;'+(o.en.length>30?'font-size:19px':'')+'"><span>'+o.en+'</span></p>';y+=28;
+  h+='<p class="m sb" style="left:36px;top:'+y+'px;font-weight:700"><span>'+o.by+'</span></p>';y+=20;
+  h+='<p class="m sb" style="left:36px;top:'+y+'px"><span>'+o.ed+'</span></p>';
+  g.innerHTML=h});
+// compass card: ticks, rose, letters
+(function(){var s='';
+ for(var i=0;i<120;i++){var a=i*3,L=i%10===0?16:i%5===0?10:6,w=i%10===0?2:1;
+   s+='<line x1="0" y1="-194" x2="0" y2="'+(-194+L)+'" stroke="#1D2A22" stroke-width="'+w+'" transform="rotate('+a+')"/>'}
+ s+='<circle r="168" fill="none" stroke="#1D2A22" stroke-width="1.2"/><circle r="120" fill="none" stroke="#C8973A" stroke-width="1"/>';
+ function st(R,r,rot,fill,op){var a=[];for(var i=0;i<16;i++){var rr=i%2?r:R,an=(i*22.5-90+rot)*Math.PI/180;a.push((rr*Math.cos(an)).toFixed(2)+','+(rr*Math.sin(an)).toFixed(2))}return '<path d="M'+a.join('L')+'Z" fill="'+fill+'" opacity="'+op+'"/>'}
+ s+=st(150,62,0,'#DCCDA6',1)+st(150,62,22.5,'#C8973A',.35);
+ // 4-point rose
+ [0,90,180,270].forEach(function(a,i){s+='<g transform="rotate('+a+')"><path d="M0,-150 L18,-18 L0,0Z" fill="#B9A57A"/><path d="M0,-150 L-18,-18 L0,0Z" fill="#8C7A52"/></g>'});
+ [['N',0],['E',90],['S',180],['W',270]].forEach(function(p){s+='<text transform="rotate('+p[1]+') translate(0,-174) " text-anchor="middle" dominant-baseline="middle" font-family="Limelight" font-size="22" fill="'+(p[0]==='N'?'#B83A2A':'#1D2A22')+'">'+p[0]+'</text>'});
+ $('card').innerHTML=s;
+ $('needle').innerHTML='<path d="M0,-176 L13,0 L0,22 L-13,0Z" fill="#B83A2A"/><path d="M0,-176 L13,0 L0,0Z" fill="#8E2A1E"/><path d="M0,140 L11,0 L-11,0Z" fill="#1D2A22"/><circle r="15" fill="url(#br)"/><circle r="6" fill="#7A5520"/>';
+ // contour map lines in bg
+ var m='';_seed=19;for(var k=0;k<14;k++){var R=60+k*46;m+='<path d="';for(var i=0;i<=48;i++){var an=i/48*Math.PI*2,rr=R*(1+.08*Math.sin(an*3+k*.7)+.05*Math.cos(an*5+k));m+=(i?'L':'M')+(470+rr*Math.cos(an)).toFixed(1)+','+(920+rr*.8*Math.sin(an)).toFixed(1)}m+='Z" fill="none" stroke="#1D2A22" stroke-width="1.3"/>'}
+ $('map').innerHTML=m;})();
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a,out:+e.dataset.o})});
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+function hit(t,a0,amp,dec){return t>a0?Math.sin((t-a0)*46)*Math.exp(-(t-a0)*dec)*amp:0}
+var ARR=[2.7,6.0,9.3],EXIT=[5.55,8.85,12.0],TXT_OUT=[5.25,8.55,11.75],DIR=[-45,40,-90];
+var HIT=13.6;
+function spring(t,a0,from,to,dur){if(t<a0)return from;var k=t-a0;return to+(from-to)*Math.exp(-k*5.5)*Math.cos(k*14)}
+function needleAng(t){
+  var a=spring(t,.9,-160,-8,1);   // settles after the compass lands
+  for(var i=0;i<3;i++)a=t>=ARR[i]-.5?spring(t,ARR[i]-.5,a0(i),DIR[i],1):a;
+  if(t>=12.1){var k=t-12.1;a=DIR[2]+ (k<1.5? 360*Math.pow(k,2.1)*1.9 : 0);}
+  if(t>=HIT){a=spring(t,HIT,40,0,1)}
+  return a}
+function a0(i){return i===0?-8:DIR[i-1]}
+window.__seek=function(t){
+  // compass rises
+  var cr=ob((t-.1)/.9),cd=io((t-15.3)/.7);
+  var cy=lerp(520,0,cr)+cd*500;
+  $('comp').style.transform='translateY('+cy+'px) rotate('+lerp(-30,0,oc((t-.1)/1))+'deg)';
+  $('cshadow').style.transform='translateY('+cy+'px)';
+  var cardRot=lerp(70,0,oc((t-.1)/1.4))+Math.sin(t*1.7)*1.5;
+  if(t>12.1&&t<HIT)cardRot+=-Math.pow(t-12.1,2)*40;
+  if(t>=HIT)cardRot+=spring(t,HIT,-90,0,1)*0+(-90*Math.exp(-(t-HIT)*4)*Math.cos((t-HIT)*9));
+  $('card').setAttribute('transform','rotate('+cardRot.toFixed(2)+')');
+  $('needle').setAttribute('transform','rotate('+needleAng(t).toFixed(2)+')');
+  $('map').style.transform='rotate('+(t*1.2)+'deg)';
+  // camera
+  var push=io((t-12.1)/1.4)*(1-oc((t-HIT)/.5));
+  var shk=hit(t,HIT,9,6.5)+hit(t,.95,3,9);
+  ARR.forEach(function(a){shk+=hit(t,a+.85,1.4,10)});
+  if(t>12.1&&t<HIT)shk+=Math.sin(t*90)*push*1.5;
+  var sc=1+push*.35+(t>HIT?.05*Math.exp(-(t-HIT)*3.5):0);
+  $('world').style.transform='translate('+(shk*.4)+'px,'+shk+'px) scale('+sc.toFixed(4)+')';
+  $('flash').style.opacity=t>HIT?(.7*Math.exp(-(t-HIT)*7)).toFixed(3):0;
+  // books fly in along the needle's heading
+  KEYS.forEach(function(k,i){var b=B[k],u=t-ARR[i],q=io((t-EXIT[i])/.65);
+    var r=DIR[i]*Math.PI/180,fx=Math.sin(r)*640,fy=-Math.cos(r)*640;
+    if(u>=0&&q<.98){var p=oc(u/.9),p2=ob(u/.95);
+      var ex=-Math.sin(r)*0+ (i===1?-1:1)*0;
+      pose(b,{x:lerp(fx,70,p2)+q*520,y:lerp(fy,62,p2)+Math.sin(t*1.4)*4-q*420,z:lerp(-200,40,p)+q*150,ry:lerp(DIR[i]*1.4,-14,p2)+Math.sin(t*.8)*3,rx:lerp(20,4,p),rz:lerp(DIR[i]*.5,5,p2)+q*25,s:.82,g:lerp(.8,1.05,p),op:1});}
+    else{var h=t-HIT-.05,o=io((t-15.2)/.6);
+      if(h>=0&&o<.98){var p=ob(h/.75),pp=oc(h/.6);
+        pose(b,{x:lerp(0,[-150,0,150][i],pp),y:lerp(240,[40,10,40][i],p)+Math.sin(t*1.3+i)*4-o*800,z:lerp(-300,[0,70,0][i],pp),ry:lerp(0,[22,0,-22][i],pp),rx:4,rz:lerp(0,[-9,0,9][i],pp),s:.62,g:1.02,op:1});}
+      else pose(b,{hide:true});}
+  });
+  // end: needle-sweep wipe to ink
+  var es=io((t-15.45)/.75)*360;
+  $('sweep').style.opacity=t>15.45?1:0;
+  $('sweep').style.webkitMaskImage=$('sweep').style.maskImage='conic-gradient(from 0deg at 270px 560px, #000 '+es.toFixed(1)+'deg, transparent '+(es+.5).toFixed(1)+'deg)';
+  // text
+  MASK.forEach(function(m){var q=eo((t-m.s)/.7),x=io((t-m.out)/.4);m.e.style.transform='translateY('+((1-q)*135+x*135)+'%)'});
+  INFO.forEach(function(o,i){var a0_=ARR[i]+.6,b2=TXT_OUT[i],sp2=o.el.querySelectorAll('span');o.el.style.display=(t>a0_-.05&&t<b2+.5)?'block':'none';
+    sp2.forEach(function(e,j){var q=eo((t-a0_-j*.07)/.7),x=io((t-b2-j*.03)/.4);e.style.transform='translateY('+((1-q)*135+x*135)+'%)'});
+    var r=o.el.querySelector('.rule');r.style.transform='scaleX('+(io((t-a0_-.25)/.5)*(1-io((t-b2)/.35)))+')'});
+  // end card
+  var lq=ob((t-15.95)/.7);$('lg').style.opacity=cl((t-15.95)/.25);$('lg').style.transform='scale('+(t<15.95?.6:Math.max(.6,lq))+')';
+  var bq=ob((t-16.55)/.6);$('btnw').style.opacity=cl((t-16.55)/.2);$('btnw').style.transform='translateY('+((1-oc((t-16.55)/.6))*30)+'px) scale('+(t<16.55?.8:Math.max(.8,bq))+')';
+  var pz=t>17.1?((t-17.1)%.9)/.9:-1;$('btn').style.transform=pz>=0?'scale('+(1+Math.sin(Math.min(1,pz/.3)*Math.PI)*.04)+')':'none';
+  $('stage').style.opacity=sm(t/.2);
+};
+window.__seek(0);
+</script></body></html>
