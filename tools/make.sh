@@ -1,7 +1,7 @@
 #!/bin/bash
 # make.sh PROJECT_DIR SECONDS OUT.mp4  -> build, sfx, render in 2 parallel halves, mux, contact sheet (PROJECT_DIR/sheet.jpg)
 set -e
-D=$(cd "$1" && pwd); T=$2; OUT=$3; F=$((T*30)); H=$((F/2)); TOOLS=$(cd "$(dirname "$0")" && pwd)
+D=$(cd "$1" && pwd); T=$2; OUT=$3; mkdir -p "$(dirname "$OUT")"; F=$((T*30)); H=$((F/2)); TOOLS=$(cd "$(dirname "$0")" && pwd)
 python3 $TOOLS/build.py $D
 (cd $D && SFXT=$T python3 sfx.py)
 python3 $TOOLS/render.py $D 0 $H $D/_a.mp4 > $D/_r1.log 2>&1 &

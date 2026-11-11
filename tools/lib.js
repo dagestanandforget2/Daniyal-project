@@ -40,7 +40,20 @@ var SPEC={
  ks:{W:209,H:300,D:19, front:'assets/ks_front.jpg', back:'assets/ks_back.jpg', spine:'assets/ks_spine.jpg', col:'#161a2a', rtl:true,
      en:'Sharh Kashf ash-Shubuhat, followed by Sharh al-Usul as-Sittah', ar:'شرح كشف الشبهات ويليه شرح الأصول الستة', by:'Shaykh Muhammad ibn Salih al-Uthaymeen', lang:'ARABIC'},
  fw:{W:203,H:300,D:25, front:'assets/fw_front.jpg', back:'assets/fw_back.jpg', spine:'assets/fw_spine.jpg', col:'#1a1a1a', rtl:true,
-     en:"Al-Fawa'id", ar:'الفوائد', by:'Imam Ibn Qayyim al-Jawziyyah', lang:'ARABIC'}};
+     en:"Al-Fawa'id", ar:'الفوائد', by:'Imam Ibn Qayyim al-Jawziyyah', lang:'ARABIC'},
+ /* added Nov 2026 (photos from the owner's Book Library) */
+ tp:{W:197,H:300,D:23, front:'assets/tp_front.jpg', back:'assets/tp_back.jpg', spine:'assets/tp_spine.jpg', col:'#1f3a2c', rtl:false,
+     en:'Commentary on the Three Fundamental Principles of Islam', ar:'شرح ثلاثة الأصول', by:"Shaykh Muhammad bin Salih al-'Uthaimin", lang:'ENGLISH'},
+ fh:{W:207,H:300,D:20, front:'assets/fh_front.jpg', back:'assets/fh_back.jpg', spine:'assets/fh_spine.jpg', col:'#151515', rtl:false,
+     en:"The Explanation of an-Nawawi's Forty Hadith", ar:'المنحة الربانية في شرح الأربعين النووية', by:'Shaykh Dr. Saleh ibn Fawzan al-Fawzan', lang:'ENGLISH'},
+ sn:{W:205,H:300,D:36, front:'assets/sn_front.jpg', back:'assets/sn_back.jpg', spine:'assets/sn_spine.jpg', col:'#2a3c44', rtl:false,
+     en:'The Sealed Nectar', ar:'الرحيق المختوم', by:'Shaykh Safiur-Rahman al-Mubarakpuri', lang:'ENGLISH'},
+ sb:{W:198,H:300,D:60, front:'assets/sb_front.jpg', back:'assets/sb_back.jpg', spine:'assets/sb_spine.jpg', col:'#2c5a44', rtl:false,
+     en:'Summarized Sahih al-Bukhari', ar:'مختصر صحيح البخاري', by:"Imam Muhammad ibn Isma'il al-Bukhari", lang:'ARABIC-ENGLISH'},
+ mt:{W:209,H:300,D:43, front:'assets/mt_front.jpg', back:'assets/mt_back.jpg', spine:'assets/mt_spine.jpg', col:'#121212', rtl:true,
+     en:"Al-Mutoon al-Jami'ah li Talib al-'Ilm", ar:'متون طالب العلم', by:'Dr. Abdul Muhsin ibn Muhammad al-Qasim', lang:'ARABIC'},
+ zad:{W:209,H:300,D:41, front:'assets/zad_front.jpg', back:'assets/zad_back.jpg', spine:'assets/zad_v7_spine.jpg', col:'#3a1f1e', rtl:true,
+     en:"Zad al-Ma'ad (7 volumes; this cover is Vol. 7)", ar:'زاد المعاد في هدي خير العباد', by:'Imam Ibn Qayyim al-Jawziyyah', lang:'ARABIC'}};
 var GREEN_SPINE='background:linear-gradient(to bottom,transparent 7%,#c9a24a 7%,#c9a24a 7.6%,transparent 7.6%,transparent 92.4%,#c9a24a 92.4%,#c9a24a 93%,transparent 93%),linear-gradient(to right,#143524,#1f4d35 45%,#173c29);';
 
 /* a 3D book, faces laid out at K times size */

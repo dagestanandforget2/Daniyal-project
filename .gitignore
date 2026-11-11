@@ -8,3 +8,5 @@ node_modules/
 **/sfx.wav
 *.log
 package-lock.json
+# finished videos are published with tools/publish.sh, never committed here
+videos/
