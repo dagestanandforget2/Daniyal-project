@@ -1,0 +1,146 @@
+<!--FONTS Bodoni Moda:bodoni-moda:latin:800:normal;Bodoni Moda:bodoni-moda:latin:700:italic;Hanken Grotesk:hanken-grotesk:latin:400,600:normal;Aref Ruqaa:aref-ruqaa:arabic:700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Seven Spines</title>
+<style>
+/*FONTS*/
+:root{--crim:#6E1219;--deep:#3A0A0F;--gold:#D8B25C;--ivory:#F5E6C8;--ink:#140B09;--bd:'Bodoni Moda',serif;--ui:'Hanken Grotesk',sans-serif;--ar:'Aref Ruqaa',serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--ivory);font-family:var(--ui);
+  background:radial-gradient(90% 60% at 50% 48%,#8A1A22 0%,var(--crim) 45%,var(--deep) 100%)}
+#folds{position:absolute;inset:0;opacity:.35;mix-blend-mode:multiply;
+  background:repeating-linear-gradient(90deg,rgba(0,0,0,0) 0 22px,rgba(0,0,0,.35) 34px,rgba(0,0,0,0) 48px,rgba(0,0,0,.18) 61px,rgba(0,0,0,0) 74px)}
+#row{position:absolute;left:0;top:0;width:540px;height:960px;transform-origin:270px 286px}
+.sp{position:absolute;transform-origin:50% 100%;background-size:100% 100%;box-shadow:0 30px 40px -14px rgba(0,0,0,.7),inset 0 0 0 1px rgba(0,0,0,.4)}
+#rowshd{position:absolute;left:10px;width:520px;height:60px;top:742px;background:radial-gradient(50% 50% at 50% 50%,rgba(0,0,0,.6),rgba(0,0,0,0));}
+#gloss{position:absolute;top:0;width:180px;height:960px;pointer-events:none;mix-blend-mode:screen;opacity:0;
+  background:linear-gradient(100deg,rgba(255,220,140,0) 0%,rgba(255,226,160,.55) 50%,rgba(255,220,140,0) 100%)}
+.st3d{position:absolute;inset:0;perspective:1300px;perspective-origin:270px 480px;overflow:hidden}
+.cam{position:absolute;left:270px;top:480px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#efe2c4 0 4.5px,#cdb88f 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#efe2c4 0 4.5px,#cdb88f 4.5px 7.5px)}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.06em}
+.m>span{display:block}
+.hd{font-family:var(--bd);font-weight:800;line-height:1.0;letter-spacing:-.01em;color:var(--ivory)}
+.it{font-family:var(--bd);font-style:italic;font-weight:700;color:var(--gold)}
+.sm{font-weight:400;font-size:21px;color:#EBD6B4;line-height:1.3}
+.ar{font-family:var(--ar);font-weight:700;color:var(--gold);direction:rtl}
+#num{position:absolute;left:30px;top:20px;font-family:var(--bd);font-style:italic;font-weight:700;font-size:230px;line-height:1;color:var(--gold);opacity:0;
+  text-shadow:0 10px 30px rgba(0,0,0,.35)}
+#lg{position:absolute;left:190px;top:170px;width:160px;height:160px;mix-blend-mode:screen;opacity:0}
+.pill{display:inline-block;background:var(--gold);color:var(--ink);font-family:var(--ui);font-weight:600;font-size:27px;padding:16px 38px;border-radius:60px;box-shadow:0 20px 40px -16px rgba(0,0,0,.6)}
+#grain{position:absolute;inset:0;opacity:.08;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+#vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 80% at 50% 50%,rgba(0,0,0,0) 55%,rgba(0,0,0,.45) 100%)}
+#fade{position:absolute;inset:0;background:var(--deep);opacity:0}
+</style></head><body>
+<div id="stage">
+ <div id="folds"></div>
+ <div id="num">1</div>
+ <div id="row"><div id="rowshd"></div><div id="gloss"></div></div>
+ <div class="st3d"><div class="cam" id="cam"></div></div>
+
+ <!-- 1: hook (on screen from frame 0) -->
+ <div id="t1">
+  <p class="m hd" style="left:34px;top:100px;font-size:46px"><span>All 7 volumes of</span></p>
+  <p class="m it" style="left:34px;top:150px;font-size:58px"><span>Zad al-Ma'ad.</span></p>
+  <p class="m sm" style="left:36px;top:226px"><span>Imam Ibn Qayyim al-Jawziyyah. Arabic hardcover.</span></p>
+ </div>
+ <!-- 2: count -->
+ <div id="t2">
+  <p class="m hd" style="left:190px;top:150px;font-size:44px"><span id="volw">volume</span></p>
+ </div>
+ <!-- 2b: slam -->
+ <div id="t2b">
+  <p class="m hd" style="left:34px;top:110px;font-size:44px"><span data-a="6.55">One title, written</span></p>
+  <p class="m it" style="left:34px;top:160px;font-size:52px"><span data-a="6.7">across seven spines.</span></p>
+ </div>
+ <!-- 3: vol 7 -->
+ <div id="t3">
+  <p class="m it" style="left:34px;top:104px;font-size:56px"><span data-a="8.75">Volume 7</span></p>
+  <p class="m hd" style="left:34px;top:170px;font-size:38px"><span data-a="8.9">is the indexes.</span></p>
+  <p class="m ar" style="left:34px;width:420px;text-align:left;top:224px;font-size:34px"><span data-a="9.1">زاد المعاد في هدي خير العباد</span></p>
+ </div>
+ <!-- 4: facts -->
+ <div id="t4">
+  <p class="m hd" style="left:34px;top:108px;font-size:44px"><span data-a="11.95">Seven volumes.</span></p>
+  <p class="m it" style="left:34px;top:160px;font-size:52px"><span data-a="12.1">One work.</span></p>
+  <p class="m sm" style="left:36px;top:232px"><span data-a="12.35">Dar Ata'at al-'Ilm edition, gold-stamped.</span></p>
+ </div>
+
+ <div id="vig"></div>
+ <div id="fade"></div>
+ <!-- 5: end -->
+ <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+ <div id="t5">
+  <p class="m it" style="left:0;width:540px;text-align:center;top:360px;font-size:54px"><span data-a="14.9">daralathari.com</span></p>
+  <p class="m sm" style="left:0;width:540px;text-align:center;top:436px"><span data-a="15.1">Arabic and English books. Shipped from New Jersey.</span></p>
+  <div id="btnw" style="position:absolute;left:0;width:540px;top:530px;text-align:center;opacity:0"><span class="pill" id="btn">Shop the collection</span></div>
+ </div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.4,-.5,.75],.45,.75);
+// spine row: left to right is vol 7 ... vol 1 (Arabic reads right to left)
+var NAT={1:[216,1146],2:[130,1136],3:[198,1132],4:[150,1134],5:[144,1134],6:[136,1114],7:[156,1146]};
+var H=486,TOP=286,GAP=2,row=$('row'),SP={},tot=0;
+[7,6,5,4,3,2,1].forEach(function(v){SP[v]={w:Math.round(NAT[v][0]*H/NAT[v][1])};tot+=SP[v].w+GAP});tot-=GAP;
+var xx=270-tot/2;
+[7,6,5,4,3,2,1].forEach(function(v){var s=SP[v];s.x=xx;xx+=s.w+GAP;
+  s.e=el('sp','left:'+s.x+'px;top:'+TOP+'px;width:'+s.w+'px;height:'+H+'px;background-image:url(assets/zad_v'+v+'_spine.jpg)',row,null)});
+$('rowshd').style.top=(TOP+H-26)+'px';
+var cam=$('cam'),bk=makeBook(cam,'zad');
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a})});
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+var RISE0=3.05,STEP=.42; // vol k rises at RISE0+(k-1)*STEP
+var SLAM=RISE0+6*STEP+.55;  // all drop back together
+window.__seek=function(t){
+  // --- row: push-in from frame 0, shake on slam, dims and slides away for vol 7
+  var push=oc(t/1.6), sh=t>SLAM?Math.sin((t-SLAM)*70)*Math.exp(-(t-SLAM)*9)*7:0;
+  var away=io((t-7.7)/.8), back=io((t-11.5)/.8), end=io((t-14.0)/.7);
+  var rs=lerp(1.12,1,push)*lerp(1,.86,away*(1-back))*lerp(1,.8,end);
+  var rx=lerp(-300,0,1-away*(1-back))+sh, ry=lerp(0,40,away*(1-back))+lerp(0,260,end);
+  row.style.transform='translate('+rx+'px,'+(ry)+'px) scale('+rs+')';
+  row.style.filter='brightness('+(1-.35*away*(1-back)).toFixed(3)+')';
+  row.style.opacity=1-sm((t-14.2)/.6);
+  [7,6,5,4,3,2,1].forEach(function(v,i){var s=SP[v];
+    var settle=t<1.4?(1-oc((t-i*.07)/.9))*22:0;              // gentle stagger settle in first second
+    var k=v, t0=RISE0+(k-1)*STEP, up=ob((t-t0)/.38), drop=t>=SLAM?1:0, dq=ic((t-(SLAM-.18))/.18);
+    var lift=t<t0?0:(t<SLAM-.18?up:lerp(up,0,dq));
+    var hide=v===7?sm((t-7.75)/.25)*(1-sm((t-11.75)/.2)):0;   // vol 7 leaves the row as the 3D book
+    s.e.style.transform='translateY('+(settle-lift*30)+'px) scale('+(1+lift*.04)+')';
+    s.e.style.opacity=1-hide;
+    s.e.style.zIndex=lift>.01?2:1;
+    s.e.style.filter='brightness('+(1+lift*.18).toFixed(3)+')';
+  });
+  // gloss sweep right-to-left across the title after the slam
+  var gq=cl((t-SLAM-.05)/1.0);$('gloss').style.opacity=(t>SLAM&&gq<1)?sm(gq/.15)*(1-sm((gq-.8)/.2)):0;
+  $('gloss').style.left=(lerp(560,-200,io(gq)))+'px';
+  // --- count numeral
+  var k=Math.max(1,Math.min(7,Math.floor((t-RISE0)/STEP)+1)), nq=oc(((t-RISE0)-(k-1)*STEP)/.25);
+  var nOn=sm((t-RISE0+.1)/.2)*(1-sm((t-(SLAM-.1))/.2));
+  $('num').textContent=k;$('num').style.opacity=nOn;$('num').style.transform='translateY('+((1-nq)*30)+'px)';
+  $('volw').textContent=k===1?'volume':'volumes';
+  $('t2').style.opacity=nOn;
+  // --- hook out
+  var h1=io((t-2.65)/.4);$('t1').style.opacity=1-h1;$('t1').style.transform='translateY('+(-h1*40)+'px)';
+  $('t1').querySelectorAll('span').forEach(function(e,j){e.style.transform='none'});
+  // --- 3D vol 7
+  var bin=io((t-7.75)/1.0), bturn=io((t-8.3)/1.2), bout=io((t-11.2)/.8);
+  var bx=lerp(lerp(-112,40,bin),-112,bout), by=lerp(lerp(25,90,bin),25,bout), bz=lerp(lerp(-60,40,bin),-60,bout);
+  var bry=lerp(lerp(-90,-14,bturn)+Math.sin(Math.max(0,t-9.5)*1.3)*5*(1-bout),-90,bout);
+  pose(bk,{x:bx,y:by,z:bz,ry:bry,rx:lerp(0,3,bin*(1-bout)),s:lerp(1.62,1.72,bin*(1-bout)),hide:(t<7.75||t>12.0)});
+  // --- text masks
+  MASK.forEach(function(m){var q=eo((t-m.s)/.7);m.e.style.transform='translateY('+((1-q)*105)+'%)'});
+  $('t2b').style.opacity=1-sm((t-7.6)/.3);
+  $('t3').style.opacity=1-sm((t-11.2)/.3);
+  $('t4').style.opacity=1-sm((t-13.9)/.3);
+  // --- end card
+  $('fade').style.opacity=.75*sm((t-14.1)/.6);
+  var lq=ob((t-14.55)/.7);$('lg').style.opacity=cl((t-14.55)/.25);$('lg').style.transform='scale('+(t<14.55?.6:Math.max(.6,lq))+')';
+  var bq=ob((t-15.5)/.6);$('btnw').style.opacity=cl((t-15.5)/.2);$('btnw').style.transform='translateY('+((1-oc((t-15.5)/.6))*30)+'px) scale('+(t<15.5?.8:Math.max(.8,bq))+')';
+  var pu=t>16.3?((t-16.3)%1.4)/1.4:-1;$('btn').style.transform=pu>=0?'scale('+(1+.045*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+};
+window.__seek(0);
+</script></body></html>
