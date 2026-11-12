@@ -1,0 +1,142 @@
+<!--FONTS Bebas Neue:bebas-neue:latin:400:normal;Spline Sans:spline-sans:latin:400,600:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Line Them Up</title>
+<style>
+/*FONTS*/
+:root{--blush:#EBC8BE;--rose:#D9A99C;--bottle:#0E3B2C;--brick:#A3302A;--gold:#C9A04A;--ink:#161212;--paper:#FBF3EE;--bb:'Bebas Neue',sans-serif;--ui:'Spline Sans',sans-serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--bottle);font-family:var(--ui);background:var(--blush)}
+#bands{position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(163,48,42,0) 0 38px,rgba(163,48,42,.07) 38px 40px)}
+#slot{position:absolute;left:0;width:540px;height:0;background:var(--rose)}
+#row{position:absolute;left:0;top:0;width:540px;height:960px;transform-origin:270px 500px}
+.sp{position:absolute;background-size:110% 104%;background-position:50% 50%;border-radius:4px 4px 3px 3px;box-shadow:0 26px 34px -16px rgba(40,10,8,.55)}
+#rowshd{position:absolute;left:0;width:540px;height:50px;background:radial-gradient(50% 50% at 50% 50%,rgba(60,15,10,.35),rgba(0,0,0,0))}
+#frame{position:absolute;border:5px solid var(--brick);opacity:0;pointer-events:none}
+#flash{position:absolute;inset:0;background:var(--paper);opacity:0;pointer-events:none}
+#cardw{position:absolute;left:0;top:0;width:540px;height:960px;perspective:1400px;perspective-origin:270px 520px}
+#card{position:absolute;left:115px;top:278px;width:310px;height:441px;background-size:100% 100%;box-shadow:0 40px 50px -24px rgba(40,10,8,.6);opacity:0}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.04em}
+.m>span{display:block}
+.hd{font-family:var(--bb);font-weight:400;line-height:.92;letter-spacing:.005em;color:var(--bottle)}
+.hb{font-family:var(--bb);font-weight:400;line-height:.92;color:var(--brick)}
+.sm{font-weight:400;font-size:20px;color:#3B2320;line-height:1.3}
+.sb{font-weight:600}
+#end{position:absolute;inset:0;background:var(--bottle);clip-path:inset(100% 0 0 0)}
+#lg{position:absolute;left:190px;top:200px;width:160px;height:160px;mix-blend-mode:screen;opacity:0}
+.pill{display:inline-block;background:var(--gold);color:var(--ink);font-family:var(--ui);font-weight:600;font-size:26px;padding:16px 38px;border-radius:60px;box-shadow:0 20px 40px -16px rgba(0,0,0,.6)}
+#grain{position:absolute;inset:0;opacity:.07;mix-blend-mode:multiply;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="bands"></div>
+ <div id="slot"></div>
+ <div id="row"><div id="rowshd"></div></div>
+ <div id="frame"></div>
+ <div id="cardw"><div id="card"></div></div>
+
+ <div id="t1">
+  <p class="m hd" style="left:30px;top:100px;font-size:64px"><span>All 9 volumes of</span></p>
+  <p class="m hb" style="left:30px;top:156px;font-size:64px"><span>Sahih al-Bukhari.</span></p>
+  <p class="m sm" style="left:32px;top:220px"><span>Translated by Dr. Muhammad Muhsin Khan.</span></p>
+ </div>
+ <div id="t2">
+  <p class="m hd" style="left:30px;top:104px;font-size:60px"><span data-a="3.05">Nine volumes,</span></p>
+  <p class="m hb" style="left:30px;top:158px;font-size:60px"><span data-a="3.2">ahadith 1 to 7563.</span></p>
+  <p class="m sm" style="left:32px;top:220px"><span data-a="3.45">Each spine carries its own range.</span></p>
+ </div>
+ <div id="t2b">
+  <p class="m hd" style="left:30px;top:104px;font-size:60px"><span data-a="6.45">Line them up.</span></p>
+ </div>
+ <div id="t2c">
+  <p class="m hd" style="left:30px;top:104px;font-size:60px"><span data-a="8.95">The title runs</span></p>
+  <p class="m hb" style="left:30px;top:158px;font-size:60px"><span data-a="9.08">across all nine.</span></p>
+ </div>
+ <div id="t3">
+  <p class="m hd" style="left:30px;top:100px;font-size:56px"><span data-a="10.55">Arabic-English</span></p>
+  <p class="m hb" style="left:30px;top:150px;font-size:56px"><span data-a="10.68">hardcover set.</span></p>
+  <p class="m sm" style="left:32px;top:210px"><span data-a="10.9"><span class="sb">Darussalam.</span> Volume 1, Arabic cover.</span></p>
+ </div>
+ <div id="t4">
+  <p class="m hd" style="left:30px;top:100px;font-size:56px"><span data-a="12.55">Volume 9 ends</span></p>
+  <p class="m hb" style="left:30px;top:150px;font-size:56px"><span data-a="12.68">at hadith 7563.</span></p>
+  <p class="m sm" style="left:32px;top:210px"><span data-a="12.9">Volume 9, English cover.</span></p>
+ </div>
+
+ <div id="flash"></div>
+ <div id="end"></div>
+ <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+ <div id="t5">
+  <p class="m" style="left:0;width:540px;text-align:center;top:392px;font-family:var(--bb);font-size:64px;color:var(--paper);line-height:.95"><span data-a="15.0">daralathari.com</span></p>
+  <p class="m sm" style="left:0;width:540px;text-align:center;top:462px;color:#DCE7DF"><span data-a="15.2">Arabic and English books. Shipped from New Jersey.</span></p>
+  <div id="btnw" style="position:absolute;left:0;width:540px;top:540px;text-align:center;opacity:0"><span class="pill" id="btn">Shop the collection</span></div>
+ </div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+var W={1:184,2:194,3:230,4:206,5:184,6:200,7:184,8:178,9:193};
+var H=500,TOP=272,row=$('row'),SP={},tot=0;
+for(var v=1;v<=9;v++){SP[v]={w:W[v]*H/1530};tot+=SP[v].w}
+var x0=270-tot/2,xx=x0;
+for(var v=1;v<=9;v++){var s=SP[v];s.x=xx;xx+=s.w;
+  s.e=el('sp','left:'+s.x+'px;top:'+TOP+'px;width:'+(s.w+.6)+'px;height:'+H+'px;background-image:url(assets/sb9_v'+v+'_spine.jpg)',row,null)}
+$('rowshd').style.top=(TOP+H-24)+'px';
+var OFF=[0,-95,70,-35,105,-110,45,-70,95,-50]; // index by vol
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a})});
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+var SCR=2.85, L0=6.75, LS=.22, SLAM=L0+8*LS+.32; // SLAM ~8.83
+window.__seek=function(t){
+  // scramble amount (0 aligned .. 1 scrambled) per volume
+  var sc=io((t-SCR)/.6), sp=sc;
+  var gather=ic((t-(SLAM-.3))/.3); // gaps close into the slam
+  var sh=t>SLAM?Math.sin((t-SLAM)*65)*Math.exp(-(t-SLAM)*8)*8:0;
+  var push=oc(t/1.6);
+  var exitq=io((t-9.9)/.8);
+  var rs=lerp(1.07,1,push)*lerp(1,.8,sp*(1-gather))*lerp(1,.62,exitq);
+  var ry=lerp(0,20,sp*(1-gather))+lerp(0,330,exitq);
+  row.style.transform='translate('+sh+'px,'+(ry+sh*.4)+'px) scale('+rs+')';
+  row.style.opacity=1-sm((t-13.9)/.5);
+  row.style.filter='saturate('+(1-.4*exitq)+') brightness('+(1-.15*exitq)+')';
+  var cx=0;
+  for(var v=1;v<=9;v++){var s=SP[v];
+    var settle=t<1.3?(1-oc((t-(v-1)*.06)/.85))*(v%2?12:-12):0;      // stagger settle in first second
+    var lt=L0+(v-1)*LS, lk=ob((t-lt)/.32);
+    var off=OFF[v]*sc*(t<lt?1:1-lk);
+    var gap=14*sc*(1-gather);
+    var dx=(v-5)*gap;
+    var lit=t>=lt&&t<lt+.3?1-((t-lt)/.3):0;
+    s.e.style.transform='translate('+dx+'px,'+(settle+off)+'px)';
+    s.e.style.filter='brightness('+(1+lit*.35).toFixed(3)+')';
+  }
+  // slot band behind row (a rose rail that the spines lock into)
+  var sl=$('slot'),sq=oc((t-SCR)/.5)*(1-sm((t-9.9)/.4));
+  sl.style.top=(TOP-6)+'px';sl.style.height=((H+12)*sq)+'px';sl.style.opacity=.9*sq;
+  // frame snap + flash at slam
+  var fr=$('frame'),fq=t>SLAM?Math.exp(-(t-SLAM)*2.2):0,fs=oc((t-SLAM)/.25);
+  var fw=lerp(640,tot+24,fs),fh=lerp(640,H+24,fs);
+  fr.style.left=(270-fw/2)+'px';fr.style.top=(TOP+H/2-fh/2)+'px';fr.style.width=fw+'px';fr.style.height=fh+'px';
+  fr.style.opacity=t>SLAM?cl(fq*1.2)*(1-sm((t-9.8)/.3)):0;
+  $('flash').style.opacity=t>SLAM?.55*Math.exp(-(t-SLAM)*9):0;
+  // flat cover card: vol 1 (Arabic) then flips to vol 9 (English)
+  var cin=io((t-10.15)/.8), flip=io((t-12.2)/.7), cout=io((t-13.85)/.6);
+  var ang=lerp(0,180,flip), c=$('card');
+  c.style.opacity=t<10.15?0:1;
+  c.style.backgroundImage='url(assets/sb9_v'+(ang<90?1:9)+'_front.jpg)';
+  var yy=lerp(700,0,cin)+lerp(0,-40,cout)+Math.sin(Math.max(0,t-11)*1.6)*4;
+  var rz=lerp(-9,-2,cin)+lerp(0,4,flip);
+  c.style.transform='translateY('+yy+'px) rotateZ('+rz+'deg) rotateY('+(ang<90?ang:ang-180)+'deg) scale('+lerp(1,1.04,Math.sin(flip*Math.PI))*lerp(1,.9,cout)+')';
+  c.style.filter='brightness('+(1-.3*Math.sin(flip*Math.PI))+')';
+  // text groups
+  var h1=io((t-2.6)/.35);$('t1').style.opacity=1-h1;$('t1').style.transform='translateY('+(-h1*30)+'px)';
+  MASK.forEach(function(m){var q=eo((t-m.s)/.6);m.e.style.transform='translateY('+((1-q)*105)+'%)'});
+  $('t2').style.opacity=1-sm((t-6.2)/.25);
+  $('t2b').style.opacity=1-sm((t-8.55)/.25);
+  $('t2c').style.opacity=1-sm((t-10.2)/.25);
+  $('t3').style.opacity=1-sm((t-12.2)/.25);
+  $('t4').style.opacity=1-sm((t-14.0)/.25);
+  // end card: bottle panel wipes up
+  var e=io((t-14.1)/.7);$('end').style.clipPath='inset('+(100-100*e)+'% 0 0 0)';
+  var lq=ob((t-14.6)/.7);$('lg').style.opacity=cl((t-14.6)/.25);$('lg').style.transform='scale('+(t<14.6?.6:Math.max(.6,lq))+')';
+  var bq=ob((t-15.55)/.6);$('btnw').style.opacity=cl((t-15.55)/.2);$('btnw').style.transform='translateY('+((1-oc((t-15.55)/.6))*30)+'px) scale('+(t<15.55?.8:Math.max(.8,bq))+')';
+  var pu=t>16.3?((t-16.3)%1.4)/1.4:-1;$('btn').style.transform=pu>=0?'scale('+(1+.045*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+};
+window.__seek(0);
+</script></body></html>
