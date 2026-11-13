@@ -1,0 +1,125 @@
+<!--FONTS Yeseva One:yeseva-one:latin:400:normal;Instrument Sans:instrument-sans:latin:400,600:normal;Amiri:amiri:arabic:700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>One Hundred and Sixty</title>
+<style>
+/*FONTS*/
+:root{--vd:#2E5E57;--deep:#16302C;--vel:#E9DCB4;--gold:#D3A24A;--cu:#B5543A;--paper:#F4EEDD;--hd:'Yeseva One',serif;--ui:'Instrument Sans',sans-serif;--ar:'Amiri',serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--paper);font-family:var(--hd);
+  background:radial-gradient(85% 60% at 50% 58%,#3A7068 0%,var(--vd) 50%,var(--deep) 100%)}
+#tally{position:absolute;inset:0}
+#tally i{position:absolute;width:5px;height:42px;border-radius:3px;background:var(--vel);transform-origin:50% 100%}
+#shd{position:absolute;left:80px;top:790px;width:380px;height:70px;background:radial-gradient(50% 50% at 50% 50%,rgba(6,18,16,.6),rgba(6,18,16,0))}
+.st3d{position:absolute;inset:0;perspective:1300px;perspective-origin:270px 480px;overflow:hidden}
+.cam{position:absolute;left:270px;top:480px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#f1ead8 0 4.5px,#d3c6a6 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#f1ead8 0 4.5px,#d3c6a6 4.5px 7.5px)}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.1em}
+.m>span{display:block}
+.hd{font-weight:400;line-height:1.02;letter-spacing:-.01em}
+.au{color:var(--gold)}
+.sm{font-family:var(--ui);font-weight:400;font-size:20px;line-height:1.3;color:#DCE6DF}
+.sb{font-family:var(--ui);font-weight:600}
+.ar{font-family:var(--ar);font-weight:700;color:var(--gold);direction:rtl}
+#num{position:absolute;left:30px;top:92px;font-family:var(--hd);font-size:178px;line-height:1;color:var(--gold);opacity:0;font-variant-numeric:tabular-nums;text-shadow:0 10px 30px rgba(0,0,0,.35)}
+#flash{position:absolute;inset:0;background:radial-gradient(60% 45% at 50% 55%,rgba(255,236,190,.9),rgba(255,236,190,0));opacity:0}
+#panel{position:absolute;left:0;top:0;width:540px;height:960px;background:radial-gradient(90% 60% at 50% 40%,#1E423C,var(--deep) 70%);clip-path:circle(0px at 270px 520px)}
+#lg{position:absolute;left:180px;top:150px;width:180px;height:180px;mix-blend-mode:screen;opacity:0}
+.pill{display:inline-block;background:var(--gold);color:var(--deep);font-family:var(--ui);font-weight:600;font-size:28px;padding:16px 40px;border-radius:60px;box-shadow:0 20px 40px -16px rgba(0,0,0,.6)}
+#grain{position:absolute;inset:0;opacity:.08;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+#vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 80% at 50% 50%,rgba(0,0,0,0) 55%,rgba(0,0,0,.3) 100%)}
+</style></head><body>
+<div id="stage">
+ <div id="tally"></div>
+ <div id="shd"></div>
+ <div class="st3d"><div class="cam" id="cam"></div></div>
+ <div id="flash"></div>
+
+ <div id="t1">
+  <p class="m hd" style="left:32px;top:100px;font-size:50px"><span>Verified against</span></p>
+  <p class="m hd au" style="left:32px;top:152px;font-size:50px"><span>160 manuscripts.</span></p>
+  <p class="m sm sb" style="left:34px;top:218px"><span>Al-Mutoon al-Jami'ah li Talib al-'Ilm</span></p>
+  <p class="m sm" style="left:34px;top:244px"><span>Compiled by Dr. Abdul Muhsin al-Qasim</span></p>
+ </div>
+ <div id="num">0</div>
+ <div id="t2">
+  <p class="m sm sb" style="left:36px;top:278px;font-size:22px;color:var(--vel)"><span data-a="3.6">manuscripts, counted on the cover</span></p>
+ </div>
+ <div id="t3">
+  <p class="m ar" style="left:34px;width:420px;text-align:left;top:300px;font-size:40px;line-height:1.4"><span data-a="6.75">مُحققة على ١٦٠ مخطوطة</span></p>
+ </div>
+ <div id="t4">
+  <p class="m ar" style="left:34px;width:420px;text-align:left;top:96px;font-size:58px;line-height:1.3"><span data-a="8.3">متون طالب العلم</span></p>
+  <p class="m hd" style="left:32px;top:178px;font-size:42px"><span data-a="8.45">Gold-tooled spine,</span></p>
+  <p class="m hd au" style="left:32px;top:224px;font-size:42px"><span data-a="8.55">titled in Arabic.</span></p>
+ </div>
+ <div id="t5">
+  <p class="m sm" style="left:34px;top:104px"><span data-a="10.6">Compiled and verified by</span></p>
+  <p class="m hd" style="left:32px;top:132px;font-size:36px"><span data-a="10.7">Dr. Abdul Muhsin</span></p>
+  <p class="m hd" style="left:32px;top:174px;font-size:36px"><span data-a="10.8">ibn Muhammad al-Qasim,</span></p>
+  <p class="m sm" style="left:34px;top:228px;color:var(--vel)"><span data-a="10.95">Imam and Khatib of al-Masjid an-Nabawi.</span></p>
+ </div>
+ <div id="t6">
+  <p class="m hd" style="left:32px;top:104px;font-size:50px"><span data-a="12.5">Fully vocalised</span></p>
+  <p class="m hd" style="left:32px;top:156px;font-size:50px"><span data-a="12.6">Arabic.</span></p>
+  <p class="m hd au" style="left:32px;top:208px;font-size:50px"><span data-a="12.75">Black hardcover.</span></p>
+ </div>
+
+ <div id="vig"></div>
+ <div id="panel"></div>
+ <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+ <div id="t8">
+  <p class="m hd" style="left:0;width:540px;text-align:center;top:372px;font-size:52px"><span data-a="15.0">daralathari.com</span></p>
+  <p class="m sm" style="left:0;width:540px;text-align:center;top:442px;color:var(--vel)"><span data-a="15.15">Shipped from New Jersey.</span></p>
+  <div id="btnw" style="position:absolute;left:0;width:540px;top:530px;text-align:center;opacity:0"><span class="pill" id="btn">Browse the books</span></div>
+ </div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.4,-.55,.75],.42,.8);
+var cam=$('cam'),bk=makeBook(cam,'mt');
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a})});
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+// 160 tally strokes: 8 rows of 20, gap after every 5
+var TL=[],C0=3.4,C1=6.5,DONE=6.55;
+for(var i=0;i<160;i++){var r=Math.floor(i/20),c=i%20;
+  var e=document.createElement('i');e.style.left=(34+c*21.5+Math.floor(c/5)*12)+'px';e.style.top=(368+r*58)+'px';
+  $('tally').appendChild(e);TL.push({e:e,t:C0+(C1-C0)*Math.sqrt(i/159)})}
+// book keyframes: t,x,y,z,ry,rx,s
+var BK=[[0,20,110,0,-34,5,1.72],[1.6,10,95,0,-10,2,1.8],[3.2,10,95,0,-6,1,1.8],[4.0,40,250,-120,-14,8,1.25],[6.4,40,250,-120,-10,6,1.25],
+ [7.0,20,170,0,-4,2,1.55],[7.6,20,170,0,-4,2,1.55],[8.5,40,140,0,-86,0,1.9],[10.0,40,140,0,-94,0,1.9],[11.0,40,140,0,-22,3,1.6],
+ [12.3,40,140,0,-16,2,1.62],[13.0,10,150,0,10,2,1.62],[14.0,10,150,0,16,2,1.64]];
+window.__seek=function(t){
+  var b=keyed(BK,t),sh=(t>DONE&&t<DONE+.6)?Math.sin((t-DONE)*60)*Math.exp(-(t-DONE)*8)*9:0;
+  var drop=io((t-14.0)/.7);
+  pose(bk,{x:b[0]+sh,y:b[1]+drop*90,z:b[2]-drop*220,ry:b[3],rx:b[4],s:b[5]});
+  $('shd').style.opacity=(1-drop)*(t>3.6&&t<6.8?.5:1);
+  // tallies
+  var n=0,gl=t>DONE?Math.exp(-(t-DONE)*3):0,fade=1-sm((t-7.6)/.6);
+  TL.forEach(function(o,i){var q=oc((t-o.t)/.14);if(t>=o.t)n=i+1;
+    o.e.style.transform='scaleY('+q+') rotate('+((i%5===4)?-8:0)+'deg)';
+    o.e.style.opacity=(q*(t>DONE?(.55+.45*gl):.7))*fade;
+    o.e.style.background=t>DONE?'var(--gold)':'var(--vel)';});
+  $('tally').style.transform='scale('+(1+gl*.03)+')';
+  $('flash').style.opacity=t>DONE?.85*Math.exp(-(t-DONE)*5):0;
+  var nm=$('num');nm.textContent=n;nm.style.opacity=sm((t-3.3)/.2)*(1-sm((t-7.5)/.3));
+  nm.style.transform='translateX('+(sh*.6)+'px) scale('+(1+gl*.12)+')';nm.style.transformOrigin='0 50%';
+  // text
+  MASK.forEach(function(m){var q=eo((t-m.s)/.6);m.e.style.transform='translateY('+((1-q)*105)+'%)'});
+  var h1=io((t-3.1)/.3);$('t1').style.opacity=1-h1;$('t1').style.transform='translateX('+(-h1*30)+'px)';
+  $('t2').style.opacity=1-sm((t-7.5)/.3);
+  $('t3').style.opacity=1-sm((t-7.5)/.3);
+  $('t4').style.opacity=1-sm((t-10.1)/.25);
+  $('t5').style.opacity=1-sm((t-12.2)/.25);
+  $('t6').style.opacity=1-sm((t-14.0)/.3);
+  // end card: verdigris iris opens from the book
+  var pq=io((t-14.1)/.8);$('panel').style.clipPath='circle('+(pq*760)+'px at 270px 520px)';
+  var lq=ob((t-14.7)/.7);$('lg').style.opacity=cl((t-14.7)/.25);$('lg').style.transform='scale('+(t<14.7?.6:Math.max(.6,lq))+')';
+  var bq=ob((t-15.5)/.6);$('btnw').style.opacity=cl((t-15.5)/.2);$('btnw').style.transform='translateY('+((1-oc((t-15.5)/.6))*30)+'px) scale('+(t<15.5?.8:Math.max(.8,bq))+')';
+  var pu=t>16.3?((t-16.3)%1.4)/1.4:-1;$('btn').style.transform=pu>=0?'scale('+(1+.045*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+};
+window.__seek(0);
+</script></body></html>

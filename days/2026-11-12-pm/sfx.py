@@ -1,0 +1,25 @@
+import os; os.environ.setdefault('SFXT','18')
+import sys; sys.path.insert(0,'../../tools'); from sfxlib import *
+import math
+add(rumble(18.4),.1,.05)
+w=whoosh(.8,300,1400,600,.5,1.0); add(w,0.0,.16,sweep(w,-.3,.2))
+add(thud(100,48,.3,.2,12),.1,.22)
+add(whoosh(.6,1800,600,400,.4,1.0),3.15,.14)
+# the count: ticks accelerate with the tally strokes
+for i in range(0,160,4):
+    t=3.4+3.1*math.sqrt(i/159); add(tick(.7),t,.11,((i%20)/10-1)*.4)
+add(rumble(2.8),3.7,.18); add(whoosh(1.2,200,1400,2600,.6,1.0),5.4,.12)
+add(slap(),6.55,.3); add(thud(90,40,.45,.35,11),6.57,.6); add(shimmer(1.2,6500,.5),6.6,.09)
+txt(3.6); txt(6.75)
+add(whoosh(.7,500,1600,700,.5,1.0),7.7,.14); add(flip(.6),8.4,.12)
+for t in (8.3,8.45,8.55): txt(t)
+add(whoosh(.7,500,1600,700,.5,1.0),10.1,.12); add(clack(.5),10.95,.12)
+for t in (10.6,10.7,10.8,10.95): txt(t)
+add(flip(.6),12.35,.1)
+for t in (12.5,12.6,12.75): txt(t)
+add(whoosh(.9,2200,600,300,.4,1.0),14.05,.2)
+add(thud(96,42,.4,.25,12),14.75,.45); add(shimmer(1.2,6200,.5),14.8,.08)
+for t in (15.0,15.15): txt(t)
+add(click(1),15.5,.25)
+for k in range(2): add(tick(.6),16.3+k*1.4,.12)
+master('sfx.wav')
