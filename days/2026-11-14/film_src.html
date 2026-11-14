@@ -1,0 +1,118 @@
+<!--FONTS Petrona:petrona:latin:800:normal;Petrona:petrona:latin:700:italic;Golos Text:golos-text:latin:400,600:normal;Noto Naskh Arabic:noto-naskh-arabic:arabic:700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Volume One, Volume Two</title>
+<style>
+/*FONTS*/
+:root{--wh:#F3F4F1;--bl:#22349E;--nv:#0F1A4A;--gr:#1F7A45;--gd:#C9A24A;--sv:#B9C2CF;--hd:'Petrona',serif;--ui:'Golos Text',sans-serif;--ar:'Noto Naskh Arabic',serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--nv);font-family:var(--hd);
+  background:radial-gradient(90% 60% at 50% 40%,#F7F8F6 0%,#E9ECEC 55%,#CDD3DA 100%)}
+#rule{position:absolute;left:0;top:0;width:540px;height:2px;background:#8C96A6;transform-origin:0 50%}
+#panel{position:absolute;left:0;top:960px;width:540px;height:1000px;background:linear-gradient(#2A3CA8,var(--bl) 30%,#18267A)}
+#panel:before{content:'';position:absolute;inset:0;opacity:.18;background:
+  radial-gradient(circle at 50% 50%,transparent 0 46px,rgba(255,255,255,.5) 46px 47px,transparent 47px) 0 0/120px 120px}
+#bign{position:absolute;right:-30px;top:430px;font-family:var(--hd);font-weight:800;font-size:520px;line-height:1;color:rgba(255,255,255,.08);letter-spacing:-.04em}
+#shd{position:absolute;left:70px;top:820px;width:400px;height:70px;background:radial-gradient(50% 50% at 50% 50%,rgba(8,14,40,.45),rgba(8,14,40,0))}
+.st3d{position:absolute;inset:0;perspective:1500px;perspective-origin:270px 520px;overflow:hidden}
+.cam{position:absolute;left:270px;top:520px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#f4f1e8 0 4.5px,#d6d0c0 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#f4f1e8 0 4.5px,#d6d0c0 4.5px 7.5px)}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.12em}
+.m>span{display:block}
+.hd{font-weight:800;line-height:1.02;letter-spacing:-.02em}
+.it{font-style:italic;font-weight:700;color:var(--gr)}
+.sm{font-family:var(--ui);font-weight:400;font-size:19px;line-height:1.3;color:#3A4560}
+.sb{font-weight:600;color:var(--nv)}
+.ar{font-family:var(--ar);font-weight:700;color:var(--gr);direction:rtl}
+.vt{position:absolute;font-family:var(--ui);font-weight:600;font-size:15px;color:var(--wh);background:var(--gr);padding:5px 12px;border-radius:3px;opacity:0}
+#lg{position:absolute;left:180px;top:160px;width:180px;height:180px;mix-blend-mode:screen;opacity:0}
+.pill{display:inline-block;background:var(--wh);color:var(--bl);font-family:var(--ui);font-weight:600;font-size:28px;padding:16px 40px;border-radius:60px;box-shadow:0 20px 40px -16px rgba(0,0,0,.5)}
+#grain{position:absolute;inset:0;opacity:.06;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="panel"><div id="bign">2</div></div>
+ <div id="rule"></div>
+ <div id="shd"></div>
+ <div class="st3d"><div class="cam" id="cam"></div></div>
+ <div class="vt" id="v1">VOL. 1</div><div class="vt" id="v2">VOL. 2</div>
+
+ <div id="t1">
+  <p class="m hd" style="left:30px;top:104px;font-size:54px"><span>Fiqh, in two</span></p>
+  <p class="m hd it" style="left:30px;top:162px;font-size:54px"><span>hardcover volumes.</span></p>
+  <p class="m sm sb" style="left:32px;top:234px"><span>Fiqh According to the Qur'an &amp; Sunnah</span></p>
+  <p class="m sm" style="left:32px;top:258px"><span>Compiled by Muhammad Subhi bin Hasan Hallaq</span></p>
+ </div>
+ <div id="t2">
+  <p class="m hd" style="left:30px;top:104px;font-size:54px"><span data-a="3.05">Volume 1.</span></p>
+  <p class="m hd it" style="left:30px;top:162px;font-size:54px"><span data-a="3.2">Volume 2.</span></p>
+  <p class="m sm" style="left:32px;top:234px"><span data-a="3.4">Sold together as one set.</span></p>
+ </div>
+ <div id="t3">
+  <p class="m hd" style="left:30px;top:104px;font-size:54px"><span data-a="5.75">Side by side</span></p>
+  <p class="m hd it" style="left:30px;top:162px;font-size:54px"><span data-a="5.88">on the shelf.</span></p>
+  <p class="m sm" style="left:32px;top:234px"><span data-a="6.05">Each spine marked Vol. 1 and Vol. 2.</span></p>
+ </div>
+ <div id="t4">
+  <p class="m ar" style="left:30px;width:440px;text-align:left;top:96px;font-size:40px;line-height:1.45"><span data-a="9.0">اللباب في فقه السنة والكتاب</span></p>
+  <p class="m hd" style="left:30px;top:172px;font-size:46px"><span data-a="9.15">Named in Arabic,</span></p>
+  <p class="m hd it" style="left:30px;top:222px;font-size:46px"><span data-a="9.3">written in English.</span></p>
+ </div>
+ <div id="t5">
+  <p class="m sm" style="left:32px;top:104px"><span data-a="11.85">Compiled by</span></p>
+  <p class="m hd" style="left:30px;top:130px;font-size:44px"><span data-a="11.95">Muhammad Subhi</span></p>
+  <p class="m hd it" style="left:30px;top:178px;font-size:44px"><span data-a="12.08">bin Hasan Hallaq.</span></p>
+  <p class="m sm" style="left:32px;top:240px"><span data-a="12.3">Published by Darussalam.</span></p>
+ </div>
+
+ <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+ <div id="t8">
+  <p class="m hd" style="left:0;width:540px;text-align:center;top:376px;font-size:50px;color:var(--wh)"><span data-a="15.1">daralathari.com</span></p>
+  <p class="m sm" style="left:0;width:540px;text-align:center;top:444px;color:#C9D1F2"><span data-a="15.25">Shipped from New Jersey.</span></p>
+  <div id="btnw" style="position:absolute;left:0;width:540px;top:530px;text-align:center;opacity:0"><span class="pill" id="btn">Browse the books</span></div>
+ </div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.4,-.45,.8],.42,.8);
+var cam=$('cam'),b2=makeBook(cam,'fq2'),b1=makeBook(cam,'fq1');
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a})});
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+var HIT=3.0;
+// t, x, y(center on stage), z, ry, rx, s
+var K1=[[0,0,590,-120,-34,4,1.78],[1.2,0,590,0,-10,2,1.76],[2.7,0,590,0,-6,2,1.76],[HIT,-128,600,40,-4,0,1.22],[4.9,-128,600,40,-8,0,1.22],
+  [5.6,-36,610,0,86,0,1.62],[8.2,-36,610,0,82,0,1.64],[8.9,0,600,0,180,2,1.62],[11.2,0,600,0,172,2,1.64],[11.8,-100,620,0,368,0,1.3],[13.7,-100,620,0,364,0,1.32]];
+var K2=[[0,0,590,-300,-34,4,1.55],[1.2,0,590,-90,-10,2,1.55],[2.7,0,590,-90,-6,2,1.55],[HIT,128,600,40,4,0,1.22],[4.9,128,600,40,8,0,1.22],
+  [5.6,34,610,0,86,0,1.62],[8.2,34,610,0,82,0,1.64],[8.9,520,620,0,100,0,1.5],[11.2,520,620,0,40,0,1.5],[11.8,110,630,-40,-8,0,1.3],[13.7,110,630,-40,-6,0,1.32]];
+window.__seek=function(t){
+  var a=keyed(K1,t),b=keyed(K2,t);
+  var sh=(t>HIT&&t<HIT+.6)?Math.sin((t-HIT)*55)*Math.exp(-(t-HIT)*8)*8:0;
+  var drop=io((t-13.8)/.7);
+  // vol 2 hides exactly behind vol 1 until the split
+  pose(b1,{x:a[0]+sh,y:a[1]-520+drop*700,z:a[2],ry:a[3],rx:a[4],s:a[5],rz:(t>11.8?-3:0)*sm((t-11.8)/.4)});
+  pose(b2,{x:b[0]+sh,y:b[1]-520+drop*760,z:b[2],ry:b[3],rx:b[4],s:b[5],rz:(t>11.8?4:0)*sm((t-11.8)/.4),hide:t<2.72});
+  // the blue lower field rises like the lower half of the cover and locks under the books
+  var pr=ob((t-2.75)/.5),end=io((t-13.75)/.75);
+  var top=lerp(960,640,t<2.75?0:pr);top=lerp(top,0,end);
+  $('panel').style.top=(top+sh*.4)+'px';
+  $('bign').textContent=t<8.6?'2':'II';$('bign').style.opacity=1-end;
+  $('rule').style.top=(top-14)+'px';$('rule').style.transform='scaleX('+oc((t-2.9)/.5)+')';$('rule').style.opacity=1-end;
+  $('shd').style.opacity=(1-drop)*(t<2.8?.6:1);$('shd').style.top=(t<2.8?820:780)+'px';
+  // volume tags under the pair
+  var vt=win(t,3.25,5.3,.3,.25),vq=oc((t-3.25)/.5);
+  [['v1',-128-35],['v2',128-35]].forEach(function(o,i){var e=$(o[0]);e.style.opacity=win(t,3.25+i*.12,5.3,.3,.25);e.style.left=(270+o[1])+'px';e.style.top=(800+(1-oc((t-3.25-i*.12)/.5))*20)+'px'});
+  MASK.forEach(function(m){var q=eo((t-m.s)/.6);m.e.style.transform='translateY('+((1-q)*105)+'%)'});
+  // hook is on screen from frame 0, slides out at the split
+  $('t1').style.opacity=1-sm((t-2.75)/.2);
+  $('t2').style.opacity=1-sm((t-5.4)/.2);
+  $('t3').style.opacity=1-sm((t-8.5)/.25);
+  $('t4').style.opacity=1-sm((t-11.5)/.25);
+  $('t5').style.opacity=1-sm((t-13.7)/.3);
+  var lq=ob((t-14.6)/.7);$('lg').style.opacity=cl((t-14.6)/.25);$('lg').style.transform='scale('+(t<14.6?.6:Math.max(.6,lq))+')';
+  var bq=ob((t-15.6)/.6);$('btnw').style.opacity=cl((t-15.6)/.2);$('btnw').style.transform='translateY('+((1-oc((t-15.6)/.6))*30)+'px) scale('+(t<15.6?.8:Math.max(.8,bq))+')';
+  var pu=t>16.4?((t-16.4)%1.4)/1.4:-1;$('btn').style.transform=pu>=0?'scale('+(1+.045*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+};
+window.__seek(0);
+</script></body></html>
