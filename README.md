@@ -68,6 +68,9 @@ count exists, leave `o1=None`.
 ## The morning procedure
 1. `git clone --depth 1 -b trial-reels https://github.com/dagestanandforget2/Daniyal-project trialreels`
 2. Read the plan doc: which block and day it is, the champion, the challenger, the standings.
+   If yesterday's rows in `batch-sheet.csv` are still `awaiting yes`, mark them `expired` (nothing
+   was posted) and run that same block day again today. Reels dated Nov 12 to 14 used the
+   withdrawn v2 render and never count toward a v3 block.
 3. Score. In Metricool (blogId 7251923) read the Instagram reels of the last 10 days: date,
    caption, views (IGRE23), 3-second hold (IGRE28, "reel view rate"), average watch (IGRE24),
    saves (IGRE12), shares (IGRE21). Match each to its row in `batch-sheet.csv` by date, slot and
@@ -90,7 +93,8 @@ count exists, leave `o1=None`.
 10. Add the five rows to `batch-sheet.csv` (status `awaiting yes`), commit sheets and captions to
     `trial-reels` and push. Never commit videos.
 11. Send the owner the batch: the five videos, the captions, the slots, and three lines on what
-    was scored and decided. Then wait for his yes.
+    was scored and decided. On Mondays add the past week's two or three best reels (72 hours or
+    older) as candidates to share to the main feed. Then wait for his yes.
 12. After his yes, schedule each reel with Metricool `createScheduledPost`:
     blogId "7251923", date "YYYY-MM-DDTHH:MM:SS-05:00" (use -04:00 during daylight time), info
     {autoPublish true, draft false, text <caption>, media [<VIDEO_URL>], providers
@@ -102,3 +106,9 @@ count exists, leave `o1=None`.
     remaining reels evenly between now + 20 minutes and 9 PM ET.
 13. Confirm with getScheduledPosts, write the Metricool ids and status `scheduled` into
     `batch-sheet.csv`, commit and push.
+
+## Format check
+Format v3 is untested as of Nov 14, 2026. After its first ten reels (expected Tue Nov 17), compare
+their pooled 3-second hold with the Nov 9 to 11 template (about 30%) and the withdrawn v2 render
+(about 17%). Under 22%: say so plainly in the batch message and propose a renderer change before
+testing more openings.
