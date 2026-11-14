@@ -1,0 +1,128 @@
+<!--FONTS JomL:jomhuria:latin:400:normal;JomA:jomhuria:arabic:400:normal;Libre Franklin:libre-franklin:latin:400,600:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Both Scripts, One Binding</title>
+<style>
+/*FONTS*/
+:root{--cog:#6B3F22;--deep:#2A170C;--jade:#1F5A47;--gold:#E3B85B;--bone:#F3EBDD;--ox:#8E2621;--hd:'JomL','JomA',serif;--ar:'JomA','JomL',serif;--ui:'Libre Franklin',sans-serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--bone);font-family:var(--hd);background:var(--deep)}
+#fieldA,#fieldB{position:absolute;inset:0}
+#fieldA{background:radial-gradient(85% 60% at 50% 58%,#86532F 0%,var(--cog) 48%,var(--deep) 100%)}
+#fieldB{background:radial-gradient(85% 60% at 50% 58%,#2C7760 0%,var(--jade) 48%,#0C2A20 100%);clip-path:inset(0 0 100% 0)}
+.band{position:absolute;left:0;white-space:nowrap;line-height:.8;font-size:300px;color:rgba(243,235,221,.09)}
+#bandAr{top:250px;font-family:var(--ar);direction:ltr}
+#bandEn{top:560px;font-family:var(--hd)}
+#shd{position:absolute;left:100px;top:800px;width:360px;height:70px;background:radial-gradient(50% 50% at 50% 50%,rgba(10,5,2,.6),rgba(10,5,2,0))}
+.st3d{position:absolute;inset:0;perspective:1400px;perspective-origin:270px 520px;overflow:hidden}
+.cam{position:absolute;left:270px;top:520px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#f1ead8 0 4.5px,#d3c6a6 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#f1ead8 0 4.5px,#d3c6a6 4.5px 7.5px)}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.08em}
+.m>span{display:block}
+.hd{font-family:var(--hd);font-weight:400;line-height:.86;font-size:84px;letter-spacing:.005em;text-shadow:0 3px 20px rgba(20,10,4,.35)}
+.g{color:var(--gold)}
+.sm{font-family:var(--ui);font-weight:400;font-size:19px;line-height:1.3;color:#EADFCC}
+.sb{font-weight:600;color:var(--bone)}
+.ar{font-family:var(--ar);color:var(--gold);direction:rtl;line-height:1.1}
+#flash{position:absolute;inset:0;background:radial-gradient(60% 40% at 50% 55%,rgba(255,236,190,.95),rgba(255,236,190,0));opacity:0}
+#panel{position:absolute;left:0;top:0;width:540px;height:960px;background:var(--ox);transform:translateY(100%)}
+#panel:before,#panel:after{content:'';position:absolute;left:22px;right:22px;top:22px;bottom:22px;border:2px solid rgba(227,184,91,.8)}
+#panel:after{left:32px;right:32px;top:32px;bottom:32px;border-width:1px;border-color:rgba(227,184,91,.45)}
+#lg{position:absolute;left:180px;top:150px;width:180px;height:180px;mix-blend-mode:screen;opacity:0}
+.pill{display:inline-block;background:var(--gold);color:var(--deep);font-family:var(--ui);font-weight:600;font-size:28px;padding:16px 40px;border-radius:60px;box-shadow:0 20px 40px -16px rgba(0,0,0,.6)}
+#grain{position:absolute;inset:0;opacity:.07;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+#vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 80% at 50% 50%,rgba(0,0,0,0) 55%,rgba(12,6,2,.38) 100%)}
+</style></head><body>
+<div id="stage">
+ <div id="fieldA"></div><div id="fieldB"></div>
+ <div class="band" id="bandAr">مختصر صحيح البخاري ‏ مختصر صحيح البخاري ‏ مختصر صحيح البخاري</div>
+ <div class="band" id="bandEn">Summarized Sahih al-Bukhari &nbsp; Summarized Sahih al-Bukhari</div>
+ <div id="shd"></div>
+ <div class="st3d"><div class="cam" id="cam"></div></div>
+ <div id="flash"></div>
+
+ <div id="t1">
+  <p class="m hd" style="left:30px;top:100px"><span>Arabic and English,</span></p>
+  <p class="m hd g" style="left:30px;top:168px"><span>in one volume.</span></p>
+  <p class="m sm sb" style="left:32px;top:244px"><span>Summarized Sahih al-Bukhari</span></p>
+  <p class="m sm" style="left:32px;top:268px"><span>Translated by Dr. Muhammad Muhsin Khan</span></p>
+ </div>
+ <div id="t2">
+  <p class="m hd" style="left:30px;top:100px"><span data-a="3.3">Arabic-English,</span></p>
+  <p class="m hd g" style="left:30px;top:168px"><span data-a="3.42">on the spine too.</span></p>
+  <p class="m sm" style="left:32px;top:244px"><span data-a="3.6">Gold-tooled, from Darussalam.</span></p>
+ </div>
+ <div id="t3">
+  <p class="m hd" style="left:30px;top:100px"><span data-a="7.0">Two scripts.</span></p>
+  <p class="m hd g" style="left:30px;top:168px"><span data-a="7.12">One binding.</span></p>
+  <p class="m sm" style="left:32px;top:244px"><span data-a="7.3">The Arabic and its English translation.</span></p>
+ </div>
+ <div id="t4">
+  <p class="m ar" style="left:30px;top:96px;font-size:80px"><span data-a="9.75">مختصر صحيح البخاري</span></p>
+  <p class="m sm sb" style="left:32px;top:200px"><span data-a="9.9">Imam Muhammad ibn Isma'il al-Bukhari</span></p>
+  <p class="m sm" style="left:32px;top:224px"><span data-a="10.0">Summarized Sahih al-Bukhari, Arabic-English</span></p>
+ </div>
+ <div id="t5">
+  <p class="m hd" style="left:30px;top:100px"><span data-a="12.2">Green grained</span></p>
+  <p class="m hd g" style="left:30px;top:168px"><span data-a="12.32">hardcover.</span></p>
+  <p class="m sm" style="left:32px;top:244px"><span data-a="12.5">One volume. Darussalam.</span></p>
+ </div>
+
+ <div id="vig"></div>
+ <div id="panel"></div>
+ <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+ <div id="t8">
+  <p class="m hd" style="left:0;width:540px;text-align:center;top:368px;font-size:92px"><span data-a="15.1">daralathari.com</span></p>
+  <p class="m sm" style="left:0;width:540px;text-align:center;top:458px;color:#F0D9C8"><span data-a="15.25">Shipped from New Jersey.</span></p>
+  <div id="btnw" style="position:absolute;left:0;width:540px;top:536px;text-align:center;opacity:0"><span class="pill" id="btn">Shop the collection</span></div>
+ </div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.45,-.5,.75],.42,.85);
+var cam=$('cam'),bk=makeBook(cam,'sb');
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a})});
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+var HIT=6.8;
+// book keyframes: t,x,y,z,ry,rx,s
+var BK=[[0,30,575,-50,-38,6,1.74],[1.3,10,560,0,-14,3,1.72],[2.9,10,560,0,-8,2,1.74],[3.7,-10,555,0,82,0,1.8],[5.1,-10,555,0,94,0,1.8],
+  [HIT,10,565,0,-0-360,0,1.7],[9.3,10,565,0,-372,2,1.72],[11.8,20,565,0,-376,3,1.72],[12.5,10,560,0,-540+20,2,1.74],[13.6,10,560,0,-540+14,2,1.74],[14.4,10,560,0,-540+14,2,1.74]];
+var bAr=$('bandAr'),bEn=$('bandEn');
+window.__seek=function(t){
+  var b=keyed(BK,t),sh=(t>HIT&&t<HIT+.6)?Math.sin((t-HIT)*58)*Math.exp(-(t-HIT)*8)*10:0;
+  var w=(t>5.1&&t<HIT)?Math.sin(Math.PI*(t-5.1)/(HIT-5.1)):0;
+  pose(bk,{x:b[0]+sh,y:b[1]-w*36-520,z:b[2],ry:b[3],rx:b[4],s:b[5]*(1+w*.07),blur:w*w*3});
+  $('shd').style.opacity=1-w*.6;$('shd').style.transform='scaleX('+(1-w*.3)+')';
+  // the two bands: drift in opposite directions; whip during the spin, collide on the hit
+  var spd=0;// integrated position
+  var base=t*22, whip=(t>5.1?Math.min(t,HIT)-5.1:0), acc=whip*whip*420;
+  var xa=-1650+base+acc, xe=-40-base-acc;
+  var hit=t>HIT?Math.exp(-(t-HIT)*4):0;
+  var conv=io((t-HIT+.25)/.5); // after the hit the bands slide toward the middle line
+  bAr.style.transform='translate('+xa+'px,'+(conv*70)+'px) skewX('+(-w*14)+'deg)';
+  bEn.style.transform='translate('+xe+'px,'+(-conv*70)+'px) skewX('+(w*14)+'deg)';
+  var bc=t<HIT?lerp(.10,.6,sm((t-5.1)/.6)):lerp(.6,.12,sm((t-HIT-.2)/1.2));
+  bAr.style.color=bEn.style.color=t>5.1&&t<HIT+1.6?'rgba(227,184,91,'+bc+')':'rgba(243,235,221,'+bc+')';
+  // field: cognac -> jade wipe on the hit, from the middle outward
+  var wp=io((t-HIT+.05)/.55)*50;$('fieldB').style.clipPath='inset('+(50-wp)+'% 0 '+(50-wp)+'% 0)';
+  $('flash').style.opacity=t>HIT?.8*hit*1.2:0;
+  // camera push-in at the open
+  $('cam').style.transform='translateZ('+(oc(t/1.4)*30-30)+'px)';
+  // text
+  MASK.forEach(function(m){var q=eo((t-m.s)/.6);m.e.style.transform='translateY('+((1-q)*105)+'%)'});
+  $('t1').style.opacity=1-sm((t-3.0)/.25);
+  $('t2').style.opacity=1-sm((t-5.05)/.2);
+  $('t3').style.opacity=1-sm((t-9.4)/.25);
+  $('t4').style.opacity=1-sm((t-11.85)/.25);
+  $('t5').style.opacity=1-sm((t-14.0)/.3);
+  // end card: oxblood label panel rises with a double gold rule
+  var pq=io((t-14.1)/.65);$('panel').style.transform='translateY('+((1-pq)*100)+'%)';
+  var lq=ob((t-14.7)/.7);$('lg').style.opacity=cl((t-14.7)/.25);$('lg').style.transform='scale('+(t<14.7?.6:Math.max(.6,lq))+')';
+  var bq=ob((t-15.6)/.6);$('btnw').style.opacity=cl((t-15.6)/.2);$('btnw').style.transform='translateY('+((1-oc((t-15.6)/.6))*30)+'px) scale('+(t<15.6?.8:Math.max(.8,bq))+')';
+  var pu=t>16.4?((t-16.4)%1.4)/1.4:-1;$('btn').style.transform=pu>=0?'scale('+(1+.045*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+};
+window.__seek(0);
+</script></body></html>
