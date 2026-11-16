@@ -1,0 +1,23 @@
+import os; os.environ.setdefault('SFXT','18')
+import sys; sys.path.insert(0,'../../tools'); from sfxlib import *
+add(rumble(18.4),.1,.05)
+w=whoosh(.8,300,1500,600,.5,1.0); add(w,0.0,.16,sweep(w,.3,-.2))
+add(thud(100,48,.3,.2,12),1.15,.15)
+add(whoosh(.8,250,1600,500,.6,1.0),2.6,.16); add(clack(.8),3.3,.18)
+for t in (2.85,2.97,3.15): txt(t)
+# push into the dates on the cover
+add(whoosh(.9,200,1100,400,.6,1.0),4.8,.18); add(rumble(2.6),4.9,.1)
+for t in (5.35,5.5): txt(t)
+# hero: pull back, spin, ruler slides in, bracket snaps open
+add(whoosh(1.0,200,2200,500,.7,1.0),6.5,.22); add(scrape(1.0),6.6,.12)
+for k in range(8): add(tick(.5+.06*k),6.75+k*.1,.1+.01*k)
+add(slap(),7.6,.32); add(thud(90,40,.45,.35,11),7.62,.55); add(clack(1),7.66,.2); add(clack(1.2),7.72,.18)
+for t in (7.95,8.05,8.25): txt(t)
+add(whoosh(.9,300,1600,600,.5,1.0),10.45,.15); add(thud(100,46,.3,.2,12),11.1,.2)
+for t in (11.25,11.4,11.55): txt(t)
+add(rumble(2.4),13.8,.13); add(whoosh(1.0,200,1200,400,.6,1.0),13.75,.18)
+add(thud(96,42,.4,.25,12),14.7,.33); add(shimmer(1.2,6200,.5),14.65,.07)
+for t in (15.2,15.35): txt(t)
+add(click(1),15.7,.25)
+for k in range(2): add(tick(.6),16.4+k*1.4,.12)
+master('sfx.wav')

@@ -1,0 +1,129 @@
+<!--FONTS Gravitas One:gravitas-one:latin:400:normal;Manrope:manrope:latin:400,700:normal;Markazi Text:markazi-text:arabic:700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Measured in Years</title>
+<style>
+/*FONTS*/
+:root{--ol:#8C8448;--ol2:#57512A;--ink:#14120B;--gd:#E3C46A;--pp:#F5EFD9;--pl:#4B1D36;--hd:'Gravitas One',serif;--ui:'Manrope',sans-serif;--ar:'Markazi Text',serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--ink);font-family:var(--hd);
+  background:radial-gradient(90% 65% at 50% 58%,#A39B5A 0%,var(--ol) 48%,var(--ol2) 100%)}
+#hatch{position:absolute;inset:-40px;opacity:.12;background:repeating-linear-gradient(90deg,transparent 0 23px,#2B2712 23px 24px)}
+#dark{position:absolute;inset:0;background:var(--ink);opacity:0}
+.st3d{position:absolute;inset:0;perspective:1500px;perspective-origin:270px 560px;overflow:hidden}
+.cam{position:absolute;left:270px;top:520px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#f4efe0 0 4.5px,#d4cdb6 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#f4efe0 0 4.5px,#d4cdb6 4.5px 7.5px)}
+#shadow{position:absolute;left:110px;width:320px;top:860px;height:44px;border-radius:50%;background:radial-gradient(closest-side,rgba(20,18,11,.5),transparent)}
+#ruler{position:absolute;left:-30px;width:600px;top:736px;height:40px;opacity:0;
+  background:linear-gradient(#F1D98A,#C9A24A 55%,#8E6F2A);box-shadow:0 14px 26px -10px rgba(0,0,0,.55),inset 0 1px 0 #FFF2C0}
+#ticks{position:absolute;left:0;right:0;top:0;height:18px;background:
+  repeating-linear-gradient(90deg,var(--ink) 0 1.5px,transparent 1.5px 6.25px)}
+#ticks5{position:absolute;left:0;right:0;top:0;height:28px;background:
+  repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 31.25px);background-position:12.5px 0}
+#brk{position:absolute;top:722px;height:10px;background:var(--pl);opacity:0;box-shadow:0 0 0 2px var(--gd)}
+.yr{position:absolute;top:668px;font-size:40px;color:var(--pp);opacity:0;text-shadow:0 3px 0 var(--ink)}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.12em}
+.m>span{display:block}
+.hd{font-weight:400;line-height:1.1;color:var(--ink)}
+.pp{color:var(--pp)}
+.sm{font-family:var(--ui);font-weight:400;font-size:18px;line-height:1.3;color:#221F10}
+.sb{font-weight:700}
+.ar{font-family:var(--ar);font-weight:700;color:var(--pp);direction:rtl}
+#lg{position:absolute;left:180px;top:150px;width:180px;height:180px;mix-blend-mode:screen;opacity:0}
+.pill{display:inline-block;background:var(--gd);color:var(--ink);font-family:var(--ui);font-weight:700;font-size:27px;padding:16px 40px;border-radius:60px;box-shadow:0 18px 40px -14px rgba(0,0,0,.7)}
+#flash{position:absolute;inset:0;background:#FFF3CC;opacity:0}
+#grain{position:absolute;inset:0;opacity:.08;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="hatch"></div>
+ <div id="dark"></div>
+ <div id="shadow"></div>
+ <div class="st3d"><div class="cam" id="cam"></div></div>
+ <div id="ruler"><div id="ticks"></div><div id="ticks5"></div></div>
+ <div id="brk"></div>
+ <div class="yr" id="y1">691</div><div class="yr" id="y2">751</div>
+
+ <div id="t1">
+  <p class="m hd" style="left:28px;top:104px;font-size:44px"><span>Al-Fawa'id,</span></p>
+  <p class="m hd pp" style="left:28px;top:154px;font-size:44px"><span>in Arabic,</span></p>
+  <p class="m hd pp" style="left:28px;top:204px;font-size:44px"><span>hardcover.</span></p>
+  <p class="m sm sb" style="left:30px;top:268px"><span>By Imam Ibn Qayyim al-Jawziyyah</span></p>
+ </div>
+ <div id="t2">
+  <p class="m hd" style="left:28px;top:104px;font-size:34px"><span data-a="2.85">Black boards,</span></p>
+  <p class="m hd pp" style="left:28px;top:146px;font-size:34px"><span data-a="2.97">gold on the spine.</span></p>
+  <p class="m sm" style="left:30px;top:200px"><span data-a="3.15">Published by Dar Ata'at al-'Ilm.</span></p>
+ </div>
+ <div id="t3">
+  <p class="m sm sb" style="left:30px;top:106px"><span data-a="5.35">Printed on the cover, under his name:</span></p>
+  <p class="m hd" style="left:28px;top:136px;font-size:46px"><span data-a="5.5">691 to 751 AH.</span></p>
+ </div>
+ <div id="t4">
+  <p class="m hd" style="left:28px;top:104px;font-size:42px"><span data-a="7.95">Imam</span></p>
+  <p class="m hd pp" style="left:28px;top:154px;font-size:42px"><span data-a="8.05">Ibn al-Qayyim.</span></p>
+  <p class="m sm" style="left:30px;top:216px"><span data-a="8.25">Author of Al-Fawa'id.</span></p>
+ </div>
+ <div id="t5">
+  <p class="m ar" style="left:28px;width:440px;text-align:left;top:92px;font-size:64px;line-height:1.25"><span data-a="11.25">الفوائد</span></p>
+  <p class="m hd" style="left:28px;top:178px;font-size:34px"><span data-a="11.4">Al-Fawa'id.</span></p>
+  <p class="m sm" style="left:30px;top:224px"><span data-a="11.55">Arabic text, one volume, hardcover.</span></p>
+ </div>
+
+ <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+ <div id="t8">
+  <p class="m hd pp" style="left:0;width:540px;text-align:center;top:372px;font-size:31px"><span data-a="15.2">daralathari.com</span></p>
+  <p class="m sm" style="left:0;width:540px;text-align:center;top:428px;color:#CFC69A"><span data-a="15.35">Shipped from New Jersey.</span></p>
+  <div id="btnw" style="position:absolute;left:0;width:540px;top:520px;text-align:center;opacity:0"><span class="pill" id="btn">Browse the books</span></div>
+ </div>
+ <div id="flash"></div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.45,-.4,.8],.4,.85);
+var cam=$('cam'),bk=makeBook(cam,'fw');
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a})});
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+function X(y){return 20+(y-686)*6.25-(-30)-30}  // year -> stage x  (ruler left -30, 686 at x=20)
+var HIT=7.6;
+// t, x, y, z, ry, rx, s
+var KB=[[0,300,600,-160,-38,5,1.7],[1.3,270,600,0,-12,2,1.72],[2.55,270,600,0,-8,1,1.74],
+  [3.3,270,590,40,-92,0,1.9],[4.75,270,595,40,-88,0,1.9],
+  // push into the dates on the cover
+  [5.3,270,640,520,-2,0,1.8],[6.4,270,640,560,0,0,1.8],
+  // pull back, spin over the ruler
+  [HIT,270,520,0,-360,0,1.2],[10.4,270,520,0,-366,0,1.22],
+  [11.1,270,600,30,-360-10,2,1.66],[13.7,270,600,60,-360-4,1,1.7]];
+window.__seek=function(t){
+  var a=keyed(KB,t);
+  var sh=(t>HIT&&t<HIT+.6)?Math.sin((t-HIT)*55)*Math.exp(-(t-HIT)*8)*8:0;
+  var spinV=(t>6.6&&t<HIT)?Math.sin(cl((t-6.6)/(HIT-6.6))*Math.PI):0;
+  var exit=io((t-13.75)/.8);
+  pose(bk,{x:a[0]-270+sh,y:a[1]-520-exit*900,z:a[2],ry:a[3],rx:a[4],s:a[5],blur:spinV*2.6});
+  $('shadow').style.opacity=(1-sm((t-5.1)/.3)*(1-sm((t-6.7)/.4)))*(1-sm((t-13.7)/.4));
+  // ruler slides in from the right during the pull back; bracket snaps open from the centre at HIT
+  var rq=eo((t-6.5)/.9), rout=io((t-10.5)/.6);
+  var R=$('ruler');R.style.opacity=t<6.5?0:1;R.style.transform='translateX('+((1-rq)*620+sh*.5)+'px) translateY('+(rout*260)+'px)';
+  var bq=t<HIT?0:ob((t-HIT)/.45);var c=(X(691)+X(751))/2,half=(X(751)-X(691))/2*Math.max(0,bq);
+  var B=$('brk');B.style.opacity=t<HIT?0:1;B.style.left=(c-half)+'px';B.style.width=(2*half)+'px';B.style.transform='translateY('+(rout*260)+'px)';
+  [['y1',691,-1],['y2',751,1]].forEach(function(o){var e=$(o[0]),q=ob((t-HIT-.08)/.4);e.style.opacity=t<HIT+.08?0:cl((t-HIT-.08)/.1)*(1-rout);
+    e.style.left=(X(o[1])-(o[2]<0?8:64))+'px';e.style.transform='translateY('+((1-Math.min(1,q))*-40+rout*260)+'px) scale('+Math.max(.5,q)+')'});
+  $('flash').style.opacity=t>HIT?.45*Math.exp(-(t-HIT)*7):0;
+  $('hatch').style.transform='translateX('+(-t*6)+'px)';
+  // end card
+  $('dark').style.opacity=io((t-13.8)/.8);
+  MASK.forEach(function(m){var q=eo((t-m.s)/.6);m.e.style.transform='translateY('+((1-q)*105)+'%)'});
+  $('t1').style.opacity=1-sm((t-2.5)/.25);
+  [['t2',2.8],['t3',5.3],['t4',7.9],['t5',11.2],['t8',15.1]].forEach(function(o){$(o[0]).style.visibility=t<o[1]?'hidden':'visible'});
+  $('t2').style.opacity=1-sm((t-4.9)/.2);
+  $('t3').style.opacity=1-sm((t-7.5)/.2);
+  $('t4').style.opacity=1-sm((t-10.6)/.25);
+  $('t5').style.opacity=1-sm((t-13.6)/.3);
+  var lq=ob((t-14.6)/.7);$('lg').style.opacity=cl((t-14.6)/.25);$('lg').style.transform='scale('+(t<14.6?.6:Math.max(.6,lq))+')';
+  var pq=ob((t-15.7)/.6);$('btnw').style.opacity=cl((t-15.7)/.2);$('btnw').style.transform='translateY('+((1-oc((t-15.7)/.6))*30)+'px) scale('+(t<15.7?.8:Math.max(.8,pq))+')';
+  var pu=t>16.4?((t-16.4)%1.4)/1.4:-1;$('btn').style.transform=pu>=0?'scale('+(1+.045*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+};
+window.__seek(0);
+</script></body></html>
