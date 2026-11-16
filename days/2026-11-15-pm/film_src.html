@@ -1,0 +1,123 @@
+<!--FONTS Cinzel:cinzel:latin:700,900:normal;Outfit:outfit:latin:400,600:normal;Aref Ruqaa:aref-ruqaa:arabic:700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Set in Stone</title>
+<style>
+/*FONTS*/
+:root{--fd:#CBD5C7;--fd2:#93A698;--tl:#123F3A;--tl2:#0B2A27;--mr:#7A2433;--gd:#C9A24C;--ink:#0D1F1D;--pp:#F5F3EC;--hd:'Cinzel',serif;--ui:'Outfit',sans-serif;--ar:'Aref Ruqaa',serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--ink);font-family:var(--hd);
+  background:radial-gradient(85% 60% at 50% 60%,#DCE3D8 0%,var(--fd) 45%,var(--fd2) 100%)}
+#joints{position:absolute;inset:0;opacity:.18;background:
+  repeating-linear-gradient(to bottom,transparent 0 63px,#4E6457 63px 64.5px),
+  linear-gradient(to right,transparent 0 50%,transparent 50%)}
+.col{position:absolute;top:346px;width:66px;height:640px;background:
+  repeating-linear-gradient(to right,#0E3531 0 3px,#1A4C46 3px 11px,#2A6058 11px 13px);box-shadow:inset 0 0 0 2px var(--gd),0 20px 40px -10px rgba(0,0,0,.45)}
+.col:before{content:'';position:absolute;left:-10px;right:-10px;top:-26px;height:26px;background:var(--tl);box-shadow:inset 0 -3px 0 var(--gd),inset 0 3px 0 var(--gd)}
+#lint{position:absolute;left:0;width:540px;top:296px;height:50px;background:var(--tl);box-shadow:inset 0 3px 0 var(--gd),inset 0 -3px 0 var(--gd),0 16px 30px -10px rgba(0,0,0,.5);overflow:hidden}
+#lintx{position:absolute;left:0;width:540px;top:0;height:50px;text-align:center;font-family:var(--hd);font-weight:900;font-size:24px;line-height:50px;letter-spacing:.06em;color:var(--gd);white-space:nowrap}
+.st3d{position:absolute;inset:0;perspective:1500px;perspective-origin:270px 600px;overflow:hidden}
+.cam{position:absolute;left:270px;top:520px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#f4f1e8 0 4.5px,#d6d0c0 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#f4f1e8 0 4.5px,#d6d0c0 4.5px 7.5px)}
+#shadow{position:absolute;left:120px;width:300px;top:880px;height:40px;border-radius:50%;background:radial-gradient(closest-side,rgba(10,30,28,.45),transparent)}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.12em}
+.m>span{display:block}
+.hd{font-weight:700;line-height:1.08;color:var(--ink)}
+.mr{color:var(--mr)}
+.sm{font-family:var(--ui);font-weight:400;font-size:18px;line-height:1.3;color:#1E3330}
+.sb{font-weight:600;color:var(--ink)}
+.ar{font-family:var(--ar);font-weight:700;color:var(--mr);direction:rtl}
+#lg{position:absolute;left:180px;top:150px;width:180px;height:180px;mix-blend-mode:screen;opacity:0}
+.pill{display:inline-block;background:var(--gd);color:var(--tl2);font-family:var(--ui);font-weight:600;font-size:27px;padding:16px 40px;border-radius:60px;box-shadow:0 18px 40px -14px rgba(0,0,0,.6)}
+#flash{position:absolute;inset:0;background:#FFF4D8;opacity:0}
+#grain{position:absolute;inset:0;opacity:.07;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="joints"></div>
+ <div class="col" id="cL" style="left:22px"></div>
+ <div class="col" id="cR" style="left:452px"></div>
+ <div id="shadow"></div>
+ <div class="st3d"><div class="cam" id="cam"></div></div>
+
+ <div id="t1">
+  <p class="m hd" style="left:28px;top:100px;font-size:40px"><span>The Pillars of</span></p>
+  <p class="m hd" style="left:28px;top:146px;font-size:40px"><span>Islam &amp; Iman,</span></p>
+  <p class="m hd mr" style="left:28px;top:192px;font-size:40px"><span>in hardcover.</span></p>
+  <p class="m sm sb" style="left:30px;top:250px"><span>By Sheikh Muhammad bin Jamil Zeno</span></p>
+ </div>
+ <div id="t2">
+  <p class="m hd" style="left:28px;top:104px;font-size:38px"><span data-a="2.85">Title in gold,</span></p>
+  <p class="m hd mr" style="left:28px;top:148px;font-size:38px"><span data-a="2.97">down the spine.</span></p>
+  <p class="m sm" style="left:30px;top:204px"><span data-a="3.15">English edition, published by Darussalam.</span></p>
+ </div>
+ <div id="t3">
+  <p class="m hd" style="left:28px;top:110px;font-size:40px"><span data-a="6.45">Green boards,</span></p>
+  <p class="m hd mr" style="left:28px;top:158px;font-size:40px"><span data-a="6.58">gold lettering.</span></p>
+ </div>
+ <div id="t4">
+  <p class="m hd" style="left:28px;top:110px;font-size:40px"><span data-a="8.75">Grained green</span></p>
+  <p class="m hd mr" style="left:28px;top:158px;font-size:40px"><span data-a="8.88">back board.</span></p>
+ </div>
+ <div id="t5">
+  <p class="m ar" style="left:28px;width:440px;text-align:left;top:92px;font-size:44px;line-height:1.4"><span data-a="11.0">أركان الإسلام والإيمان</span></p>
+  <p class="m sm" style="left:30px;top:166px"><span data-a="11.2">Written by</span></p>
+  <p class="m hd" style="left:28px;top:190px;font-size:28px"><span data-a="11.3">Sheikh Muhammad</span></p>
+  <p class="m hd" style="left:28px;top:226px;font-size:28px"><span data-a="11.42">bin Jamil Zeno.</span></p>
+ </div>
+
+ <div id="lint"><div id="lintx">ISLAM &amp; IMAN</div></div>
+ <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+ <div id="t8">
+  <p class="m hd" style="left:0;width:540px;text-align:center;top:368px;font-size:40px;color:var(--pp)"><span data-a="15.2">daralathari.com</span></p>
+  <p class="m sm" style="left:0;width:540px;text-align:center;top:430px;color:#B9CFC8"><span data-a="15.35">Shipped from New Jersey.</span></p>
+  <div id="btnw" style="position:absolute;left:0;width:540px;top:520px;text-align:center;opacity:0"><span class="pill" id="btn">Shop the collection</span></div>
+ </div>
+ <div id="flash"></div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.4,-.35,.85],.42,.8);
+var cam=$('cam'),bk=makeBook(cam,'pi');
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a})});
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+var HIT=6.2;
+// t, x, y(stage), z, ry, rx, s
+var KB=[[0,285,625,-140,-40,4,1.66],[1.2,270,615,0,-12,2,1.66],[2.55,270,615,0,-8,1,1.68],
+  [3.3,270,600,60,88,0,1.85],[4.75,270,605,60,92,0,1.85],
+  [HIT,270,615,0,358,0,1.62],[7.9,270,615,0,350,0,1.64],
+  [8.6,270,615,0,540-6,0,1.62],[10.2,270,615,0,540+4,0,1.62],
+  [10.9,280,620,0,700,0,1.62],[13.7,280,620,0,706,0,1.64]];
+window.__seek=function(t){
+  var a=keyed(KB,t);
+  var sh=(t>HIT&&t<HIT+.6)?Math.sin((t-HIT)*55)*Math.exp(-(t-HIT)*8)*9:0;
+  var spinV=(t>4.8&&t<HIT)?Math.sin(cl((t-4.8)/(HIT-4.8))*Math.PI):0;
+  var hop=-Math.sin(cl((t-4.8)/(HIT-4.8))*Math.PI)*60;
+  pose(bk,{x:a[0]-270+sh,y:a[1]-520+hop,z:a[2],ry:a[3],rx:a[4],s:a[5],blur:spinV*2.8});
+  $('shadow').style.opacity=1-sm((t-13.7)/.5);
+  // columns rise from below during the spin, lintel slams on top at HIT
+  var cl1=io((t-4.85)/.9),cr1=io((t-5.05)/.9);
+  $('cL').style.transform='translateY('+((1-cl1)*680+sh*.4)+'px)';
+  $('cR').style.transform='translateY('+((1-cr1)*680-sh*.4)+'px)';
+  var ld=t<HIT?eo((t-5.7)/(HIT-5.7))*0+ic(cl((t-5.7)/(HIT-5.7))):1;
+  var Lt=lerp(-80,296,ld)+sh*.6;
+  // end card: lintel comes down and fills the frame
+  var en=io((t-13.8)/.9);
+  var L=$('lint');L.style.top=lerp(Lt,0,en)+'px';L.style.height=lerp(50,960,en)+'px';
+  $('lintx').style.opacity=1-sm((t-13.8)/.3);
+  $('flash').style.opacity=t>HIT?.5*Math.exp(-(t-HIT)*7):0;
+  $('joints').style.transform='translateY('+(-t*3)+'px)';
+  MASK.forEach(function(m){var q=eo((t-m.s)/.6);m.e.style.transform='translateY('+((1-q)*105)+'%)'});
+  $('t1').style.opacity=1-sm((t-2.5)/.25);
+  $('t2').style.opacity=1-sm((t-4.75)/.2);
+  $('t3').style.opacity=1-sm((t-8.25)/.25);
+  $('t4').style.opacity=1-sm((t-10.5)/.25);
+  $('t5').style.opacity=1-sm((t-13.6)/.3);
+  var lq=ob((t-14.6)/.7);$('lg').style.opacity=cl((t-14.6)/.25);$('lg').style.transform='scale('+(t<14.6?.6:Math.max(.6,lq))+')';
+  var bq=ob((t-15.7)/.6);$('btnw').style.opacity=cl((t-15.7)/.2);$('btnw').style.transform='translateY('+((1-oc((t-15.7)/.6))*30)+'px) scale('+(t<15.7?.8:Math.max(.8,bq))+')';
+  var pu=t>16.4?((t-16.4)%1.4)/1.4:-1;$('btn').style.transform=pu>=0?'scale('+(1+.045*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+};
+window.__seek(0);
+</script></body></html>
