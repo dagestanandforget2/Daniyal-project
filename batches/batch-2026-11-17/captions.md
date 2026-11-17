@@ -1,5 +1,5 @@
 # Batch 9 captions (Tue Nov 17, block 2, day 1: O1 number fact vs O3 motion only, 5 Trial Reels)
-Rendered with render_v3.py. Status: awaiting yes. Stock and product pages checked in Shopify Nov 17: mt 30 (Black 29), ft 10, fh 5, ks 21, ts 2, all active. Champion (O1) reels carry 4 hashtags, challenger (O3) reels 5.
+Rendered with render_v3.py. Status: yes received Nov 17, 7:27 AM ET, all five scheduled in Metricool in the planned slots. Stock and product pages checked in Shopify Nov 17: mt 30 (Black 29), ft 10, fh 5, ks 21, ts 2, all active. Champion (O1) reels carry 4 hashtags, challenger (O3) reels 5.
 
 Two things the owner is asked to decide with this batch:
 - Only three books that carry a real count were not in the last block (mt, ft, fh). Reels 4 and 5 repeat two books from Nov 15 and 16 (ks, ts). They can be left out.
