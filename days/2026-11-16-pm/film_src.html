@@ -1,0 +1,148 @@
+<!--FONTS Brygada:brygada-1918:latin:600,700:normal;Onest:onest:latin:400,600:normal;Mirza:mirza:arabic:700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Behind the Board</title>
+<style>
+/*FONTS*/
+:root{--lth:#15110F;--gd:#D2AC57;--bl:#EFE2DF;--rs:#A84A5E;--mr:#5E1A22;--pp:#F7F0E8;--ink:#2A1418;--hd:'Brygada',serif;--ui:'Onest',sans-serif;--ar:'Mirza',serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;font-family:var(--hd);background:var(--lth)}
+#leather{position:absolute;left:-60px;top:-60px;width:660px;height:1080px;background:url(assets/a_back.jpg) center/cover;filter:brightness(.62) contrast(1.15)}
+#lvig{position:absolute;inset:0;background:radial-gradient(80% 60% at 50% 58%,transparent 30%,rgba(0,0,0,.6) 100%)}
+#endp{position:absolute;inset:0;overflow:hidden;clip-path:circle(0px at 400px 600px)}
+#endimg{position:absolute;left:-200px;top:-260px;width:1100px;height:1571px;background:url(assets/a_end.jpg) center/cover;filter:blur(1.5px) saturate(1.3) brightness(.86)}
+#wash{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(236,214,211,.9) 0%,rgba(214,176,176,.55) 45%,rgba(168,74,94,.35) 100%)}
+.st3d{position:absolute;inset:0;perspective:1500px;perspective-origin:270px 600px;overflow:hidden}
+.cam{position:absolute;left:270px;top:520px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#f4f1e8 0 4.5px,#d6d0c0 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#f4f1e8 0 4.5px,#d6d0c0 4.5px 7.5px)}
+.hinge{transform-origin:100% 50%}
+.sh{position:absolute;left:0;top:0;width:100%;height:100%;display:block;background:#000;opacity:0}
+#shadow{position:absolute;left:110px;width:320px;top:860px;height:44px;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.55),transparent)}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.14em}
+.m>span{display:block}
+.hd{font-weight:700;line-height:1.06;color:var(--pp);letter-spacing:-.01em}
+.g{color:var(--gd)}
+.dk{color:var(--ink)} .rs{color:var(--rs)}
+.sm{font-family:var(--ui);font-weight:400;font-size:18px;line-height:1.3;color:#D9CFC4}
+.smd{color:#4A2A30}
+.sb{font-weight:600}
+.ar{font-family:var(--ar);font-weight:700;direction:rtl}
+#lg{position:absolute;left:180px;top:150px;width:180px;height:180px;mix-blend-mode:screen;opacity:0}
+#endbg{position:absolute;inset:0;background:var(--lth);opacity:0}
+.pill{display:inline-block;background:var(--gd);color:var(--lth);font-family:var(--ui);font-weight:600;font-size:27px;padding:16px 40px;border-radius:60px;box-shadow:0 18px 40px -14px rgba(0,0,0,.6)}
+#flash{position:absolute;inset:0;background:#FFF3EA;opacity:0}
+#grain{position:absolute;inset:0;opacity:.07;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="leather"></div><div id="lvig"></div>
+ <div id="endp"><div id="endimg"></div><div id="wash"></div></div>
+ <div id="shadow"></div>
+ <div class="st3d"><div class="cam" id="cam"></div></div>
+
+ <div id="t1">
+  <p class="m hd" style="left:28px;top:102px;font-size:44px"><span>Ad-Da' wa ad-Dawa',</span></p>
+  <p class="m hd g" style="left:28px;top:152px;font-size:44px"><span>in Arabic, hardcover.</span></p>
+  <p class="m sm sb" style="left:30px;top:216px;color:var(--pp)"><span>By Imam Ibn al-Qayyim al-Jawziyyah</span></p>
+ </div>
+ <div id="t2">
+  <p class="m hd" style="left:28px;top:104px;font-size:40px"><span data-a="2.75">Maroon labels,</span></p>
+  <p class="m hd g" style="left:28px;top:150px;font-size:40px"><span data-a="2.87">gold down the spine.</span></p>
+  <p class="m sm" style="left:30px;top:208px"><span data-a="3.05">Published by Dar Ata'at al-'Ilm.</span></p>
+ </div>
+ <div id="t3">
+  <p class="m hd" style="left:28px;top:104px;font-size:40px"><span data-a="4.8">Black grained boards.</span></p>
+  <p class="m hd g" style="left:28px;top:150px;font-size:40px"><span data-a="4.92">Now open the cover.</span></p>
+ </div>
+ <div id="t4">
+  <p class="m hd dk" style="left:28px;top:102px;font-size:40px"><span data-a="6.75">Patterned endpapers,</span></p>
+  <p class="m hd rs" style="left:28px;top:148px;font-size:40px"><span data-a="6.87">front and back.</span></p>
+  <p class="m sm smd" style="left:30px;top:206px"><span data-a="7.05">Printed with the publisher's name.</span></p>
+ </div>
+ <div id="t5">
+  <p class="m hd dk" style="left:28px;top:102px;font-size:40px"><span data-a="9.95">One page in:</span></p>
+  <p class="m hd rs" style="left:28px;top:148px;font-size:40px"><span data-a="10.07">page 3.</span></p>
+  <p class="m sm smd" style="left:30px;top:206px"><span data-a="10.25">Arabic text with numbered footnotes.</span></p>
+ </div>
+ <div id="t6">
+  <p class="m ar" style="left:28px;top:92px;font-size:54px;line-height:1.35;color:var(--gd)"><span data-a="13.75">الداء والدواء</span></p>
+  <p class="m hd" style="left:28px;top:172px;font-size:34px"><span data-a="13.9">Imam Ibn al-Qayyim</span></p>
+  <p class="m sm" style="left:30px;top:220px"><span data-a="14.05">691–751 AH, as printed on the cover.</span></p>
+ </div>
+
+ <div id="endbg"></div>
+ <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+ <div id="t8">
+  <p class="m hd" style="left:0;width:540px;text-align:center;top:368px;font-size:42px"><span data-a="15.5">daralathari.com</span></p>
+  <p class="m sm" style="left:0;width:540px;text-align:center;top:432px"><span data-a="15.65">Shipped from New Jersey.</span></p>
+  <div id="btnw" style="position:absolute;left:0;width:540px;top:520px;text-align:center;opacity:0"><span class="pill" id="btn">Shop the books</span></div>
+ </div>
+ <div id="flash"></div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.35,-.4,.85],.4,.85);
+var cam=$('cam'),bk=makeBook(cam,'aar');
+var W=bk.W*K,H=bk.H*K,D=bk.D*K;
+// hinged rig inside the book: page 3 underneath, free endpaper leaf, front cover (inside = pastedown endpaper)
+var rect='left:'+(-W/2)+'px;top:'+(-H/2)+'px;width:'+W+'px;height:'+H+'px;';
+var rig=el('','left:0;top:0;width:0;height:0',bk.root);
+var page=el('face',rect+'background-image:url(assets/a_p3.jpg);transform:translateZ('+(D/2-6)+'px)',rig);
+function leaf(z,front,back){
+  var h=el('hinge',rect+'transform:translateZ('+z+'px)',rig);
+  var f=el('face','left:0;top:0;width:'+W+'px;height:'+H+'px;'+front,h);
+  var b=el('face','left:0;top:0;width:'+W+'px;height:'+H+'px;'+back+'transform:rotateY(180deg)',h);
+  var fs=el('sh','',f,null,'i'),bs=el('sh','',b,null,'i');
+  return {h:h,fs:fs,bs:bs};
+}
+var LF=leaf(D/2-3,'background-image:url(assets/a_end.jpg);','background:#F3ECE4;');
+var CV=leaf(D/2+1,'background-image:url(assets/a_front.jpg);','background-image:url(assets/a_end.jpg);transform-origin:50% 50%;');
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a})});
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+var OPEN=6.0, LEAF=9.5;
+// t, x, y(stage), z, ry, rx, s
+var KB=[[0,300,615,-120,-34,4,1.78],[1.3,272,615,0,-12,2,1.78],[2.4,272,615,0,-8,1,1.78],
+  [3.1,270,600,40,-88,0,1.8],[4.4,270,600,40,-92,0,1.8],
+  [5.2,272,615,0,-4,0,1.6],[5.9,262,620,0,0,0,1.62],
+  [7.6,214,628,0,0,0,1.62],[9.4,214,628,0,0,0,1.64],
+  [10.6,236,700,60,0,0,2.05],[12.9,236,700,60,0,0,2.12],
+  [13.6,272,620,0,-14,2,1.7],[14.9,272,620,0,-20,2,1.72],[15.6,272,980,-200,-24,6,1.2]];
+window.__seek=function(t){
+  var a=keyed(KB,t);
+  var hit=OPEN+.85, sh=(t>hit&&t<hit+.6)?Math.sin((t-hit)*50)*Math.exp(-(t-hit)*8)*7:0;
+  pose(bk,{x:a[0]-270+sh,y:a[1]-520,z:a[2],ry:a[3],rx:a[4],s:a[5],op:1-sm((t-15.0)/.5)});
+  // cover open: swing with weight, overshoot settle; closes again 12.9-13.5
+  var co=t<OPEN?0:ob((t-OPEN)/.85), cc=io((t-12.95)/.6);
+  var ang=lerp(0,168,co)*(1-cc);
+  var lo=t<LEAF?0:ob((t-LEAF)/.8), la=lerp(0,162,lo)*(1-io((t-12.85)/.6));
+  var rigOn=ang>.2||la>.2;
+  bk.f.front.style.visibility=rigOn?'hidden':'visible';
+  rig.style.display=rigOn?'block':'none';
+  CV.h.style.transform='translateZ('+(D/2+1)+'px) rotateY('+ang+'deg)';
+  LF.h.style.transform='translateZ('+(D/2-3)+'px) rotateY('+la+'deg)';
+  var r=ang*Math.PI/180;CV.fs.style.opacity=(1-Math.cos(r))*.3;CV.bs.style.opacity=Math.max(0,Math.cos(r)+.15)*.5;
+  var r2=la*Math.PI/180;LF.fs.style.opacity=(1-Math.cos(r2))*.25;LF.bs.style.opacity=Math.max(0,Math.cos(r2)+.15)*.4;
+  // hero: endpaper floods the frame from the hinge as the cover opens
+  var fl=eo((t-OPEN-.1)/1.1)*(1-io((t-12.95)/.7));
+  $('endp').style.clipPath='circle('+(fl*1200)+'px at 290px 620px)';
+  $('endimg').style.transform='translate('+(-t*4)+'px,'+(-t*6)+'px) scale('+(1.15-fl*.15)+')';
+  $('leather').style.transform='translate('+(-t*2)+'px,'+(-t*3)+'px) scale(1.05)';
+  $('flash').style.opacity=t>hit?.35*Math.exp(-(t-hit)*7):0;
+  $('shadow').style.opacity=(1-sm((t-14.9)/.4))*(1-.6*fl);
+  MASK.forEach(function(m){var q=eo((t-m.s)/.6);m.e.style.transform='translateY('+((1-q)*105)+'%)'});
+  $('t1').style.opacity=1-sm((t-2.6)/.2);
+  $('t2').style.opacity=t<2.6?0:1-sm((t-4.4)/.2);
+  $('t3').style.opacity=t<4.6?0:1-sm((t-6.05)/.2);
+  $('t4').style.opacity=t<6.6?0:1-sm((t-9.4)/.25);
+  $('t5').style.opacity=t<9.8?0:1-sm((t-12.85)/.25);
+  $('t6').style.opacity=t<13.6?0:1-sm((t-15.0)/.3);
+  $('endbg').style.opacity=sm((t-14.9)/.5);
+  var lq=ob((t-15.0)/.7);$('lg').style.opacity=cl((t-15.0)/.25);$('lg').style.transform='scale('+(t<15.0?.6:Math.max(.6,lq))+')';
+  $('t8').style.opacity=t<15.3?0:1;
+  var bq=ob((t-16.0)/.6);$('btnw').style.opacity=cl((t-16.0)/.2);$('btnw').style.transform='translateY('+((1-oc((t-16.0)/.6))*30)+'px) scale('+(t<16.0?.8:Math.max(.8,bq))+')';
+  var pu=t>16.7?((t-16.7)%1.4)/1.4:-1;$('btn').style.transform=pu>=0?'scale('+(1+.045*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+};
+window.__seek(0);
+</script></body></html>
