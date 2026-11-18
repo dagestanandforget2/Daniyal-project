@@ -1,5 +1,5 @@
 # Batch 10 captions (Wed Nov 18, block 2, day 2: O1 number fact vs O3 motion only, 5 Trial Reels)
-Rendered with render_v3.py. Status: awaiting yes. Same five books as Nov 17 with the openings swapped. Stock and product pages checked in Shopify Nov 18: mt 30 (Black 29), ft 10, fh 4, ks 19, ts 2, all active. Champion (O1) reels carry 4 hashtags, challenger (O3) reels 5.
+Rendered with render_v3.py. Status: yes received Nov 18, 7:22 AM ET, all five scheduled in Metricool in the planned slots. Same five books as Nov 17 with the openings swapped. Stock and product pages checked in Shopify Nov 18: mt 30 (Black 29), ft 10, fh 4, ks 19, ts 2, all active. Champion (O1) reels carry 4 hashtags, challenger (O3) reels 5.
 
 ## 1118-01_O3_mt (9 AM, O3 challenger)
 Al-Mutoon al-Jami'ah li Talib al-'Ilm (المتون الجامعة لطالب العلم), compiled by Shaykh Dr. Abdul Muhsin al-Qasim. 15 texts in one Arabic hardcover volume, 712 pages.
