@@ -37,8 +37,13 @@ reel_id,date_et,time_et,account,type,hook,body,cta,template,book,file,status,met
 1116-03,2026-11-16,15:00,main,TRIAL_REEL,O2,v3 body,v3 end card,v3,ts,batch-2026-11-16/1116-03_O2_ts.mp4,published (auto-share off),429995209,
 1116-04,2026-11-16,18:00,main,TRIAL_REEL,O1,v3 body,v3 end card,v3,sb,batch-2026-11-16/1116-04_O1_sb.mp4,published (auto-share off),429995235,
 1116-05,2026-11-16,21:00,main,TRIAL_REEL,O2,v3 body,v3 end card,v3,zad,batch-2026-11-16/1116-05_O2_zad.mp4,published (auto-share off),429995274,
-1117-01,2026-11-17,09:00,main,TRIAL_REEL,O1,v3 body,v3 end card,v3,mt,batch-2026-11-17/1117-01_O1_mt.mp4,"scheduled (Trial Reel, auto-share off)",431381488,
-1117-02,2026-11-17,12:00,main,TRIAL_REEL,O3,v3 body,v3 end card,v3,ft,batch-2026-11-17/1117-02_O3_ft.mp4,"scheduled (Trial Reel, auto-share off)",431381521,
-1117-03,2026-11-17,15:00,main,TRIAL_REEL,O1,v3 body,v3 end card,v3,fh,batch-2026-11-17/1117-03_O1_fh.mp4,"scheduled (Trial Reel, auto-share off)",431381550,
-1117-04,2026-11-17,18:00,main,TRIAL_REEL,O3,v3 body,v3 end card,v3,ks,batch-2026-11-17/1117-04_O3_ks.mp4,"scheduled (Trial Reel, auto-share off)",431381581,
-1117-05,2026-11-17,21:00,main,TRIAL_REEL,O1,v3 body,v3 end card,v3,ts,batch-2026-11-17/1117-05_O1_ts.mp4,"scheduled (Trial Reel, auto-share off)",431381631,
+1117-01,2026-11-17,09:00,main,TRIAL_REEL,O1,v3 body,v3 end card,v3,mt,batch-2026-11-17/1117-01_O1_mt.mp4,published (auto-share off),431381488,https://www.instagram.com/reel/Df2GjbPCcJQ/
+1117-02,2026-11-17,12:00,main,TRIAL_REEL,O3,v3 body,v3 end card,v3,ft,batch-2026-11-17/1117-02_O3_ft.mp4,published (auto-share off),431381521,https://www.instagram.com/reel/Df2b78tEwXx/
+1117-03,2026-11-17,15:00,main,TRIAL_REEL,O1,v3 body,v3 end card,v3,fh,batch-2026-11-17/1117-03_O1_fh.mp4,published (auto-share off),431381550,https://www.instagram.com/reel/Df2vq_6gc9r/
+1117-04,2026-11-17,18:00,main,TRIAL_REEL,O3,v3 body,v3 end card,v3,ks,batch-2026-11-17/1117-04_O3_ks.mp4,published (auto-share off),431381581,https://www.instagram.com/reel/Df3EXTFD-IL/
+1117-05,2026-11-17,21:00,main,TRIAL_REEL,O1,v3 body,v3 end card,v3,ts,batch-2026-11-17/1117-05_O1_ts.mp4,published (auto-share off),431381631,https://www.instagram.com/reel/Df3Yw3iiozQ/
+1118-01,2026-11-18,09:00,main,TRIAL_REEL,O3,v3 body,v3 end card,v3,mt,batch-2026-11-18/1118-01_O3_mt.mp4,awaiting yes,,
+1118-02,2026-11-18,12:00,main,TRIAL_REEL,O1,v3 body,v3 end card,v3,ft,batch-2026-11-18/1118-02_O1_ft.mp4,awaiting yes,,
+1118-03,2026-11-18,15:00,main,TRIAL_REEL,O3,v3 body,v3 end card,v3,fh,batch-2026-11-18/1118-03_O3_fh.mp4,awaiting yes,,
+1118-04,2026-11-18,18:00,main,TRIAL_REEL,O1,v3 body,v3 end card,v3,ks,batch-2026-11-18/1118-04_O1_ks.mp4,awaiting yes,,
+1118-05,2026-11-18,21:00,main,TRIAL_REEL,O3,v3 body,v3 end card,v3,ts,batch-2026-11-18/1118-05_O3_ts.mp4,awaiting yes,,
