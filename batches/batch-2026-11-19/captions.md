@@ -1,5 +1,5 @@
 # Batch 11 captions (Thu Nov 19, block 3, day 1: O1 number fact vs O4 author or explainer, 5 Trial Reels)
-Rendered with render_v3.py. Status: awaiting yes. Nothing is scheduled. Stock and product pages checked in Shopify Nov 19: zad 3, sb9 1, bi 33, tp 24, sb 5 (Standard Size), all active. Champion (O1) reels carry 4 hashtags, challenger (O4) reels 5. None of the five books ran on Nov 17 or 18.
+Rendered with render_v3.py. Status: yes received Nov 19, 7:24 AM ET, all five scheduled in Metricool in the planned slots. Stock and product pages checked in Shopify Nov 19: zad 3, sb9 1, bi 33, tp 24, sb 5 (Standard Size), all active. Champion (O1) reels carry 4 hashtags, challenger (O4) reels 5. None of the five books ran on Nov 17 or 18.
 
 BOOKS_T changes today, for the owner to confirm:
 - bi: O1 line added, "13 Imams named on the cover." (the cover lists thirteen Imams by name). Its edition lines now read "English edition", because the product page gives no binding.
