@@ -1,0 +1,150 @@
+<!--FONTS Saira Extra Condensed:saira-extra-condensed:latin:800:normal;Archivo:archivo:latin:400,600:normal;Katibeh:katibeh:arabic:400:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Stacked Seven</title>
+<style>
+/*FONTS*/
+:root{--pc:#D6DCDC;--sh:#A9B6B9;--ink:#121417;--mr:#7C1D2A;--gd:#C59A45;--pp:#FAF8F3;--hd:'Saira Extra Condensed',sans-serif;--ui:'Archivo',sans-serif;--ar:'Katibeh',serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--ink);font-family:var(--hd);
+  background:radial-gradient(80% 55% at 50% 60%,#E6EBEA 0%,var(--pc) 55%,#BCC7C9 100%)}
+#lines{position:absolute;inset:0;background:repeating-linear-gradient(to bottom,transparent 0 47px,rgba(18,20,23,.06) 47px 48px)}
+#floor{position:absolute;left:0;right:0;top:806px;bottom:0;background:linear-gradient(#A9B6B9,#97A6AA);border-top:2px solid var(--ink)}
+.st3d{position:absolute;inset:0;perspective:1400px;perspective-origin:270px 520px;overflow:hidden}
+.cam{position:absolute;left:270px;top:540px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#f4efe0 0 4.5px,#d4cdb6 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#f4efe0 0 4.5px,#d4cdb6 4.5px 7.5px)}
+#shadow{position:absolute;left:120px;width:300px;top:790px;height:36px;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.45),transparent)}
+#stack{position:absolute;inset:0}
+.bar{position:absolute;overflow:hidden;box-shadow:0 10px 18px -10px rgba(0,0,0,.55),inset 0 0 0 1px rgba(0,0,0,.4)}
+.bar>i{position:absolute;left:50%;top:50%;display:block;background-size:100% 100%}
+.num{position:absolute;font-family:var(--hd);font-weight:800;font-size:30px;color:var(--mr);width:40px;text-align:left}
+#sshadow{position:absolute;left:20px;width:430px;top:788px;height:34px;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.5),transparent)}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.08em}
+.m>span{display:block}
+.hd{font-weight:800;line-height:.92;letter-spacing:.2px;text-transform:none}
+.mr{color:var(--mr)}
+.sm{font-family:var(--ui);font-weight:400;font-size:18px;line-height:1.3;color:#2B3135}
+.sb{font-weight:600;color:var(--ink)}
+.ar{line-height:1.5;font-family:var(--ar);font-weight:400;color:var(--mr);direction:rtl}
+#endp{position:absolute;left:0;top:0;width:540px;height:960px;background:var(--ink)}
+#endrule{position:absolute;left:70px;width:400px;top:452px;height:2px;background:var(--gd)}
+#lg{position:absolute;left:180px;top:150px;width:180px;height:180px;mix-blend-mode:screen;opacity:0}
+.pill{display:inline-block;background:var(--gd);color:var(--ink);font-family:var(--ui);font-weight:600;font-size:27px;padding:16px 40px;border-radius:60px;box-shadow:0 18px 40px -14px rgba(0,0,0,.6)}
+#flash{position:absolute;inset:0;background:#FFF6E4;opacity:0}
+#grain{position:absolute;inset:0;opacity:.08;mix-blend-mode:multiply;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="lines"></div>
+ <div id="floor"></div>
+ <div id="shadow"></div>
+ <div class="st3d"><div class="cam" id="cam"></div></div>
+ <div id="stack"><div id="sshadow"></div></div>
+
+ <div id="t1">
+  <p class="m hd" style="left:34px;top:104px;font-size:64px"><span>Zad al-Ma'ad,</span></p>
+  <p class="m hd mr" style="left:34px;top:164px;font-size:64px"><span>all 7 volumes.</span></p>
+  <p class="m sm sb" style="left:36px;top:238px"><span data-a="0.25">Imam Ibn Qayyim al-Jawziyyah</span></p>
+  <p class="m sm" style="left:36px;top:262px"><span data-a="0.4">Arabic hardcover set</span></p>
+ </div>
+ <div id="t2">
+  <p class="m hd" style="left:34px;top:104px;font-size:60px"><span data-a="2.95">Black boards,</span></p>
+  <p class="m hd mr" style="left:34px;top:160px;font-size:60px"><span data-a="3.07">maroon labels.</span></p>
+  <p class="m sm" style="left:36px;top:230px"><span data-a="3.25">Dar Ata'at al-'Ilm</span></p>
+ </div>
+ <div id="t3">
+  <p class="m hd" style="left:34px;top:104px;font-size:60px"><span data-a="4.2">Stack them up.</span></p>
+  <p class="m sm" style="left:36px;top:172px"><span data-a="4.32">Volume by volume, one to seven.</span></p>
+ </div>
+ <div id="t3b">
+  <p class="m hd" style="left:34px;top:104px;font-size:60px"><span data-a="6.9">Seven volumes,</span></p>
+  <p class="m hd mr" style="left:34px;top:160px;font-size:60px"><span data-a="7.02">one work.</span></p>
+  <p class="m ar" style="left:30px;width:440px;text-align:left;top:214px;font-size:50px;direction:rtl;text-align:right"><span data-a="7.25">زاد المعاد في هدي خير العباد</span></p>
+ </div>
+ <div id="t4">
+  <p class="m hd" style="left:34px;top:104px;font-size:60px"><span data-a="9.5">Volume 7</span></p>
+  <p class="m hd mr" style="left:34px;top:160px;font-size:60px"><span data-a="9.62">is the indexes.</span></p>
+  <p class="m sm" style="left:36px;top:230px"><span data-a="9.8">This cover is the seventh volume.</span></p>
+ </div>
+ <div id="t5">
+  <p class="m ar" style="left:30px;width:440px;top:86px;font-size:62px;text-align:right"><span data-a="12.0">زاد المعاد</span></p>
+  <p class="m hd" style="left:34px;top:184px;font-size:46px"><span data-a="12.15">Imam Ibn al-Qayyim</span></p>
+  <p class="m sm" style="left:36px;top:234px"><span data-a="12.3">691–751 AH, as printed on the cover.</span></p>
+ </div>
+
+ <div id="endp"><div id="endrule"></div></div>
+ <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+ <div id="t8" style="color:var(--pp)">
+  <p class="m hd" style="left:0;width:540px;text-align:center;top:370px;font-size:58px"><span data-a="15.2">daralathari.com</span></p>
+  <p class="m sm" style="left:0;width:540px;text-align:center;top:470px;color:#C9CED0"><span data-a="15.35">Shipped from New Jersey.</span></p>
+  <div id="btnw" style="position:absolute;left:0;width:540px;top:540px;text-align:center;opacity:0"><span class="pill" id="btn">Shop the collection</span></div>
+  <p class="m sm" style="left:0;width:540px;text-align:center;top:632px;font-weight:600;color:#C9CED0"><span data-a="16.2">Link in bio</span></p>
+ </div>
+ <div id="flash"></div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.45,-.35,.83],.42,.8);
+var cam=$('cam'),bk=makeBook(cam,'zad');
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a})});
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+// ---- the stack: seven real spines, laid flat (vol 1 at the bottom) ----
+var SW=[216,130,198,150,144,136,156],SL=1140,L=380,FX=.3333,BOT=800,X0=40;
+var LAND=[4.5,5.05,5.53,5.95,6.31,6.61,6.85],HIT=6.85,OFF=[-6,10,-2,7,-9,4,0],RZ=[.6,-.8,.4,-.5,.9,-.3,0];
+var ST=$('stack'),BARS=[],y=BOT;
+for(var i=0;i<7;i++){var h=Math.round(SW[i]*FX);y-=h;
+  var b=el('bar','left:'+(X0+OFF[i])+'px;top:'+y+'px;width:'+L+'px;height:'+h+'px',ST);
+  // spine photo rotated a quarter turn so the book lies flat, spine to camera
+  el('','width:'+h+'px;height:'+L+'px;margin-left:'+(-h/2)+'px;margin-top:'+(-L/2)+'px;background-image:url(assets/zad_v'+(i+1)+'_spine.jpg);transform:rotate(-90deg)',b,null,'i');
+  var n=el('num','left:'+(X0+L+14)+'px;top:'+(y+h/2-20)+'px',ST,String(i+1));
+  BARS.push({e:b,y:y,h:h,n:n});}
+// book keyframes: t, x, y, z, ry, rx, s
+var KB=[[0,30,130,-60,-40,6,1.72],[1.0,10,120,0,-16,3,1.8],[2.6,0,120,0,-8,2,1.82],
+  [3.2,0,120,0,-82,0,1.84],[3.8,0,120,0,-90,0,1.86],[4.3,0,-1100,0,-200,30,1.3],
+  [8.4,0,1100,0,160,-20,1.3],[9.3,0,125,0,-14,3,1.78],[11.6,0,120,0,-6,2,1.82],[12.2,0,135,0,12,2,1.84],[14.2,0,130,0,-10,3,1.88]];
+window.__seek=function(t){
+  var a=keyed(KB,t),bx=a[0],by=a[1],bz=a[2],ry=a[3],rx=a[4],s=a[5];
+  // the 3D book: turns in at 0 s, spine-on, flies up, comes back from below
+  var on=t<4.3||t>8.4;
+  pose(bk,{x:bx,y:by,z:bz,ry:ry,rx:rx,s:s,hide:!on,blur:(t>3.85&&t<4.3)?(t-3.85)*10:0});
+  $('shadow').style.opacity=(1-sm((t-3.85)/.3))+sm((t-9.0)/.4)-sm((t-14.3)/.2);
+  // stack: each volume drops and lands, the stack shudders on every landing
+  var sh=0;
+  for(var i=0;i<7;i++){var d=t-LAND[i];if(d>0&&d<.5)sh+=Math.sin(d*60)*Math.exp(-d*10)*(i==6?9:3)}
+  var leave=io((t-8.3)/.7)*760;
+  for(var i=0;i<7;i++){var B=BARS[i],u=(t-(LAND[i]-.34))/.34,d=t-LAND[i];
+    var fall=u<0?-1:(u<1?ic(u):1);
+    var yy=fall<0?-1000:lerp(-(B.y+B.h+40),0,fall);
+    var sq=(d>0&&d<.3)?Math.sin(d/.3*Math.PI)*Math.exp(-d*6)*.12:0;
+    var rz=u<1?lerp(RZ[i]*8,RZ[i],cl(u)):RZ[i];
+    B.e.style.visibility=(u>0&&t<9.1)?'visible':'hidden';
+    B.e.style.transform='translate('+(sh*(i%2?1:-1)*.4)+'px,'+(yy+leave)+'px) rotate('+rz+'deg) scale('+(1+sq*.5)+','+(1-sq)+')';
+    var nq=ob((t-LAND[i])/.35);B.n.style.opacity=t>LAND[i]?cl((t-LAND[i])/.12)*(1-sm((t-8.2)/.2)):0;
+    B.n.style.transform='translateY('+leave+'px) scale('+(t>LAND[i]?Math.max(.3,nq):.3)+')';
+  }
+  $('sshadow').style.opacity=sm((t-4.3)/.3)*(1-sm((t-8.3)/.4));
+  $('stack').style.transform='translateY('+(t>HIT&&t<HIT+.5?Math.sin((t-HIT)*55)*Math.exp(-(t-HIT)*9)*6:0)+'px)';
+  $('flash').style.opacity=t>HIT?.5*Math.exp(-(t-HIT)*8):0;
+  // camera feel: small punch on the last landing
+  var pun=t>HIT?Math.exp(-(t-HIT)*5)*.035:0;$('stack').style.transform+=' scale('+(1+pun)+')';
+  // end card: an ink slab drops from above like an eighth book
+  var ef=t<14.3?-1:cl((t-14.3)/.42),ey=ef<0?-980:lerp(-980,0,ic(ef));
+  var ed=t-14.72;if(ed>0)ey=-Math.abs(Math.sin(ed*9))*Math.exp(-ed*7)*26;
+  $('endp').style.transform='translateY('+ey+'px)';
+  $('endrule').style.transform='scaleX('+oc((t-15.4)/.6)+')';
+  MASK.forEach(function(m){var q2=eo((t-m.s)/.45);m.e.style.transform='translateY('+((1-q2)*105)+'%)'});
+  var h=oc(t/.3);$('t1').style.opacity=1-sm((t-2.7)/.2);$('t1').style.transform='translateY('+((1-h)*8)+'px)';
+  [['t2',2.9],['t3',4.15],['t3b',6.85],['t4',9.4],['t5',11.9],['t8',15.1]].forEach(function(o){$(o[0]).style.visibility=t<o[1]?'hidden':'visible'});
+  $('t2').style.opacity=1-sm((t-3.95)/.2);
+  $('t3').style.opacity=1-sm((t-6.7)/.15);
+  $('t3b').style.opacity=1-sm((t-8.2)/.2);
+  $('t4').style.opacity=1-sm((t-11.6)/.2);
+  $('t5').style.opacity=1-sm((t-14.2)/.2);
+  var lq=ob((t-14.8)/.7);$('lg').style.opacity=cl((t-14.8)/.25);$('lg').style.transform='scale('+(t<14.8?.6:Math.max(.6,lq))+')';
+  var pq=ob((t-15.8)/.6);$('btnw').style.opacity=cl((t-15.8)/.2);$('btnw').style.transform='translateY('+((1-oc((t-15.8)/.6))*30)+'px) scale('+(t<15.8?.8:Math.max(.8,pq))+')';
+  var pu2=t>16.5?((t-16.5)%1.4)/1.4:-1;$('btn').style.transform=pu2>=0?'scale('+(1+.045*Math.sin(Math.min(1,pu2/.35)*Math.PI))+')':'none';
+};
+window.__seek(0);
+</script></body></html>
