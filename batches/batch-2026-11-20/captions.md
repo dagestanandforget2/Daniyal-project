@@ -1,5 +1,5 @@
 # Batch 12 captions (Fri Nov 20, block 3, day 2: O1 number fact vs O4 author or explainer, 5 Trial Reels)
-Rendered with render_v3.py. Status: awaiting yes. Day 1's books with the openings swapped, except the 12 PM slot: Sahih al-Bukhari (9 volumes) shows 0 in stock in Shopify on Nov 20, so Al-Mutoon al-Jami'ah takes its place with the champion opening. Stock and product pages checked in Shopify Nov 20: zad 3, mt 30 (Black 29), bi 33, tp 23, sb 5 (Standard Size), all active. Champion (O1) reels carry 4 hashtags, challenger (O4) reels 5. No BOOKS_T changes today.
+Rendered with render_v3.py. Status: yes received Nov 20, 10:47 AM ET, after the 9 AM slot, so all five were scheduled in Metricool spread from 11:10 AM to 9 PM (11:10 AM, 1:40 PM, 4:05 PM, 6:30 PM, 9 PM). Day 1's books with the openings swapped, except the 12 PM slot: Sahih al-Bukhari (9 volumes) shows 0 in stock in Shopify on Nov 20, so Al-Mutoon al-Jami'ah takes its place with the champion opening. Stock and product pages checked in Shopify Nov 20: zad 3, mt 30 (Black 29), bi 33, tp 23, sb 5 (Standard Size), all active. Champion (O1) reels carry 4 hashtags, challenger (O4) reels 5. No BOOKS_T changes today.
 
 ## 1120-01_O4_zad (9 AM, O4 challenger)
 Zad al-Ma'ad fi Hady Khayr al-'Ibad (زاد المعاد في هدي خير العباد), Imam Ibn Qayyim al-Jawziyyah. Arabic hardcover, 7 volumes, Dar Ataat al-Ilm.
