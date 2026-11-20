@@ -1,0 +1,153 @@
+<!--FONTS Anybody:anybody:latin:400,800:normal;Mirza:mirza:arabic:700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Three Sides</title>
+<style>
+/*FONTS*/
+:root{--cc:#C9C6BD;--cd:#A3A096;--ink:#141A17;--gr:#1F3A2C;--gd:#CFA748;--wh:#F5F3EE;--hd:'Anybody',sans-serif;--ar:'Mirza',serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--ink);font-family:var(--hd);
+  background:linear-gradient(180deg,#D3D0C7 0%,var(--cc) 55%,#B7B4AA 100%)}
+#joints{position:absolute;inset:0;opacity:.35;background:
+  repeating-linear-gradient(90deg,transparent 0 179px,rgba(20,26,23,.35) 179px 180px),
+  repeating-linear-gradient(180deg,transparent 0 239px,rgba(20,26,23,.25) 239px 240px)}
+.niche{position:absolute;top:330px;height:560px;width:168px;background:linear-gradient(180deg,#9C998F,#B3B0A6 40%,#AEABA1);
+  box-shadow:inset 0 22px 30px -12px rgba(0,0,0,.45),inset 10px 0 18px -10px rgba(0,0,0,.3),inset -10px 0 18px -10px rgba(0,0,0,.2);opacity:0}
+.niche:after{content:'';position:absolute;left:0;right:0;bottom:0;height:6px;background:var(--gd)}
+.st3d{position:absolute;inset:0;perspective:1500px;perspective-origin:270px 560px;overflow:hidden}
+.cam{position:absolute;left:270px;top:540px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#f4efe0 0 4.5px,#d4cdb6 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#f4efe0 0 4.5px,#d4cdb6 4.5px 7.5px)}
+#shadow{position:absolute;left:100px;width:340px;top:860px;height:46px;border-radius:50%;background:radial-gradient(closest-side,rgba(10,14,12,.45),transparent)}
+#cap{position:absolute;left:0;top:0;width:540px;height:300px;background:linear-gradient(180deg,#D8D5CC,var(--cc));opacity:0}
+#cap:after{content:'';position:absolute;left:0;right:0;bottom:0;height:5px;background:var(--gr)}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.1em}
+.m>span{display:block}
+.hd{font-weight:800;line-height:1.0;color:var(--ink);letter-spacing:-1.5px}
+.g{color:var(--gr)}
+.sm{font-family:var(--hd);font-weight:400;font-size:18px;line-height:1.3;color:#262B27}
+.sb{font-weight:800;letter-spacing:-.3px}
+.arl{font-family:var(--ar);font-weight:700;direction:rtl;color:var(--gr)}
+.lbl{position:absolute;top:296px;width:168px;text-align:center;font-family:var(--hd);font-weight:800;font-size:17px;color:var(--gr);opacity:0}
+#endp{position:absolute;left:0;top:960px;width:540px;height:960px;background:var(--gr)}
+#endp:before{content:'';position:absolute;inset:0;opacity:.18;background:repeating-linear-gradient(90deg,transparent 0 179px,#CFA748 179px 180px)}
+#lg{position:absolute;left:180px;top:130px;width:180px;height:180px;mix-blend-mode:screen;opacity:0}
+.pill{display:inline-block;background:var(--gd);color:var(--ink);font-family:var(--hd);font-weight:800;font-size:26px;padding:16px 40px;border-radius:8px;box-shadow:0 18px 40px -14px rgba(0,0,0,.6)}
+#flash{position:absolute;inset:0;background:#FFFFFF;opacity:0}
+#grain{position:absolute;inset:0;opacity:.14;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="joints"></div>
+ <div class="niche" id="n0" style="left:12px"></div><div class="niche" id="n1" style="left:186px"></div><div class="niche" id="n2" style="left:360px"></div>
+ <div class="lbl" id="l0" style="left:12px">FRONT</div><div class="lbl" id="l1" style="left:186px">SPINE</div><div class="lbl" id="l2" style="left:360px">BACK</div>
+ <div id="shadow"></div>
+ <div class="st3d"><div class="cam" id="cam"></div></div>
+ <div id="cap"></div>
+
+ <div id="t1">
+  <p class="m hd" style="left:28px;top:100px;font-size:42px"><span>Ibn al-'Uthaimin's</span></p>
+  <p class="m hd" style="left:28px;top:146px;font-size:42px"><span>commentary,</span></p>
+  <p class="m hd g" style="left:28px;top:192px;font-size:42px"><span>in English.</span></p>
+  <p class="m sm sb" style="left:30px;top:250px"><span data-a="0.12">Commentary on the Three Fundamental</span></p>
+  <p class="m sm" style="left:30px;top:276px"><span data-a="0.2">Principles of Islam. Darussalam hardcover.</span></p>
+ </div>
+ <div id="t2">
+  <p class="m arl" style="left:20px;width:450px;text-align:right;top:92px;font-size:60px;line-height:1.5;padding-left:10px"><span data-a="3.1">شرح ثلاثة الأصول</span></p>
+  <p class="m sm sb" style="left:30px;top:206px"><span data-a="3.25">Sharh Thalathat al-Usul,</span></p>
+  <p class="m sm" style="left:30px;top:232px"><span data-a="3.35">the Arabic title, in gold at the top.</span></p>
+ </div>
+ <div id="t3">
+  <p class="m hd" style="left:28px;top:104px;font-size:44px"><span data-a="6.55">Three sides.</span></p>
+  <p class="m hd g" style="left:28px;top:156px;font-size:44px"><span data-a="6.65">One hardcover.</span></p>
+ </div>
+ <div id="t4">
+  <p class="m hd" style="left:28px;top:104px;font-size:42px"><span data-a="8.35">Text by Muhammad</span></p>
+  <p class="m hd g" style="left:28px;top:154px;font-size:42px"><span data-a="8.45">bin 'Abdul-Wahhab.</span></p>
+  <p class="m sm" style="left:30px;top:220px"><span data-a="8.6">His name, as printed on the cover.</span></p>
+ </div>
+ <div id="t5">
+  <p class="m hd" style="left:28px;top:104px;font-size:42px"><span data-a="10.1">Commentary by</span></p>
+  <p class="m hd g" style="left:28px;top:154px;font-size:42px"><span data-a="10.2">Ibn al-'Uthaimin.</span></p>
+  <p class="m sm" style="left:30px;top:220px"><span data-a="10.35">Shaykh Muhammad bin Salih al-'Uthaimin.</span></p>
+ </div>
+ <div id="t6">
+  <p class="m hd" style="left:28px;top:104px;font-size:42px"><span data-a="11.85">Published by</span></p>
+  <p class="m hd g" style="left:28px;top:154px;font-size:42px"><span data-a="11.95">Darussalam.</span></p>
+  <p class="m sm" style="left:30px;top:220px"><span data-a="12.1">English. One volume. Hardcover.</span></p>
+ </div>
+ <div id="t7">
+  <p class="m hd" style="left:28px;top:104px;font-size:42px"><span data-a="13.5">Dark green boards,</span></p>
+  <p class="m hd g" style="left:28px;top:154px;font-size:42px"><span data-a="13.6">gold lettering.</span></p>
+ </div>
+
+ <div id="endp"></div>
+ <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+ <div id="t8">
+  <p class="m hd" style="left:0;width:540px;text-align:center;top:350px;font-size:50px;color:var(--wh)"><span data-a="15.6">daralathari.com</span></p>
+  <p class="m sm" style="left:0;width:540px;text-align:center;top:424px;color:#D9E2DA"><span data-a="15.75">Shipped from New Jersey.</span></p>
+  <div id="btnw" style="position:absolute;left:0;width:540px;top:500px;text-align:center;opacity:0"><span class="pill" id="btn">Browse the books</span></div>
+  <p class="m sm" style="left:0;width:540px;text-align:center;top:594px;color:#D9E2DA;font-weight:800"><span data-a="16.4">Link in bio</span></p>
+ </div>
+ <div id="flash"></div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.4,-.45,.8],.42,.8);
+var cam=$('cam'),bk=makeBook(cam,'tp'),bL=makeBook(cam,'tp'),bR=makeBook(cam,'tp');
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a})});
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+function fy(f,s,sc){return sc-540-(f-.5)*300*s}
+// main book keys: t, x, y, z, ry, rx, s
+var KA=[[0,0,110,-80,-34,3,1.62],[1.3,0,110,0,-10,1,1.68],[2.8,0,110,0,-4,0,1.7],
+  [3.5,0,fy(.135,3.4,560),0,0,0,3.4],[4.6,0,fy(.135,3.4,585),0,0,0,3.4],[5.0,0,fy(.135,3.4,585),0,0,0,3.4]];
+// triptych: centre book shows its spine; t 5.0-8.0
+var KC=[[7.9,0,40,0,90,0,1.55],[8.4,0,fy(.6,3.6,600),0,360,0,3.6],[9.8,0,fy(.6,3.6,620),0,360,0,3.6],
+  [10.3,0,fy(.715,3.3,590),0,360,0,3.3],[11.6,0,fy(.715,3.3,610),0,360,0,3.3],
+  [12.1,0,fy(.88,3.0,600),0,360,0,3.0],[13.2,0,fy(.88,3.0,615),0,360,0,3.0],
+  [13.8,0,80,0,392,3,1.7],[14.9,0,80,0,330,2,1.66],[18,0,80,0,330,2,1.66]];
+var DROP=[5.2,5.55,5.85];
+window.__seek=function(t){
+  var a,blur=0;
+  if(t<5.0)a=keyed(KA,t);
+  else if(t<7.9){ // spine-on centre, dropped in
+    var p=cl((t-DROP[1])/.45),fall=io(p);
+    var pu=cl((t-5.0)/.35);
+    a=[0,lerp(-1100,40,fall),0,90,0,1.55];
+    if(t<DROP[1]){a=[0,lerp(fy(.135,3.4,585),-900,io(pu)),0,lerp(0,60,io(pu)),0,lerp(3.4,2.2,io(pu))];blur=pu*4}
+    else blur=(1-p)*5*(p<1?1:0);
+    var k=t-DROP[1]-.45;if(k>0&&k<.6)a[1]+=-Math.sin(k*20)*Math.exp(-k*9)*14;
+  } else a=keyed(KC,t);
+  var sh=0;DROP.forEach(function(d){var k=t-d-.45;if(k>0&&k<.5)sh+=Math.sin(k*60)*Math.exp(-k*10)*7});
+  var ex=io((t-14.95)/.7);
+  pose(bk,{x:a[0]+sh,y:a[1]-ex*1100,z:a[2],ry:a[3],rx:a[4],s:a[5],blur:blur});
+  // side books: front (left) and back (right)
+  function side(b,i,x,ry){var d=DROP[i],p=cl((t-d)/.45),f=io(p),out=io((t-7.65)/.4);
+    if(t<d-.05||t>8.2){pose(b,{hide:1});return}
+    var y=lerp(-1150,70,f);var k=t-d-.45;if(k>0&&k<.6)y+=-Math.sin(k*20)*Math.exp(-k*9)*14;
+    pose(b,{x:x+sh+(x<0?-1:1)*out*400,y:y,z:0,ry:ry,rx:0,s:.84,blur:(p<1?(1-p)*5:0)});}
+  side(bL,0,-174,0);side(bR,2,174,180);
+  var nq=sm((t-5.0)/.35)*(1-sm((t-7.75)/.35));
+  ['n0','n1','n2'].forEach(function(id,i){var e=$(id),q=oc((t-5.0-i*.06)/.4);e.style.opacity=nq;e.style.transform='translateY('+((1-q)*60)+'px)'});
+  ['l0','l1','l2'].forEach(function(id,i){var e=$(id),q=oc((t-DROP[i]-.45)/.3);e.style.opacity=cl(q)*(1-sm((t-7.6)/.3));e.style.transform='translateY('+((1-q)*12)+'px)'});
+  $('cap').style.opacity=sm((a[5]-2.0)/.5)*(t<14.9?1:0);
+  $('shadow').style.opacity=(1-sm((a[5]-1.9)/.4))*(1-sm((t-14.9)/.3))*(t>5&&t<7.9?0:1);
+  $('joints').style.transform='translateY('+(-t*6)+'px)';
+  $('flash').style.opacity=t>DROP[2]+.45?.45*Math.exp(-(t-DROP[2]-.45)*7):0;
+  var pr=io((t-14.9)/.75);$('endp').style.top=lerp(960,0,pr)+'px';
+  MASK.forEach(function(m){var q=eo((t-m.s)/.55);m.e.style.transform='translateY('+((1-q)*105)+'%)'});
+  var h=oc(t/.3);$('t1').style.opacity=(1-sm((t-2.85)/.25));$('t1').style.transform='translateY('+((1-h)*-10)+'px)';
+  [['t2',3.0],['t3',6.5],['t4',8.3],['t5',10.0],['t6',11.8],['t7',13.4],['t8',15.5]].forEach(function(o){$(o[0]).style.visibility=t<o[1]?'hidden':'visible'});
+  $('t2').style.opacity=1-sm((t-4.85)/.2);
+  $('t3').style.opacity=1-sm((t-7.75)/.2);
+  $('t4').style.opacity=1-sm((t-9.85)/.2);
+  $('t5').style.opacity=1-sm((t-11.6)/.2);
+  $('t6').style.opacity=1-sm((t-13.2)/.2);
+  $('t7').style.opacity=1-sm((t-14.8)/.25);
+  var lq=ob((t-15.3)/.7);$('lg').style.opacity=cl((t-15.3)/.25);$('lg').style.transform='scale('+(t<15.3?.6:Math.max(.6,lq))+')';
+  var pq=ob((t-16.1)/.6);$('btnw').style.opacity=cl((t-16.1)/.2);$('btnw').style.transform='translateY('+((1-oc((t-16.1)/.6))*30)+'px) scale('+(t<16.1?.8:Math.max(.8,pq))+')';
+  var pu2=t>16.8?((t-16.8)%1.4)/1.4:-1;$('btn').style.transform=pu2>=0?'scale('+(1+.045*Math.sin(Math.min(1,pu2/.35)*Math.PI))+')':'none';
+};
+window.__seek(0);
+</script></body></html>
