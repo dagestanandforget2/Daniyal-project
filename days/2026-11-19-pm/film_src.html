@@ -1,0 +1,159 @@
+<!--FONTS Fraunces:fraunces:latin:900:normal;Hanken Grotesk:hanken-grotesk:latin:400,700:normal;El Messiri:el-messiri:arabic:700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Framed in Gold</title>
+<style>
+/*FONTS*/
+:root{--oc:#C8922E;--oc2:#8F6118;--ink:#0F2A26;--mr:#6B1A1E;--iv:#FBF3E2;--gl:#F1D28A;--hd:'Fraunces',serif;--ui:'Hanken Grotesk',sans-serif;--ar:'El Messiri',sans-serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;color:var(--ink);font-family:var(--hd);
+  background:radial-gradient(80% 55% at 50% 60%,#D9A43C 0%,var(--oc) 50%,var(--oc2) 100%)}
+#rays{position:absolute;left:-230px;top:60px;width:1000px;height:1000px;opacity:.16;
+  background:repeating-conic-gradient(from 0deg at 50% 50%,#FBF3E2 0 4deg,transparent 4deg 15deg);border-radius:50%;
+  -webkit-mask:radial-gradient(closest-side,#000 30%,transparent 100%);mask:radial-gradient(closest-side,#000 30%,transparent 100%)}
+.st3d{position:absolute;inset:0;perspective:1500px;perspective-origin:270px 540px;overflow:hidden}
+.cam{position:absolute;left:270px;top:540px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#f4efe0 0 4.5px,#d4cdb6 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#f4efe0 0 4.5px,#d4cdb6 4.5px 7.5px)}
+#shadow{position:absolute;left:110px;width:320px;top:840px;height:44px;border-radius:50%;background:radial-gradient(closest-side,rgba(40,20,0,.5),transparent)}
+#band{position:absolute;left:0;top:0;width:540px;height:300px;background:linear-gradient(#B98226,var(--oc));opacity:0}
+#band:after{content:'';position:absolute;left:0;right:0;bottom:0;height:9px;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+.bar{position:absolute;background:transparent;border-color:var(--gl)!important;}
+.bh{height:8px;border-top:3px solid;border-bottom:3px solid}
+.bv{width:8px;border-left:3px solid;border-right:3px solid}
+.cn{position:absolute;width:30px;height:30px;margin:-15px 0 0 -15px}
+.cn:before,.cn:after{content:'';position:absolute;inset:5px;background:var(--gl);border:2px solid var(--ink)}
+.cn:after{transform:rotate(45deg)}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.08em}
+.m>span{display:block}
+.hd{font-weight:900;line-height:1.0;color:var(--ink);letter-spacing:-1px}
+.r{color:var(--mr)}
+.sm{font-family:var(--ui);font-weight:400;font-size:19px;line-height:1.3;color:#2A1E0A}
+.sb{font-weight:700;color:var(--ink)}
+.arl{font-family:var(--ar);font-weight:700;direction:rtl;color:var(--mr)}
+#endp{position:absolute;left:0;top:960px;width:540px;height:960px;background:var(--ink)}
+#endf{position:absolute;left:24px;top:84px;width:476px;height:640px;border:3px solid var(--gl);outline:3px solid var(--gl);outline-offset:6px;opacity:0}
+#lg{position:absolute;left:180px;top:140px;width:180px;height:180px;mix-blend-mode:screen;opacity:0}
+.pill{display:inline-block;background:var(--oc);color:var(--ink);font-family:var(--ui);font-weight:700;font-size:27px;padding:16px 40px;border-radius:60px;box-shadow:0 18px 40px -14px rgba(0,0,0,.6)}
+#flash{position:absolute;inset:0;background:#FFF1C8;opacity:0}
+#grain{position:absolute;inset:0;opacity:.1;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="rays"></div>
+ <div id="shadow"></div>
+ <div class="st3d"><div class="cam" id="cam"></div></div>
+ <div id="frame">
+  <div class="bar bh" id="fT"></div><div class="bar bh" id="fB"></div><div class="bar bv" id="fL"></div><div class="bar bv" id="fR"></div>
+  <div class="cn" id="c1"></div><div class="cn" id="c2"></div><div class="cn" id="c3"></div><div class="cn" id="c4"></div>
+ </div>
+ <div id="band"></div>
+
+ <div id="t1">
+  <p class="m hd" style="left:28px;top:100px;font-size:45px"><span>The Sealed Nectar,</span></p>
+  <p class="m hd r" style="left:28px;top:156px;font-size:45px"><span>English hardcover.</span></p>
+  <p class="m sm sb" style="left:30px;top:224px"><span data-a="0.15">Safiur-Rahman al-Mubarakpuri. Darussalam.</span></p>
+ </div>
+ <div id="t2">
+  <p class="m hd" style="left:28px;top:104px;font-size:45px"><span data-a="3.15">“First Prize</span></p>
+  <p class="m hd r" style="left:28px;top:160px;font-size:45px"><span data-a="3.27">Winner Book”</span></p>
+  <p class="m sm" style="left:30px;top:228px"><span data-a="3.45">As printed at the top of the cover.</span></p>
+ </div>
+ <div id="t3">
+  <p class="m hd" style="left:28px;top:104px;font-size:45px"><span data-a="7.05">Gold tooling,</span></p>
+  <p class="m hd r" style="left:28px;top:160px;font-size:45px"><span data-a="7.15">edge to edge.</span></p>
+  <p class="m sm" style="left:30px;top:228px"><span data-a="7.3">Green hardcover with a gold border.</span></p>
+ </div>
+ <div id="t4">
+  <p class="m arl" style="left:20px;width:450px;text-align:right;top:96px;font-size:58px;padding-left:10px;line-height:1.45"><span data-a="8.2">الرحيق المختوم</span></p>
+  <p class="m sm sb" style="left:30px;top:212px"><span data-a="8.4">Ar-Raheeq al-Makhtum,</span></p>
+  <p class="m sm" style="left:30px;top:240px"><span data-a="8.5">the Arabic title, in gold calligraphy.</span></p>
+ </div>
+ <div id="t5">
+  <p class="m hd" style="left:28px;top:104px;font-size:45px"><span data-a="10.1">Biography of</span></p>
+  <p class="m hd r" style="left:28px;top:160px;font-size:45px"><span data-a="10.22">the Noble Prophet.</span></p>
+  <p class="m sm" style="left:30px;top:228px"><span data-a="10.4">The subtitle, as printed on the cover.</span></p>
+ </div>
+ <div id="t6">
+  <p class="m hd" style="left:28px;top:104px;font-size:45px"><span data-a="12.05">Two scripts</span></p>
+  <p class="m hd r" style="left:28px;top:160px;font-size:45px"><span data-a="12.17">down the spine.</span></p>
+  <p class="m sm" style="left:30px;top:228px"><span data-a="12.35">Arabic and English, stamped in gold.</span></p>
+ </div>
+ <div id="t7">
+  <p class="m hd" style="left:28px;top:104px;font-size:45px"><span data-a="13.65">Grained green</span></p>
+  <p class="m hd r" style="left:28px;top:160px;font-size:45px"><span data-a="13.77">boards.</span></p>
+  <p class="m sm" style="left:30px;top:228px"><span data-a="13.95">One volume. The Sealed Nectar.</span></p>
+ </div>
+
+ <div id="endp"></div>
+ <div id="endf"></div>
+ <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+ <div id="t8">
+  <p class="m hd" style="left:0;width:540px;text-align:center;top:350px;font-size:54px;color:var(--iv)"><span data-a="15.6">daralathari.com</span></p>
+  <p class="m sm" style="left:0;width:540px;text-align:center;top:430px;color:#E9DDBF"><span data-a="15.75">Shipped from New Jersey.</span></p>
+  <div id="btnw" style="position:absolute;left:0;width:540px;top:510px;text-align:center;opacity:0"><span class="pill" id="btn">Shop the collection</span></div>
+  <p class="m sm" style="left:0;width:540px;text-align:center;top:604px;color:#E9DDBF;font-weight:700"><span data-a="16.4">Link in bio</span></p>
+ </div>
+ <div id="flash"></div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.4,-.4,.82],.42,.8);
+var cam=$('cam'),bk=makeBook(cam,'sn');
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a})});
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+function fy(f,s,sc){return sc-540-(f-.5)*300*s}  // y offset that puts cover fraction f at screen y sc
+var HIT=7.0;
+// t, x, y, z, ry, rx, s
+var KA=[[0,0,70,-60,38,4,1.66],[1.2,0,70,0,12,2,1.72],[2.8,0,70,0,6,1,1.74],
+  [3.6,0,fy(.215,3.3,560),0,0,0,3.3],[4.7,0,fy(.215,3.3,590),0,0,0,3.3],[5.0,0,fy(.215,3.3,590),0,0,0,3.3]];
+var KC=[[HIT,0,40,0,360,0,1.45],[7.7,0,40,0,360,0,1.5],[8.3,0,fy(.27,3.5,600),0,360,0,3.5],[9.7,0,fy(.27,3.5,640),0,360,0,3.5],
+  [10.3,0,fy(.555,2.7,590),0,360,0,2.7],[11.5,0,fy(.555,2.7,610),0,360,0,2.7],
+  [12.2,0,70,0,450,0,1.7],[13.3,0,80,0,452,0,1.72],[14.1,0,70,0,540,0,1.66],[14.9,0,70,0,690,2,1.6],[18,0,70,0,690,2,1.6]];
+var FR={l:96,r:444,t:334,b:828};
+window.__seek=function(t){
+  var x,y,z,ry,rx,s,blur=0,a;
+  if(t<5.0){a=keyed(KA,t)}
+  else if(t<HIT){ var p=(t-5)/(HIT-5),q=Math.pow(io(p),1.0),w=Math.pow(cl(p),2.2);
+    var s0=3.3,y0=fy(.215,3.3,590); s=lerp(s0,1.45,oc(p*1.6)); y=lerp(y0,40,oc(p*1.6)); x=0; z=-Math.sin(p*Math.PI)*120;
+    ry=lerp(0,360,w); rx=Math.sin(p*Math.PI)*5; blur=Math.min(4.5,Math.max(0,(p-.35))*9);
+    a=[x,y,z,ry,rx,s];
+  } else {a=keyed(KC,t);var k=t-HIT;if(k<.8)a[3]+=Math.exp(-k*6)*Math.cos(k*22)*7;}
+  x=a[0];y=a[1];z=a[2];ry=a[3];rx=a[4];s=a[5];
+  var sh=(t>HIT&&t<HIT+.6)?Math.sin((t-HIT)*55)*Math.exp(-(t-HIT)*8)*10:0;
+  var ex=io((t-14.95)/.7);
+  pose(bk,{x:x+sh,y:y-ex*1100,z:z,ry:ry,rx:rx,s:s,blur:blur});
+  $('band').style.opacity=sm((s-2.0)/.5);
+  $('shadow').style.opacity=(1-sm((s-1.9)/.4))*(1-sm((t-14.9)/.3));
+  $('rays').style.transform='rotate('+(t*4+(t>5&&t<HIT?Math.pow(cl((t-5)/2),2.2)*60:t>=HIT?60:0))+'deg)';
+  // hero: double gold rules shoot in from the four screen edges and lock round the book
+  var f0=5.9, fp=function(d){return io(cl((t-f0-d)/(HIT-f0-d)))};
+  var pT=fp(0),pB=fp(.12),pL=fp(.24),pR=fp(.36);
+  var fo=1-sm((t-7.75)/.35); var fW=FR.r-FR.l, fH=FR.b-FR.t;
+  function bar(id,css){var e=$(id);for(var k in css)e.style[k]=css[k]}
+  bar('fT',{left:lerp(-fW-20,FR.l,pT)+'px',top:(FR.t-4)+'px',width:fW+'px',opacity:fo});
+  bar('fB',{left:lerp(560,FR.l,pB)+'px',top:(FR.b-4)+'px',width:fW+'px',opacity:fo});
+  bar('fL',{top:lerp(-fH-20,FR.t,pL)+'px',left:(FR.l-4)+'px',height:fH+'px',opacity:fo});
+  bar('fR',{top:lerp(980,FR.t,pR)+'px',left:(FR.r-4)+'px',height:fH+'px',opacity:fo});
+  [['c1',FR.l,FR.t],['c2',FR.r,FR.t],['c3',FR.l,FR.b],['c4',FR.r,FR.b]].forEach(function(c,i){var e=$(c[0]),q=ob((t-HIT-i*.05)/.4);
+    e.style.left=c[1]+'px';e.style.top=c[2]+'px';e.style.opacity=(t>HIT?1:0)*fo;e.style.transform='scale('+Math.max(0,q)*1+') rotate('+(1-cl(q))*-90+'deg)'});
+  $('flash').style.opacity=t>HIT?.5*Math.exp(-(t-HIT)*7):0;
+  // end card: ink panel rises, gold double frame returns
+  var pr=io((t-14.9)/.75);$('endp').style.top=lerp(960,0,pr)+'px';
+  var ef=io((t-15.4)/.6);$('endf').style.opacity=ef;$('endf').style.transform='scale('+lerp(1.12,1,ef)+')';
+  MASK.forEach(function(m){var q=eo((t-m.s)/.6);m.e.style.transform='translateY('+((1-q)*105)+'%)'});
+  var h=oc(t/.3);$('t1').style.opacity=(1-sm((t-2.9)/.25));$('t1').style.transform='translateY('+((1-h)*-10)+'px)';
+  [['t2',3.1],['t3',7.0],['t4',8.1],['t5',10.0],['t6',12.0],['t7',13.6],['t8',15.5]].forEach(function(o){$(o[0]).style.visibility=t<o[1]?'hidden':'visible'});
+  $('t2').style.opacity=1-sm((t-4.8)/.2);
+  $('t3').style.opacity=1-sm((t-7.85)/.2);
+  $('t4').style.opacity=1-sm((t-9.75)/.2);
+  $('t5').style.opacity=1-sm((t-11.55)/.2);
+  $('t6').style.opacity=1-sm((t-13.35)/.2);
+  $('t7').style.opacity=1-sm((t-14.8)/.25);
+  var lq=ob((t-15.3)/.7);$('lg').style.opacity=cl((t-15.3)/.25);$('lg').style.transform='scale('+(t<15.3?.6:Math.max(.6,lq))+')';
+  var pq=ob((t-16.1)/.6);$('btnw').style.opacity=cl((t-16.1)/.2);$('btnw').style.transform='translateY('+((1-oc((t-16.1)/.6))*30)+'px) scale('+(t<16.1?.8:Math.max(.8,pq))+')';
+  var pu2=t>16.8?((t-16.8)%1.4)/1.4:-1;$('btn').style.transform=pu2>=0?'scale('+(1+.045*Math.sin(Math.min(1,pu2/.35)*Math.PI))+')':'none';
+};
+window.__seek(0);
+</script></body></html>
