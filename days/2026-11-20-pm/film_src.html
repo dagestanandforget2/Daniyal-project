@@ -1,0 +1,154 @@
+<!--FONTS Yeseva One:yeseva-one:latin:400:normal;Sora:sora:latin:400,600:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Bookends</title>
+<style>
+/*FONTS*/
+:root{--bone:#EDE6D6;--wal:#2A1512;--wal2:#4A2420;--ink:#16110E;--grn:#0E3B2C;--mar:#7B1F22;--gd:#C9A24A;--hd:'Yeseva One',serif;--bd:'Sora',sans-serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;background:var(--bone);color:var(--ink)}
+#win{position:absolute;left:0;top:312px;width:540px;height:648px;overflow:hidden;
+  background:radial-gradient(ellipse 70% 55% at 50% 52%,var(--wal2) 0%,var(--wal) 70%,#170B0A 100%)}
+#rule{position:absolute;left:0;top:308px;width:540px;height:4px;background:var(--gd);transform-origin:0 50%}
+#floor{position:absolute;left:0;right:0;top:545px;height:103px;background:linear-gradient(180deg,rgba(0,0,0,.0),rgba(0,0,0,.45))}
+#lat{position:absolute;inset:0;opacity:.10;background:
+  repeating-linear-gradient(90deg,transparent 0 59px,#C9A24A 59px 60px)}
+#grp{position:absolute;left:0;top:0;width:540px;height:648px;perspective:1300px;perspective-origin:270px 330px;transform-origin:0 0}
+.card{position:absolute;left:0;top:0;width:366px;height:520px;transform-style:preserve-3d}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background-size:107% 105%;background-position:50% 50%;
+  box-shadow:0 30px 60px -20px rgba(0,0,0,.7);border-radius:3px}
+.sp{position:absolute;top:0;height:430px;background-size:112% 109%;background-position:50% 85%;box-shadow:inset -2px 0 3px rgba(0,0,0,.35)}
+#glint{position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,240,200,.35) 50%,transparent 65%);mix-blend-mode:screen;pointer-events:none}
+.m{position:absolute;overflow:hidden;margin:0;white-space:nowrap;padding-bottom:.12em}
+.m>span{display:block}
+.hd{font-family:var(--hd);font-weight:400;line-height:1.02;color:var(--ink);font-size:40px;letter-spacing:-.3px}
+.g{color:var(--mar)}
+.sm{font-family:var(--bd);font-weight:400;font-size:17px;line-height:1.3;color:#3A302A}
+.sb{font-weight:600;color:var(--grn)}
+#endp{position:absolute;left:0;top:0;width:540px;height:0;background:var(--bone);overflow:hidden}
+#endp:after{content:'';position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--gd)}
+#lg{position:absolute;left:170px;top:150px;width:200px;height:200px;mix-blend-mode:multiply;opacity:0}
+.pill{display:inline-block;background:var(--mar);color:#F7EFE0;font-family:var(--bd);font-weight:600;font-size:24px;padding:16px 38px;border-radius:40px;box-shadow:0 16px 34px -14px rgba(60,10,10,.6)}
+#flash{position:absolute;inset:0;background:#FFF3D6;opacity:0;pointer-events:none}
+#grain{position:absolute;inset:0;opacity:.12;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="win">
+  <div id="lat"></div><div id="floor"></div>
+  <div id="grp">
+   <div id="row"></div>
+   <div class="card" id="bL"><div class="face" style="background-image:url(assets/sb9_v1_front.jpg);background-size:110% 106%;background-position:0 0"></div></div>
+   <div class="card" id="fc">
+    <div class="face" style="background-image:url(assets/sb9_v1_front.jpg);background-size:110% 106%;background-position:0 0"></div>
+    <div class="face" style="background-image:url(assets/sb9_v9_front.jpg);transform:rotateY(180deg)"></div>
+   </div>
+  </div>
+  <div id="glint"></div>
+ </div>
+ <div id="rule"></div>
+
+ <div id="t1">
+  <p class="m hd" style="left:28px;top:98px"><span>Sahih al-Bukhari,</span></p>
+  <p class="m hd" style="left:28px;top:142px"><span>all 9 volumes,</span></p>
+  <p class="m hd g" style="left:28px;top:186px"><span>Arabic-English.</span></p>
+  <p class="m sm sb" style="left:30px;top:240px"><span data-a="0.08">Imam Muhammad ibn Isma'il al-Bukhari.</span></p>
+  <p class="m sm" style="left:30px;top:264px"><span data-a="0.16">Translated by Dr. Muhammad Muhsin Khan.</span></p>
+ </div>
+ <div id="t2">
+  <p class="m hd" style="left:28px;top:110px"><span data-a="3.2">Two covers,</span></p>
+  <p class="m hd g" style="left:28px;top:156px"><span data-a="3.3">two scripts.</span></p>
+  <p class="m sm" style="left:30px;top:222px"><span data-a="3.45">Volume 1 in Arabic. Volume 9 in English.</span></p>
+ </div>
+ <div id="t3">
+  <p class="m hd" style="left:28px;top:110px"><span data-a="7.1">Nine volumes,</span></p>
+  <p class="m hd g" style="left:28px;top:156px"><span data-a="7.2">held as one set.</span></p>
+  <p class="m sm" style="left:30px;top:222px"><span data-a="7.35">Darussalam hardcover. Ahadith 1 to 7563.</span></p>
+ </div>
+ <div id="t4">
+  <p class="m hd" style="left:28px;top:110px"><span data-a="8.6">Every spine</span></p>
+  <p class="m hd g" style="left:28px;top:156px"><span data-a="8.7">is numbered.</span></p>
+  <p class="m sm" style="left:30px;top:222px"><span data-a="8.85">Volume 1: ahadith 1 to 875.</span></p>
+ </div>
+ <div id="t5">
+  <p class="m hd" style="left:28px;top:110px"><span data-a="10.25">Volume 9 ends</span></p>
+  <p class="m hd g" style="left:28px;top:156px"><span data-a="10.35">at hadith 7563.</span></p>
+  <p class="m sm" style="left:30px;top:222px"><span data-a="10.5">Ahadith 6861 to 7563, on the spine.</span></p>
+ </div>
+ <div id="t6">
+  <p class="m hd" style="left:28px;top:98px"><span data-a="12.0">Translated by</span></p>
+  <p class="m hd g" style="left:28px;top:142px"><span data-a="12.1">Dr. Muhammad</span></p>
+  <p class="m hd g" style="left:28px;top:186px"><span data-a="12.15">Muhsin Khan.</span></p>
+  <p class="m sm" style="left:30px;top:244px"><span data-a="12.3">As printed on the cover of volume 9.</span></p>
+ </div>
+ <div id="t7">
+  <p class="m hd" style="left:28px;top:110px"><span data-a="13.6">Arabic-English,</span></p>
+  <p class="m hd g" style="left:28px;top:156px"><span data-a="13.7">green and gold.</span></p>
+  <p class="m sm" style="left:30px;top:222px"><span data-a="13.85">Hardcover, nine volumes, Darussalam.</span></p>
+ </div>
+
+ <div id="endp">
+  <img id="lg" src="assets/logo_dark.png" alt="Dar Al Athari">
+  <p class="m hd" style="left:0;width:540px;text-align:center;top:380px;font-size:46px"><span data-a="15.6">daralathari.com</span></p>
+  <p class="m sm" style="left:0;width:540px;text-align:center;top:450px"><span data-a="15.75">Shipped from New Jersey.</span></p>
+  <div id="btnw" style="position:absolute;left:0;width:540px;top:520px;text-align:center;opacity:0"><span class="pill" id="btn">Shop the collection</span></div>
+  <p class="m sm sb" style="left:0;width:540px;text-align:center;top:616px"><span data-a="16.4">Link in bio</span></p>
+ </div>
+ <div id="flash"></div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+var SPW=[184,194,230,206,184,200,184,178,193],SH=430,SW=SPW.map(function(w){return w*SH/1530}),TOT=SW.reduce(function(a,b){return a+b},0);
+var row=$('row'),SP=[];
+for(var i=0;i<9;i++){SP.push(el('sp','width:'+SW[i]+'px;background-image:url(assets/sb9_v'+(i+1)+'_spine.jpg)',row))}
+var MASK=[];document.querySelectorAll('[data-a]').forEach(function(e){MASK.push({e:e,s:+e.dataset.a})});
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+var CY=330,C=6.95;
+var LAND=[];for(var i=0;i<9;i++)LAND.push(5.95+i*.12-i*i*.004);
+function card(e,x,y,ry,s,op,blur){e.style.transform='translate('+(x-183)+'px,'+(y-260)+'px) rotateY('+ry+'deg) scale('+s+')';
+  e.style.opacity=op==null?1:op;e.style.filter=blur?'blur('+blur+'px)':'none'}
+// fc: x,y,ry,s
+var KF=[[0,270,CY,-30,.97],[1.3,270,CY,-8,1.0],[2.9,270,CY,-3,1.02],[3.55,270,CY,177,1.02],[5.3,270,CY,182,1.03],
+  [5.85,575,CY,240,.86],[C,575,CY,240,.86],[C+.14,512,CY,240,.86],[11.2,512,CY,240,.86],
+  [11.9,270,CY,178,1.0],[12.0,270,CY,178,1.0],[12.6,322,200,180,1.85],[13.3,328,196,180,1.9],[13.9,270,CY,160,1.0],[14.9,270,CY,150,1.0],[18,270,CY,150,1.0]];
+// group zoom: t, s, ox, oy (point brought to 270,330)
+var KZ=[[0,1,270,330],[8.2,1,270,330],[8.85,2.7,52,206],[9.9,2.7,62,212],[10.45,2.7,494,212],[11.15,2.7,488,212],[11.5,1,270,330],[18,1,270,330]];
+window.__seek=function(t){
+  var sh=0,k=t-C;if(k>0&&k<.6)sh=Math.sin(k*55)*Math.exp(-k*9)*9;
+  LAND.forEach(function(d){var q=t-d;if(q>0&&q<.3)sh+=Math.sin(q*70)*Math.exp(-q*14)*2});
+  // flip card
+  var f=keyed(KF,t),blur=0;
+  if(t>2.9&&t<3.55)blur=Math.sin(cl((t-2.9)/.65)*Math.PI)*3;
+  if(t>5.3&&t<5.85)blur=Math.sin(cl((t-5.3)/.55)*Math.PI)*4;
+  card($('fc'),f[0]+sh,f[1]+(t<.9?(1-oc(t/.9))*40:0),f[2],f[3],1,blur);
+  // left bookend
+  var lin=io((t-5.35)/.5),lc=io((t-C)/.14),lout=io((t-11.2)/.45);
+  if(t<5.35||t>11.7)$('bL').style.opacity=0;
+  else card($('bL'),lerp(-420,-35,lin)+lc*63+sh-lout*500,CY,lerp(-150,-60,lin),.86,1,(1-lin)*4);
+  // spines
+  var gap=12*(1-io((t-C)/.14)),W=TOT+gap*8,x0=270-W/2,out=io((t-11.15)/.45);
+  for(var i=0;i<9;i++){var d=LAND[i],p=cl((t-(d-.3))/.3),e=SP[i];
+    var y=lerp(-520,CY-SH/2,p*p);var q=t-d;var sq=(q>0&&q<.25)?Math.sin(q/.25*Math.PI)*.04:0;
+    e.style.left=(x0+sh)+'px';x0+=SW[i]+gap;
+    e.style.top=(y+out*(700+i*30))+'px';e.style.transform='scaleY('+(1-sq)+') scaleX('+(1+sq)+')';e.style.transformOrigin='50% 100%';
+    e.style.opacity=t<d-.3?0:1;e.style.filter=(p<1&&p>0)?'blur('+(1-p)*3+'px)':'none';e.style.zIndex=1}
+  var z=keyed(KZ,t);$('grp').style.transform='translate('+(270-z[1]*z[0])+"px,"+(330-z[2]*z[0])+'px) scale('+z[0]+')';
+  $('glint').style.transform='translateX('+lerp(-600,600,io((t-C)/.8))+'px)';$('glint').style.opacity=t>C&&t<C+.9?1:0;
+  $('lat').style.transform='translateX('+(-t*5)+'px)';
+  $('rule').style.transform='scaleX('+(t<C?1:1)+')';
+  $('flash').style.opacity=t>C+.1?.5*Math.exp(-(t-C-.1)*7):0;
+  // end card: bone panel drops down over the window
+  var pr=io((t-14.9)/.75);$('endp').style.height=lerp(0,960,pr)+'px';$('rule').style.top=lerp(308,956,pr)+'px';
+  MASK.forEach(function(m){var q=eo((t-m.s)/.5);m.e.style.transform='translateY('+((1-q)*105)+'%)'});
+  $('t1').style.opacity=1-sm((t-2.85)/.25);
+  [['t2',3.1],['t3',7.0],['t4',8.5],['t5',10.15],['t6',11.9],['t7',13.5]].forEach(function(o){$(o[0]).style.visibility=t<o[1]?'hidden':'visible'});
+  $('t2').style.opacity=1-sm((t-5.2)/.2);
+  $('t3').style.opacity=1-sm((t-8.25)/.2);
+  $('t4').style.opacity=1-sm((t-9.9)/.2);
+  $('t5').style.opacity=1-sm((t-11.3)/.2);
+  $('t6').style.opacity=1-sm((t-13.3)/.2);
+  $('t7').style.opacity=1-sm((t-14.85)/.2);
+  var lq=ob((t-15.3)/.7);$('lg').style.opacity=cl((t-15.3)/.25);$('lg').style.transform='scale('+(t<15.3?.6:Math.max(.6,lq))+')';
+  var pq=ob((t-16.1)/.6);$('btnw').style.opacity=cl((t-16.1)/.2);$('btnw').style.transform='translateY('+((1-oc((t-16.1)/.6))*30)+'px) scale('+(t<16.1?.8:Math.max(.8,pq))+')';
+  var pu2=t>16.8?((t-16.8)%1.4)/1.4:-1;$('btn').style.transform=pu2>=0?'scale('+(1+.045*Math.sin(Math.min(1,pu2/.35)*Math.PI))+')':'none';
+};
+window.__seek(0);
+</script></body></html>
