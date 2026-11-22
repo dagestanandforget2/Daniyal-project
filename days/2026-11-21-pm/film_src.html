@@ -1,0 +1,146 @@
+<!--FONTS Bodoni Moda:bodoni-moda:latin:700,900:normal;Familjen Grotesk:familjen-grotesk:latin:400,700:normal;Noto Naskh Arabic:noto-naskh-arabic:arabic:700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Down the Spine</title>
+<style>
+/*FONTS*/
+:root{--ol:#5A5634;--old:#24231A;--ink:#12110C;--gd:#D2AE5E;--vl:#EEE6CC;--rs:#A3462A;--hd:'Bodoni Moda',serif;--ui:'Familjen Grotesk',sans-serif;--ar:'Noto Naskh Arabic',serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;font-family:var(--ui);
+  background:linear-gradient(180deg,#3A3825 0%,var(--ol) 52%,#4A4729 70%,var(--old) 100%)}
+#lines{position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 53px,rgba(210,174,94,.10) 53px 54px)}
+#floor{position:absolute;left:-40px;right:-40px;top:760px;height:260px;background:linear-gradient(180deg,#2C2A1C,#17160F);border-top:1px solid rgba(210,174,94,.35)}
+.st3d{position:absolute;inset:0;perspective:1500px;perspective-origin:270px 560px;overflow:hidden}
+.cam{position:absolute;left:270px;top:540px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#f1eadb 0 4.5px,#cfc6ae 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#f1eadb 0 4.5px,#cfc6ae 4.5px 7.5px)}
+#shadow{position:absolute;left:90px;width:360px;top:900px;height:50px;border-radius:50%;background:radial-gradient(closest-side,rgba(5,5,3,.6),transparent)}
+.dust{position:absolute;width:6px;height:6px;border-radius:50%;background:#E9DDB8;opacity:0}
+.hl{position:absolute;left:26px;font-family:var(--hd);font-weight:900;font-size:44px;line-height:1.02;color:var(--vl);white-space:nowrap;letter-spacing:-.5px}
+.hl i{font-style:normal;color:var(--gd)}
+.hl span{display:block;clip-path:inset(0 0 100% 0)}
+.note{position:absolute;left:28px;font-family:var(--ui);font-weight:700;font-size:18px;line-height:1.3;color:var(--vl);white-space:nowrap;opacity:0;text-shadow:0 2px 8px rgba(0,0,0,.5)}
+.note.l{font-weight:400;color:#DCD3B6}
+.arb{position:absolute;left:24px;width:440px;text-align:left;direction:rtl;font-family:var(--ar);font-weight:700;color:var(--gd);white-space:nowrap;opacity:0;text-shadow:0 3px 12px rgba(0,0,0,.5)}
+#cap{position:absolute;left:0;top:0;width:540px;height:340px;background:linear-gradient(180deg,#1E1D14,#2E2C1D);opacity:0}
+#cap:after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gd)}
+#endp{position:absolute;left:0;top:960px;width:540px;height:960px;background:var(--ink)}
+#endp:before{content:'';position:absolute;left:24px;right:24px;top:24px;bottom:24px;border:1px solid var(--gd);box-shadow:inset 0 0 0 5px var(--ink),inset 0 0 0 6px rgba(210,174,94,.6)}
+#lg{position:absolute;left:180px;top:150px;width:180px;height:180px;mix-blend-mode:screen;opacity:0}
+.pill{display:inline-block;background:var(--rs);color:var(--vl);font-family:var(--ui);font-weight:700;font-size:26px;padding:16px 40px;border-radius:999px}
+.ctr{position:absolute;left:0;width:540px;text-align:center;opacity:0}
+#flash{position:absolute;inset:0;background:#FFF4D8;opacity:0}
+#grain{position:absolute;inset:0;opacity:.15;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+#vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(130% 90% at 50% 55%,transparent 55%,rgba(0,0,0,.42))}
+</style></head><body>
+<div id="stage">
+ <div id="lines"></div>
+ <div id="floor"></div>
+ <div id="shadow"></div>
+ <div class="st3d"><div class="cam" id="cam"></div></div>
+ <div id="dusts"></div>
+ <div id="cap"></div>
+
+ <div class="sc" data-o="2.75">
+  <div class="hl" style="top:104px"><span data-h="-0.3">Al-Mutoon al-Jami'ah,</span><span data-h="-0.24"><i>fully vocalised Arabic.</i></span></div>
+  <div class="note" style="top:206px" data-n="-0.2">Compiled by Dr. Abdul Muhsin al-Qasim.</div>
+  <div class="note l" style="top:232px" data-n="-0.1">One volume, black hardcover.</div>
+ </div>
+ <div class="sc" data-o="5.0">
+  <div class="hl" style="top:110px;font-size:40px"><span data-h="2.95">Gold panels</span><span data-h="3.05"><i>down the spine.</i></span></div>
+  <div class="arb" style="top:206px;left:26px;width:250px;font-size:40px;line-height:1.6" data-n="3.3">متون طالب العلم</div>
+  <div class="note l" style="top:290px" data-n="3.5">Title stamped in gold.</div>
+ </div>
+ <div class="sc" data-o="7.4">
+  <div class="hl" style="top:110px"><span data-h="6.42">It lands</span><span data-h="6.5"><i>flat and heavy.</i></span></div>
+ </div>
+ <div class="sc" data-o="9.6">
+  <div class="arb" style="top:84px;font-size:60px;line-height:1.5" data-n="7.75">متون طالب العلم</div>
+  <div class="hl" style="top:190px;font-size:40px"><span data-h="7.9">Verified against</span><span data-h="8.0"><i>160 manuscripts.</i></span></div>
+  <div class="note l" style="top:284px" data-n="8.2">As printed on the cover.</div>
+ </div>
+ <div class="sc" data-o="11.6">
+  <div class="hl" style="top:104px;font-size:38px"><span data-h="9.85">Compiled by Dr. Abdul</span><span data-h="9.95"><i>Muhsin al-Qasim,</i></span></div>
+  <div class="note" style="top:196px" data-n="10.15">Imam and Khatib of</div>
+  <div class="note" style="top:220px" data-n="10.2">al-Masjid an-Nabawi.</div>
+ </div>
+ <div class="sc" data-o="13.3">
+  <div class="hl" style="top:110px;font-size:40px"><span data-h="11.85">Gold border,</span><span data-h="11.95"><i>edge to edge.</i></span></div>
+ </div>
+ <div class="sc" data-o="14.75">
+  <div class="hl" style="top:110px;font-size:40px"><span data-h="13.45">Black grained</span><span data-h="13.55"><i>boards.</i></span></div>
+ </div>
+
+ <div id="vig"></div>
+ <div id="endp"></div>
+ <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+ <div class="ctr" id="e1" style="top:362px;font-family:var(--hd);font-weight:900;font-size:46px;color:var(--vl)">daralathari.com</div>
+ <div class="ctr" id="e2" style="top:432px;font-size:19px;color:#CFC7AC">Shipped from New Jersey.</div>
+ <div class="ctr" id="e3" style="top:498px"><span class="pill" id="btn">Shop the collection</span></div>
+ <div class="ctr" id="e4" style="top:600px;font-size:18px;font-weight:700;color:#CFC7AC">Link in bio</div>
+ <div id="flash"></div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+setLight([-.4,-.55,.75],.42,.82);
+var cam=$('cam'),bk=makeBook(cam,'mt');
+var HS=[],NO=[],SC=[],DU=[];
+document.querySelectorAll('.sc').forEach(function(s){SC.push({e:s,o:+s.dataset.o})});
+document.querySelectorAll('[data-h]').forEach(function(e){HS.push({e:e,s:+e.dataset.h})});
+document.querySelectorAll('[data-n]').forEach(function(e){NO.push({e:e,s:+e.dataset.n})});
+_seed=11;for(var i=0;i<46;i++){var a=Math.PI*(rnd()*1.0+0.0),sp=120+rnd()*260;
+  DU.push({e:el('dust','',$('dusts')),x:270+(rnd()-.5)*300,vx:Math.cos(a)*sp*(rnd()<.5?-1:1),vy:-Math.abs(Math.sin(a))*sp*.5-30,r:2+rnd()*5})}
+function eo(x){x=cl(x);return x===1?1:1-Math.pow(2,-10*x)}
+var BH=300,BW=209;
+function Y(f,s,sc){return sc-540-(f-.5)*BH*s}
+function X(f,s){return -(f-.5)*BW*s}
+// t, x, y, ry, rx, s
+var KEY=[
+ [0,   20,150,-38,3,1.82],
+ [1.3, 20,150,-58,2,1.9],
+ [2.7, 40,150,-72,2,1.95],
+ [3.2, 120,Y(.25,3.4,600),-90,0,3.4],
+ [4.0, 120,Y(.38,3.4,620),-90,0,3.4],
+ [4.85,120,Y(.62,3.4,640),-90,0,3.4],
+ [5.4, 0,140,-8,0,1.6],
+ [5.6, 0,140,0,0,1.6],
+ [7.2, 0,140,0,0,1.6],
+ [7.7, X(.5,3.3),Y(.27,3.3,640),0,0,3.3],
+ [9.3, X(.5,3.3),Y(.33,3.3,650),0,0,3.3],
+ [9.75,X(.5,3.0),Y(.66,3.0,600),0,0,3.0],
+ [11.3,X(.5,3.0),Y(.68,3.0,620),0,0,3.0],
+ [11.8,X(.12,4.0),Y(.12,4.0,560),0,0,4.0],
+ [12.6,X(.12,4.0),Y(.5,4.0,600),0,0,4.0],
+ [13.2,X(.12,4.0),Y(.85,4.0,640),0,0,4.0],
+ [13.6,0,150,-150,3,1.7],
+ [14.6,0,150,-180,3,1.72],
+ [18,0,150,-180,3,1.72]];
+var TIP0=5.65,TIPL=6.35; // tip-over: rx 0 -> 82 with gravity ease, slam at TIPL
+window.__seek=function(t){
+  var a=keyed(KEY,t),rx=a[3],y=a[1],sh=0,s=a[4];
+  if(t>TIP0&&t<7.25){var p=t<TIPL?Math.pow((t-TIP0)/(TIPL-TIP0),2.2):1;
+    var back=t>6.85?io((t-6.85)/.4):0;
+    var bounce=t>TIPL?Math.sin((t-TIPL)*22)*Math.exp(-(t-TIPL)*12)*5:0;
+    rx=lerp(0,76,p)-bounce;rx=lerp(rx,0,back);y=a[1]+lerp(0,95,p)*(1-back)}
+  var k=t-TIPL;if(k>0&&k<.7)sh=Math.sin(k*60)*Math.exp(-k*8)*10;
+  var exit=io((t-14.8)/.6);
+  pose(bk,{x:a[0]+sh,y:y-exit*900+sh*.5,z:0,ry:a[2],rx:rx,s:s});
+  $('stage').style.transform=sh?'translate('+(sh*.4)+'px,'+(sh*.6)+'px)':'none';
+  $('shadow').style.opacity=(1-sm((s-2.0)/.4))*(1-exit);
+  var fl=1-sm((s-2.0)/.5);$('floor').style.opacity=fl;
+  $('cap').style.opacity=sm((s-2.2)/.5)*(1-exit);
+  $('flash').style.opacity=t>TIPL?.45*Math.exp(-(t-TIPL)*7):0;
+  DU.forEach(function(d){var q=t-TIPL;if(q<0||q>1.4){d.e.style.opacity=0;return}
+    var e=1-Math.exp(-q*3.2);d.e.style.left=(d.x+d.vx*e*.9)+'px';d.e.style.top=(790+d.vy*e+q*q*40)+'px';
+    d.e.style.width=d.e.style.height=(d.r*(1+q))+'px';d.e.style.opacity=(.75*(1-q/1.4)).toFixed(3)});
+  HS.forEach(function(h){var q=eo((t-h.s)/.35);h.e.style.clipPath='inset(0 0 '+((1-q)*100).toFixed(2)+'% 0)';h.e.style.transform='translateY('+((1-q)*22)+'px)'});
+  NO.forEach(function(n){var q=oc((t-n.s)/.3);n.e.style.opacity=q;n.e.style.transform='translateY('+((1-q)*10)+'px)'});
+  SC.forEach(function(c){var o=1-sm((t-c.o)/.22);c.e.style.opacity=o;c.e.style.visibility=o<=0?'hidden':'visible'});
+  var ep=io((t-14.8)/.65);$('endp').style.top=lerp(960,0,ep)+'px';
+  var lq=ob((t-15.35)/.7);$('lg').style.opacity=cl((t-15.35)/.25);$('lg').style.transform='scale('+(t<15.35?.6:Math.max(.6,lq))+')';
+  [['e1',15.65],['e2',15.8],['e3',16.05],['e4',16.35]].forEach(function(o){var q=oc((t-o[1])/.45);var e=$(o[0]);e.style.opacity=cl((t-o[1])/.2);e.style.transform='translateY('+((1-q)*24)+'px)'});
+  var pu=t>16.8?((t-16.8)%1.4)/1.4:-1;$('btn').style.transform=pu>=0?'scale('+(1+.045*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+};
+window.__seek(0);
+</script></body></html>
