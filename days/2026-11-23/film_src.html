@@ -1,0 +1,156 @@
+<!--FONTS Yeseva One:yeseva-one:latin:400:normal;Sora:sora:latin:400,700:normal;Amiri:amiri:arabic:700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Revolving Pair</title>
+<style>
+/*FONTS*/
+:root{--pe:#F3B494;--ro:#D9788A;--au:#2B1E3F;--au2:#3E2A57;--pa:#F7EFE6;--gr:#1F6B40;--gd:#E2B85C;--hd:'Yeseva One',serif;--ui:'Sora',sans-serif;--ar:'Amiri',serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;font-family:var(--ui);background:var(--pe)}
+#dusk{position:absolute;inset:0;background:linear-gradient(180deg,#F6C7A6 0%,var(--pe) 38%,var(--ro) 100%)}
+#night{position:absolute;inset:0;background:radial-gradient(80% 55% at 50% 62%,var(--au2) 0%,var(--au) 70%,#1B1229 100%);opacity:0}
+#arc{position:absolute;left:0;top:0;width:540px;height:960px}
+.st3d{position:absolute;inset:0;perspective:1400px;perspective-origin:270px 560px;overflow:hidden}
+.cam{position:absolute;left:270px;top:540px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#f4efe6 0 4.5px,#d3cbbb 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#f4efe6 0 4.5px,#d3cbbb 4.5px 7.5px)}
+#cap{position:absolute;left:0;top:0;width:540px;height:330px;opacity:0}
+.h{position:absolute;left:28px;font-family:var(--hd);font-size:46px;line-height:1.06;color:var(--au);white-space:nowrap}
+.h i{font-style:normal;color:var(--gr)}
+.dk .h{color:var(--pa)} .dk .h i{color:var(--pe)}
+.ln{overflow:hidden;display:block;padding-bottom:5px}
+.ln>span{display:inline-block}
+.note{position:absolute;left:30px;font-weight:700;font-size:18px;line-height:1.3;color:var(--au);white-space:nowrap;opacity:0}
+.note.l{font-weight:400}
+.dk .note{color:#E9DCEB}
+.arb{position:absolute;left:28px;width:440px;direction:rtl;text-align:left;font-family:var(--ar);font-weight:700;color:var(--pe);white-space:nowrap;opacity:0}
+#endp{position:absolute;left:0;top:960px;width:540px;height:960px;background:linear-gradient(180deg,#1B1229,var(--au) 50%,var(--au2))}
+#endp:before{content:'';position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,transparent,var(--gd) 25%,var(--pe) 50%,var(--gd) 75%,transparent)}
+#lg{position:absolute;left:180px;top:130px;width:180px;height:180px;mix-blend-mode:screen;opacity:0}
+.pill{display:inline-block;background:var(--pe);color:var(--au);font-weight:700;font-size:25px;padding:16px 40px;border-radius:999px;box-shadow:0 18px 40px -14px rgba(0,0,0,.7)}
+.ctr{position:absolute;left:0;width:540px;text-align:center;opacity:0}
+#flash{position:absolute;inset:0;background:#FFE9D6;opacity:0}
+#grain{position:absolute;inset:0;opacity:.1;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+#vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(130% 90% at 50% 50%,transparent 62%,rgba(27,18,41,.3))}
+</style></head><body>
+<div id="stage">
+ <div id="dusk"></div><div id="night"></div>
+ <svg id="arc" viewBox="0 0 540 960"><g fill="none" stroke-linecap="round">
+  <path id="a1" d="M-40 980 C -40 560, 120 420, 270 330 C 420 420, 580 560, 580 980" stroke="#FFFFFF" stroke-opacity=".55" stroke-width="2"/>
+  <path id="a2" d="M30 980 C 30 640, 150 520, 270 450 C 390 520, 510 640, 510 980" stroke="#FFFFFF" stroke-opacity=".35" stroke-width="1.5"/>
+  <line id="fin" x1="270" y1="330" x2="270" y2="250" stroke="#FFFFFF" stroke-opacity=".55" stroke-width="2"/>
+ </g></svg>
+ <div class="st3d"><div class="cam" id="cam"></div></div>
+ <div id="cap"></div>
+
+ <div class="sc" data-o="2.85">
+  <div class="h" style="top:100px"><span class="ln"><span data-r="-0.5">Two volumes of Fiqh,</span></span><span class="ln"><span data-r="-0.4"><i>in English hardcover.</i></span></span></div>
+  <div class="note" style="top:218px" data-n="-0.3">Fiqh According to the Qur'an &amp; Sunnah.</div>
+  <div class="note l" style="top:244px" data-n="-0.2">Compiled by Muhammad Subhi bin Hasan Hallaq.</div>
+ </div>
+ <div class="sc" data-o="4.75">
+  <div class="h" style="top:104px"><span class="ln"><span data-r="3.1">Volume 1,</span></span><span class="ln"><span data-r="3.2"><i>in gold on blue.</i></span></span></div>
+ </div>
+ <div class="sc dk" data-o="6.75">
+  <div class="h" style="top:104px"><span class="ln"><span data-r="5.0">Swing it round:</span></span><span class="ln"><span data-r="5.1"><i>Volume 2.</i></span></span></div>
+ </div>
+ <div class="sc dk" data-o="8.7">
+  <div class="h" style="top:104px"><span class="ln"><span data-r="6.95">Two spines,</span></span><span class="ln"><span data-r="7.05"><i>one matching set.</i></span></span></div>
+  <div class="note" style="top:220px" data-n="7.3">Darussalam, white and blue.</div>
+ </div>
+ <div class="sc dk" data-o="10.8">
+  <div class="arb" style="top:96px;font-size:34px;line-height:1.5" data-n="9.0">اللباب في فقه السنة والكتاب</div>
+  <div class="h" style="top:160px;font-size:40px"><span class="ln"><span data-r="9.15">The Arabic title,</span></span><span class="ln"><span data-r="9.25"><i>on the back.</i></span></span></div>
+ </div>
+ <div class="sc dk" data-o="12.9">
+  <div class="h" style="top:104px;font-size:40px"><span class="ln"><span data-r="11.15">Compiled by</span></span><span class="ln"><span data-r="11.25"><i>Muhammad Subhi</i></span></span><span class="ln"><span data-r="11.35"><i>bin Hasan Hallaq.</i></span></span></div>
+ </div>
+ <div class="sc dk" data-o="14.75">
+  <div class="h" style="top:104px"><span class="ln"><span data-r="13.2">Volumes 1 and 2,</span></span><span class="ln"><span data-r="13.3"><i>side by side.</i></span></span></div>
+  <div class="note" style="top:220px" data-n="13.55">English hardcover, Darussalam.</div>
+ </div>
+
+ <div id="vig"></div>
+ <div id="endp"></div>
+ <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+ <div class="ctr" id="e1" style="top:345px;font-family:var(--hd);font-size:48px;color:var(--pa)">daralathari.com</div>
+ <div class="ctr" id="e2" style="top:420px;font-size:18px;color:#D9C8DE">Shipped from New Jersey.</div>
+ <div class="ctr" id="e3" style="top:488px"><span class="pill" id="btn">Browse the books</span></div>
+ <div class="ctr" id="e4" style="top:588px;font-size:17px;font-weight:700;color:#D9C8DE">Link in bio</div>
+ <div id="flash"></div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.35,-.4,.85],.42,.8);
+var cam=$('cam'),v1=makeBook(cam,'fq1'),v2=makeBook(cam,'fq2');
+var RS=[],NO=[],SC=[];
+document.querySelectorAll('.sc').forEach(function(s){SC.push({e:s,o:+s.dataset.o})});
+document.querySelectorAll('[data-r]').forEach(function(e){RS.push({e:e,s:+e.dataset.r})});
+document.querySelectorAll('[data-n]').forEach(function(e){NO.push({e:e,s:+e.dataset.n})});
+var BH=294,BW=200;
+function Y(f,s,sc){return sc-540-(f-.5)*BH*s}
+function X(f,s){return -(f-.5)*BW*s}
+var R=190, HS=4.85, HE=6.35;
+// t, x, y, z, ry, s
+var K1=[
+ [0,  18,72,0,-36,1.62],
+ [1.3,0,66,0,-9,1.7],
+ [2.8,0,64,0,-5,1.7],
+ [3.3,X(.63,3.0),Y(.54,3.0,560),0,0,3.0],
+ [4.55,X(.63,3.0),Y(.54,3.0,585),0,0,3.0],
+ [HS,0,70,0,0,1.6],
+ [HE,0,70,-2*R,180,1.6],
+ [6.95,-100,74,0,64,1.6],
+ [8.6,-100,70,0,70,1.6],
+ [9.0,-700,70,0,70,1.6],
+ [12.85,-700,70,0,10,1.2],
+ [13.3,-122,118,0,8,1.2],
+ [14.7,-122,112,0,4,1.2],
+ [18,-122,112,0,4,1.2]];
+var K2=[
+ [0,0,70,-2*R,180,1.6],
+ [HS,0,70,-2*R,180,1.6],
+ [HE,0,70,0,360,1.6],
+ [6.95,80,74,0,424,1.6],
+ [8.6,80,70,0,430,1.6],
+ [9.05,0,Y(.27,2.6,560),0,540,2.6],
+ [10.75,0,Y(.27,2.6,585),0,540,2.6],
+ [11.15,X(.63,2.9),Y(.47,2.9,560),0,720,2.9],
+ [12.85,X(.63,2.9),Y(.47,2.9,580),0,720,2.9],
+ [13.3,122,118,0,712,1.2],
+ [14.7,122,112,0,716,1.2],
+ [18,122,112,0,716,1.2]];
+window.__seek=function(t){
+  var a=keyed(K1,t),b=keyed(K2,t),blur=0,sh=0;
+  // hero: the pair revolves around a shared axis, Vol. 2 swings to the front
+  if(t>HS&&t<HE){var p=io((t-HS)/(HE-HS)),th=p*Math.PI,s=1.6;
+    a=[R*Math.sin(th),70-Math.sin(th)*30,R*Math.cos(th)-R,p*180,s];
+    b=[R*Math.sin(th+Math.PI),70-Math.sin(th)*30,R*Math.cos(th+Math.PI)-R,180+p*180,s];
+    blur=Math.sin(p*Math.PI)*5;}
+  var k=t-HE;if(k>0&&k<.6)sh=Math.sin(k*50)*Math.exp(-k*9)*7;
+  var exit=io((t-14.75)/.75);
+  pose(v1,{x:a[0]+sh,y:a[1]-exit*90,z:a[2],ry:a[3],s:a[4],blur:blur,hide:a[0]<-650});
+  pose(v2,{x:b[0]+sh,y:b[1]-exit*90,z:b[2],ry:b[3],s:b[4],blur:blur,hide:t<HS-.05});
+  // dusk turns to night during the swing
+  var nt=sm((t-HS+.2)/1.1);
+  $('night').style.opacity=nt;
+  var ag=Math.exp(-Math.pow((t-HE)/.5,2));
+  ['a1','a2','fin'].forEach(function(id,i){var e=$(id);e.setAttribute('stroke',nt>.5?'#E2B85C':'#FFFFFF');e.setAttribute('stroke-opacity',(.35+.25*(i!=1)+.4*ag).toFixed(2))});
+  $('arc').style.transform='translateY('+(lerp(40,0,oc(t/1.2))+Math.sin(t*.5)*6)+'px)';
+  $('flash').style.opacity=k>0?.45*Math.exp(-k*7):0;
+  // caption plate behind text during big push-ins
+  var bigs=Math.max(a[4],b[4]);
+  $('cap').style.background=nt>.5?'linear-gradient(180deg,#2B1E3F 0%,#2B1E3F 76%,rgba(43,30,63,0) 100%)':'linear-gradient(180deg,#F6C7A6 0%,#F5BFA0 76%,rgba(245,191,160,0) 100%)';
+  $('cap').style.opacity=sm((bigs-2.1)/.4);
+  RS.forEach(function(r){var q=t<r.s?0:1-Math.pow(2,-10*cl((t-r.s)/.45));r.e.style.transform='translateY('+((1-q)*110)+'%)'});
+  NO.forEach(function(n){var q=oc((t-n.s)/.3);n.e.style.opacity=q;n.e.style.transform='translateY('+((1-q)*10)+'px)'});
+  SC.forEach(function(s_){var o=1-sm((t-s_.o)/.22);s_.e.style.opacity=o;s_.e.style.visibility=o<=0?'hidden':'visible'});
+  var ep=io((t-14.8)/.75);$('endp').style.top=lerp(960,0,ep)+'px';
+  var lq=ob((t-15.4)/.7);$('lg').style.opacity=cl((t-15.4)/.25);$('lg').style.transform='scale('+(t<15.4?.6:Math.max(.6,lq))+')';
+  [['e1',15.7],['e2',15.85],['e3',16.1],['e4',16.4]].forEach(function(o){var q=oc((t-o[1])/.45);var e=$(o[0]);e.style.opacity=cl((t-o[1])/.2);e.style.transform='translateY('+((1-q)*24)+'px)'});
+  var pu=t>16.8?((t-16.8)%1.4)/1.4:-1;$('btn').style.transform=pu>=0?'scale('+(1+.045*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+};
+window.__seek(0);
+</script></body></html>
