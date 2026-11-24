@@ -1,0 +1,141 @@
+<!--FONTS Rufina:rufina:latin:400,700:normal;Hanken Grotesk:hanken-grotesk:latin:400,700:normal;Scheherazade New:scheherazade-new:arabic:700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Colonnade</title>
+<style>
+/*FONTS*/
+:root{--ms:#26352B;--ms2:#141D17;--sg:#8E9C7E;--pc:#EEE7D3;--gd:#C29A48;--ox:#7A2530;--hd:'Rufina',serif;--ui:'Hanken Grotesk',sans-serif;--ar:'Scheherazade New',serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;font-family:var(--ui);background:radial-gradient(90% 60% at 50% 58%,#34473A 0%,var(--ms) 45%,var(--ms2) 100%)}
+.st3d{position:absolute;inset:0;perspective:1500px;perspective-origin:270px 560px;overflow:hidden}
+.cam{position:absolute;left:270px;top:480px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#f1eadb 0 4.5px,#cfc6ae 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#f1eadb 0 4.5px,#cfc6ae 4.5px 7.5px)}
+.arch{width:150px;height:620px;left:-75px;top:-330px;border:2px solid rgba(194,154,72,.55);border-bottom:none;border-radius:75px 75px 0 0;box-sizing:border-box;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:linear-gradient(180deg,rgba(194,154,72,.07),rgba(194,154,72,0) 70%)}
+.arch:after{content:'';position:absolute;left:12px;right:12px;top:12px;bottom:0;border:1px solid rgba(194,154,72,.3);border-bottom:none;border-radius:63px 63px 0 0}
+#lintel{position:absolute;left:0;top:0;width:540px;height:292px;background:linear-gradient(180deg,#101812,#18231B);box-shadow:0 18px 30px -12px rgba(0,0,0,.55)}
+#lintel:after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gd)}
+#floor{position:absolute;left:0;right:0;top:800px;height:160px;background:linear-gradient(180deg,rgba(10,14,11,0),rgba(10,14,11,.7))}
+#shadow{position:absolute;left:110px;width:320px;height:44px;border-radius:50%;background:radial-gradient(closest-side,rgba(5,8,6,.6),transparent)}
+.h{position:absolute;left:30px;font-family:var(--hd);font-weight:700;font-size:40px;line-height:1.06;color:var(--pc);white-space:nowrap;letter-spacing:-.3px}
+.h em{font-style:normal;font-weight:400;color:var(--gd)}
+.ln{overflow:hidden;display:block;padding-bottom:4px}
+.ln>span{display:inline-block}
+.note{position:absolute;left:32px;font-family:var(--ui);font-weight:700;font-size:17px;line-height:1.3;color:var(--pc);white-space:nowrap;opacity:0}
+.note.l{font-weight:400;color:var(--sg)}
+.arb{position:absolute;left:30px;width:430px;text-align:left;direction:rtl;font-family:var(--ar);font-weight:700;color:var(--gd);white-space:nowrap;opacity:0}
+#rule{position:absolute;left:30px;top:104px;width:0;height:2px;background:var(--gd)}
+#lg{position:absolute;left:170px;top:140px;width:200px;height:200px;mix-blend-mode:screen;opacity:0}
+.pill{display:inline-block;background:var(--gd);color:var(--ms2);font-family:var(--ui);font-weight:700;font-size:25px;padding:16px 40px;border-radius:999px;box-shadow:0 16px 34px -14px rgba(0,0,0,.6)}
+.ctr{position:absolute;left:0;width:540px;text-align:center;opacity:0}
+#endbg{position:absolute;inset:0;background:var(--ms2);clip-path:circle(0px at 270px 480px)}
+#endbg:before{content:'';position:absolute;left:120px;top:96px;width:300px;height:640px;border:2px solid var(--gd);border-bottom:none;border-radius:150px 150px 0 0;box-sizing:border-box}
+#flash{position:absolute;inset:0;background:#FFF1CF;opacity:0}
+#grain{position:absolute;inset:0;opacity:.1;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="shadow"></div>
+ <div class="st3d"><div class="cam" id="cam"><div id="ring"></div></div></div>
+ <div id="floor"></div>
+ <div id="lintel"></div>
+ <div id="rule"></div>
+
+ <div class="sc" data-o="2.6">
+  <div class="h" style="top:116px"><span class="ln"><span data-r="-0.4">Sharh Kashf</span></span><span class="ln"><span data-r="-0.35">ash-Shubuhat, <em>in Arabic.</em></span></span></div>
+  <div class="note" style="top:214px" data-n="-0.3">By Shaykh Muhammad ibn Salih al-Uthaymeen.</div>
+  <div class="note l" style="top:237px" data-n="-0.25">Hardcover, No. 5 in his collected works.</div>
+ </div>
+ <div class="sc" data-o="4.7">
+  <div class="arb" style="top:108px;font-size:34px;line-height:1.4" data-n="2.8">شرح كشف الشبهات ويليه</div>
+  <div class="h" style="top:166px"><span class="ln"><span data-r="2.9">Followed by Sharh</span></span><span class="ln"><span data-r="3.0"><em>al-Usul as-Sittah.</em></span></span></div>
+ </div>
+ <div class="sc" data-o="7.0">
+  <div class="h" style="top:120px;font-size:46px"><span class="ln"><span data-r="5.85">Two works,</span></span><span class="ln"><span data-r="5.95"><em>one binding.</em></span></span></div>
+ </div>
+ <div class="sc" data-o="9.0">
+  <div class="h" style="top:120px"><span class="ln"><span data-r="7.3">Gold-tooled</span></span><span class="ln"><span data-r="7.4"><em>navy spine.</em></span></span></div>
+  <div class="note l" style="top:220px" data-n="7.6">The title runs the length of it.</div>
+ </div>
+ <div class="sc" data-o="11.0">
+  <div class="arb" style="top:108px;font-size:32px;line-height:1.4" data-n="9.3">محمد بن صالح العثيمين</div>
+  <div class="h" style="top:164px"><span class="ln"><span data-r="9.35">Explained by</span></span><span class="ln"><span data-r="9.45"><em>Ibn al-Uthaymeen.</em></span></span></div>
+ </div>
+ <div class="sc" data-o="12.9">
+  <div class="h" style="top:120px"><span class="ln"><span data-r="11.25">From the Shaykh's</span></span><span class="ln"><span data-r="11.35"><em>Charitable</em></span></span><span class="ln"><span data-r="11.45"><em>Foundation.</em></span></span></div>
+ </div>
+ <div class="sc" data-o="14.7">
+  <div class="h" style="top:120px"><span class="ln"><span data-r="13.15">Collected works,</span></span><span class="ln"><span data-r="13.25"><em>number 5.</em></span></span></div>
+  <div class="note l" style="top:220px" data-n="13.45">Marked ٥ in the series panel.</div>
+ </div>
+
+ <div id="endbg"></div>
+ <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+ <div class="ctr" id="e1" style="top:362px;font-family:var(--hd);font-weight:700;font-size:48px;color:var(--pc)">daralathari.com</div>
+ <div class="ctr" id="e2" style="top:434px;font-size:19px;color:var(--sg)">Shipped from New Jersey.</div>
+ <div class="ctr" id="e3" style="top:500px"><span class="pill" id="btn">Browse the books</span></div>
+ <div class="ctr" id="e4" style="top:598px;font-size:18px;font-weight:700;color:var(--pc)">Link in bio</div>
+ <div id="flash"></div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.3,-.45,.85],.4,.85);
+var cam=$('cam'),ring=$('ring'),bk=makeBook(cam,'ks');
+var NA=14,R=560,ARCH=[];
+for(var i=0;i<NA;i++){var a=el('arch','',ring);ARCH.push({e:a,ang:i*360/NA})}
+var RS=[],NO=[],SC=[];
+document.querySelectorAll('.sc').forEach(function(s){SC.push({e:s,o:+s.dataset.o})});
+document.querySelectorAll('[data-r]').forEach(function(e){RS.push({e:e,s:+e.dataset.r})});
+document.querySelectorAll('[data-n]').forEach(function(e){NO.push({e:e,s:+e.dataset.n})});
+var BH=300,BW=209,CT=480,SY=620;
+function Y(f,s,sc){return sc-CT-(f-.5)*BH*s}
+function X(f,s){return -(f-.5)*BW*s}
+// t, x, y, ry, rx, s
+var KEY=[
+ [0,   10,62,-38,4,1.72],
+ [1.5, 0,64,-14,3,1.78],
+ [2.65,0,64,-8,2,1.8],
+ [3.05,X(.42,3.3),Y(.34,3.3,SY),0,0,3.3],
+ [4.6, X(.42,3.3),Y(.34,3.3,SY+18),0,0,3.3],
+ [5.0, 0,96,0,0,1.5],
+ [6.9, 0,96,-10,2,1.62],
+ [7.3, -50,Y(.30,3.3,SY),-84,0,3.3],
+ [8.9, -50,Y(.66,3.3,SY),-84,0,3.3],
+ [9.3, X(.40,3.2),Y(.66,3.2,SY),0,0,3.2],
+ [10.95,X(.40,3.2),Y(.66,3.2,SY+16),0,0,3.2],
+ [11.25,X(.40,3.4),Y(.84,3.4,SY),0,0,3.4],
+ [12.85,X(.40,3.4),Y(.84,3.4,SY+16),0,0,3.4],
+ [13.15,X(.84,3.6),Y(.2,3.6,SY),0,0,3.6],
+ [14.6,X(.84,3.6),Y(.2,3.6,SY+16),0,0,3.6],
+ [15.0,0,96,-20,3,1.5],
+ [18,0,96,-20,3,1.5]];
+window.__seek=function(t){
+  var a=keyed(KEY,t),ry=a[2],blur=0,sh=0,g=1,y=a[1],s=a[4];
+  // hero 5.0 -> 5.85: camera orbits the book once while the colonnade races round
+  var hp=io((t-5.0)/.85),orb=0;
+  if(t>5.0&&t<5.85){orb=360*hp;blur=Math.sin(hp*Math.PI)*7;y-=Math.sin(hp*Math.PI)*40}
+  if(t>=5.85)orb=360;
+  var k=t-5.85;if(k>0&&k<.6)sh=Math.sin(k*50)*Math.exp(-k*9)*9;
+  if(k>0)g+=.3*Math.exp(-k*5);
+  var drift=t*6;
+  pose(bk,{x:a[0]+sh*.4,y:y+sh,z:0,ry:ry+orb,rx:a[3],s:s,blur:blur,g:g});
+  // colonnade: visible at full-book scale, rotates with the orbit
+  var rv=(1-sm((s-1.95)/.3));
+  ring.style.transform='translate3d(0,'+(110+sh)+'px,0) rotateY('+(drift+orb*1.5)+'deg)';
+  ring.style.opacity=rv;
+  ARCH.forEach(function(o){o.e.style.transform='rotateY('+o.ang+'deg) translateZ('+(-R)+'px)';o.e.style.filter=blur>1?'blur('+(blur*.8).toFixed(1)+'px)':'none'});
+  $('shadow').style.opacity=rv*.9;$('shadow').style.top=(CT+y+BH*s/2-24)+'px';
+  $('flash').style.opacity=k>0?.45*Math.exp(-k*7):0;
+  $('rule').style.width=(lerp(0,120,oc(t/.6))*(1-sm((t-14.6)/.4)))+'px';
+  RS.forEach(function(r){var q=t<r.s?0:1-Math.pow(2,-10*cl((t-r.s)/.45));r.e.style.transform='translateY('+((1-q)*110)+'%)'});
+  NO.forEach(function(n){var q=oc((t-n.s)/.3);n.e.style.opacity=q;n.e.style.transform='translateY('+((1-q)*10)+'px)'});
+  SC.forEach(function(s_){var o=1-sm((t-s_.o)/.22);s_.e.style.opacity=o;s_.e.style.visibility=o<=0?'hidden':'visible'});
+  // end: arch-shaped iris opens from the book's centre
+  var ep=io((t-15.0)/.8);$('endbg').style.clipPath='circle('+(ep*640)+'px at 270px 560px)';
+  var lq=ob((t-15.5)/.7);$('lg').style.opacity=cl((t-15.5)/.25);$('lg').style.transform='scale('+(t<15.5?.6:Math.max(.6,lq))+')';
+  [['e1',15.75],['e2',15.9],['e3',16.1],['e4',16.4]].forEach(function(o){var q=oc((t-o[1])/.45);var e=$(o[0]);e.style.opacity=cl((t-o[1])/.2);e.style.transform='translateY('+((1-q)*24)+'px)'});
+  var pu=t>16.8?((t-16.8)%1.4)/1.4:-1;$('btn').style.transform=pu>=0?'scale('+(1+.045*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+};
+window.__seek(0);
+</script></body></html>
