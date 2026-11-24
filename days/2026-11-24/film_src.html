@@ -1,0 +1,157 @@
+<!--FONTS Prata:prata:latin:400:normal;Geologica:geologica:latin:400,600:normal;Ruwudu:ruwudu:arabic:700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Taken Apart</title>
+<style>
+/*FONTS*/
+:root{--tl:#145C6B;--dp:#0B3640;--cg:#A8461F;--gd:#D9AE52;--pp:#F4EBDD;--ink:#10100E;--hd:'Prata',serif;--ui:'Geologica',sans-serif;--ar:'Ruwudu',serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;font-family:var(--ui);background:radial-gradient(80% 55% at 50% 32%,#1B7183 0%,var(--tl) 50%,#0F4A57 100%)}
+#grid{position:absolute;left:-80px;top:-80px;width:700px;height:1000px;background-image:linear-gradient(rgba(244,235,221,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(244,235,221,.07) 1px,transparent 1px),linear-gradient(rgba(244,235,221,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(244,235,221,.035) 1px,transparent 1px);background-size:80px 80px,80px 80px,20px 20px,20px 20px}
+.ax{position:absolute;border-color:rgba(217,174,82,.45);border-style:dashed;border-width:0}
+#axv{left:269px;top:0;height:600px;border-left-width:1px}
+#axh{left:0;width:540px;top:320px;border-top-width:1px}
+.st3d{position:absolute;inset:0;perspective:1500px;perspective-origin:270px 330px;overflow:hidden}
+.cam{position:absolute;left:270px;top:480px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#f1eadb 0 4.5px,#cfc6ae 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#f1eadb 0 4.5px,#cfc6ae 4.5px 7.5px)}
+.pg{background:radial-gradient(120% 90% at 50% 45%,#F7F1E4,#E4D9C2)}
+.dot{position:absolute;left:50%;top:50%;width:96px;height:96px;margin:-48px 0 0 -48px;border-radius:50%;background:var(--gd);color:var(--ink);font:600 56px/96px 'Geologica',sans-serif;text-align:center;box-shadow:0 0 0 10px rgba(16,16,14,.35);opacity:0;z-index:5}
+#panel{position:absolute;left:0;top:600px;width:540px;height:960px;background:var(--dp)}
+#panel:before{content:'';position:absolute;left:0;right:0;top:0;height:2px;background:var(--gd)}
+#panel:after{content:'';position:absolute;left:0;right:0;top:7px;height:1px;background:rgba(217,174,82,.5)}
+.h{position:absolute;left:30px;top:624px;font-family:var(--hd);font-size:38px;line-height:1.08;color:var(--pp);white-space:nowrap}
+.h em{font-style:normal;color:var(--gd)}
+.ln{overflow:hidden;display:block;padding-bottom:3px}
+.ln>span{display:inline-block}
+.note{position:absolute;left:32px;font-family:var(--ui);font-weight:600;font-size:16px;line-height:1.3;color:var(--pp);white-space:nowrap;opacity:0}
+.note.l{font-weight:400;color:#9FC3C9}
+.ar{position:absolute;left:30px;width:440px;direction:rtl;text-align:left;font-family:var(--ar);font-weight:700;font-size:27px;color:var(--gd);white-space:nowrap;opacity:0}
+.lg{position:absolute;font-family:var(--ui);font-size:16px;color:var(--pp);white-space:nowrap;opacity:0}
+.lg b{display:inline-block;width:24px;height:24px;border-radius:50%;background:var(--gd);color:var(--ink);font-weight:600;font-size:14px;line-height:24px;text-align:center;margin-right:9px}
+#lgo{position:absolute;left:170px;top:150px;width:200px;height:200px;mix-blend-mode:screen;opacity:0}
+.pill{display:inline-block;background:var(--gd);color:var(--ink);font-family:var(--ui);font-weight:600;font-size:25px;padding:16px 40px;border-radius:999px;box-shadow:0 16px 34px -14px rgba(0,0,0,.6)}
+.ctr{position:absolute;left:0;width:540px;text-align:center;opacity:0}
+#flash{position:absolute;inset:0;background:#FFF3DA;opacity:0}
+#grain{position:absolute;inset:0;opacity:.1;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="grid"></div>
+ <div class="ax" id="axv"></div><div class="ax" id="axh"></div>
+ <div class="st3d"><div class="cam" id="cam"></div></div>
+ <div id="panel"></div>
+
+ <div class="sc" data-o="2.45">
+  <div class="h"><span class="ln"><span data-r="-0.5">Kitab al-'Ilm,</span></span><span class="ln"><span data-r="-0.45"><em>in Arabic, hardcover.</em></span></span></div>
+  <div class="note" style="top:718px" data-n="-0.4">By Shaykh Muhammad ibn Salih al-Uthaymeen.</div>
+  <div class="note l" style="top:741px" data-n="-0.35">One volume, cognac boards tooled in gold.</div>
+ </div>
+ <div class="sc" data-o="4.5">
+  <div class="h"><span class="ln"><span data-r="2.65">Number 24 in</span></span><span class="ln"><span data-r="2.75"><em>the Shaykh's series.</em></span></span></div>
+  <div class="note l" style="top:722px" data-n="2.95">As numbered on the cover's top panel: ٢٤</div>
+ </div>
+ <div class="sc" data-o="7.45">
+  <div class="h"><span class="ln"><span data-r="5.2">Four parts,</span></span><span class="ln"><span data-r="5.3"><em>one hardcover.</em></span></span></div>
+  <div class="lg" style="left:32px;top:716px" data-n="5.62"><b>1</b>Front board</div>
+  <div class="lg" style="left:220px;top:716px" data-n="5.77"><b>2</b>Spine</div>
+  <div class="lg" style="left:32px;top:744px" data-n="5.92"><b>3</b>Pages</div>
+  <div class="lg" style="left:220px;top:744px" data-n="6.07"><b>4</b>Back board</div>
+ </div>
+ <div class="sc" data-o="9.4">
+  <div class="h"><span class="ln"><span data-r="7.65">Title in gold,</span></span><span class="ln"><span data-r="7.75"><em>down the spine.</em></span></span></div>
+  <div class="ar" style="top:712px" data-n="7.95">كتاب العلم</div>
+ </div>
+ <div class="sc" data-o="11.3">
+  <div class="h"><span class="ln"><span data-r="9.6">By Shaykh</span></span><span class="ln"><span data-r="9.7"><em>Ibn al-Uthaymeen.</em></span></span></div>
+  <div class="ar" style="top:712px" data-n="9.9">محمد بن صالح العثيمين</div>
+ </div>
+ <div class="sc" data-o="13.15">
+  <div class="h"><span class="ln"><span data-r="11.5">From his</span></span><span class="ln"><span data-r="11.6"><em>Charitable Foundation.</em></span></span></div>
+  <div class="note l" style="top:722px" data-n="11.8">Named in the panel at the foot of the cover.</div>
+ </div>
+ <div class="sc" data-o="14.85">
+  <div class="h"><span class="ln"><span data-r="13.35">Plain cognac</span></span><span class="ln"><span data-r="13.45"><em>grained back.</em></span></span></div>
+  <div class="note l" style="top:722px" data-n="13.65">Arabic. One volume. Hardcover.</div>
+ </div>
+
+ <img id="lgo" src="assets/logo.png" alt="Dar Al Athari">
+ <div class="ctr" id="e1" style="top:372px;font-family:var(--hd);font-size:46px;color:var(--pp)">daralathari.com</div>
+ <div class="ctr" id="e2" style="top:442px;font-size:19px;color:#9FC3C9">Shipped from New Jersey.</div>
+ <div class="ctr" id="e3" style="top:506px"><span class="pill" id="btn">Browse the books</span></div>
+ <div class="ctr" id="e4" style="top:604px;font-size:18px;font-weight:600;color:var(--pp)">Link in bio</div>
+ <div id="flash"></div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.3,-.45,.85],.42,.85);
+var cam=$('cam'),bk=makeBook(cam,'kar'),F=bk.f;
+var W=bk.W*K,H=bk.H*K,D=bk.D*K;
+var rect='left:'+(-W/2+5)+'px;top:'+(-H/2+5)+'px;width:'+(W-10)+'px;height:'+(H-10)+'px;';
+var pf=el('face pg',rect+'transform:translateZ('+(D/2-3)+'px)',bk.root);
+var pb=el('face pg',rect+'transform:translateZ('+(-D/2+3)+'px) rotateY(180deg)',bk.root);
+var bi=el('face','left:'+(-W/2)+'px;top:'+(-H/2)+'px;width:'+W+'px;height:'+H+'px;background:radial-gradient(110% 80% at 40% 40%,#9C4524,#6E2B14)',bk.root);
+function dot(face,n){return el('dot','',face,''+n)}
+var DOTS=[[dot(F.front,1),5.6],[dot(F.spine,2),5.75],[dot(pf,3),5.9],[dot(bi,4),6.05]];
+var RS=[],NO=[],SC=[];
+document.querySelectorAll('.sc').forEach(function(s){SC.push({e:s,o:+s.dataset.o})});
+document.querySelectorAll('[data-r]').forEach(function(e){RS.push({e:e,s:+e.dataset.r})});
+document.querySelectorAll('[data-n]').forEach(function(e){NO.push({e:e,s:+e.dataset.n})});
+var BH=300,BW=210,CT=480,SY=300,RY=-160;
+function Y(f,s){return SY-CT-(f-.5)*BH*s}
+function X(f,s){return -(f-.5)*BW*s}
+// t, x, y, ry, rx, s
+var KEY=[
+ [0,   14,RY,-36,5,1.66],
+ [1.4, 0,RY,-12,3,1.68],
+ [2.4, 0,RY,-6,2,1.7],
+ [2.75,X(.43,3.2),Y(.185,3.2),0,0,3.2],
+ [4.3, X(.43,3.2),Y(.185,3.2)+16,0,0,3.2],
+ [4.95,30,-185,-46,8,1.04],
+ [6.9, 20,-185,-58,8,1.04],
+ [7.45,0,RY,-62,3,1.62],
+ [7.75,-10,RY+28,-86,2,1.8],
+ [9.2, -10,RY+40,-84,2,1.8],
+ [9.6, X(.5,3.0),Y(.585,3.0),0,0,3.0],
+ [11.1,X(.5,3.0),Y(.585,3.0)+14,0,0,3.0],
+ [11.5,X(.5,3.0),Y(.895,3.0),0,0,3.0],
+ [12.95,X(.5,3.0),Y(.895,3.0)+14,0,0,3.0],
+ [13.4,0,RY,-176,3,1.62],
+ [14.7,0,RY,-188,3,1.64],
+ [15.3,0,-260,-200,3,1.5],
+ [18,0,-260,-200,3,1.5]];
+window.__seek=function(t){
+  var a=keyed(KEY,t),ry=a[2],y=a[1],s=a[4],blur=0,sh=0,g=1;
+  // hero: the hardcover comes apart (5.05-5.6), drifts, then slams back together at 7.2
+  var e=0;
+  if(t>5.05&&t<6.9)e=ob((t-5.05)/.6);
+  else if(t>=6.9&&t<7.2)e=1-ic((t-6.9)/.3);
+  if(t>5.05&&t<5.5)blur=Math.sin(cl((t-5.05)/.45)*Math.PI)*3;
+  var k=t-7.2;if(k>0&&k<.6)sh=Math.sin(k*52)*Math.exp(-k*9)*9;
+  if(k>0)g+=.3*Math.exp(-k*5);
+  var k0=t-5.05;if(k0>0&&k0<.4)sh+=Math.sin(k0*40)*Math.exp(-k0*10)*4;
+  // end: book flies up out of frame
+  var ex=ic((t-15.0)/.7);y-=ex*900;
+  pose(bk,{x:a[0]+sh*.4,y:y+sh,z:0,ry:ry,rx:a[3],s:s,blur:blur,g:g});
+  var eF=e*400,eS=e*380;
+  F.front.style.transform='translateZ('+(D/2+eF)+'px)';
+  F.back.style.transform='translateZ('+(-D/2-eF)+'px) rotateY(180deg)';
+  F.spine.style.transform='translateX('+eS+'px) rotateY(90deg)';
+  pf.style.display=pb.style.display=bi.style.display=e>0.01?'block':'none';
+  bi.style.transform='translateZ('+(-D/2-eF+1)+'px)';
+  DOTS.forEach(function(d){var q=t<d[1]?0:ob((t-d[1])/.35),out=1-sm((t-6.75)/.15);d[0].style.opacity=cl((t-d[1])/.1)*out;d[0].style.transform='scale('+Math.max(.3,q)+')'});
+  $('flash').style.opacity=k>0?.45*Math.exp(-k*7):0;
+  $('grid').style.transform='translate('+(-(t*4)%20)+'px,'+(sh*.5)+'px)';
+  var axo=(1-sm((s-1.9)/.3))*(1-sm((t-14.8)/.3));$('axv').style.opacity=axo;$('axh').style.opacity=axo;
+  RS.forEach(function(r){var q=t<r.s?0:1-Math.pow(2,-10*cl((t-r.s)/.45));r.e.style.transform='translateY('+((1-q)*110)+'%)'});
+  NO.forEach(function(n){var q=oc((t-n.s)/.3);n.e.style.opacity=t<n.s?0:q;n.e.style.transform='translateY('+((1-q)*10)+'px)'});
+  SC.forEach(function(s_){var o=1-sm((t-s_.o)/.22);s_.e.style.opacity=o;s_.e.style.visibility=o<=0?'hidden':'visible'});
+  // end card: the title-block panel rises to fill the frame
+  var pp=io((t-15.0)/.8);$('panel').style.top=lerp(600,0,pp)+'px';
+  var lq=ob((t-15.55)/.7);$('lgo').style.opacity=cl((t-15.55)/.25);$('lgo').style.transform='scale('+(t<15.55?.6:Math.max(.6,lq))+')';
+  [['e1',15.8],['e2',15.95],['e3',16.15],['e4',16.45]].forEach(function(o){var q=oc((t-o[1])/.45);var el_=$(o[0]);el_.style.opacity=cl((t-o[1])/.2);el_.style.transform='translateY('+((1-q)*24)+'px)'});
+  var pu=t>16.8?((t-16.8)%1.4)/1.4:-1;$('btn').style.transform=pu>=0?'scale('+(1+.045*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+};
+window.__seek(0);
+</script></body></html>
