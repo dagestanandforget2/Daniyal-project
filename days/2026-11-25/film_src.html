@@ -1,0 +1,165 @@
+<!--FONTS EB Garamond:eb-garamond:latin:800:normal;EB Garamond:eb-garamond:latin:500:italic;Lexend:lexend:latin:400,600:normal;IBM Plex Sans Arabic:ibm-plex-sans-arabic:arabic:600:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Page Twenty-One</title>
+<style>
+/*FONTS*/
+:root{--si:#9A4A22;--dk:#5A2610;--hz:#EED8B6;--pp:#FBF6EC;--ind:#25244B;--du:#C98A57;--hd:'EB Garamond',serif;--ui:'Lexend',sans-serif;--ar:'IBM Plex Sans Arabic',sans-serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;font-family:var(--ui);background:radial-gradient(70% 45% at 50% 20%,#C46A35 0%,var(--si) 48%,#6E3115 100%)}
+#lamp{position:absolute;left:-100px;top:-260px;width:740px;height:820px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,226,180,.28),rgba(255,226,180,0));}
+.st3d{position:absolute;inset:0;perspective:1600px;perspective-origin:270px 330px;overflow:hidden}
+.cam{position:absolute;left:270px;top:480px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#f6f1e6 0 4.5px,#d8cfbc 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#f6f1e6 0 4.5px,#d8cfbc 4.5px 7.5px)}
+#shadow{position:absolute;left:90px;top:560px;width:360px;height:44px;border-radius:50%;background:radial-gradient(closest-side,rgba(40,14,4,.55),rgba(40,14,4,0))}
+#desk{position:absolute;left:0;top:592px;width:540px;height:1000px;background:linear-gradient(to bottom,#4E200C,var(--dk) 30px,#47200E)}
+#desk:before{content:'';position:absolute;left:0;right:0;top:0;height:2px;background:rgba(238,216,182,.55)}
+#rule{position:absolute;left:34px;top:620px;width:3px;height:0;background:var(--hz)}
+.h{position:absolute;left:52px;top:612px;font-family:var(--hd);font-weight:800;font-size:42px;line-height:1.04;color:var(--pp);white-space:nowrap}
+.h em{font-style:italic;font-weight:500;color:var(--hz)}
+.h.big{font-size:96px;top:600px;line-height:1}
+.ln{overflow:hidden;display:block;padding-bottom:4px}
+.ln>span{display:inline-block}
+.note{position:absolute;left:54px;font-family:var(--ui);font-weight:600;font-size:16px;line-height:1.3;color:var(--pp);white-space:nowrap;opacity:0}
+.note.l{font-weight:400;color:#E7B98F}
+.ar{position:absolute;left:54px;width:410px;direction:rtl;text-align:left;font-family:var(--ar);font-weight:600;font-size:22px;color:var(--hz);white-space:nowrap;opacity:0}
+#hl{position:absolute;left:8.6%;top:61%;width:72%;height:5.4%;background:rgba(201,138,87,.42);mix-blend-mode:multiply;transform-origin:0 50%;transform:scaleX(0)}
+#hl2{position:absolute;left:4%;top:87.6%;width:62%;height:2.6%;background:rgba(201,138,87,.42);mix-blend-mode:multiply;transform-origin:0 50%;transform:scaleX(0)}
+#lgo{position:absolute;left:170px;top:150px;width:200px;height:200px;mix-blend-mode:screen;opacity:0}
+.pill{display:inline-block;background:var(--hz);color:var(--ind);font-family:var(--ui);font-weight:600;font-size:25px;padding:16px 40px;border-radius:999px;box-shadow:0 16px 34px -14px rgba(0,0,0,.6)}
+.ctr{position:absolute;left:0;width:540px;text-align:center;opacity:0}
+#flash{position:absolute;inset:0;background:#FFEBD0;opacity:0}
+#grain{position:absolute;inset:0;opacity:.12;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="lamp"></div>
+ <div id="shadow"></div>
+ <div class="st3d"><div class="cam" id="cam"></div></div>
+ <div id="desk"></div>
+ <div id="rule"></div>
+
+ <div class="sc" data-o="2.5">
+  <div class="h"><span class="ln"><span data-r="-0.6">The Book of Knowledge,</span></span><span class="ln"><span data-r="-0.55"><em>in English.</em></span></span></div>
+  <div class="note" style="top:712px" data-n="-0.4">By Imam Muhammad bin Salih al-Uthaymin.</div>
+  <div class="ar" style="top:738px" data-n="-0.35">كتاب العلم للإمام بن العثيمين</div>
+ </div>
+ <div class="sc" data-o="4.35">
+  <div class="h"><span class="ln"><span data-r="2.7">The full title</span></span><span class="ln"><span data-r="2.8"><em>runs on.</em></span></span></div>
+  <div class="note l" style="top:712px" data-n="3.0">"Its definition, virtues, rulings, etiquettes,</div>
+  <div class="note l" style="top:734px" data-n="3.1">acquisition, cautions, books &amp; fatāwā concerning it"</div>
+ </div>
+ <div class="sc" data-o="5.4">
+  <div class="h"><span class="ln"><span data-r="4.5">Open the</span></span><span class="ln"><span data-r="4.6"><em>cover.</em></span></span></div>
+ </div>
+ <div class="sc" data-o="7.2">
+  <div class="h big"><span class="ln"><span data-r="5.6">Page 21.</span></span></div>
+  <div class="note l" style="top:716px" data-n="5.95">Where Section One begins.</div>
+ </div>
+ <div class="sc" data-o="9.15">
+  <div class="h"><span class="ln"><span data-r="7.4">The Definition</span></span><span class="ln"><span data-r="7.5"><em>of Knowledge.</em></span></span></div>
+  <div class="note l" style="top:712px" data-n="7.7">The heading of Section One, as printed.</div>
+ </div>
+ <div class="sc" data-o="11.1">
+  <div class="h"><span class="ln"><span data-r="9.4">Hadith set apart,</span></span><span class="ln"><span data-r="9.5"><em>with numbered notes.</em></span></span></div>
+  <div class="note l" style="top:712px" data-n="9.7">Page 21, in English.</div>
+ </div>
+ <div class="sc" data-o="13.0">
+  <div class="h"><span class="ln"><span data-r="11.35">References</span></span><span class="ln"><span data-r="11.45"><em>at the foot.</em></span></span></div>
+  <div class="note l" style="top:712px" data-n="11.7">"Reported by al-Bukhārī (no. 71)</div>
+  <div class="note l" style="top:734px" data-n="11.8">and Muslim (no. 1037)."</div>
+ </div>
+ <div class="sc" data-o="14.85">
+  <div class="h"><span class="ln"><span data-r="13.5">Title and author,</span></span><span class="ln"><span data-r="13.6"><em>down the spine.</em></span></span></div>
+  <div class="note l" style="top:712px" data-n="13.8">With the publisher's mark at the foot.</div>
+ </div>
+
+ <img id="lgo" src="assets/logo.png" alt="Dar Al Athari">
+ <div class="ctr" id="e1" style="top:372px;font-family:var(--hd);font-weight:800;font-size:50px;color:var(--pp)">daralathari.com</div>
+ <div class="ctr" id="e2" style="top:446px;font-size:19px;color:#E7B98F">Shipped from New Jersey.</div>
+ <div class="ctr" id="e3" style="top:506px"><span class="pill" id="btn">Browse the books</span></div>
+ <div class="ctr" id="e4" style="top:604px;font-size:18px;font-weight:600;color:var(--pp)">Link in bio</div>
+ <div id="flash"></div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.25,-.5,.85],.5,.75);
+var cam=$('cam'),bk=makeBook(cam,'ken'),F=bk.f;
+var W=bk.W*K,H=bk.H*K,D=bk.D*K;
+// inside: page 21 on the block, the inside of the cover
+var pg=el('face','left:'+(-W/2+4)+'px;top:'+(-H/2+4)+'px;width:'+(W-8)+'px;height:'+(H-8)+'px;background:url(assets/ken_page.jpg) 91.1% 100%/114.66% 102.06% no-repeat;transform:translateZ('+(D/2-2)+'px)',bk.root);
+var hl=el('','',pg);hl.id='hl';var hl2=el('','',pg);hl2.id='hl2';
+F.front.style.transformOrigin='0 50%';
+var inC=el('face','left:'+(-W/2)+'px;top:'+(-H/2)+'px;width:'+W+'px;height:'+H+'px;background:linear-gradient(to right,#e9e2d4,#f6f2ea 30%,#efe8db);transform-origin:0 50%',bk.root);
+var RS=[],NO=[],SC=[];
+document.querySelectorAll('.sc').forEach(function(s){SC.push({e:s,o:+s.dataset.o})});
+document.querySelectorAll('[data-r]').forEach(function(e){RS.push({e:e,s:+e.dataset.r})});
+document.querySelectorAll('[data-n]').forEach(function(e){NO.push({e:e,s:+e.dataset.n})});
+var BH=300,BW=200,CT=480,SY=310;
+function Y(f,s){return SY-CT-(f-.5)*BH*s}
+function X(f,s){return -(f-.5)*BW*s}
+var B0=-150; // book centre at screen y 330
+// t, x, y, ry, rx, s
+var KEY=[
+ [0,   18,B0,-40,6,1.6],
+ [1.3, 4,B0,-14,3,1.64],
+ [2.45,0,B0,-6,2,1.66],
+ [2.8, X(.5,2.9),Y(.33,2.9),0,0,2.9],
+ [4.2, X(.5,2.9)+8,Y(.33,2.9)+10,0,0,2.9],
+ [4.6, 0,B0,4,2,1.6],
+ [5.0, 0,B0,0,0,1.62],
+ [5.85,40,B0+10,0,0,1.72],
+ [6.9, 40,B0+14,0,0,1.74],
+ [7.35,X(.425,3.3),Y(.143,3.3)+20,0,0,3.3],
+ [9.0, X(.425,3.3)-10,Y(.143,3.3)+28,0,0,3.3],
+ [9.4, X(.45,2.9),Y(.636,2.9),0,0,2.9],
+ [10.95,X(.45,2.9)+8,Y(.636,2.9)+10,0,0,2.9],
+ [11.3,X(.38,3.1),Y(.89,3.1)+140,0,0,3.1],
+ [12.9,X(.38,3.1)+8,Y(.89,3.1)+150,0,0,3.1],
+ [13.45,0,B0,62,2,1.62],
+ [14.8,0,B0,74,2,1.64],
+ [15.3,0,B0-20,90,2,1.5],
+ [18,0,B0-20,90,2,1.5]];
+window.__seek=function(t){
+  var a=keyed(KEY,t),ry=a[2],y=a[1],s=a[4],sh=0,g=1,blur=0;
+  // hero: the cover swings open (5.0-5.75) and lands flat; closes again 13.0-13.4
+  var op=0;
+  if(t>=5.0&&t<13.0){var u=(t-5.0)/.8;op=u<1?io(u):1+Math.sin((t-5.8)*22)*Math.exp(-(t-5.8)*9)*.025;}
+  else if(t>=13.0)op=1-io((t-13.0)/.45);
+  if(t>5.2&&t<5.7)blur=Math.sin(cl((t-5.2)/.5)*Math.PI)*1.5;
+  var k=t-5.8;if(k>0&&k<.6)sh=Math.sin(k*50)*Math.exp(-k*9)*8;
+  if(k>0)g+=.18*Math.exp(-k*5);
+  var k2=t-13.45;if(k2>0&&k2<.4)sh+=Math.sin(k2*45)*Math.exp(-k2*11)*4;
+  // first second: the book lands into place
+  var k0=t;if(k0<.5)sh+=Math.sin(k0*30)*Math.exp(-k0*8)*3;
+  var ex=ic((t-15.0)/.7);y-=ex*900;
+  pose(bk,{x:a[0]+sh*.4,y:y+sh,z:0,ry:ry,rx:a[3],s:s,g:g,blur:blur});
+  var ang=op*170;
+  F.front.style.transform='translateZ('+(D/2)+'px) rotateY('+(-ang)+'deg)';
+  inC.style.transform='translateZ('+(D/2-.5)+'px) rotateY('+(-ang)+'deg) translateX('+W+'px) rotateY(180deg)';
+  inC.style.display=op>.01?'block':'none';pg.style.display=op>.01?'block':'none';
+  // light on the cover as it swings
+  F.front._o.style.background='#000';F.front._o.style.opacity=(op*.45).toFixed(3);
+  hl.style.transform='scaleX('+oc((t-9.6)/.6)+')';hl.style.opacity=1-sm((t-11.1)/.3);
+  hl2.style.transform='scaleX('+oc((t-11.55)/.5)+')';
+  $('shadow').style.opacity=(1-sm((s-1.9)/.3))*(1-sm((t-15)/.3));
+  var sw=1+(s-1.6)*.15;$('shadow').style.transform='scaleX('+sw+')';
+  $('flash').style.opacity=k>0?.35*Math.exp(-k*7):0;
+  $('lamp').style.transform='translate('+(Math.sin(t*.4)*14)+'px,'+(sh*.4)+'px)';
+  RS.forEach(function(r){var q=t<r.s?0:1-Math.pow(2,-10*cl((t-r.s)/.45));r.e.style.transform='translateY('+((1-q)*110)+'%)'});
+  NO.forEach(function(n){var q=oc((t-n.s)/.3);n.e.style.opacity=t<n.s?0:q;n.e.style.transform='translateY('+((1-q)*10)+'px)'});
+  SC.forEach(function(s_){var o=1-sm((t-s_.o)/.22);s_.e.style.opacity=o;s_.e.style.visibility=o<=0?'hidden':'visible'});
+  // margin rule grows with each scene
+  var starts=[[-1,2.5],[2.7,4.35],[4.5,5.4],[5.6,7.2],[7.4,9.15],[9.4,11.1],[11.35,13.0],[13.5,14.85]],rh=0;
+  starts.forEach(function(p){if(t>=p[0]-.01&&t<p[1]+.25){rh=oc((t-p[0])/.5)*(1-sm((t-p[1])/.22))*140}});
+  $('rule').style.height=rh+'px';
+  // end card: the desk rises to fill the frame
+  var pp=io((t-15.0)/.8);$('desk').style.top=lerp(592,0,pp)+'px';
+  var lq=ob((t-15.55)/.7);$('lgo').style.opacity=cl((t-15.55)/.25);$('lgo').style.transform='scale('+(t<15.55?.6:Math.max(.6,lq))+')';
+  [['e1',15.8],['e2',15.95],['e3',16.15],['e4',16.45]].forEach(function(o){var q=oc((t-o[1])/.45);var el_=$(o[0]);el_.style.opacity=cl((t-o[1])/.2);el_.style.transform='translateY('+((1-q)*24)+'px)'});
+  var pu=t>16.8?((t-16.8)%1.4)/1.4:-1;$('btn').style.transform=pu>=0?'scale('+(1+.045*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+};
+window.__seek(0);
+</script></body></html>
