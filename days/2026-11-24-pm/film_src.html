@@ -1,0 +1,149 @@
+<!--FONTS Alegreya:alegreya:latin:800:normal;Alegreya:alegreya:latin:500:italic;Golos Text:golos-text:latin:400,600:normal;Markazi Text:markazi-text:arabic:700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Edge to Edge</title>
+<style>
+/*FONTS*/
+:root{--cr:#6B1A24;--cr2:#3E0D14;--gd:#E3BE62;--pp:#F4EADA;--gr:#0F3B36;--ro:#D98C7A;--hd:'Alegreya',serif;--ui:'Golos Text',sans-serif;--ar:'Markazi Text',serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;font-family:var(--ui);background:radial-gradient(95% 62% at 50% 60%,#86242F 0%,var(--cr) 48%,var(--cr2) 100%)}
+.st3d{position:absolute;inset:0;perspective:1500px;perspective-origin:270px 540px;overflow:hidden}
+.cam{position:absolute;left:270px;top:480px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#f3ecdc 0 4.5px,#d2c7ad 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#f3ecdc 0 4.5px,#d2c7ad 4.5px 7.5px)}
+#shadow{position:absolute;left:100px;width:340px;height:50px;border-radius:50%;background:radial-gradient(closest-side,rgba(25,4,8,.62),transparent)}
+/* the label: a paper plate with a gold double rule, like the cover's own border */
+#label{position:absolute;left:26px;top:104px;width:440px;height:186px;background:var(--pp);box-shadow:0 22px 40px -18px rgba(20,2,6,.7)}
+#label:before{content:'';position:absolute;inset:7px;border:1.5px solid var(--gd)}
+#label:after{content:'';position:absolute;inset:11px;border:.8px solid rgba(180,140,60,.7)}
+.h{position:absolute;left:46px;font-family:var(--hd);font-weight:800;font-size:40px;line-height:1.02;color:var(--gr);white-space:nowrap;letter-spacing:-.4px}
+.h em{font-style:italic;font-weight:500;color:var(--cr)}
+.ln{overflow:hidden;display:block;padding-bottom:5px}
+.ln>span{display:inline-block}
+.note{position:absolute;left:47px;font-family:var(--ui);font-weight:600;font-size:17px;line-height:1.3;color:var(--gr);white-space:nowrap;opacity:0}
+.note.l{font-weight:400;color:#6d4a45}
+.arb{position:absolute;left:46px;width:400px;text-align:left;direction:rtl;font-family:var(--ar);font-weight:700;color:var(--cr);white-space:nowrap;opacity:0}
+svg#frame{position:absolute;left:0;top:0;width:540px;height:960px;overflow:visible;pointer-events:none}
+#frame rect{fill:none;stroke:var(--gd)}
+#frame .dm{fill:var(--gd)}
+#endbg{position:absolute;inset:0;background:radial-gradient(90% 60% at 50% 40%,#55141D,var(--cr2));clip-path:inset(100% 0 0 0)}
+#lg{position:absolute;left:180px;top:150px;width:180px;height:180px;mix-blend-mode:screen;opacity:0}
+.pill{display:inline-block;background:var(--gd);color:var(--cr2);font-family:var(--ui);font-weight:600;font-size:25px;padding:16px 40px;border-radius:999px;box-shadow:0 16px 34px -14px rgba(0,0,0,.6)}
+.ctr{position:absolute;left:0;width:540px;text-align:center;opacity:0}
+#flash{position:absolute;inset:0;background:#FFE9B8;opacity:0}
+#grain{position:absolute;inset:0;opacity:.1;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="shadow"></div>
+ <div class="st3d"><div class="cam" id="cam"></div></div>
+ <div id="label"></div>
+
+ <div class="sc" data-o="2.75">
+  <div class="h" style="top:124px"><span class="ln"><span data-r="-0.4">Islam &amp; Iman, in one</span></span><span class="ln"><span data-r="-0.35"><em>English hardcover.</em></span></span></div>
+  <div class="note" style="top:220px" data-n="-0.3">The Pillars of Islam &amp; Iman, by Sheikh</div>
+  <div class="note" style="top:241px" data-n="-0.3">Muhammad bin Jamil Zeno. Darussalam.</div>
+ </div>
+ <div class="sc" data-o="4.75">
+  <div class="arb" style="top:118px;font-size:38px;line-height:1.35" data-n="2.95">أركان الإسلام والإيمان</div>
+  <div class="h" style="top:176px"><span class="ln"><span data-r="3.0">The Arabic title,</span></span><span class="ln"><span data-r="3.1"><em>above it in gold.</em></span></span></div>
+ </div>
+ <div class="sc" data-o="7.05">
+  <div class="h" style="top:132px;font-size:46px"><span class="ln"><span data-r="5.82">Gold border,</span></span><span class="ln"><span data-r="5.92"><em>edge to edge.</em></span></span></div>
+ </div>
+ <div class="sc" data-o="9.05">
+  <div class="h" style="top:124px"><span class="ln"><span data-r="7.35">The full title</span></span><span class="ln"><span data-r="7.45"><em>runs on.</em></span></span></div>
+  <div class="note l" style="top:222px" data-n="7.65">"...&amp; what every Muslim must know</div>
+  <div class="note l" style="top:243px" data-n="7.7">about his Religion"</div>
+ </div>
+ <div class="sc" data-o="11.05">
+  <div class="h" style="top:124px"><span class="ln"><span data-r="9.35">Written by Sheikh</span></span><span class="ln"><span data-r="9.45"><em>Muhammad bin</em></span></span><span class="ln"><span data-r="9.55"><em>Jamil Zeno.</em></span></span></div>
+ </div>
+ <div class="sc" data-o="13.05">
+  <div class="h" style="top:124px"><span class="ln"><span data-r="11.35">Title in gold,</span></span><span class="ln"><span data-r="11.45"><em>down the spine.</em></span></span></div>
+  <div class="note l" style="top:222px" data-n="11.7">Darussalam's mark at the foot.</div>
+ </div>
+ <div class="sc" data-o="14.85">
+  <div class="h" style="top:124px"><span class="ln"><span data-r="13.35">Plain green,</span></span><span class="ln"><span data-r="13.45"><em>grained back.</em></span></span></div>
+  <div class="note l" style="top:222px" data-n="13.65">One volume, in English.</div>
+ </div>
+
+ <div id="endbg"></div>
+ <svg id="frame" viewBox="0 0 540 960">
+  <rect id="fo" x="12" y="12" width="516" height="936" stroke-width="2.4" pathLength="1000"/>
+  <rect id="fi" x="20" y="20" width="500" height="920" stroke-width="1" pathLength="1000"/>
+  <g id="dms"><rect class="dm" x="9" y="9" width="14" height="14" transform="rotate(45 16 16)" style="fill:var(--gd);stroke:none"/>
+  <rect class="dm" x="517" y="9" width="14" height="14" transform="rotate(45 524 16)" style="fill:var(--gd);stroke:none"/>
+  <rect class="dm" x="9" y="937" width="14" height="14" transform="rotate(45 16 944)" style="fill:var(--gd);stroke:none"/>
+  <rect class="dm" x="517" y="937" width="14" height="14" transform="rotate(45 524 944)" style="fill:var(--gd);stroke:none"/></g>
+ </svg>
+ <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+ <div class="ctr" id="e1" style="top:366px;font-family:var(--hd);font-weight:800;font-size:50px;color:var(--pp)">daralathari.com</div>
+ <div class="ctr" id="e2" style="top:440px;font-size:19px;color:var(--ro)">Shipped from New Jersey.</div>
+ <div class="ctr" id="e3" style="top:506px"><span class="pill" id="btn">Browse the books</span></div>
+ <div class="ctr" id="e4" style="top:604px;font-size:18px;font-weight:600;color:var(--pp)">Link in bio</div>
+ <div id="flash"></div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.3,-.5,.82],.42,.82);
+var cam=$('cam'),bk=makeBook(cam,'pi');
+var RS=[],NO=[],SC=[];
+document.querySelectorAll('.sc').forEach(function(s){SC.push({e:s,o:+s.dataset.o})});
+document.querySelectorAll('[data-r]').forEach(function(e){RS.push({e:e,s:+e.dataset.r})});
+document.querySelectorAll('[data-n]').forEach(function(e){NO.push({e:e,s:+e.dataset.n})});
+var BH=300,BW=188,CT=480,SY=560;
+function Y(f,s,sc){return sc-CT-(f-.5)*BH*s}
+function X(f,s){return -(f-.5)*BW*s}
+// t, x, y, ry, rx, s
+var KEY=[
+ [0,   16,96,-40,4,1.66],
+ [1.3, 0,94,-16,3,1.74],
+ [2.7, 0,94,-9,2,1.76],
+ [3.1, X(.5,3.4),Y(.215,3.4,SY),0,0,3.4],
+ [4.65,X(.5,3.4),Y(.215,3.4,SY+18),0,0,3.4],
+ [5.0, 0,110,0,0,1.45],
+ [6.9, 0,104,-12,2,1.62],
+ [7.35,X(.5,3.0),Y(.60,3.0,SY),0,0,3.0],
+ [8.95,X(.5,3.0),Y(.60,3.0,SY+16),0,0,3.0],
+ [9.35,X(.5,3.2),Y(.735,3.2,SY),0,0,3.2],
+ [10.95,X(.5,3.2),Y(.735,3.2,SY+16),0,0,3.2],
+ [11.35,40,Y(.30,3.5,SY),84,0,3.5],
+ [12.95,40,Y(.74,3.5,SY),84,0,3.5],
+ [13.35,0,100,168,2,1.7],
+ [14.75,0,100,180,2,1.74],
+ [15.1,0,96,200,3,1.55],
+ [18,0,96,200,3,1.55]];
+var fo=$('fo'),fi=$('fi');
+window.__seek=function(t){
+  var a=keyed(KEY,t),ry=a[2],rz=0,blur=0,sh=0,g=1,y=a[1],s=a[4];
+  // hero 5.0 -> 6.0: the book hops and tumbles a full turn on a tilted axis while the gold border draws round the screen
+  var hp=io((t-5.0)/1.0);
+  if(t>5.0&&t<6.0){ry+=360*hp;rz=Math.sin(hp*Math.PI)*-18;blur=Math.sin(hp*Math.PI)*7;y-=Math.sin(hp*Math.PI)*70;s*=1+.12*Math.sin(hp*Math.PI)}
+  var k=t-6.0;if(k>0&&k<.6)sh=Math.sin(k*50)*Math.exp(-k*9)*9;
+  if(k>0)g+=.32*Math.exp(-k*5);
+  pose(bk,{x:a[0]+sh*.4,y:y+sh,z:0,ry:ry,rx:a[3],rz:rz,s:s,blur:blur,g:g});
+  var small=1-sm((s-1.95)/.3);
+  $('shadow').style.opacity=small*.9;$('shadow').style.top=(CT+y+BH*s/2-22)+'px';
+  $('flash').style.opacity=k>0?.42*Math.exp(-k*7):0;
+  // border: draws 5.15 -> 6.0 (outer), inner follows; corner diamonds pop on landing
+  var dp=1-Math.pow(1-cl((t-5.15)/.85),2.2),dq=1-Math.pow(1-cl((t-5.3)/.8),2.2);
+  fo.style.strokeDasharray='1000';fo.style.strokeDashoffset=(1000*(1-dp)).toFixed(1);
+  fi.style.strokeDasharray='1000';fi.style.strokeDashoffset=(-1000*(1-dq)).toFixed(1);
+  fo.style.opacity=dp>0?1:0;fi.style.opacity=dq>0?.8:0;
+  var dpop=ob((t-6.0)/.4);$('dms').style.opacity=cl((t-6.0)/.1);
+  $('dms').style.transformOrigin='270px 480px';$('dms').style.transform='scale('+(t<6?1:lerp(1.04,1,cl(dpop)))+')';
+  // label plate: present from frame 0, leaves for the end card
+  var lo=(1-sm((t-14.8)/.3))*(1-sm((t-4.75)/.25)*(1-sm((t-5.72)/.2)));$('label').style.opacity=lo;$('label').style.transform='translateY('+(-(1-lo)*20)+'px)';
+  RS.forEach(function(r){var q=t<r.s?0:1-Math.pow(2,-10*cl((t-r.s)/.45));r.e.style.transform='translateY('+((1-q)*110)+'%)'});
+  NO.forEach(function(n){var q=oc((t-n.s)/.3);n.e.style.opacity=q;n.e.style.transform='translateY('+((1-q)*10)+'px)'});
+  SC.forEach(function(s_){var o=1-sm((t-s_.o)/.22);s_.e.style.opacity=o;s_.e.style.visibility=o<=0?'hidden':'visible'});
+  // end: a deep crimson panel rises inside the gold border
+  var ep=io((t-15.0)/.75);$('endbg').style.clipPath='inset('+((1-ep)*100).toFixed(2)+'% 0 0 0)';
+  var lq=ob((t-15.5)/.7);$('lg').style.opacity=cl((t-15.5)/.25);$('lg').style.transform='scale('+(t<15.5?.6:Math.max(.6,lq))+')';
+  [['e1',15.75],['e2',15.9],['e3',16.1],['e4',16.4]].forEach(function(o){var q=oc((t-o[1])/.45);var e=$(o[0]);e.style.opacity=cl((t-o[1])/.2);e.style.transform='translateY('+((1-q)*24)+'px)'});
+  var pu=t>16.8?((t-16.8)%1.4)/1.4:-1;$('btn').style.transform=pu>=0?'scale('+(1+.045*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+};
+window.__seek(0);
+</script></body></html>
