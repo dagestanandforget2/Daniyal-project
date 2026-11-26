@@ -1,0 +1,18 @@
+import os; os.environ.setdefault('SFXT','18')
+import sys; sys.path.insert(0,'../../tools'); from sfxlib import *
+add(rumble(18.4),.1,.04)
+w=whoosh(.6,300,1700,600,.4,1.0); add(w,0.0,.16,sweep(w,.3,-.2))
+add(thud(92,44,.35,.2,12),0.2,.13)
+add(whoosh(.8,250,1400,500,.6,1.0),2.8,.14); txt(3.05); txt(3.15)
+# hero: book spins, swatch blades snap open one by one
+w=whoosh(1.1,350,2600,800,.55,1.0); add(w,5.0,.22,sweep(w,-.5,.6))
+for i in range(7): add(clack(.5+i*.07),5.4+i*.09,.09,[-.6,-.3,0,.3,.6,.3,-.3][i])
+add(thud(96,42,.42,.3,12),6.15,.46); add(slap(),6.15,.28)
+add(shimmer(1.0,6200,.5),6.2,.05)
+txt(6.15); txt(6.25)
+for i in range(4): add(tick(.8),6.7+i*.25,.06)
+add(scrape(.6),8.55,.05); add(whoosh(.8,300,1300,500,.5,1.0),8.65,.13); txt(9.05); txt(9.15)
+add(whoosh(.8,300,1300,500,.5,1.0),10.85,.12); add(flip(),11.0,.1); txt(11.1); txt(11.2)
+add(whoosh(.9,200,1200,400,.6,1.0),13.0,.14); txt(13.15); txt(13.25)
+endcard(15.0)
+master('sfx.wav')

@@ -1,0 +1,152 @@
+<!--FONTS Zilla Slab:zilla-slab:latin:700:normal;Zilla Slab:zilla-slab:latin:500:italic;Sometype Mono:sometype-mono:latin:500:normal;Amiri:amiri:arabic:700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Swatch Deck</title>
+<style>
+/*FONTS*/
+:root{--pt:#D4CEC2;--pt2:#B3AC9E;--ink:#15110F;--gd:#D2AC57;--mr:#6A1C26;--bl:#EFE2DF;--pp:#F6F1E8;--hd:'Zilla Slab',serif;--ui:'Sometype Mono',monospace;--ar:'Amiri',serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;font-family:var(--ui);background:radial-gradient(80% 55% at 50% 30%,#E6E1D6 0%,var(--pt) 50%,var(--pt2) 100%)}
+#lines{position:absolute;inset:0;opacity:.35;background:repeating-linear-gradient(to bottom,transparent 0 47px,rgba(21,17,15,.16) 47px 48px)}
+#fan{position:absolute;left:0;top:0;width:540px;height:960px}
+.card{position:absolute;left:228px;top:110px;width:84px;height:470px;border-radius:10px;transform-origin:42px 450px;box-shadow:0 10px 26px -10px rgba(20,12,6,.55)}
+.card b{position:absolute;left:0;bottom:40px;width:84px;text-align:center;font-family:var(--ui);font-weight:500;font-size:15px}
+.st3d{position:absolute;inset:0;perspective:1500px;perspective-origin:270px 400px;overflow:hidden}
+.cam{position:absolute;left:270px;top:480px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#f3ecdc 0 4.5px,#d2c7ad 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#f3ecdc 0 4.5px,#d2c7ad 4.5px 7.5px)}
+#shadow{position:absolute;width:340px;height:50px;border-radius:50%;background:radial-gradient(closest-side,rgba(30,20,10,.5),transparent)}
+#endp{position:absolute;left:150px;top:70px;width:252px;height:360px;background:url(assets/a_end.jpg) center/100% 100%;box-shadow:0 30px 50px -20px rgba(20,10,5,.6);opacity:0}
+#dock{position:absolute;left:0;top:548px;width:540px;height:420px;background:var(--ink)}
+#dock:before{content:"";position:absolute;left:0;top:0;width:540px;height:6px;background:repeating-linear-gradient(to right,#15110F 0 60px,#D2AC57 60px 120px,#6A1C26 120px 180px,#EFE2DF 180px 240px)}
+.kick{position:absolute;left:34px;font-family:var(--hd);font-style:italic;font-weight:500;font-size:22px;color:var(--gd);white-space:nowrap}
+.h{position:absolute;left:34px;font-family:var(--hd);font-weight:700;font-size:44px;line-height:1.04;color:var(--pp);white-space:nowrap}
+.h .g{color:var(--bl)}
+.ln{overflow:hidden;display:block;padding-bottom:3px}
+.ln>span{display:inline-block}
+.note{position:absolute;left:35px;font-family:var(--ui);font-weight:500;font-size:16px;line-height:1.35;color:#CFC6B8;white-space:nowrap}
+.arb{position:absolute;left:34px;width:430px;text-align:right;direction:rtl;font-family:var(--ar);font-weight:700;color:var(--gd);white-space:nowrap}
+.row{position:absolute;left:35px;font-family:var(--ui);font-weight:500;font-size:16px;color:#E8E0D4;white-space:nowrap}
+.row i{display:inline-block;width:15px;height:15px;margin-right:12px;vertical-align:-2px;border:1px solid rgba(246,241,232,.5)}
+#endbg{position:absolute;inset:0;background:radial-gradient(90% 60% at 50% 40%,#2A201B,var(--ink));clip-path:circle(0px at 270px 560px)}
+#lg{position:absolute;left:180px;top:150px;width:180px;height:180px;mix-blend-mode:screen;opacity:0}
+.pill{display:inline-block;background:var(--gd);color:var(--ink);font-family:var(--hd);font-weight:700;font-size:27px;padding:14px 38px;border-radius:999px}
+.ctr{position:absolute;left:0;width:540px;text-align:center;opacity:0}
+#flash{position:absolute;inset:0;background:#FFF6E2;opacity:0}
+#grain{position:absolute;inset:0;opacity:.12;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="lines"></div>
+ <div id="fan"></div>
+ <div id="shadow"></div>
+ <div id="endp"></div>
+ <div class="st3d"><div class="cam" id="cam"></div></div>
+ <div id="dock"></div>
+
+ <div class="sc" data-o="2.85">
+  <div class="arb" style="top:566px;font-size:30px" data-n="-0.3">الداء والدواء</div>
+  <div class="h" style="top:612px"><span class="ln"><span data-r="-0.5">Ad-Da' wa ad-Dawa',</span></span><span class="ln"><span class="g" data-r="-0.45">Arabic hardcover.</span></span></div>
+  <div class="note" style="top:714px" data-n="-0.3">By Imam Ibn Qayyim al-Jawziyyah.</div>
+  <div class="note" style="top:737px" data-n="-0.3">Dar Ata'at al-'Ilm. One volume.</div>
+ </div>
+ <div class="sc" data-o="4.85">
+  <div class="kick" style="top:596px" data-n="3.0">On the front board</div>
+  <div class="h" style="top:630px"><span class="ln"><span data-r="3.05">The title, in gold</span></span><span class="ln"><span class="g" data-r="3.15">on black.</span></span></div>
+ </div>
+ <div class="sc" data-o="8.75">
+  <div class="h" style="top:572px"><span class="ln"><span data-r="6.15">Four colours,</span></span><span class="ln"><span class="g" data-r="6.25">one binding.</span></span></div>
+  <div class="row" style="top:676px" data-n="6.7"><i style="background:#15110F"></i>01 Black grained boards</div>
+  <div class="row" style="top:698px" data-n="6.95"><i style="background:#D2AC57"></i>02 Gold lettering</div>
+  <div class="row" style="top:720px" data-n="7.2"><i style="background:#6A1C26"></i>03 Maroon spine labels</div>
+  <div class="row" style="top:742px" data-n="7.45"><i style="background:#EFE2DF"></i>04 Patterned endpapers</div>
+ </div>
+ <div class="sc" data-o="10.85">
+  <div class="kick" style="top:596px" data-n="9.0">03</div>
+  <div class="h" style="top:630px"><span class="ln"><span data-r="9.05">Maroon labels,</span></span><span class="ln"><span class="g" data-r="9.15">gold down the spine.</span></span></div>
+ </div>
+ <div class="sc" data-o="12.95">
+  <div class="kick" style="top:596px" data-n="11.05">04</div>
+  <div class="h" style="top:630px"><span class="ln"><span data-r="11.1">Patterned</span></span><span class="ln"><span class="g" data-r="11.2">endpapers inside.</span></span></div>
+ </div>
+ <div class="sc" data-o="14.9">
+  <div class="kick" style="top:596px" data-n="13.1">01</div>
+  <div class="h" style="top:630px"><span class="ln"><span data-r="13.15">Black grained</span></span><span class="ln"><span class="g" data-r="13.25">boards, both sides.</span></span></div>
+ </div>
+
+ <div id="endbg"></div>
+ <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+ <div class="ctr" id="e1" style="top:364px;font-family:var(--hd);font-weight:700;font-size:52px;color:var(--pp)">daralathari.com</div>
+ <div class="ctr" id="e2" style="top:440px;font-family:var(--hd);font-style:italic;font-weight:500;font-size:22px;color:var(--bl)">Shipped from New Jersey.</div>
+ <div class="ctr" id="e3" style="top:500px"><span class="pill" id="btn">Shop the collection</span></div>
+ <div class="ctr" id="e4" style="top:596px;font-size:16px;color:#CFC6B8">Link in bio</div>
+ <div id="flash"></div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.4,-.5,.8],.45,.8);
+var cam=$('cam'),bk=makeBook(cam,'aar');
+// the swatch deck: 7 blades in the book's own colours
+var COLS=['#15110F','#D2AC57','#6A1C26','#EFE2DF','#6A1C26','#D2AC57','#15110F'],LAB=['01','02','03','04','03','02','01'],TX=['#D2AC57','#15110F','#EFE2DF','#6A1C26','#EFE2DF','#15110F','#D2AC57'];
+var CARDS=[];COLS.forEach(function(c,i){var d=el('card','background:'+c,$('fan'),'<b style="color:'+TX[i]+'">'+LAB[i]+'</b>');CARDS.push(d)});
+var RS=[],NO=[],SC=[];
+document.querySelectorAll('.sc').forEach(function(s){SC.push({e:s,o:+s.dataset.o})});
+document.querySelectorAll('[data-r]').forEach(function(e){RS.push({e:e,s:+e.dataset.r})});
+document.querySelectorAll('[data-n]').forEach(function(e){NO.push({e:e,s:+e.dataset.n})});
+var BH=310,BW=216,CT=480,SY=290;
+function Y(f,s,sc){return sc-CT-(f-.5)*BH*s}
+function X(f,s){return -(f-.5)*BW*s}
+// t, x, y, ry, rx, s
+var KEY=[
+ [0,   14,-196,-38,6,1.58],
+ [1.2, 0,-190,-12,3,1.66],
+ [2.75,0,-188,-5,2,1.7],
+ [3.15,X(.5,3.3),Y(.33,3.3,SY),0,0,3.3],
+ [4.75,X(.5,3.3),Y(.33,3.3,SY+18),0,0,3.3],
+ [5.05,0,-200,0,0,1.25],
+ [8.6, 0,-200,-8,2,1.25],
+ [9.0, 30,Y(.3,3.1,SY),-88,0,3.1],
+ [10.7,30,Y(.62,3.1,SY),-88,0,3.1],
+ [11.0,-150,-210,-24,3,1.2],
+ [12.8,-150,-210,-14,3,1.2],
+ [13.15,0,-190,-180,2,1.62],
+ [14.0,0,-190,-196,2,1.62],
+ [14.85,0,-190,-352,2,1.62],
+ [15.2,0,-620,-360,2,1.3],
+ [18,0,-620,-360,2,1.3]];
+window.__seek=function(t){
+  var a=keyed(KEY,t),ry=a[2],rz=0,blur=0,sh=0,g=1,y=a[1],s=a[4],x=a[0];
+  if(t<1.2){s*=1-.07*(1-oc(t/1.2))}
+  // hero 5.05 -> 6.15: the book hops and spins a full turn while the swatch deck fans open behind it
+  var hp=io((t-5.05)/1.1);
+  if(t>5.05&&t<6.15){ry+=360*hp;blur=Math.sin(hp*Math.PI)*6;y-=Math.sin(hp*Math.PI)*60;rz=Math.sin(hp*Math.PI)*-6}
+  var k=t-6.15;if(k>0&&k<.6)sh=Math.sin(k*48)*Math.exp(-k*9)*8;
+  if(k>0)g+=.22*Math.exp(-k*5);
+  pose(bk,{x:x+sh*.4,y:y+sh,z:0,ry:ry,rx:a[3],rz:rz,s:s,blur:blur,g:g});
+  var small=1-sm((s-1.9)/.3);
+  var sw=$('shadow');sw.style.opacity=small*.8*(1-sm((t-15)/.3));sw.style.top=(CT+y+BH*s/2-22)+'px';sw.style.left=(270+x-170)+'px';
+  $('flash').style.opacity=k>0?.36*Math.exp(-k*7):0;
+  // fan: blades rise from behind the dock, then snap open one after another; fold shut at 8.6
+  var open=0;
+  CARDS.forEach(function(c,i){
+    var st=5.15+i*.09, p=t<st?0:ob((t-st)/.5), close=io((t-8.55-(6-i)*.03)/.4);
+    var ang=(i-3)*21*p*(1-close), rise=oc((t-5.0)/.35)*(1-io((t-8.75)/.35));
+    c.style.transform='translateY('+((1-rise)*520+sh)+'px) rotate('+ang.toFixed(2)+'deg)';
+    c.style.visibility=(t<5||t>9.2)?'hidden':'visible';
+  });
+  // endpaper card (scene 11.0-12.9)
+  var ep=oc((t-11.0)/.55)*(1-io((t-12.75)/.35)),E=$('endp');
+  E.style.opacity=cl(ep*1.5);E.style.transform='translate('+((1-ep)*160+40)+'px,'+((1-ep)*40)+'px) rotate('+lerp(14,5,ep).toFixed(2)+'deg)';
+  RS.forEach(function(r){var q=t<r.s?0:1-Math.pow(2,-10*cl((t-r.s)/.45));r.e.style.transform='translateY('+((1-q)*110)+'%)'});
+  NO.forEach(function(n){var q=oc((t-n.s)/.3);n.e.style.opacity=q;n.e.style.transform='translateY('+((1-q)*10)+'px)'});
+  SC.forEach(function(s_){var o=1-sm((t-s_.o)/.22);s_.e.style.opacity=o;s_.e.style.visibility=o<=0?'hidden':'visible'});
+  $('lines').style.transform='translateY('+((t*10)%48).toFixed(1)+'px)';
+  // end: an ink iris opens from the fan's pivot
+  var eq=io((t-15.0)/.8);$('endbg').style.clipPath='circle('+(eq*1150).toFixed(1)+'px at 270px 560px)';
+  var lq=ob((t-15.5)/.7);$('lg').style.opacity=cl((t-15.5)/.25);$('lg').style.transform='scale('+(t<15.5?.6:Math.max(.6,lq))+')';
+  [['e1',15.75],['e2',15.9],['e3',16.1],['e4',16.4]].forEach(function(o){var q=oc((t-o[1])/.45);var e=$(o[0]);e.style.opacity=cl((t-o[1])/.2);e.style.transform='translateY('+((1-q)*24)+'px)'});
+  var pu=t>16.8?((t-16.8)%1.4)/1.4:-1;$('btn').style.transform=pu>=0?'scale('+(1+.045*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+};
+window.__seek(0);
+</script></body></html>
