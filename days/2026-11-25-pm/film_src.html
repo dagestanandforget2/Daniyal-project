@@ -1,0 +1,157 @@
+<!--FONTS Fjalla One:fjalla-one:latin:400:normal;Newsreader:newsreader:latin:500:normal;Newsreader:newsreader:latin:500:italic;Tajawal:tajawal:arabic:700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Credits</title>
+<style>
+/*FONTS*/
+:root{--sd:#E2C98F;--sd2:#C4A462;--ink:#17130E;--mr:#6E1E24;--mr2:#3F0F13;--pp:#F7EEDB;--bz:#8A6A2C;--hd:'Fjalla One',sans-serif;--ui:'Newsreader',serif;--ar:'Tajawal',sans-serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;font-family:var(--ui);background:radial-gradient(90% 60% at 52% 34%,#EED9A6 0%,var(--sd) 46%,var(--sd2) 100%)}
+/* faint projector beam bands drifting across the sand */
+#beam{position:absolute;inset:-40px;opacity:.22;background:repeating-linear-gradient(104deg,rgba(255,248,225,.0) 0 46px,rgba(255,248,225,.55) 46px 50px,rgba(255,248,225,0) 50px 120px)}
+.st3d{position:absolute;inset:0;perspective:1500px;perspective-origin:270px 420px;overflow:hidden}
+.cam{position:absolute;left:270px;top:480px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#f3ecdc 0 4.5px,#d2c7ad 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#f3ecdc 0 4.5px,#d2c7ad 4.5px 7.5px)}
+#shadow{position:absolute;width:360px;height:54px;border-radius:50%;background:radial-gradient(closest-side,rgba(60,38,8,.55),transparent)}
+/* text dock: a maroon rule like the spine's label edge */
+#dock{position:absolute;left:0;top:552px;width:540px;height:420px;background:linear-gradient(#E0C68C,#C9AA6A 80%);box-shadow:0 -18px 36px -20px rgba(50,30,6,.55)}
+#dock:before{content:"";position:absolute;left:0;top:0;width:540px;height:4px;background:var(--mr)}
+#dock:after{content:"";position:absolute;left:0;top:8px;width:540px;height:1px;background:var(--mr);opacity:.55}
+.kick{position:absolute;left:36px;font-family:var(--ui);font-style:italic;font-weight:500;font-size:23px;color:var(--mr);white-space:nowrap}
+.h{position:absolute;left:36px;font-family:var(--hd);font-size:47px;line-height:1.04;color:var(--ink);white-space:nowrap}
+.ln{overflow:hidden;display:block;padding-bottom:3px}
+.ln>span{display:inline-block}
+.note{position:absolute;left:37px;font-family:var(--ui);font-weight:500;font-size:19px;line-height:1.3;color:#3a2c16;white-space:nowrap}
+.arb{position:absolute;left:36px;width:438px;text-align:right;direction:rtl;font-family:var(--ar);font-weight:700;color:var(--mr);white-space:nowrap}
+/* the credit roll */
+#roll{position:absolute;left:36px;top:0;width:240px}
+.cr{position:relative;height:64px}
+.cr i{display:block;font-family:var(--ui);font-style:italic;font-weight:500;font-size:17px;color:var(--mr);line-height:1.1}
+.cr b{display:block;font-family:var(--hd);font-weight:400;font-size:22px;color:var(--ink);line-height:1.15;white-space:nowrap}
+#rollmask{position:absolute;left:0;top:104px;width:310px;height:440px;overflow:hidden}
+#endbg{position:absolute;inset:0;background:radial-gradient(90% 60% at 50% 38%,#7C2229,var(--mr2));clip-path:inset(100% 0 0 0)}
+#lg{position:absolute;left:180px;top:150px;width:180px;height:180px;mix-blend-mode:screen;opacity:0}
+.pill{display:inline-block;background:var(--sd);color:var(--mr2);font-family:var(--hd);font-size:28px;padding:14px 40px;border-radius:999px;box-shadow:0 16px 34px -14px rgba(0,0,0,.6)}
+.ctr{position:absolute;left:0;width:540px;text-align:center;opacity:0}
+#flash{position:absolute;inset:0;background:#FFF3D0;opacity:0}
+#grain{position:absolute;inset:0;opacity:.12;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="beam"></div>
+ <div id="shadow"></div>
+ <div class="st3d"><div class="cam" id="cam"></div></div>
+ <div id="dock"></div>
+
+ <div class="sc" data-o="2.85">
+  <div class="arb" style="top:564px;font-size:30px" data-n="-0.3">الفوائد</div>
+  <div class="h" style="top:604px"><span class="ln"><span data-r="-0.5">Al-Fawa'id, in an</span></span><span class="ln"><span data-r="-0.45">Arabic hardcover.</span></span></div>
+  <div class="note" style="top:712px" data-n="-0.3">By Imam Ibn Qayyim al-Jawziyyah.</div>
+  <div class="note" style="top:737px" data-n="-0.3">Dar Ata'at al-'Ilm. One volume.</div>
+ </div>
+ <div class="sc" data-o="4.85">
+  <div class="kick" style="top:600px" data-n="3.0">Top line of the cover</div>
+  <div class="h" style="top:634px"><span class="ln"><span data-r="3.05">Number 18 in the</span></span><span class="ln"><span data-r="3.15">series of his works.</span></span></div>
+ </div>
+ <div class="sc" data-o="7.45">
+  <div class="h" style="top:620px"><span class="ln"><span data-r="6.0">Every credit,</span></span><span class="ln"><span data-r="6.1">as printed.</span></span></div>
+ </div>
+ <div class="sc" data-o="9.55">
+  <div class="arb" style="top:566px;font-size:26px" data-n="7.75">تحقيق محمد عزير شمس</div>
+  <div class="kick" style="top:604px" data-n="7.8">Edited by</div>
+  <div class="h" style="top:638px"><span class="ln"><span data-r="7.85">Muhammad</span></span><span class="ln"><span data-r="7.95">'Uzayr Shams.</span></span></div>
+ </div>
+ <div class="sc" data-o="11.55">
+  <div class="arb" style="top:566px;font-size:26px" data-n="9.75">إشراف بكر بن عبد الله أبو زيد</div>
+  <div class="kick" style="top:604px" data-n="9.8">Under the supervision of</div>
+  <div class="h" style="top:638px"><span class="ln"><span data-r="9.85">Bakr ibn Abdullah</span></span><span class="ln"><span data-r="9.95">Abu Zayd.</span></span></div>
+ </div>
+ <div class="sc" data-o="13.55">
+  <div class="h" style="top:620px"><span class="ln"><span data-r="11.85">Maroon labels,</span></span><span class="ln"><span data-r="11.95">gold down the spine.</span></span></div>
+  <div class="note" style="top:726px" data-n="12.15">Publisher's mark at the head and foot.</div>
+ </div>
+ <div class="sc" data-o="14.85">
+  <div class="h" style="top:620px"><span class="ln"><span data-r="13.75">Black grained boards,</span></span><span class="ln"><span data-r="13.85">gold lettering.</span></span></div>
+ </div>
+
+ <div id="rollmask"><div id="roll">
+  <div class="cr"><i>Written by</i><b>Imam Ibn Qayyim al-Jawziyyah</b></div>
+  <div class="cr"><i>Edited by</i><b>Muhammad 'Uzayr Shams</b></div>
+  <div class="cr"><i>Under the supervision of</i><b>Bakr ibn Abdullah Abu Zayd</b></div>
+  <div class="cr"><i>Published by</i><b>Dar Ata'at al-'Ilm</b></div>
+  <div class="cr"><i>In the series of his works</i><b>Number 18</b></div>
+  <div class="cr"><i>Language</i><b>Arabic</b></div>
+ </div></div>
+
+ <div id="endbg"></div>
+ <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+ <div class="ctr" id="e1" style="top:366px;font-family:var(--hd);font-size:54px;color:var(--pp)">daralathari.com</div>
+ <div class="ctr" id="e2" style="top:446px;font-size:21px;font-style:italic;color:#E9C98A">Shipped from New Jersey.</div>
+ <div class="ctr" id="e3" style="top:506px"><span class="pill" id="btn">Browse the books</span></div>
+ <div class="ctr" id="e4" style="top:600px;font-size:19px;font-weight:500;color:var(--pp)">Link in bio</div>
+ <div id="flash"></div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.35,-.5,.8],.45,.8);
+var cam=$('cam'),bk=makeBook(cam,'fw');
+var RS=[],NO=[],SC=[];
+document.querySelectorAll('.sc').forEach(function(s){SC.push({e:s,o:+s.dataset.o})});
+document.querySelectorAll('[data-r]').forEach(function(e){RS.push({e:e,s:+e.dataset.r})});
+document.querySelectorAll('[data-n]').forEach(function(e){NO.push({e:e,s:+e.dataset.n})});
+var BH=300,BW=203,CT=480,SY=300;
+function Y(f,s,sc){return sc-CT-(f-.5)*BH*s}
+function X(f,s){return -(f-.5)*BW*s}
+// t, x, y, ry, rx, s
+var KEY=[
+ [0,   -10,-196,34,6,1.62],
+ [1.2, 0,-180,12,3,1.7],
+ [2.75,0,-176,6,2,1.74],
+ [3.15,X(.5,3.6),Y(.10,3.6,SY),0,0,3.6],
+ [4.75,X(.5,3.6),Y(.10,3.6,SY+16),0,0,3.6],
+ [5.1, 178,-160,0,0,1.38],
+ [7.3, 178,-160,-16,2,1.38],
+ [7.65,X(.5,3.4),Y(.53,3.4,SY),0,0,3.4],
+ [9.45,X(.5,3.4),Y(.53,3.4,SY+16),0,0,3.4],
+ [9.75,X(.5,3.3),Y(.645,3.3,SY),0,0,3.3],
+ [11.45,X(.5,3.3),Y(.645,3.3,SY+16),0,0,3.3],
+ [11.8,-30,Y(.28,3.2,SY),-86,0,3.2],
+ [13.45,-30,Y(.72,3.2,SY),-86,0,3.2],
+ [13.8,0,-178,-14,3,1.66],
+ [14.8,0,-178,-4,2,1.72],
+ [15.2,0,-560,-4,2,1.4],
+ [18,0,-560,-4,2,1.4]];
+var roll=$('roll');
+window.__seek=function(t){
+  var a=keyed(KEY,t),ry=a[2],rz=0,blur=0,sh=0,g=1,y=a[1],s=a[4],x=a[0];
+  // first second: a quick push-in so frame 0 already moves
+  if(t<1.2){s*=1-.06*(1-oc(t/1.2))}
+  // hero 5.0 -> 6.1: the book slides right and spins a full turn while the credits roll up past it
+  var hp=io((t-5.0)/1.1);
+  if(t>5.0&&t<6.1){ry+=360*hp;blur=Math.sin(hp*Math.PI)*6;rz=Math.sin(hp*Math.PI)*8}
+  var k=t-6.1;if(k>0&&k<.6)sh=Math.sin(k*48)*Math.exp(-k*9)*8;
+  if(k>0)g+=.25*Math.exp(-k*5);
+  pose(bk,{x:x+sh*.4,y:y+sh,z:0,ry:ry,rx:a[3],rz:rz,s:s,blur:blur,g:g});
+  var small=1-sm((s-1.9)/.3);
+  var sw=$('shadow');sw.style.opacity=small*.85*(1-sm((t-15)/.3));sw.style.top=(CT+y+BH*s/2-24)+'px';sw.style.left=(270+x-180)+'px';
+  $('flash').style.opacity=k>0?.38*Math.exp(-k*7):0;
+  // credit roll: rushes up from below the screen, decelerates exponentially, locks at 6.1
+  var rp=t<5.0?0:1-Math.pow(2,-9*cl((t-5.0)/1.1)),v=t>5&&t<6.1?Math.pow(2,-9*cl((t-5.0)/1.1))*9:0;
+  var rollY=lerp(1500,30,rp);
+  roll.style.transform='translateY('+rollY.toFixed(1)+'px)';roll.style.filter=v>.2?'blur('+Math.min(5,v*.8).toFixed(2)+'px)':'none';
+  var ro=(t>5.0?1:0)*(1-sm((t-7.35)/.3));$('rollmask').style.opacity=ro;$('rollmask').style.visibility=ro<=0?'hidden':'visible';
+  // projector bands drift
+  $('beam').style.transform='translateX('+((t*14)%120).toFixed(1)+'px)';
+  RS.forEach(function(r){var q=t<r.s?0:1-Math.pow(2,-10*cl((t-r.s)/.45));r.e.style.transform='translateY('+((1-q)*110)+'%)'});
+  NO.forEach(function(n){var q=oc((t-n.s)/.3);n.e.style.opacity=q;n.e.style.transform='translateY('+((1-q)*10)+'px)'});
+  SC.forEach(function(s_){var o=1-sm((t-s_.o)/.22);s_.e.style.opacity=o;s_.e.style.visibility=o<=0?'hidden':'visible'});
+  // end: the spine's maroon rises to fill the frame
+  var ep=io((t-15.0)/.75);$('endbg').style.clipPath='inset('+((1-ep)*100).toFixed(2)+'% 0 0 0)';
+  var lq=ob((t-15.5)/.7);$('lg').style.opacity=cl((t-15.5)/.25);$('lg').style.transform='scale('+(t<15.5?.6:Math.max(.6,lq))+')';
+  [['e1',15.75],['e2',15.9],['e3',16.1],['e4',16.4]].forEach(function(o){var q=oc((t-o[1])/.45);var e=$(o[0]);e.style.opacity=cl((t-o[1])/.2);e.style.transform='translateY('+((1-q)*24)+'px)'});
+  var pu=t>16.8?((t-16.8)%1.4)/1.4:-1;$('btn').style.transform=pu>=0?'scale('+(1+.045*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+};
+window.__seek(0);
+</script></body></html>
