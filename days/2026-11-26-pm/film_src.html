@@ -1,0 +1,150 @@
+<!--FONTS Gelasio:gelasio:latin:700:normal;Gelasio:gelasio:latin:500:italic;Red Hat Text:red-hat-text:latin:400,600:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Rosette</title>
+<style>
+/*FONTS*/
+:root{--li:#CFC7DD;--li2:#A99FBF;--vi:#2E2350;--pe:#4E3F86;--gd:#C9A043;--iv:#F6F3EC;--ol:#7A7140;--hd:'Gelasio',serif;--ui:'Red Hat Text',sans-serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;font-family:var(--ui);background:radial-gradient(85% 60% at 50% 62%,#E3DDEB 0%,var(--li) 48%,var(--li2) 100%)}
+#ros{position:absolute;left:0;top:0;width:540px;height:960px;overflow:visible}
+.st3d{position:absolute;inset:0;perspective:1500px;perspective-origin:270px 560px;overflow:hidden}
+.cam{position:absolute;left:270px;top:480px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#f3ecdc 0 4.5px,#d2c7ad 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#f3ecdc 0 4.5px,#d2c7ad 4.5px 7.5px)}
+#shadow{position:absolute;width:320px;height:46px;border-radius:50%;background:radial-gradient(closest-side,rgba(30,20,50,.45),transparent)}
+#canopy{position:absolute;left:0;top:0;width:540px;height:300px;background:var(--vi)}
+#canopy:after{content:"";position:absolute;left:0;top:300px;width:540px;height:22px;background:radial-gradient(circle at 22.5px 0,var(--vi) 0 21px,transparent 22px) 0 0/45px 22px repeat-x}
+#canopy:before{content:"";position:absolute;left:0;top:292px;width:540px;height:2px;background:var(--gd);opacity:.9}
+.h{position:absolute;left:34px;font-family:var(--hd);font-weight:700;font-size:45px;line-height:1.06;color:var(--iv);white-space:nowrap}
+.h .g{font-style:italic;font-weight:500;color:#E2C578}
+.ln{overflow:hidden;display:block;padding-bottom:4px}
+.ln>span{display:inline-block}
+.note{position:absolute;left:35px;font-family:var(--ui);font-weight:400;font-size:16px;line-height:1.35;color:#D9D2E8;white-space:nowrap}
+.note b{font-weight:600;color:var(--iv)}
+#endbg{position:absolute;inset:0;background:radial-gradient(90% 60% at 50% 40%,#3B2E66,var(--vi));clip-path:circle(0px at 270px 570px)}
+#lg{position:absolute;left:180px;top:150px;width:180px;height:180px;mix-blend-mode:screen;opacity:0}
+.pill{display:inline-block;background:var(--gd);color:var(--vi);font-family:var(--hd);font-weight:700;font-size:27px;padding:14px 38px;border-radius:999px}
+.ctr{position:absolute;left:0;width:540px;text-align:center;opacity:0}
+#flash{position:absolute;inset:0;background:#FFF8E6;opacity:0}
+#grain{position:absolute;inset:0;opacity:.1;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <svg id="ros" viewBox="0 0 540 960"><g id="rg" transform="translate(270 570)"></g></svg>
+ <div id="shadow"></div>
+ <div class="st3d"><div class="cam" id="cam"></div></div>
+ <div id="canopy"></div>
+
+ <div class="sc" data-o="2.85">
+  <div class="h" style="top:104px"><span class="ln"><span data-r="-0.5">13 Imams, named</span></span><span class="ln"><span class="g" data-r="-0.45">on one cover.</span></span></div>
+  <div class="note" style="top:214px" data-n="-0.3"><b>The Beliefs of the Imams of the Sunnah.</b></div>
+  <div class="note" style="top:237px" data-n="-0.3">Compiled by Shaykh, Dr. Khalid Al-Dhafiri.</div>
+  <div class="note" style="top:260px" data-n="-0.3">English paperback. Hikmah Publications.</div>
+ </div>
+ <div class="sc" data-o="4.85">
+  <div class="h" style="top:120px"><span class="ln"><span data-r="3.05">A gold rosette,</span></span><span class="ln"><span class="g" data-r="3.15">violet at its heart.</span></span></div>
+ </div>
+ <div class="sc" data-o="8.75">
+  <div class="h" style="top:110px"><span class="ln"><span data-r="6.2">Thirteen names,</span></span><span class="ln"><span class="g" data-r="6.3">each with his year.</span></span></div>
+  <div class="note" style="top:228px" data-n="7.2">From Imam Al-Awza'i (d. 157 AH)</div>
+  <div class="note" style="top:251px" data-n="7.4">to Imam Ibn Abu Dawud (d. 316 AH), as printed.</div>
+ </div>
+ <div class="sc" data-o="10.85">
+  <div class="h" style="top:120px"><span class="ln"><span data-r="9.05">Title and compiler,</span></span><span class="ln"><span class="g" data-r="9.15">down the spine.</span></span></div>
+ </div>
+ <div class="sc" data-o="12.95">
+  <div class="h" style="top:110px"><span class="ln"><span data-r="11.05">Hikmah Publications,</span></span><span class="ln"><span class="g" data-r="11.15">on the back.</span></span></div>
+  <div class="note" style="top:228px" data-n="11.6">White cover, framed in a gold border.</div>
+ </div>
+ <div class="sc" data-o="14.9">
+  <div class="h" style="top:104px"><span class="ln"><span data-r="13.1">With the words of</span></span><span class="ln"><span class="g" data-r="13.2">Ibn Taymiyyah.</span></span></div>
+  <div class="note" style="top:214px" data-n="13.6">"Supplemented with priceless gems from the</div>
+  <div class="note" style="top:237px" data-n="13.7">words of Shaykh Al-Islam Ibn Taymiyyah",</div>
+  <div class="note" style="top:260px" data-n="13.8">as printed on the cover.</div>
+ </div>
+
+ <div id="endbg"></div>
+ <img id="lg" src="assets/logo.png" alt="Dar Al Athari">
+ <div class="ctr" id="e1" style="top:364px;font-family:var(--hd);font-weight:700;font-size:50px;color:var(--iv)">daralathari.com</div>
+ <div class="ctr" id="e2" style="top:440px;font-family:var(--hd);font-style:italic;font-weight:500;font-size:23px;color:#E2C578">Shipped from New Jersey.</div>
+ <div class="ctr" id="e3" style="top:500px"><span class="pill" id="btn">Browse the books</span></div>
+ <div class="ctr" id="e4" style="top:596px;font-size:16px;font-weight:600;color:#D9D2E8">Link in bio</div>
+ <div id="flash"></div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.35,-.45,.82],.5,.75);
+var cam=$('cam'),bk=makeBook(cam,'bi');
+// the cover's rosette, drawn large: rings + 8 violet petals + 8 gold petals
+var NS='http://www.w3.org/2000/svg',RG=$('rg');
+function sv(tag,at,par){var e=document.createElementNS(NS,tag);for(var k in at)e.setAttribute(k,at[k]);(par||RG).appendChild(e);return e}
+var R1=sv('circle',{r:330,fill:'none',stroke:'#C9A043','stroke-width':10});
+var R2=sv('circle',{r:305,fill:'none',stroke:'#C9A043','stroke-width':3});
+var DISC=sv('circle',{r:296,fill:'#F6F3EC','fill-opacity':.55});
+var GP=[],VP=[];
+for(var i=0;i<8;i++){var g=sv('g',{});var p=sv('path',{d:'M0 -40 C 70 -90 70 -200 0 -270 C -70 -200 -70 -90 0 -40 Z',fill:'#C9A043'},g);GP.push(g)}
+for(var i=0;i<8;i++){var g=sv('g',{});sv('ellipse',{cx:0,cy:-165,rx:34,ry:70,fill:'#4E3F86',stroke:'#2E2350','stroke-width':4},g);sv('ellipse',{cx:0,cy:-165,rx:12,ry:30,fill:'#F6F3EC','fill-opacity':.5},g);VP.push(g)}
+var HUB=sv('circle',{r:46,fill:'#E2C578',stroke:'#C9A043','stroke-width':6});
+var RS=[],NO=[],SC=[];
+document.querySelectorAll('.sc').forEach(function(s){SC.push({e:s,o:+s.dataset.o})});
+document.querySelectorAll('[data-r]').forEach(function(e){RS.push({e:e,s:+e.dataset.r})});
+document.querySelectorAll('[data-n]').forEach(function(e){NO.push({e:e,s:+e.dataset.n})});
+var BH=300,BW=195,CT=480,SY=600;
+function Y(f,s,sc){return sc-CT-(f-.5)*BH*s}
+function X(f,s){return -(f-.5)*BW*s}
+// t, x, y, ry, rx, s
+var KEY=[
+ [0,   -10,92,34,5,1.6],
+ [1.2, 0,94,12,3,1.64],
+ [2.75,0,94,6,2,1.66],
+ [3.15,X(.505,4.0),Y(.69,4.0,SY),0,0,4.0],
+ [4.75,X(.505,4.0),Y(.69,4.0,SY-16),0,0,4.0],
+ [5.05,0,100,0,0,1.25],
+ [6.7, 0,100,-6,2,1.3],
+ [7.15,X(.5,3.4),Y(.43,3.4,SY),0,0,3.4],
+ [8.7, X(.5,3.4),Y(.48,3.4,SY),0,0,3.4],
+ [9.05,0,Y(.45,2.2,SY),86,0,2.2],
+ [10.7,0,Y(.58,2.2,SY),86,0,2.2],
+ [11.05,0,104,180,3,1.48],
+ [12.8,0,104,170,3,1.48],
+ [13.2,X(.5,3.8),Y(.855,3.8,SY),360,0,3.8],
+ [14.8,X(.5,3.8),Y(.855,3.8,SY-14),360,0,3.8],
+ [15.2,0,700,372,2,1.3],
+ [18,0,700,372,2,1.3]];
+window.__seek=function(t){
+  var a=keyed(KEY,t),ry=a[2],rz=0,blur=0,sh=0,g=1,y=a[1],s=a[4],x=a[0];
+  if(t<1.2){s*=1+.08*(1-oc(t/1.2));y-=40*(1-oc(t/1.0))}
+  // hero 5.0 -> 6.2: the book spins a full turn as the cover's rosette blooms out behind it
+  var hp=io((t-5.0)/1.2);
+  if(t>5.0&&t<6.2){ry+=360*hp;blur=Math.sin(hp*Math.PI)*6;y-=Math.sin(hp*Math.PI)*50;rz=Math.sin(hp*Math.PI)*5}
+  var k=t-6.2;if(k>0&&k<.6)sh=Math.sin(k*48)*Math.exp(-k*9)*8;
+  if(k>0&&k<1.5)g+=.2*Math.exp(-k*5);
+  pose(bk,{x:x+sh*.4,y:y+sh,z:0,ry:ry,rx:a[3],rz:rz,s:s,blur:blur,g:g});
+  var small=1-sm((s-1.8)/.3);
+  var sw=$('shadow');sw.style.opacity=small*.8*(1-sm((t-15)/.3));sw.style.top=(CT+y+BH*s/2-22)+'px';sw.style.left=(270+x-160)+'px';
+  $('flash').style.opacity=k>0?.34*Math.exp(-k*7):0;
+  // rosette bloom
+  var bl=t<5?0:1;
+  var rs=lerp(.15,1.05,oc((t-5.0)/1.1))*(1+.02*Math.sin(t*1.3))+(t>15?io((t-15)/.8)*1.4:0);
+  var rot=-60*(1-oc((t-5.0)/1.3))+t*3;
+  var fade=1-.62*sm((t-7.0)/.6);
+  RG.setAttribute('transform','translate(270 '+(570+sh)+') rotate('+rot.toFixed(2)+') scale('+rs.toFixed(4)+')');
+  RG.style.opacity=bl*cl((t-5.0)/.15)*fade;
+  [R1,R2].forEach(function(r,i){var q=oc((t-5.0-i*.08)/.6);r.setAttribute('stroke-dasharray',(2*Math.PI*(i?305:330)*q).toFixed(1)+' 9999')});
+  GP.forEach(function(p,i){var q=ob((t-5.15-i*.06)/.45);p.setAttribute('transform','rotate('+(i*45+22.5)+') scale('+Math.max(0,q).toFixed(3)+')')});
+  VP.forEach(function(p,i){var q=ob((t-5.35-i*.08)/.4);p.setAttribute('transform','rotate('+(i*45)+') scale('+Math.max(0,q).toFixed(3)+')')});
+  HUB.setAttribute('r',(46*ob((t-5.9)/.4)).toFixed(1));
+  RS.forEach(function(r){var q=t<r.s?0:1-Math.pow(2,-10*cl((t-r.s)/.45));r.e.style.transform='translateY('+((1-q)*110)+'%)'});
+  NO.forEach(function(n){var q=oc((t-n.s)/.3);n.e.style.opacity=q;n.e.style.transform='translateY('+((1-q)*10)+'px)'});
+  SC.forEach(function(s_){var o=1-sm((t-s_.o)/.22);s_.e.style.opacity=o;s_.e.style.visibility=o<=0?'hidden':'visible'});
+  // canopy lifts away for the end card
+  $('canopy').style.transform='translateY('+(-340*io((t-15.0)/.6))+'px)';
+  var eq=io((t-15.1)/.8);$('endbg').style.clipPath='circle('+(eq*1150).toFixed(1)+'px at 270px 570px)';
+  var lq=ob((t-15.5)/.7);$('lg').style.opacity=cl((t-15.5)/.25);$('lg').style.transform='scale('+(t<15.5?.6:Math.max(.6,lq))+')';
+  [['e1',15.75],['e2',15.9],['e3',16.1],['e4',16.4]].forEach(function(o){var q=oc((t-o[1])/.45);var e=$(o[0]);e.style.opacity=cl((t-o[1])/.2);e.style.transform='translateY('+((1-q)*24)+'px)'});
+  var pu=t>16.8?((t-16.8)%1.4)/1.4:-1;$('btn').style.transform=pu>=0?'scale('+(1+.045*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+};
+window.__seek(0);
+</script></body></html>
