@@ -1,0 +1,162 @@
+<!--FONTS Zen Antique:zen-antique:latin:400:normal;Jost:jost:latin:400,600:normal;Harmattan:harmattan:arabic:700:normal -->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>One Cut</title>
+<style>
+/*FONTS*/
+:root{--pt:#0F3D45;--pt2:#1A5862;--or:#E2611F;--or2:#F2894C;--pp:#F4ECDF;--ink:#0B2328;--gd:#D8B25A;--hd:'Zen Antique',serif;--ui:'Jost',sans-serif;--ar:'Harmattan',sans-serif}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+#stage{position:absolute;left:0;top:0;width:540px;height:960px;overflow:hidden;font-family:var(--ui);background:radial-gradient(75% 48% at 50% 34%,#22656F 0%,var(--pt2) 35%,var(--pt) 75%,#0A2C32 100%)}
+#hatch{position:absolute;left:-200px;top:-200px;width:940px;height:1360px;background:repeating-linear-gradient(-71deg,rgba(244,236,223,.045) 0 1px,transparent 1px 28px)}
+.st3d{position:absolute;inset:0;perspective:1600px;perspective-origin:270px 330px;overflow:hidden}
+.cam{position:absolute;left:270px;top:480px;width:0;height:0;transform-style:preserve-3d}
+.cam *{transform-style:preserve-3d;position:absolute}
+.face{backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;transform-style:flat !important;background-size:100% 100%;background-repeat:no-repeat}
+.face *{transform-style:flat !important}
+.paperx{background:repeating-linear-gradient(to right,#f6f1e6 0 4.5px,#d8cfbc 4.5px 7.5px)}
+.papery{background:repeating-linear-gradient(to bottom,#f6f1e6 0 4.5px,#d8cfbc 4.5px 7.5px)}
+#shadow{position:absolute;left:95px;top:580px;width:350px;height:44px;border-radius:50%;background:radial-gradient(closest-side,rgba(4,18,21,.65),rgba(4,18,21,0))}
+#cut{position:absolute;left:102px;top:90px;width:336px;height:480px;display:none}
+#cut div{position:absolute;left:0;top:0;width:336px;height:480px;background-size:100% 100%}
+#cback{background-image:url(assets/ft_back.jpg);filter:brightness(.92)}
+#ca{background-image:url(assets/ft_front.jpg);clip-path:polygon(0 0,100% 0,100% 38%,0 62%);filter:brightness(.95)}
+#cb{background-image:url(assets/ft_front.jpg);clip-path:polygon(0 62%,100% 38%,100% 100%,0 100%);filter:brightness(.95)}
+#cline{position:absolute;left:0;top:0;width:336px;height:480px;overflow:visible}
+#scrim{position:absolute;left:0;top:590px;width:540px;height:370px;background:linear-gradient(to bottom,rgba(15,61,69,0),rgba(12,50,57,.92) 60px,#0C3239 110px)}
+.h{position:absolute;left:40px;top:622px;font-family:var(--hd);font-size:41px;line-height:1.08;color:var(--pp);white-space:nowrap}
+.h em{font-style:normal;color:var(--or2)}
+.ln{overflow:hidden;display:block;padding-bottom:3px}
+.ln>span{display:inline-block}
+.note{position:absolute;left:42px;width:420px;font-family:var(--ui);font-weight:400;font-size:15.5px;line-height:1.32;color:#CFE0DF;opacity:0}
+.note b{font-weight:600;color:var(--pp)}
+.ar{position:absolute;left:42px;width:420px;direction:rtl;text-align:left;font-family:var(--ar);font-weight:700;font-size:25px;color:var(--or2);white-space:nowrap;opacity:0}
+#tick{position:absolute;left:40px;top:606px;width:0;height:3px;background:var(--or);transform:skewX(-30deg)}
+#lgo{position:absolute;left:170px;top:150px;width:200px;height:200px;mix-blend-mode:screen;opacity:0}
+.pill{display:inline-block;background:var(--or);color:var(--ink);font-family:var(--ui);font-weight:600;font-size:22px;padding:17px 40px;border-radius:999px;box-shadow:0 16px 34px -14px rgba(0,0,0,.6)}
+.ctr{position:absolute;left:0;width:540px;text-align:center;opacity:0}
+#endbg{position:absolute;left:0;top:0;width:540px;height:960px;background:var(--ink);clip-path:polygon(0 100%,0 100%,0 100%)}
+#eline{position:absolute;left:0;top:0;width:540px;height:960px;overflow:visible;pointer-events:none}
+#flash{position:absolute;inset:0;background:#FFE3CC;opacity:0}
+#grain{position:absolute;inset:0;opacity:.12;mix-blend-mode:overlay;pointer-events:none;background:url(assets/grain.png);background-size:128px 128px}
+</style></head><body>
+<div id="stage">
+ <div id="hatch"></div>
+ <div id="shadow"></div>
+ <div class="st3d"><div class="cam" id="cam"></div></div>
+ <div id="cut"><div id="cback"></div><div id="cb"></div><div id="ca"></div>
+  <svg id="cline" viewBox="0 0 336 480"><line id="cl" x1="-30" y1="309.6" x2="366" y2="170.4" stroke="#D8B25A" stroke-width="4" stroke-linecap="round"/></svg></div>
+ <div id="scrim"></div>
+ <div id="tick"></div>
+
+ <div class="sc" data-o="2.45">
+  <div class="h"><span class="ln"><span data-r="-0.6">Five treatises of creed,</span></span><span class="ln"><span data-r="-0.55"><em>explained in English.</em></span></span></div>
+  <div class="note" style="top:718px" data-n="-0.45"><b>Beautiful Commentary on Five Foundational Treatises of Creed.</b> By Imam Muhammad bin Abdul Wahhab, explained by Shaykh Ahmad bin Yahya al-Najmi.</div>
+ </div>
+ <div class="sc" data-o="4.75">
+  <div class="h"><span class="ln"><span data-r="2.6">The Arabic title,</span></span><span class="ln"><span data-r="2.7"><em>in orange on black.</em></span></span></div>
+  <div class="ar" style="top:722px" data-n="2.9">التعليقات البهية على الرسائل العقدية</div>
+ </div>
+ <div class="sc" data-o="8.55">
+  <div class="h"><span class="ln"><span data-r="5.8">Front to back,</span></span><span class="ln"><span data-r="5.9"><em>in one cut.</em></span></span></div>
+  <div class="note" style="top:718px" data-n="6.2">The full title is printed again on the back.</div>
+ </div>
+ <div class="sc" data-o="10.85">
+  <div class="h"><span class="ln"><span data-r="8.75">Hikmah Publications,</span></span><span class="ln"><span data-r="8.85"><em>Philadelphia, PA.</em></span></span></div>
+  <div class="note" style="top:718px" data-n="9.05">The publisher's mark, at the foot of the back cover.</div>
+ </div>
+ <div class="sc" data-o="12.95">
+  <div class="h"><span class="ln"><span data-r="11.0">Title and both names,</span></span><span class="ln"><span data-r="11.1"><em>down the spine.</em></span></span></div>
+  <div class="note" style="top:718px" data-n="11.3">Orange spine, black lettering.</div>
+ </div>
+ <div class="sc" data-o="15.0">
+  <div class="h"><span class="ln"><span data-r="13.1">One volume,</span></span><span class="ln"><span data-r="13.2"><em>English paperback.</em></span></span></div>
+  <div class="note" style="top:718px" data-n="13.4">From Hikmah Publications.</div>
+ </div>
+
+ <div id="endbg"></div>
+ <svg id="eline" viewBox="0 0 540 960"><line id="el1" x1="0" y1="960" x2="0" y2="960" stroke="#E2611F" stroke-width="4"/></svg>
+ <img id="lgo" src="assets/logo.png" alt="Dar Al Athari">
+ <div class="ctr" id="e1" style="top:376px;font-family:var(--hd);font-size:46px;color:var(--pp)">daralathari.com</div>
+ <div class="ctr" id="e2" style="top:446px;font-size:17px;color:#CFE0DF">Shipped from New Jersey.</div>
+ <div class="ctr" id="e3" style="top:504px"><span class="pill" id="btn">Browse the books</span></div>
+ <div class="ctr" id="e4" style="top:600px;font-size:16px;color:var(--pp)">Link in bio</div>
+ <div id="flash"></div>
+ <div id="grain"></div>
+</div>
+<script>/*LIB*/
+var T=18;
+setLight([-.3,-.45,.84],.5,.76);
+var cam=$('cam'),bk=makeBook(cam,'ft'),F=bk.f;
+var RS=[],NO=[],SC=[];
+document.querySelectorAll('.sc').forEach(function(s){SC.push({e:s,o:+s.dataset.o})});
+document.querySelectorAll('[data-r]').forEach(function(e){RS.push({e:e,s:+e.dataset.r})});
+document.querySelectorAll('[data-n]').forEach(function(e){NO.push({e:e,s:+e.dataset.n})});
+var BH=300,BW=210,CT=480;
+function Y(f,s,sy){return sy-CT-(f-.5)*BH*s}
+function X(f,s){return -(f-.5)*BW*s}
+var B0=-150; // book centre at screen y 330
+var SP=-90;  // ry that faces the spine
+// t, x, y, ry, rx, s
+var KEY=[
+ [0,   40,B0+10,-42,6,1.66],
+ [1.3, 8,B0,-14,3,1.72],
+ [2.35,0,B0,-6,2,1.74],
+ [2.85,X(.5,2.6),Y(.27,2.6,300),0,0,2.6],
+ [4.55,X(.5,2.6)+4,Y(.27,2.6,300)+8,0,0,2.6],
+ [5.25,0,B0,0,0,1.6],
+ [6.4, 0,B0,180,0,1.6],
+ [6.9, 0,B0,180,0,1.6],
+ [7.4, X(.5,2.5),Y(.12,2.5,300),180,0,2.5],
+ [8.55,X(.5,2.5)-4,Y(.12,2.5,300)+6,180,0,2.5],
+ [9.0, X(.52,2.8),Y(.87,2.8,300),180,0,2.8],
+ [10.8,X(.52,2.8)+4,Y(.87,2.8,300)-6,180,0,2.8],
+ [11.4,0,B0,90,2,1.7],
+ [12.9,0,B0-4,86,2,1.74],
+ [13.5,10,B0,28,4,1.7],
+ [15.0,0,B0-4,22,3,1.74],
+ [18,0,B0-4,22,3,1.74]];
+window.__seek=function(t){
+  var a=keyed(KEY,t),sh=0,g=1,blur=0,y=a[1],x=a[0];
+  if(t<.6)sh+=Math.sin(t*28)*Math.exp(-t*7)*3;
+  // hero: the cut at 5.75
+  var k=t-5.75;
+  if(k>0&&k<.8)sh+=Math.sin(k*46)*Math.exp(-k*7)*10;
+  if(k>0)g+=.18*Math.exp(-k*5);
+  $('hatch').style.transform='translate('+((t*6)%28.5)+'px,'+(-(t*2)%10)+'px)';
+  // book hidden while the flat cut layer plays
+  var cutOn=t>=5.25&&t<6.45;
+  var ex=ic((t-15.05)/.65);x+=ex*-40;y+=ex*-60;
+  pose(bk,{x:x+sh*.4,y:y+sh,z:0,ry:a[2],rx:a[3],s:a[4],g:g,blur:blur,op:cutOn?0:1-ex,hide:cutOn||ex>.99});
+  $('shadow').style.opacity=(1-sm((a[4]-1.95)/.3))*(1-ex);
+  // cut layer
+  var c=$('cut');c.style.display=cutOn?'block':'none';
+  if(cutOn){
+    c.style.transform='translate('+(sh*.4)+'px,'+sh+'px)';
+    var L=Math.hypot(396,139.2),lp=io((t-5.3)/.42);
+    var cl_=$('cl');cl_.style.strokeDasharray=L;cl_.style.strokeDashoffset=L*(1-lp);cl_.style.opacity=t<5.3?0:1-sm((t-5.8)/.25);
+    var sp=k>0?oc(k/.55):0;
+    $('ca').style.transform='translate('+(sp*260)+'px,'+(-sp*170)+'px) rotate('+(sp*-9)+'deg)';
+    $('cb').style.transform='translate('+(-sp*260)+'px,'+(sp*170)+'px) rotate('+(sp*-9)+'deg)';
+    $('ca').style.opacity=$('cb').style.opacity=1-sm((k-.25)/.3);
+    // flat back slowly shrinks to match the 3D book's back face
+    $('cback').style.transform='scale('+lerp(1,.985,sm((t-5.9)/.5))+')';
+  }
+  $('flash').style.opacity=k>0?.38*Math.exp(-k*7):0;
+  // text
+  RS.forEach(function(r){var q=t<r.s?0:1-Math.pow(2,-10*cl((t-r.s)/.4));r.e.style.transform='translateY('+((1-q)*110)+'%)'});
+  NO.forEach(function(n){var q=oc((t-n.s)/.3);n.e.style.opacity=t<n.s?0:q;n.e.style.transform='translateY('+((1-q)*10)+'px)'});
+  SC.forEach(function(s_){var o=1-sm((t-s_.o)/.22);s_.e.style.opacity=o;s_.e.style.visibility=o<=0?'hidden':'visible'});
+  var starts=[[-1,2.45],[2.6,4.75],[5.8,8.55],[8.75,10.85],[11.0,12.95],[13.1,15.0]],rw=0;
+  starts.forEach(function(p){if(t>=p[0]-.01&&t<p[1]+.25){rw=oc((t-p[0])/.5)*(1-sm((t-p[1])/.22))*72}});
+  $('tick').style.width=rw+'px';
+  // end card: a diagonal cut wipes the ink panel across
+  var pp=io((t-15.0)/.8),yy=lerp(0,2,pp);
+  // polygon below the line from (0, 960*(1-?))... the panel grows from bottom-left along the cut angle
+  var d=lerp(0,1500,pp);
+  $('endbg').style.clipPath='polygon(0 960px,0 '+(960-d)+'px,'+(d*1.0)+'px 960px)';
+  if(pp>=1)$('endbg').style.clipPath='none';
+  var e1=$('el1');e1.setAttribute('x1',0);e1.setAttribute('y1',960-d);e1.setAttribute('x2',d);e1.setAttribute('y2',960);e1.style.opacity=pp>0&&pp<1?1:0;
+  var lq=ob((t-15.6)/.7);$('lgo').style.opacity=cl((t-15.6)/.25);$('lgo').style.transform='scale('+(t<15.6?.6:Math.max(.6,lq))+')';
+  [['e1',15.85],['e2',16.0],['e3',16.2],['e4',16.5]].forEach(function(o){var q=oc((t-o[1])/.45);var el_=$(o[0]);el_.style.opacity=cl((t-o[1])/.2);el_.style.transform='translateY('+((1-q)*24)+'px)'});
+  var pu=t>16.9?((t-16.9)%1.4)/1.4:-1;$('btn').style.transform=pu>=0?'scale('+(1+.045*Math.sin(Math.min(1,pu/.35)*Math.PI))+')':'none';
+};
+window.__seek(0);
+</script></body></html>
